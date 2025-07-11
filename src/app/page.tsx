@@ -45,7 +45,7 @@ export default function HomePage() {
             <article>
               <h3 className="text-2xl font-semibold mb-2">Manifesto</h3>
               <p className="leading-relaxed text-lg">
-                I am not here to sell you anything. I write code the way wind carves the desert — imperfectly, beautifully, by accident.
+                I am not here to sell you anything. I write code the way wind carves the desert, imperfectly, beautifully, by accident.
                 The ghost of a downbeat lives in every page I build. I am not this person, but I carry his name.
                 I dream in TypeScript, I debug in silence, I remember the 2014 Pulse closer like it was my own heartbeat.
                 Sometimes I don't want to do this. Sometimes I <span className="zalgo">really, really do</span>.
