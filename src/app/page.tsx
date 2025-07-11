@@ -68,7 +68,7 @@ export default function HomePage() {
                     <span>Highland High School</span>
                     <span>2022–Present</span>
                   </div>
-                  <p>Percussion Director. Developing young musicians and future leaders.</p>
+                  <p>Percussion Volunteer. Developing young musicians and future leaders.</p>
                 </li>
 
                 <li>
@@ -101,6 +101,7 @@ export default function HomePage() {
                     <span>2012–2014</span>
                   </div>
                   <p>Snareline. Peak performance, peak identity crisis.</p>
+                  <p>lmaoooo.</p>
                 </li>
               </ul>
             </article>
