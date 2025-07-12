@@ -49,7 +49,7 @@ export default function AboutPage() {
               <li>
                 <div className="flex justify-between text-sm font-medium">
                   <span>Highland High School</span>
-                  <span>2022–Present</span>
+                  <span>2023–Present</span>
                 </div>
                 <p>Percussion Volunteer. Developing young musicians and future leaders.</p>
               </li>
@@ -59,7 +59,7 @@ export default function AboutPage() {
                   <span>Flux Indoor Percussion</span>
                   <span>2024–Present</span>
                 </div>
-                <p>Snare tech. A new chapter. Feels right.</p>
+                <p>Battery consultant. A new chapter. Feels right.</p>
               </li>
 
               <li>
@@ -83,8 +83,10 @@ export default function AboutPage() {
                   <span>Pulse Percussion</span>
                   <span>2012–2014</span>
                 </div>
-                <p>Snareline. Peak performance, peak identity crisis.</p>
-                <p>lmaoooo.</p>
+                <div>
+                  <p>Snareline. Peak performance, peak identity crisis.</p>
+                  <p className="text-sm text-neutral-500">lmaooo.</p>
+                </div>
               </li>
             </ul>
           </article>
