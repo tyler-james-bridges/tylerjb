@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Inter&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Inter&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -7,8 +7,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-serif: 'Nanum Myeongjo', serif;
-  --font-sans: 'Inter', sans-serif;
+  --font-serif: "Nanum Myeongjo", serif;
+  --font-sans: "Inter", sans-serif;
 }
 
 @theme inline {
@@ -34,7 +34,9 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-serif);
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
 @keyframes fade-in {
@@ -76,10 +78,22 @@ body {
 }
 
 @keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-1px, 1px); }
-  40% { transform: translate(-1px, -1px); }
-  60% { transform: translate(1px, 1px); }
-  80% { transform: translate(1px, -1px); }
-  100% { transform: translate(0); }
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-1px, 1px);
+  }
+  40% {
+    transform: translate(-1px, -1px);
+  }
+  60% {
+    transform: translate(1px, 1px);
+  }
+  80% {
+    transform: translate(1px, -1px);
+  }
+  100% {
+    transform: translate(0);
+  }
 }
