@@ -68,7 +68,7 @@ export default function HomePage() {
           <header className="space-y-2">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">Tyler James-Bridges</h1>
             <h2 className="text-base sm:text-lg md:text-xl text-neutral-600">
-              Snareline dad. Software realist. Design romantic.
+              Father of two tiny humans. Accidental sr. quality engineer. Prog-metal connoisseur. 
             </h2>
           </header>
 
