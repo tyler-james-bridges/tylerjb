@@ -33,7 +33,7 @@ export default function AboutPage() {
               <li>
                 <div className="flex justify-between text-sm font-medium">
                   <span>WM Technology</span>
-                  <span>2016–2025</span>
+                  <span>2016–Present</span>
                 </div>
                 <p>Sr. Quality Engineer</p>
                 <ul className="list-disc list-inside mt-2 space-y-1 text-sm text-neutral-100">
