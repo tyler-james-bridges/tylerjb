@@ -3,10 +3,7 @@ function SiteFooter() {
     <footer className="w-full py-6 mt-16 text-center text-sm text-neutral-500 border-t border-neutral-800">
       <div>
         Or email:{" "}
-        <a
-          href="mailto:tylerjamesbridges@gmail.com"
-          className="underline"
-        >
+        <a href="mailto:tylerjamesbridges@gmail.com" className="underline">
           tylerjamesbridges@gmail.com
         </a>
       </div>
@@ -46,6 +43,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import type { JSX, ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({
@@ -90,6 +88,7 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
         </nav>
         <main className="w-full max-w-5xl mx-auto px-4">{children}</main>
         <SiteFooter />
+        <Analytics />
       </body>
     </html>
   );
