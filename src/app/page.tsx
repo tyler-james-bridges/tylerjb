@@ -20,46 +20,43 @@ export default function HomePage() {
   }, [theme]);
 
   return (
-    <main className="min-h-screen bg-background text-foreground font-serif px-6 py-16 transition-colors duration-300">
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-      ></meta>
+    <main className="min-h-screen bg-background text-foreground font-serif px-6 py-16 transition-colors duration-300 rounded-xl">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <div className="absolute top-6 right-6"></div>
-      <div className="max-w-4xl mx-auto flex flex-col-reverse md:flex-row gap-12">
+      <div className="max-w-5xl mx-auto flex flex-col-reverse md:flex-row gap-12">
         {/* Left: 4 profile images stacked vertically */}
         <div className="flex-shrink-0 w-full md:max-w-xs md:w-1/3 flex flex-col items-center gap-4">
           <img
             src="/images/profile.jpg"
             alt="Tyler James-Bridges"
-            className="w-full max-w-xs h-auto object-cover rounded shadow-md"
+            className="w-full max-w-xs h-auto object-cover rounded-xl shadow-md"
           />
           <img
             src="/images/mayc.png"
             alt="Tyler James-Bridges"
-            className="w-full max-w-xs h-auto object-cover rounded shadow-md"
+            className="w-full max-w-xs h-auto object-cover rounded-xl shadow-md"
           />
           <img
             src="/images/bitcoin-puppet.png"
             alt="Tyler James-Bridges"
-            className="w-full max-w-xs h-auto object-cover rounded shadow-md"
+            className="w-full max-w-xs h-auto object-cover rounded-xl shadow-md"
           />
           <img
             src="/images/hoodie.png"
             alt="Tyler James-Bridges"
-            className="w-full max-w-xs h-auto object-cover rounded shadow-md"
+            className="w-full max-w-xs h-auto object-cover rounded-xl shadow-md"
           />
         </div>
 
         {/* Right: Content */}
         <div className="flex-1 space-y-10 px-2 md:px-0">
           <header className="space-y-2">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold whitespace-nowrap">
               Tyler James-Bridges
             </h1>
             <h2 className="text-base sm:text-lg md:text-xl text-neutral-600">
-              Father of two tiny humans. Accidental sr. quality engineer.
-              Prog-metal connoisseur.
+              Father of two tiny humans. Accidental Sr. quality engineer. Crypto
+              and NFT enthusiast. Prog-metal connoisseur.
             </h2>
           </header>
 

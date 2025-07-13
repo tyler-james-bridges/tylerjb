@@ -4,16 +4,16 @@ import Link from "next/link";
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-background text-foreground font-serif px-6 py-16 transition-colors duration-300">
+    <main className="min-h-screen bg-background text-foreground font-serif px-6 py-16 transition-colors duration-300 rounded-xl">
       <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
       ></meta>
-      <div className="max-w-4xl mx-auto space-y-10 px-2 md:px-0">
+      <div className="max-w-5xl mx-auto space-y-10">
         <header className="space-y-2">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
-            About me
-          </h1>
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
+        About Me
+      </h1>
         </header>
 
         <section className="space-y-8">

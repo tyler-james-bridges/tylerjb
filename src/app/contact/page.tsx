@@ -37,8 +37,9 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="min-h-screen bg-background text-foreground font-serif px-6 py-16 transition-colors duration-300">
-      <div className="max-w-2xl mx-auto space-y-10 px-2 md:px-0">
+    <main className="min-h-screen bg-background text-foreground font-serif px-6 py-16 transition-colors duration-300 rounded-xl">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <div className="max-w-5xl mx-auto space-y-10">
         <header className="space-y-2">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
             Contact
@@ -62,7 +63,7 @@ export default function ContactPage() {
                 name="name"
                 type="text"
                 required
-                className="mt-1 block w-full rounded-md border border-neutral-300 bg-neutral-900 text-neutral-100 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-neutral-400"
+                className="mt-1 block w-full rounded-xl border border-neutral-300 bg-neutral-900 text-neutral-100 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-neutral-400"
               />
             </div>
             <div>
@@ -77,7 +78,7 @@ export default function ContactPage() {
                 name="email"
                 type="email"
                 required
-                className="mt-1 block w-full rounded-md border border-neutral-300 bg-neutral-900 text-neutral-100 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-neutral-400"
+                className="mt-1 block w-full rounded-xl border border-neutral-300 bg-neutral-900 text-neutral-100 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-neutral-400"
               />
             </div>
             <div>
@@ -92,12 +93,12 @@ export default function ContactPage() {
                 name="message"
                 rows={4}
                 required
-                className="mt-1 block w-full rounded-md border border-neutral-300 bg-neutral-900 text-neutral-100 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-neutral-400"
+                className="mt-1 block w-full rounded-xl border border-neutral-300 bg-neutral-900 text-neutral-100 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-neutral-400"
               />
             </div>
             <button
               type="submit"
-              className="px-4 py-2 rounded-md bg-teal-500 text-white font-semibold hover:bg-teal-600 transition"
+              className="px-4 py-2 rounded-xl bg-teal-500 text-white font-semibold hover:bg-teal-600 transition"
               disabled={sending}
             >
               {sending ? "Sending..." : "Send"}
@@ -113,28 +114,7 @@ export default function ContactPage() {
               {error}
             </div>
           )}
-          <div className="pt-8 text-center text-sm text-neutral-500">
-            <p>
-              Or email:{" "}
-              <a
-                href="mailto:tylerjamesbridges@gmail.com"
-                className="underline"
-              >
-                tylerjamesbridges@gmail.com
-              </a>
-            </p>
-            <p>
-              Find me on{" "}
-              <a
-                href="https://www.linkedin.com/in/tyler-james-bridges-4344abab"
-                className="underline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                LinkedIn
-              </a>
-            </p>
-          </div>
+          {/* Social/email links moved to persistent footer */}
         </section>
       </div>
     </main>
