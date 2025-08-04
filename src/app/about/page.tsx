@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-background text-foreground font-serif px-6 py-16 transition-colors duration-300 rounded-xl">
@@ -11,9 +9,9 @@ export default function AboutPage() {
       ></meta>
       <div className="max-w-5xl mx-auto space-y-10">
         <header className="space-y-2">
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
-        About Me
-      </h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
+            About Me
+          </h1>
         </header>
 
         <section className="space-y-8">
@@ -26,7 +24,7 @@ export default function AboutPage() {
                   <span>2016–Present</span>
                 </div>
                 <p>Sr. Quality Engineer</p>
-                <ul className="list-disc list-inside mt-2 space-y-1 text-sm text-neutral-100">
+                <ul className="list-disc list-inside mt-2 space-y-1 text-base text-neutral-100">
                   <li>
                     Built and maintained a CLI for Playwright test execution
                     across different codebases and environments.
