@@ -19,7 +19,6 @@ export async function POST(request: NextRequest) {
       subject: `New Contact Form Submission from ${name}`,
       replyTo: email,
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-      html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong><br/>${message.replace(/\n/g, "<br/>")}</p>`,
     });
 
     if (sendResult.error) {
