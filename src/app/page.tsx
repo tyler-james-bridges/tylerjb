@@ -55,15 +55,15 @@ export default function HomePage() {
             <div className="text-lg sm:text-xl md:text-2xl text-neutral-400 mb-12 max-w-4xl mx-auto leading-relaxed text-center">
               {/* Mobile: 4 lines */}
               <div className="block sm:hidden">
-                <div className="mb-1">Father of two tiny humans.</div>
-                <div className="mb-1">Accidental Sr. quality engineer.</div>
-                <div className="mb-1">Crypto and NFT enthusiast.</div>
-                <div>Prog-metal connoisseur.</div>
+                <div className="mb-1">Father of <span className="bg-gradient-to-r from-teal-400 to-green-400 bg-clip-text text-transparent font-medium">two tiny humans</span>.</div>
+                <div className="mb-1">Accidental <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent font-medium">Sr. quality engineer</span>.</div>
+                <div className="mb-1"><span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-medium">Crypto and NFT</span> enthusiast.</div>
+                <div><span className="bg-gradient-to-r from-purple-400 to-teal-400 bg-clip-text text-transparent font-medium">Prog-metal</span> connoisseur.</div>
               </div>
               {/* Desktop: 2 lines */}
               <div className="hidden sm:block">
-                <div className="mb-2">Father of two tiny humans. Accidental Sr. quality engineer.</div>
-                <div>Crypto and NFT enthusiast. Prog-metal connoisseur.</div>
+                <div className="mb-2">Father of <span className="bg-gradient-to-r from-teal-400 to-green-400 bg-clip-text text-transparent font-medium">two tiny humans</span>. Accidental <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent font-medium">Sr. quality engineer</span>.</div>
+                <div><span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-medium">Crypto and NFT</span> enthusiast. <span className="bg-gradient-to-r from-purple-400 to-teal-400 bg-clip-text text-transparent font-medium">Prog-metal</span> connoisseur.</div>
               </div>
             </div>
 
