@@ -39,12 +39,12 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-background text-foreground font-serif px-6 py-16 transition-colors duration-300 rounded-xl">
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <div className="max-w-5xl mx-auto space-y-10">
-        <header className="space-y-2">
+      <div className="max-w-4xl mx-auto space-y-12">
+        <header className="space-y-4">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
             Contact
           </h1>
-          <p className="text-lg text-neutral-500">
+          <p className="text-lg text-neutral-500 max-w-3xl">
             Want to get in touch? Fill out the form below or reach out via
             email/social.
           </p>
@@ -98,7 +98,7 @@ export default function ContactPage() {
             </div>
             <button
               type="submit"
-              className="px-4 py-2 rounded-xl bg-teal-500 text-white font-semibold hover:bg-teal-600 transition"
+              className="px-8 py-4 rounded-xl bg-gradient-to-r from-teal-500 via-blue-500 to-purple-600 text-white font-semibold hover:scale-105 hover:shadow-2xl hover:shadow-teal-500/25 transition-all duration-300"
               disabled={sending}
             >
               {sending ? "Sending..." : "Send"}
