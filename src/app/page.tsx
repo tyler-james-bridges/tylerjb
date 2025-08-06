@@ -52,11 +52,20 @@ export default function HomePage() {
             </div>
 
             {/* Subtitle */}
-            <p className="text-lg sm:text-xl md:text-2xl text-neutral-400 mb-12 max-w-4xl mx-auto">
-              Father of two tiny humans. Accidental Sr. quality engineer.
-              <br />
-              Crypto and NFT enthusiast. Prog-metal connoisseur.
-            </p>
+            <div className="text-lg sm:text-xl md:text-2xl text-neutral-400 mb-12 max-w-4xl mx-auto leading-relaxed text-center">
+              {/* Mobile: 4 lines */}
+              <div className="block sm:hidden">
+                <div className="mb-1">Father of two tiny humans.</div>
+                <div className="mb-1">Accidental Sr. quality engineer.</div>
+                <div className="mb-1">Crypto and NFT enthusiast.</div>
+                <div>Prog-metal connoisseur.</div>
+              </div>
+              {/* Desktop: 2 lines */}
+              <div className="hidden sm:block">
+                <div className="mb-2">Father of two tiny humans. Accidental Sr. quality engineer.</div>
+                <div>Crypto and NFT enthusiast. Prog-metal connoisseur.</div>
+              </div>
+            </div>
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
