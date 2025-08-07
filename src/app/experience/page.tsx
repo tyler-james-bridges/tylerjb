@@ -23,38 +23,140 @@ export default function ExperiencePage() {
             <ul className="space-y-6">
               <li>
                 <div className="flex justify-between text-sm font-medium">
-                  <span>WM Technology</span>
-                  <span>2016–Present</span>
+                  <span>Weedmaps</span>
+                  <span>Jan 2016–Present</span>
                 </div>
-                <p>Sr. Quality Engineer</p>
+                <div className="space-y-4">
+                  <div>
+                    <p className="font-medium">Sr. Quality Engineer <span className="text-neutral-500 font-normal">(Feb 2020 - Present)</span></p>
+                    <ul className="list-disc list-inside mt-2 space-y-1 text-base text-neutral-100">
+                      <li>
+                        Built and maintained a CLI for Playwright test execution
+                        across different codebases and environments.
+                      </li>
+                      <li>
+                        Replaced hardcoded shell/YAML logic with unified CLI-based
+                        test orchestration.
+                      </li>
+                      <li>
+                        Enabled pre-merge testing workflows within CI pipelines for
+                        improved reliability.
+                      </li>
+                      <li>
+                        Developed documentation and onboarding materials for local
+                        and CI test affordances.
+                      </li>
+                      <li>
+                        Created Playwright API tests for cart integrations (Dutchie,
+                        Treez, Flowhub) and job orchestration.
+                      </li>
+                      <li>
+                        Advised engineering teams on test structure, automation
+                        reliability, and developer enablement.
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="font-medium">Quality Engineer Analyst <span className="text-neutral-500 font-normal">(Jan 2016 - Jan 2020)</span></p>
+                    <ul className="list-disc list-inside mt-2 space-y-1 text-base text-neutral-100">
+                      <li>
+                        Working cross-functionally with multiple teams designing
+                        the end-to-end test solution in CI/CD for existing integrations.
+                      </li>
+                      <li>
+                        Working with Engineering, Infrastructure, and Product
+                        implementing multiple levels of coverage for platform minimizing risk of outages.
+                      </li>
+                      <li>
+                        Designing effective and sustainable solutions to support
+                        multiple 3rd party integrations.
+                      </li>
+                      <li>
+                        Optimizing existing delivery pipeline by integrating
+                        regression and smoke tests in CI/CD.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div className="flex justify-between text-sm font-medium">
+                  <span>Bonfire</span>
+                  <span>Sep 2015–Feb 2016</span>
+                </div>
+                <p>Operations Manager</p>
                 <ul className="list-disc list-inside mt-2 space-y-1 text-base text-neutral-100">
                   <li>
-                    Built and maintained a CLI for Playwright test execution
-                    across different codebases and environments.
+                    Operations and Hiring Manager for customer service contact
+                    center specializing in Local SEO.
                   </li>
                   <li>
-                    Replaced hardcoded shell/YAML logic with unified CLI-based
-                    test orchestration.
+                    Day-to-day management of Local SEO, PPC & Social Media
+                    campaigns.
                   </li>
                   <li>
-                    Enabled pre-merge testing workflows within CI pipelines for
-                    improved reliability.
+                    Organized clientele through SalesForce to ensure quality of
+                    customer relations management.
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <div className="flex justify-between text-sm font-medium">
+                  <span>Mocan Media</span>
+                  <span>Jan 2014–Sep 2015</span>
+                </div>
+                <p>Quality Assurance Manager</p>
+                <ul className="list-disc list-inside mt-2 space-y-1 text-base text-neutral-100">
+                  <li>
+                    Performed call monitoring and provided trend data to management team.
                   </li>
                   <li>
-                    Developed documentation and onboarding materials for local
-                    and CI test affordances.
+                    Managed proper quality assurance policies and procedures.
                   </li>
                   <li>
-                    Implemented GitHub PR branching strategy for dependent
-                    features and rebasing flow.
+                    Prepared and analyzed internal/external quality reports
+                    for management staff review.
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <div className="flex justify-between text-sm font-medium">
+                  <span>Madera Produce</span>
+                  <span>Oct 2012–Sep 2013</span>
+                </div>
+                <p>Warehouse Laborer</p>
+                <ul className="list-disc list-inside mt-2 space-y-1 text-base text-neutral-100">
+                  <li>
+                    Monitored inventory for coolers and storage rooms.
                   </li>
                   <li>
-                    Created Playwright API tests for cart integrations (Dutchie,
-                    Treez, Flowhub) and job orchestration.
+                    Operated bobtail/flat bed deliveries to local stores
+                    and restaurants.
                   </li>
                   <li>
-                    Advised engineering teams on test structure, automation
-                    reliability, and developer enablement.
+                    Organized pallets and prepared produce for storage.
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <div className="flex justify-between text-sm font-medium">
+                  <span>Various High Schools</span>
+                  <span>2010–2015</span>
+                </div>
+                <p>Percussion & Visual Tech</p>
+                <p className="text-sm text-neutral-400 mt-1">
+                  University HS, Mater Dei HS, Beyer HS, Madera HS, Sanger HS
+                </p>
+                <ul className="list-disc list-inside mt-2 space-y-1 text-base text-neutral-100">
+                  <li>
+                    Instructed percussion sections and visual programs.
+                  </li>
+                  <li>
+                    Developed young musicians through technique coaching.
                   </li>
                 </ul>
               </li>

@@ -1,15 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import type { JSX, ReactNode } from "react";
 import { Analytics } from "@vercel/analytics/next";
 import MobileNav from "./components/MobileNav";
-
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 function SiteFooter() {
   return (
@@ -72,7 +65,7 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-neutral-950`}
+        className="antialiased bg-neutral-950"
       >
         <MobileNav />
         <main className="w-full max-w-5xl mx-auto px-4 pt-16 md:pt-0">{children}</main>
