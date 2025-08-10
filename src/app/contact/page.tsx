@@ -44,7 +44,7 @@ export default function ContactPage() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
             Contact
           </h1>
-          <p className="text-lg text-neutral-500 max-w-3xl">
+          <p className="text-lg text-white max-w-3xl">
             Want to get in touch? Fill out the form below or reach out via
             email/social.
           </p>
@@ -54,7 +54,7 @@ export default function ContactPage() {
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium text-neutral-200"
+                className="block text-sm font-medium text-white"
               >
                 Name
               </label>
@@ -69,7 +69,7 @@ export default function ContactPage() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-neutral-200"
+                className="block text-sm font-medium text-white"
               >
                 Email
               </label>
@@ -84,7 +84,7 @@ export default function ContactPage() {
             <div>
               <label
                 htmlFor="message"
-                className="block text-sm font-medium text-neutral-200"
+                className="block text-sm font-medium text-white"
               >
                 Message
               </label>
@@ -98,7 +98,7 @@ export default function ContactPage() {
             </div>
             <button
               type="submit"
-              className="px-8 py-4 rounded-xl bg-gradient-to-r from-teal-500 via-blue-500 to-purple-600 text-white font-semibold hover:scale-105 hover:shadow-2xl hover:shadow-teal-500/25 transition-all duration-300"
+              className="px-8 py-4 rounded-xl bg-white text-black font-semibold hover:scale-105 hover:shadow-2xl hover:shadow-white/25 transition-all duration-300"
               disabled={sending}
             >
               {sending ? "Sending..." : "Send"}

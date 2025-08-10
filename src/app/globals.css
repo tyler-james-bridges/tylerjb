@@ -341,3 +341,17 @@ body {
 .animate-matrix-hint {
   animation: matrix-static 4s ease-in-out infinite;
 }
+
+/* Left-right bounce animation for arrow */
+@keyframes bounce-horizontal {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+}
+
+.animate-bounce-horizontal {
+  animation: bounce-horizontal 1s ease-in-out infinite;
+}

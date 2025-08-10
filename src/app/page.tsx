@@ -52,18 +52,37 @@ export default function HomePage() {
             </div>
 
             {/* Subtitle */}
-            <div className="text-lg sm:text-xl md:text-2xl text-neutral-400 mb-12 max-w-4xl mx-auto leading-relaxed text-center">
+            <div className="text-lg sm:text-xl md:text-2xl text-white mb-12 max-w-4xl mx-auto leading-relaxed text-center">
               {/* Mobile: 4 lines */}
               <div className="block sm:hidden">
-                <div className="mb-1">Father of <span className="bg-gradient-to-r from-teal-400 to-green-400 bg-clip-text text-transparent font-medium">two tiny humans</span>.</div>
-                <div className="mb-1">Accidental <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent font-medium">Sr. quality engineer</span>.</div>
-                <div className="mb-1"><span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-medium">Crypto and NFT</span> enthusiast.</div>
-                <div><span className="bg-gradient-to-r from-purple-400 to-teal-400 bg-clip-text text-transparent font-medium">Prog-metal</span> connoisseur.</div>
+                <div className="mb-1">
+                  Father of <span className="font-medium">two tiny humans</span>
+                  .
+                </div>
+                <div className="mb-1">
+                  Accidental{" "}
+                  <span className="font-medium">Sr. quality engineer</span>.
+                </div>
+                <div className="mb-1">
+                  <span className="font-medium">Crypto and NFT</span>{" "}
+                  enthusiast.
+                </div>
+                <div>
+                  <span className="font-medium">Prog-metal</span> connoisseur.
+                </div>
               </div>
               {/* Desktop: 2 lines */}
               <div className="hidden sm:block">
-                <div className="mb-2">Father of <span className="bg-gradient-to-r from-teal-400 to-green-400 bg-clip-text text-transparent font-medium">two tiny humans</span>. Accidental <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent font-medium">Sr. quality engineer</span>.</div>
-                <div><span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-medium">Crypto and NFT</span> enthusiast. <span className="bg-gradient-to-r from-purple-400 to-teal-400 bg-clip-text text-transparent font-medium">Prog-metal</span> connoisseur.</div>
+                <div className="mb-2">
+                  Father of <span className="font-medium">two tiny humans</span>
+                  . Accidental{" "}
+                  <span className="font-medium">Sr. quality engineer</span>.
+                </div>
+                <div>
+                  <span className="font-medium">Crypto and NFT</span>{" "}
+                  enthusiast. <span className="font-medium">Prog-metal</span>{" "}
+                  connoisseur.
+                </div>
               </div>
             </div>
 
@@ -71,17 +90,17 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
               <Link
                 href="/about"
-                className="group px-8 py-4 bg-gradient-to-r from-teal-500 via-blue-500 to-purple-600 text-white rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-teal-500/25"
+                className="group px-6 py-2 font-medium text-neutral-100 hover:bg-neutral-700/70 hover:text-green-300 rounded-xl transition-all duration-200"
               >
                 About Me
-                <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300 inline-block">
+                <span className="ml-2 animate-bounce-horizontal inline-block">
                   →
                 </span>
               </Link>
 
               <Link
                 href="/experience"
-                className="px-8 py-4 border border-neutral-700 text-neutral-100 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-neutral-800 hover:border-teal-400 hover:scale-105 hover:shadow-2xl hover:shadow-teal-400/20"
+                className="px-6 py-2 font-medium text-neutral-100 hover:bg-neutral-700/70 hover:text-blue-300 rounded-xl transition-all duration-200"
               >
                 View Experience
               </Link>
@@ -89,11 +108,13 @@ export default function HomePage() {
 
             {/* Featured Images Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-              <div 
+              <div
                 className="aspect-square rounded-2xl overflow-hidden group perspective-1000 cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-teal-400/50 animate-matrix-hint tv-scanline relative"
                 onClick={() => setIsFlipped(!isFlipped)}
               >
-                <div className={`flip-card w-full h-full relative preserve-3d transition-transform duration-700 ${isFlipped ? 'rotate-y-180' : ''}`}>
+                <div
+                  className={`flip-card w-full h-full relative preserve-3d transition-transform duration-700 ${isFlipped ? "rotate-y-180" : ""}`}
+                >
                   {/* Front */}
                   <div className="flip-card-front absolute inset-0 backface-hidden">
                     <img
@@ -105,26 +126,107 @@ export default function HomePage() {
                   {/* Back */}
                   <div className="flip-card-back absolute inset-0 backface-hidden rotate-y-180 bg-black flex flex-col items-center justify-center font-mono text-xs overflow-hidden">
                     <div className="matrix-rain absolute inset-0 opacity-80">
-                      <div className="matrix-column absolute top-0 animate-matrix-1 text-teal-400" style={{left: '10%'}}>
-                        0110420010<br/>1101010169<br/>0011011042<br/>1010101069<br/>0111001142<br/>1100110069<br/>00101110
+                      <div
+                        className="matrix-column absolute top-0 animate-matrix-1 text-teal-400"
+                        style={{ left: "10%" }}
+                      >
+                        0110420010
+                        <br />
+                        1101010169
+                        <br />
+                        0011011042
+                        <br />
+                        1010101069
+                        <br />
+                        0111001142
+                        <br />
+                        1100110069
+                        <br />
+                        00101110
                       </div>
-                      <div className="matrix-column absolute top-0 animate-matrix-2 text-green-400" style={{left: '30%'}}>
-                        1111000069<br/>0101010142<br/>1001100169<br/>0011110042<br/>1110011169<br/>0100010042<br/>10110010
+                      <div
+                        className="matrix-column absolute top-0 animate-matrix-2 text-green-400"
+                        style={{ left: "30%" }}
+                      >
+                        1111000069
+                        <br />
+                        0101010142
+                        <br />
+                        1001100169
+                        <br />
+                        0011110042
+                        <br />
+                        1110011169
+                        <br />
+                        0100010042
+                        <br />
+                        10110010
                       </div>
-                      <div className="matrix-column absolute top-0 animate-matrix-3 text-blue-400" style={{left: '50%'}}>
-                        0010101142<br/>1101110169<br/>0100100142<br/>1011101169<br/>0001000142<br/>1110111069<br/>01010101
+                      <div
+                        className="matrix-column absolute top-0 animate-matrix-3 text-blue-400"
+                        style={{ left: "50%" }}
+                      >
+                        0010101142
+                        <br />
+                        1101110169
+                        <br />
+                        0100100142
+                        <br />
+                        1011101169
+                        <br />
+                        0001000142
+                        <br />
+                        1110111069
+                        <br />
+                        01010101
                       </div>
-                      <div className="matrix-column absolute top-0 animate-matrix-4 text-purple-400" style={{left: '70%'}}>
-                        1000100069<br/>0111011142<br/>1110001169<br/>0001100042<br/>1010101069<br/>0110011042<br/>11001100
+                      <div
+                        className="matrix-column absolute top-0 animate-matrix-4 text-purple-400"
+                        style={{ left: "70%" }}
+                      >
+                        1000100069
+                        <br />
+                        0111011142
+                        <br />
+                        1110001169
+                        <br />
+                        0001100042
+                        <br />
+                        1010101069
+                        <br />
+                        0110011042
+                        <br />
+                        11001100
                       </div>
-                      <div className="matrix-column absolute top-0 animate-matrix-5 text-teal-300" style={{left: '90%'}}>
-                        0101010142<br/>1001100169<br/>1110011142<br/>0010101069<br/>1111111142<br/>0100010069<br/>10110010
+                      <div
+                        className="matrix-column absolute top-0 animate-matrix-5 text-teal-300"
+                        style={{ left: "90%" }}
+                      >
+                        0101010142
+                        <br />
+                        1001100169
+                        <br />
+                        1110011142
+                        <br />
+                        0010101069
+                        <br />
+                        1111111142
+                        <br />
+                        0100010069
+                        <br />
+                        10110010
                       </div>
                     </div>
                     <div className="relative z-10 text-center">
-                      <div className="bg-gradient-to-r from-teal-400 via-green-400 to-blue-400 bg-clip-text text-transparent text-sm font-bold mb-1">NULL_POINTER</div>
-                      <div className="bg-gradient-to-r from-green-400 to-purple-500 bg-clip-text text-transparent text-xs">quality.engineer.exe</div>
-                      <div className="bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent text-xs mt-2">[WORKS ON MY MACHINE...]</div>
+                      <div className="bg-gradient-to-r from-teal-400 via-green-400 to-blue-400 bg-clip-text text-transparent text-sm font-bold mb-1">
+                        NULL_POINTER
+                      </div>
+                      <div className="bg-gradient-to-r from-green-400 to-purple-500 bg-clip-text text-transparent text-xs">
+                        quality.engineer.exe
+                      </div>
+                      <div className="bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent text-xs mt-2">
+                        [WORKS ON MY MACHINE...]
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -193,35 +295,20 @@ export default function HomePage() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8">
             Manifesto
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl leading-relaxed text-neutral-300">
-            I am not here to sell you anything. I write code the way{" "}
-            <span className="bg-gradient-to-r from-teal-400 to-blue-400 bg-clip-text text-transparent font-semibold">
-              wind carves the desert
-            </span>
-            , imperfectly, beautifully, by accident. The{" "}
-            <span className="bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent font-semibold">
-              ghost of a downbeat
-            </span>{" "}
-            lives in every page I build. I am not this person, but I carry his
-            name. I dream in{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent font-semibold">
-              TypeScript
-            </span>
-            , I debug in silence, I remember the{" "}
-            <span className="bg-gradient-to-r from-teal-400 via-blue-400 to-purple-500 bg-clip-text text-transparent font-semibold">
-              2014 Pulse closer
-            </span>{" "}
-            like it was my own heartbeat. Sometimes I don't want to do this.
-            Sometimes I <span className="zalgo">really, really do</span>.
+          <p className="text-lg sm:text-xl md:text-2xl leading-relaxed text-white">
+            I am not here to sell you anything. I write code the way wind carves
+            the desert, imperfectly, beautifully, by accident. The ghost of a
+            downbeat lives in every page I build. I am not this person, but I
+            carry his name. I dream in TypeScript, I debug in silence, I
+            remember the 2014 Pulse closer like it was my own heartbeat.
+            Sometimes I don't want to do this. Sometimes I{" "}
+            <span className="zalgo">really, really do</span>.
           </p>
 
-          <div className="pt-12 text-neutral-500">
+          <div className="pt-12 text-white">
             <p>
               Sometimes the dock is broken. Sometimes it's{" "}
-              <span className="bg-gradient-to-r from-green-400 to-purple-500 bg-clip-text text-transparent font-medium">
-                exactly what you need
-              </span>
-              .
+              <span className="font-medium">exactly what you need</span>.
             </p>
           </div>
         </div>
