@@ -2,12 +2,12 @@
 
 export default function ExperiencePage() {
   return (
-    <main className="min-h-screen bg-background text-foreground font-serif px-6 py-16 transition-colors duration-300 rounded-xl">
+    <main className="min-h-screen bg-background text-foreground font-serif px-4 sm:px-6 py-8 sm:py-16 transition-colors duration-300 rounded-xl">
       <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
       ></meta>
-      <div className="max-w-4xl mx-auto space-y-12">
+      <div className="max-w-4xl mx-auto space-y-8 sm:space-y-12">
         <header className="space-y-4">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
             Experience
@@ -17,19 +17,19 @@ export default function ExperiencePage() {
           </p>
         </header>
 
-        <section className="space-y-8">
+        <section className="space-y-6 sm:space-y-8">
           <article>
-            <h3 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-teal-400 via-green-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">Work Experience</h3>
-            <ul className="space-y-6">
+            <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 bg-gradient-to-r from-teal-400 via-green-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">Work Experience</h3>
+            <ul className="space-y-8 sm:space-y-6">
               <li>
-                <div className="flex justify-between text-sm font-medium">
+                <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 text-sm font-medium">
                   <span>Weedmaps</span>
-                  <span>Jan 2016–Present</span>
+                  <span className="text-neutral-400 sm:text-foreground">Jan 2016–Present</span>
                 </div>
-                <div className="space-y-4">
+                <div className="space-y-6 sm:space-y-4 mt-3 sm:mt-2">
                   <div>
-                    <p className="font-medium">Sr. Quality Engineer <span className="text-neutral-500 font-normal">(Feb 2020 - Present)</span></p>
-                    <ul className="list-disc list-inside mt-2 space-y-1 text-base text-neutral-100">
+                    <p className="font-medium text-base sm:text-base">Sr. Quality Engineer <span className="text-neutral-500 font-normal">(Feb 2020 - Present)</span></p>
+                    <ul className="list-disc list-inside mt-3 sm:mt-2 space-y-2 sm:space-y-1 text-sm sm:text-base text-neutral-100 leading-relaxed sm:leading-normal">
                       <li>
                         Built and maintained a CLI for Playwright test execution
                         across different codebases and environments.
@@ -57,8 +57,8 @@ export default function ExperiencePage() {
                     </ul>
                   </div>
                   <div>
-                    <p className="font-medium">Quality Engineer Analyst <span className="text-neutral-500 font-normal">(Jan 2016 - Jan 2020)</span></p>
-                    <ul className="list-disc list-inside mt-2 space-y-1 text-base text-neutral-100">
+                    <p className="font-medium text-base sm:text-base">Quality Engineer Analyst <span className="text-neutral-500 font-normal">(Jan 2016 - Jan 2020)</span></p>
+                    <ul className="list-disc list-inside mt-3 sm:mt-2 space-y-2 sm:space-y-1 text-sm sm:text-base text-neutral-100 leading-relaxed sm:leading-normal">
                       <li>
                         Working cross-functionally with multiple teams designing
                         the end-to-end test solution in CI/CD for existing integrations.
@@ -81,12 +81,12 @@ export default function ExperiencePage() {
               </li>
 
               <li>
-                <div className="flex justify-between text-sm font-medium">
+                <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 text-sm font-medium">
                   <span>Bonfire</span>
-                  <span>Sep 2015–Feb 2016</span>
+                  <span className="text-neutral-400 sm:text-foreground">Sep 2015–Feb 2016</span>
                 </div>
-                <p>Operations Manager</p>
-                <ul className="list-disc list-inside mt-2 space-y-1 text-base text-neutral-100">
+                <p className="font-medium text-base sm:text-base mt-2 sm:mt-1">Operations Manager</p>
+                <ul className="list-disc list-inside mt-3 sm:mt-2 space-y-2 sm:space-y-1 text-sm sm:text-base text-neutral-100 leading-relaxed sm:leading-normal">
                   <li>
                     Operations and Hiring Manager for customer service contact
                     center specializing in Local SEO.
@@ -103,12 +103,12 @@ export default function ExperiencePage() {
               </li>
 
               <li>
-                <div className="flex justify-between text-sm font-medium">
+                <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 text-sm font-medium">
                   <span>Mocan Media</span>
-                  <span>Jan 2014–Sep 2015</span>
+                  <span className="text-neutral-400 sm:text-foreground">Jan 2014–Sep 2015</span>
                 </div>
-                <p>Quality Assurance Manager</p>
-                <ul className="list-disc list-inside mt-2 space-y-1 text-base text-neutral-100">
+                <p className="font-medium text-base sm:text-base mt-2 sm:mt-1">Quality Assurance Manager</p>
+                <ul className="list-disc list-inside mt-3 sm:mt-2 space-y-2 sm:space-y-1 text-sm sm:text-base text-neutral-100 leading-relaxed sm:leading-normal">
                   <li>
                     Performed call monitoring and provided trend data to management team.
                   </li>
@@ -123,12 +123,12 @@ export default function ExperiencePage() {
               </li>
 
               <li>
-                <div className="flex justify-between text-sm font-medium">
+                <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 text-sm font-medium">
                   <span>Madera Produce</span>
-                  <span>Oct 2012–Sep 2013</span>
+                  <span className="text-neutral-400 sm:text-foreground">Oct 2012–Sep 2013</span>
                 </div>
-                <p>Warehouse Laborer</p>
-                <ul className="list-disc list-inside mt-2 space-y-1 text-base text-neutral-100">
+                <p className="font-medium text-base sm:text-base mt-2 sm:mt-1">Warehouse Laborer</p>
+                <ul className="list-disc list-inside mt-3 sm:mt-2 space-y-2 sm:space-y-1 text-sm sm:text-base text-neutral-100 leading-relaxed sm:leading-normal">
                   <li>
                     Monitored inventory for coolers and storage rooms.
                   </li>
@@ -143,15 +143,15 @@ export default function ExperiencePage() {
               </li>
 
               <li>
-                <div className="flex justify-between text-sm font-medium">
+                <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 text-sm font-medium">
                   <span>Various High Schools</span>
-                  <span>2010–2015</span>
+                  <span className="text-neutral-400 sm:text-foreground">2010–2015</span>
                 </div>
-                <p>Percussion & Visual Tech</p>
-                <p className="text-sm text-neutral-400 mt-1">
+                <p className="font-medium text-base sm:text-base mt-2 sm:mt-1">Percussion & Visual Tech</p>
+                <p className="text-xs sm:text-sm text-neutral-400 mt-1 leading-relaxed">
                   University HS, Mater Dei HS, Beyer HS, Madera HS, Sanger HS
                 </p>
-                <ul className="list-disc list-inside mt-2 space-y-1 text-base text-neutral-100">
+                <ul className="list-disc list-inside mt-3 sm:mt-2 space-y-2 sm:space-y-1 text-sm sm:text-base text-neutral-100 leading-relaxed sm:leading-normal">
                   <li>
                     Instructed percussion sections and visual programs.
                   </li>
@@ -161,48 +161,48 @@ export default function ExperiencePage() {
                 </ul>
               </li>
               <li>
-                <div className="flex justify-between text-sm font-medium">
+                <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 text-sm font-medium">
                   <span>Highland High School</span>
-                  <span>2023–Present</span>
+                  <span className="text-neutral-400 sm:text-foreground">2023–Present</span>
                 </div>
-                <p>
+                <p className="text-sm sm:text-base mt-2 sm:mt-1 leading-relaxed sm:leading-normal">
                   Percussion Volunteer. Developing young musicians and future
                   leaders.
                 </p>
               </li>
 
               <li>
-                <div className="flex justify-between text-sm font-medium">
+                <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 text-sm font-medium">
                   <span>Flux Indoor Percussion</span>
-                  <span>2024–Present</span>
+                  <span className="text-neutral-400 sm:text-foreground">2024–Present</span>
                 </div>
-                <p>Battery consultant. A new chapter. Feels right.</p>
+                <p className="text-sm sm:text-base mt-2 sm:mt-1 leading-relaxed sm:leading-normal">Battery consultant. A new chapter. Feels right.</p>
               </li>
 
               <li>
-                <div className="flex justify-between text-sm font-medium">
+                <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 text-sm font-medium">
                   <span>POW Percussion</span>
-                  <span>2015–2022</span>
+                  <span className="text-neutral-400 sm:text-foreground">2015–2022</span>
                 </div>
-                <p>Battery & ensemble coordinator. Legacy builder.</p>
+                <p className="text-sm sm:text-base mt-2 sm:mt-1 leading-relaxed sm:leading-normal">Battery & ensemble coordinator. Legacy builder.</p>
               </li>
 
               <li>
-                <div className="flex justify-between text-sm font-medium">
+                <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 text-sm font-medium">
                   <span>Blue Stars</span>
-                  <span>2014–2018</span>
+                  <span className="text-neutral-400 sm:text-foreground">2014–2018</span>
                 </div>
-                <p>Snareline tech. Tour life and hard truths.</p>
+                <p className="text-sm sm:text-base mt-2 sm:mt-1 leading-relaxed sm:leading-normal">Snareline tech. Tour life and hard truths.</p>
               </li>
 
               <li>
-                <div className="flex justify-between text-sm font-medium">
+                <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 text-sm font-medium">
                   <span>Pulse Percussion</span>
-                  <span>2012–2014</span>
+                  <span className="text-neutral-400 sm:text-foreground">2012–2014</span>
                 </div>
-                <div>
-                  <p>Snareline. Peak performance, peak identity crisis.</p>
-                  <p className="text-sm text-neutral-500">lmaooo.</p>
+                <div className="mt-2 sm:mt-1">
+                  <p className="text-sm sm:text-base leading-relaxed sm:leading-normal">Snareline. Peak performance, peak identity crisis.</p>
+                  <p className="text-xs sm:text-sm text-neutral-500 mt-1">lmaooo.</p>
                 </div>
               </li>
             </ul>
