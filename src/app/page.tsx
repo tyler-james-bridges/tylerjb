@@ -76,7 +76,7 @@ export default function HomePage() {
                 <div className="mb-2">
                   Father of <span className="font-medium">two tiny humans</span>
                   . Accidental{" "}
-                  <span className="font-medium">Sr. quality engineer</span>.
+                  <span className="font-medium">Software engineer</span>.
                 </div>
                 <div>
                   <span className="font-medium">Crypto and NFT</span>{" "}
