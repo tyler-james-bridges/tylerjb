@@ -27,10 +27,10 @@ export default function AboutPage() {
               <p>
                 I'm a father of two tiny humans who remind me daily that the
                 best debugging happens at 3 AM when you're running on coffee
-                fumes and pure determination. By day, I build test automation
-                infrastructure that keeps deployments reliable and developers
-                sane. By night, I dream in Playwright selectors and wake up
-                humming polyrhythms.
+                fumes and pure determination. By day, I'm transitioning from
+                quality engineering to software development, building tools
+                that accelerate how teams ship code. By night, I dream in
+                TypeScript and wake up humming polyrhythms.
               </p>
               <p>
                 The percussion world shaped who I am long before I touched my
@@ -58,11 +58,11 @@ export default function AboutPage() {
                 and the pursuit of something greater than yourself.
               </p>
               <p>
-                Now I channel that same energy into building reliable software
-                and mentoring the next generation of musicians. Whether I'm
-                debugging a CI pipeline or teaching a high schooler proper stick
-                technique, it's all about finding the pattern, respecting the
-                process, and never settling for "good enough."
+                Now I channel that same energy into building software that
+                empowers developers and mentoring the next generation of musicians.
+                Whether I'm architecting developer tools or teaching a high schooler
+                proper stick technique, it's all about finding the pattern, respecting
+                the process, and never settling for "good enough."
               </p>
             </div>
           </article>
