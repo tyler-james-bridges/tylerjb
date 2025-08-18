@@ -1,24 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 
 export default function HomePage() {
-  const [mounted, setMounted] = useState(false);
-  const [theme, setTheme] = useState<"light" | "dark">("light");
   const [isFlipped, setIsFlipped] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [theme]);
 
   return (
     <main className="min-h-screen bg-background text-foreground font-serif transition-colors duration-300">
@@ -301,13 +287,13 @@ export default function HomePage() {
             downbeat lives in every page I build. I am not this person, but I
             carry his name. I dream in TypeScript, I debug in silence, I
             remember the 2014 Pulse closer like it was my own heartbeat.
-            Sometimes I don't want to do this. Sometimes I{" "}
+            Sometimes I don&apos;t want to do this. Sometimes I{" "}
             <span className="zalgo">really, really do</span>.
           </p>
 
           <div className="pt-12 text-white">
             <p>
-              Sometimes the dock is broken. Sometimes it's{" "}
+              Sometimes the dock is broken. Sometimes it&apos;s{" "}
               <span className="font-medium">exactly what you need</span>.
             </p>
             <p className="text-sm text-neutral-400 mt-4">
