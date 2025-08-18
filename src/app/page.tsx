@@ -310,6 +310,9 @@ export default function HomePage() {
               Sometimes the dock is broken. Sometimes it's{" "}
               <span className="font-medium">exactly what you need</span>.
             </p>
+            <p className="text-sm text-neutral-400 mt-4">
+              Last updated: {new Date().toLocaleDateString()}
+            </p>
           </div>
         </div>
       </section>
