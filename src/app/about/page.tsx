@@ -61,7 +61,7 @@ export default function AboutPage() {
                 Now I channel that same energy into building software that
                 empowers developers and mentoring the next generation of musicians.
                 Whether I&apos;m architecting developer tools or teaching a high schooler
-                proper stick technique, it's all about finding the pattern, respecting
+                proper stick technique, it&apos;s all about finding the pattern, respecting
                 the process, and never settling for &quot;good enough.&quot;
               </p>
             </div>
@@ -78,7 +78,7 @@ export default function AboutPage() {
                 pretends not to judge.
               </p>
               <p>
-                I believe in building things that matter, whether it's reliable
+                I believe in building things that matter, whether it&apos;s reliable
                 software that helps businesses grow, young musicians who will
                 carry the art forward, or just a really solid groove that makes
                 people move. The details matter. The process matters. And
