@@ -25,16 +25,16 @@ export default function AboutPage() {
             </h3>
             <div className="space-y-4 text-lg leading-relaxed">
               <p>
-                I'm a father of two tiny humans who remind me daily that the
-                best debugging happens at 3 AM when you're running on coffee
-                fumes and pure determination. By day, I'm transitioning from
+                I&apos;m a father of two tiny humans who remind me daily that the
+                best debugging happens at 3 AM when you&apos;re running on coffee
+                fumes and pure determination. By day, I&apos;m transitioning from
                 quality engineering to software development, building tools
                 that accelerate how teams ship code. By night, I dream in
                 TypeScript and wake up humming polyrhythms.
               </p>
               <p>
                 The percussion world shaped who I am long before I touched my
-                first keyboard. There's something about the discipline of
+                first keyboard. There&apos;s something about the discipline of
                 marching drum corps, the precision of indoor percussion, and the
                 controlled chaos of tour life that translates perfectly to
                 quality engineering. Both require obsessive attention to detail,
@@ -60,9 +60,9 @@ export default function AboutPage() {
               <p>
                 Now I channel that same energy into building software that
                 empowers developers and mentoring the next generation of musicians.
-                Whether I'm architecting developer tools or teaching a high schooler
+                Whether I&apos;m architecting developer tools or teaching a high schooler
                 proper stick technique, it's all about finding the pattern, respecting
-                the process, and never settling for "good enough."
+                the process, and never settling for &quot;good enough.&quot;
               </p>
             </div>
           </article>
@@ -71,7 +71,7 @@ export default function AboutPage() {
             <h3 className="text-2xl font-semibold bg-gradient-to-r from-teal-400 via-green-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">Beyond the Screen</h3>
             <div className="space-y-4 text-lg leading-relaxed">
               <p>
-                When I'm not writing tests or teaching paradiddles, you'll find
+                When I&apos;m not writing tests or teaching paradiddles, you&apos;ll find
                 me deep in the progressive metal rabbit hole (Animals As
                 Leaders, Protest the Hero, Chon), exploring the latest crypto
                 projects, or adding another NFT to the collection that my wife
@@ -192,7 +192,7 @@ export default function AboutPage() {
 
         <footer className="pt-12 text-center text-sm text-neutral-500">
           <p>
-            Sometimes the dock is broken. Sometimes it's exactly what you need.
+            Sometimes the dock is broken. Sometimes it&apos;s exactly what you need.
           </p>
         </footer>
       </div>

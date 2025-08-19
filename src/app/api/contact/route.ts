@@ -33,10 +33,10 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json({ success: true });
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error("Resend error:", err);
     return NextResponse.json(
-      { success: false, error: err?.message || "Failed to send email." },
+      { success: false, error: (err as Error)?.message || "Failed to send email." },
       { status: 500 },
     );
   }

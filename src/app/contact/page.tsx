@@ -14,9 +14,9 @@ export default function ContactPage() {
     setSuccess(false);
     const form = e.currentTarget;
     const data = {
-      name: (form.name as any).value,
-      email: (form.email as any).value,
-      message: (form.message as any).value,
+      name: (form.elements.namedItem('name') as HTMLInputElement).value,
+      email: (form.elements.namedItem('email') as HTMLInputElement).value,
+      message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
     };
     try {
       const res = await fetch("/api/contact", {
@@ -106,7 +106,7 @@ export default function ContactPage() {
           </form>
           {success && (
             <div className="text-green-500 text-center font-semibold">
-              Message sent! I'll get back to you soon.
+              Message sent! I&apos;ll get back to you soon.
             </div>
           )}
           {error && (

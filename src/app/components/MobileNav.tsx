@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,9 +35,9 @@ export default function MobileNav() {
 
           {/* Logo/Title */}
           <div className="flex-1 text-center">
-            <a href="/" className="text-lg font-bold text-neutral-100">
+            <Link href="/" className="text-lg font-bold text-neutral-100">
               Tyler James-Bridges
-            </a>
+            </Link>
           </div>
 
           {/* Right side - empty div for spacing */}
@@ -79,7 +80,7 @@ export default function MobileNav() {
           </div>
 
           {/* Navigation links */}
-          <a
+          <Link
             href="/"
             onClick={closeMenu}
             className="mobile-nav-link flex items-center gap-3 px-4 py-3 text-neutral-100 hover:bg-neutral-800 rounded-lg transition-colors duration-200"
@@ -98,7 +99,7 @@ export default function MobileNav() {
               />
             </svg>
             Home
-          </a>
+          </Link>
           <a
             href="/about"
             onClick={closeMenu}
@@ -205,12 +206,12 @@ export default function MobileNav() {
       {/* Desktop navigation - hidden on mobile */}
       <nav className="hidden md:flex w-full max-w-2xl mx-auto mt-6 mb-8 justify-center sticky top-4 z-30">
         <div className="flex gap-1 p-1 bg-neutral-800/50 backdrop-blur-sm border border-neutral-700/50 rounded-2xl">
-          <a
+          <Link
             href="/"
             className="nav-item px-6 py-2 font-medium text-neutral-100 hover:bg-neutral-700/70 hover:text-teal-300 rounded-xl transition-all duration-200"
           >
             Home
-          </a>
+          </Link>
           <a
             href="/about"
             className="nav-item px-6 py-2 font-medium text-neutral-100 hover:bg-neutral-700/70 hover:text-green-300 rounded-xl transition-all duration-200"

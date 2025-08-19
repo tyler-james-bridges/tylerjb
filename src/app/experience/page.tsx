@@ -298,7 +298,7 @@ export default function ExperiencePage() {
 
         <footer className="pt-12 text-center text-sm text-neutral-500">
           <p>
-            Sometimes the dock is broken. Sometimes it's exactly what you need.
+            Sometimes the dock is broken. Sometimes it&apos;s exactly what you need.
           </p>
         </footer>
       </div>
