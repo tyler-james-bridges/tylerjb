@@ -28,6 +28,8 @@ jobs:
       
     - name: Build
       run: npm run build
+      env:
+        RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
       
     - name: Deploy to Vercel
       uses: amondnet/vercel-action@v25
