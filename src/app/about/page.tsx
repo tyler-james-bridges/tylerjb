@@ -25,28 +25,30 @@ export default function AboutPage() {
             </h3>
             <div className="space-y-4 text-lg leading-relaxed">
               <p>
-                I&apos;m a father of two tiny humans who remind me daily that the
-                best debugging happens at 3 AM when you&apos;re running on coffee
-                fumes and pure determination. By day, I&apos;m transitioning from
-                quality engineering to software development, building tools
-                that accelerate how teams ship code. By night, I dream in
-                TypeScript and wake up humming polyrhythms.
+                I&apos;m a father of two tiny humans who remind me daily that
+                the best debugging happens at 3 AM when you&apos;re running on
+                coffee fumes and pure determination. By day, I transition from
+                software engineering, building tools that accelerate how teams
+                ship code. By night, I dream in TypeScript and wake up humming
+                polyrhythms.
               </p>
               <p>
                 The percussion world shaped who I am long before I touched my
                 first keyboard. There&apos;s something about the discipline of
                 marching drum corps, the precision of indoor percussion, and the
                 controlled chaos of tour life that translates perfectly to
-                quality engineering. Both require obsessive attention to detail,
-                the ability to perform under pressure, and an understanding that
-                sometimes the most beautiful moments happen in the spaces
-                between the notes—or between test runs.
+                quality assurance and engineering. Both require obsessive
+                attention to detail, the ability to perform under pressure, and
+                an understanding that sometimes the most beautiful moments
+                happen in the spaces between the notes or between test runs.
               </p>
             </div>
           </article>
 
           <article className="space-y-6">
-            <h3 className="text-2xl font-semibold bg-gradient-to-r from-teal-400 via-green-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">Rhythm & Algorithms</h3>
+            <h3 className="text-2xl font-semibold bg-gradient-to-r from-teal-400 via-green-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">
+              Rhythm & Algorithms
+            </h3>
             <div className="space-y-4 text-lg leading-relaxed">
               <p>
                 My percussion journey began in 2009 with Santa Clara Vanguard
@@ -59,37 +61,42 @@ export default function AboutPage() {
               </p>
               <p>
                 Now I channel that same energy into building software that
-                empowers developers and mentoring the next generation of musicians.
-                Whether I&apos;m architecting developer tools or teaching a high schooler
-                proper stick technique, it&apos;s all about finding the pattern, respecting
-                the process, and never settling for &quot;good enough.&quot;
+                empowers developers and mentoring the next generation of
+                musicians. Whether I&apos;m architecting developer tools or
+                teaching a high schooler proper stick technique, it&apos;s all
+                about finding the pattern, respecting the process, and never
+                settling for &quot;good enough.&quot;
               </p>
             </div>
           </article>
 
           <article className="space-y-6">
-            <h3 className="text-2xl font-semibold bg-gradient-to-r from-teal-400 via-green-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">Beyond the Screen</h3>
+            <h3 className="text-2xl font-semibold bg-gradient-to-r from-teal-400 via-green-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">
+              Beyond the Screen
+            </h3>
             <div className="space-y-4 text-lg leading-relaxed">
               <p>
-                When I&apos;m not writing tests or teaching paradiddles, you&apos;ll find
-                me deep in the progressive metal rabbit hole (Animals As
-                Leaders, Protest the Hero, Chon), exploring the latest crypto
-                projects, or adding another NFT to the collection that my wife
-                pretends not to judge.
+                When I&apos;m not writing tests or teaching paradiddles,
+                you&apos;ll find me deep in the progressive metal rabbit hole
+                (Animals As Leaders, Protest the Hero, Chon), exploring the
+                latest crypto projects, or adding another NFT to the collection
+                that my wife pretends not to judge.
               </p>
               <p>
-                I believe in building things that matter, whether it&apos;s reliable
-                software that helps businesses grow, young musicians who will
-                carry the art forward, or just a really solid groove that makes
-                people move. The details matter. The process matters. And
-                sometimes, the most important thing you can do is just show up
-                and do the work.
+                I believe in building things that matter, whether it&apos;s
+                reliable software that helps businesses grow, young musicians
+                who will carry the art forward, or just a really solid groove
+                that makes people move. The details matter. The process matters.
+                And sometimes, the most important thing you can do is just show
+                up and do the work.
               </p>
             </div>
           </article>
         </section>
         <article className="space-y-6">
-          <h3 className="text-2xl font-semibold bg-gradient-to-r from-teal-400 via-green-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">Performance Videos</h3>
+          <h3 className="text-2xl font-semibold bg-gradient-to-r from-teal-400 via-green-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">
+            Performance Videos
+          </h3>
           <p className="text-lg text-neutral-600">
             Some moments from the field that shaped who I became. The precision,
             the pressure, the pure joy of nailing that perfect run.
@@ -192,7 +199,8 @@ export default function AboutPage() {
 
         <footer className="pt-12 text-center text-sm text-neutral-500">
           <p>
-            Sometimes the dock is broken. Sometimes it&apos;s exactly what you need.
+            Sometimes the dock is broken. Sometimes it&apos;s exactly what you
+            need.
           </p>
         </footer>
       </div>

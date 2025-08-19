@@ -29,8 +29,18 @@ export default function HomePage() {
           <div className="text-center mb-16">
             {/* Large, Clean Name */}
             <div className="mb-2 py-6">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold relative">
                 <div className="text-white mb-4">Tyler</div>
+                {/* Penguin positioned between the two name parts */}
+                <div className="relative h-8 sm:h-10 -my-2">
+                  <div className="absolute inset-0 flex justify-center items-center overflow-visible">
+                    <img 
+                      src="/images/penguin.png" 
+                      alt="Penguin" 
+                      className="penguin-animation w-12 h-12 sm:w-16 sm:h-16"
+                    />
+                  </div>
+                </div>
                 <div className="bg-gradient-to-r from-teal-400 via-green-400 via-blue-400 to-purple-500 bg-clip-text text-transparent pb-2">
                   James-Bridges
                 </div>
@@ -47,7 +57,7 @@ export default function HomePage() {
                 </div>
                 <div className="mb-1">
                   Accidental{" "}
-                  <span className="font-medium">Software engineer</span>.
+                  <span className="font-medium">software engineer</span>.
                 </div>
                 <div className="mb-1">
                   <span className="font-medium">Crypto and NFT</span>{" "}
@@ -62,7 +72,7 @@ export default function HomePage() {
                 <div className="mb-2">
                   Father of <span className="font-medium">two tiny humans</span>
                   . Accidental{" "}
-                  <span className="font-medium">Software engineer</span>.
+                  <span className="font-medium">software engineer</span>.
                 </div>
                 <div>
                   <span className="font-medium">Crypto and NFT</span>{" "}
@@ -128,7 +138,7 @@ export default function HomePage() {
                         <br />
                         1100110069
                         <br />
-                        00101110
+                        0010111042
                       </div>
                       <div
                         className="matrix-column absolute top-0 animate-matrix-2 text-green-400"
@@ -146,7 +156,7 @@ export default function HomePage() {
                         <br />
                         0100010042
                         <br />
-                        10110010
+                        1011001069
                       </div>
                       <div
                         className="matrix-column absolute top-0 animate-matrix-3 text-blue-400"
@@ -164,7 +174,7 @@ export default function HomePage() {
                         <br />
                         1110111069
                         <br />
-                        01010101
+                        0101010142
                       </div>
                       <div
                         className="matrix-column absolute top-0 animate-matrix-4 text-purple-400"
@@ -182,7 +192,7 @@ export default function HomePage() {
                         <br />
                         0110011042
                         <br />
-                        11001100
+                        1100110069
                       </div>
                       <div
                         className="matrix-column absolute top-0 animate-matrix-5 text-teal-300"
@@ -200,7 +210,7 @@ export default function HomePage() {
                         <br />
                         0100010069
                         <br />
-                        10110010
+                        1011001069
                       </div>
                     </div>
                     <div className="relative z-10 text-center">
@@ -208,7 +218,7 @@ export default function HomePage() {
                         NULL_POINTER
                       </div>
                       <div className="bg-gradient-to-r from-green-400 to-purple-500 bg-clip-text text-transparent text-xs">
-                        quality.engineer.exe
+                        software.engineer.exe
                       </div>
                       <div className="bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent text-xs mt-2">
                         [WORKS ON MY MACHINE...]

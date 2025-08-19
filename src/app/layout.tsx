@@ -8,7 +8,7 @@ function SiteFooter() {
   return (
     <footer className="w-full py-6 mt-16 text-center text-sm text-neutral-500 border-t border-neutral-800">
       <div>
-        Or email:{" "}
+        Email:{" "}
         <a href="mailto:tylerjamesbridges@gmail.com" className="underline hover:text-green-400 hover:shadow-lg hover:shadow-green-400/30 transition-all duration-300">
           tylerjamesbridges@gmail.com
         </a>
@@ -53,7 +53,7 @@ function SiteFooter() {
 }
 
 export const metadata: Metadata = {
-  title: "Tyler James-Bridges — Engineer & Educator",
+  title: "Tyler James-Bridges - Engineer & Educator",
   description: "Resume and project site for Tyler James-Bridges",
 };
 
