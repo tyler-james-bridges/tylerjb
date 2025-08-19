@@ -2,10 +2,19 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialize Resend with fallback for build time
+const resend = new Resend(process.env.RESEND_API_KEY || "re_dummy_key_for_build");
 
 export async function POST(request: NextRequest) {
   try {
+    // Check for API key at runtime
+    if (!process.env.RESEND_API_KEY) {
+      return NextResponse.json(
+        { success: false, error: "Email service not configured" },
+        { status: 500 }
+      );
+    }
+
     const data = await request.json();
     const { name, email, message } = data as {
       name: string;
