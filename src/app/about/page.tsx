@@ -20,7 +20,7 @@ export default function AboutPage() {
 
         <section className="space-y-12">
           <article className="space-y-6">
-            <h3 className="text-2xl font-semibold bg-gradient-to-r from-teal-400 via-green-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">
+            <h3 className="text-2xl font-semibold bg-gradient-to-r from-teal-400 via-green-400 to-emerald-400 bg-clip-text text-transparent">
               The Human Behind the Code
             </h3>
             <div className="space-y-4 text-lg leading-relaxed">
@@ -46,7 +46,7 @@ export default function AboutPage() {
           </article>
 
           <article className="space-y-6">
-            <h3 className="text-2xl font-semibold bg-gradient-to-r from-teal-400 via-green-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">
+            <h3 className="text-2xl font-semibold bg-gradient-to-r from-teal-400 via-green-400 to-emerald-400 bg-clip-text text-transparent">
               Rhythm & Algorithms
             </h3>
             <div className="space-y-4 text-lg leading-relaxed">
@@ -71,7 +71,7 @@ export default function AboutPage() {
           </article>
 
           <article className="space-y-6">
-            <h3 className="text-2xl font-semibold bg-gradient-to-r from-teal-400 via-green-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">
+            <h3 className="text-2xl font-semibold bg-gradient-to-r from-teal-400 via-green-400 to-emerald-400 bg-clip-text text-transparent">
               Beyond the Screen
             </h3>
             <div className="space-y-4 text-lg leading-relaxed">

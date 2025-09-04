@@ -19,7 +19,7 @@ export default function ExperiencePage() {
 
         <section className="space-y-6 sm:space-y-8">
           <article>
-            <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 bg-gradient-to-r from-teal-400 via-green-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">
+            <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 bg-gradient-to-r from-teal-400 via-green-400 to-emerald-400 bg-clip-text text-transparent">
               Work Experience
             </h3>
             <ul className="space-y-8 sm:space-y-6">

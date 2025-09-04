@@ -30,18 +30,8 @@ export default function HomePage() {
             {/* Large, Clean Name */}
             <div className="mb-2 py-6">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold relative">
-                <div className="text-white mb-4">Tyler</div>
-                {/* Penguin positioned between the two name parts */}
-                <div className="relative h-8 sm:h-10 -my-2">
-                  <div className="absolute inset-0 flex justify-center items-center overflow-visible">
-                    <img 
-                      src="/images/penguin.png" 
-                      alt="Penguin" 
-                      className="penguin-animation w-12 h-12 sm:w-16 sm:h-16"
-                    />
-                  </div>
-                </div>
-                <div className="bg-gradient-to-r from-teal-400 via-green-400 via-blue-400 to-purple-500 bg-clip-text text-transparent pb-2">
+                <div className="text-white mb-2">Tyler</div>
+                <div className="bg-gradient-to-r from-teal-400 via-green-400 to-emerald-400 bg-clip-text text-transparent pb-2">
                   James-Bridges
                 </div>
               </h1>
@@ -96,7 +86,7 @@ export default function HomePage() {
 
               <Link
                 href="/experience"
-                className="px-6 py-2 font-medium text-neutral-100 hover:bg-neutral-700/70 hover:text-blue-300 rounded-xl transition-all duration-200"
+                className="px-6 py-2 font-medium text-neutral-100 hover:bg-neutral-700/70 hover:text-teal-300 rounded-xl transition-all duration-200"
               >
                 View Experience
               </Link>
@@ -159,7 +149,7 @@ export default function HomePage() {
                         1011001069
                       </div>
                       <div
-                        className="matrix-column absolute top-0 animate-matrix-3 text-blue-400"
+                        className="matrix-column absolute top-0 animate-matrix-3 text-emerald-400"
                         style={{ left: "50%" }}
                       >
                         0010101142
@@ -177,7 +167,7 @@ export default function HomePage() {
                         0101010142
                       </div>
                       <div
-                        className="matrix-column absolute top-0 animate-matrix-4 text-purple-400"
+                        className="matrix-column absolute top-0 animate-matrix-4 text-green-400"
                         style={{ left: "70%" }}
                       >
                         1000100069
@@ -214,13 +204,13 @@ export default function HomePage() {
                       </div>
                     </div>
                     <div className="relative z-10 text-center">
-                      <div className="bg-gradient-to-r from-teal-400 via-green-400 to-blue-400 bg-clip-text text-transparent text-sm font-bold mb-1">
+                      <div className="bg-gradient-to-r from-teal-400 via-green-400 to-emerald-400 bg-clip-text text-transparent text-sm font-bold mb-1">
                         NULL_POINTER
                       </div>
-                      <div className="bg-gradient-to-r from-green-400 to-purple-500 bg-clip-text text-transparent text-xs">
+                      <div className="bg-gradient-to-r from-green-400 to-teal-500 bg-clip-text text-transparent text-xs">
                         software.engineer.exe
                       </div>
-                      <div className="bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent text-xs mt-2">
+                      <div className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent text-xs mt-2">
                         [WORKS ON MY MACHINE...]
                       </div>
                     </div>

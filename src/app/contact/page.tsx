@@ -1,11 +1,26 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 
 export default function ContactPage() {
   const [sending, setSending] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
+  const [initialMessage, setInitialMessage] = useState("");
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const service = searchParams.get('service');
+    if (service) {
+      const serviceMessages: { [key: string]: string } = {
+        'basic-landing': 'Hi! I\'m interested in the Basic Landing Page service. I\'d like to learn more about getting started with a landing page for my business.',
+        'pro-landing': 'Hi! I\'m interested in the Professional Landing Page service with advanced features and integrations. I\'d like to discuss my requirements.',
+        'small-business': 'Hi! I\'m interested in the Small Business Site package. I need a complete website for my business and would like to discuss the details.',
+      };
+      setInitialMessage(serviceMessages[service] || '');
+    }
+  }, [searchParams]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -93,6 +108,7 @@ export default function ContactPage() {
                 name="message"
                 rows={4}
                 required
+                defaultValue={initialMessage}
                 className="mt-1 block w-full rounded-xl border border-neutral-300 bg-neutral-900 text-neutral-100 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-neutral-400"
               />
             </div>

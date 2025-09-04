@@ -27,7 +27,7 @@ function SiteFooter() {
         </a>
         <a
           href="https://www.linkedin.com/in/tyler-james-bridges-4344abab"
-          className="icon-hover p-2 text-neutral-500 hover:text-blue-400 hover:shadow-lg hover:shadow-blue-400/30 transition-all duration-300"
+          className="icon-hover p-2 text-neutral-500 hover:text-teal-400 hover:shadow-lg hover:shadow-teal-400/30 transition-all duration-300"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
@@ -38,7 +38,7 @@ function SiteFooter() {
         </a>
         <a
           href="https://x.com/tmoney_145"
-          className="icon-hover p-2 text-neutral-500 hover:text-purple-400 hover:shadow-lg hover:shadow-purple-400/30 transition-all duration-300"
+          className="icon-hover p-2 text-neutral-500 hover:text-emerald-400 hover:shadow-lg hover:shadow-emerald-400/30 transition-all duration-300"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="X"
