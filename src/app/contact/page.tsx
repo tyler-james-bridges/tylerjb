@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
-export default function ContactPage() {
+function ContactFormWithParams() {
   const [sending, setSending] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
@@ -52,6 +52,79 @@ export default function ContactPage() {
   }
 
   return (
+    <section className="space-y-8">
+      <form className="space-y-6" onSubmit={handleSubmit}>
+        <div>
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium text-white"
+          >
+            Name
+          </label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            className="mt-1 block w-full rounded-xl border border-neutral-300 bg-neutral-900 text-neutral-100 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-neutral-400"
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-white"
+          >
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            className="mt-1 block w-full rounded-xl border border-neutral-300 bg-neutral-900 text-neutral-100 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-neutral-400"
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="message"
+            className="block text-sm font-medium text-white"
+          >
+            Message
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows={4}
+            required
+            defaultValue={initialMessage}
+            className="mt-1 block w-full rounded-xl border border-neutral-300 bg-neutral-900 text-neutral-100 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-neutral-400"
+          />
+        </div>
+        <button
+          type="submit"
+          className="px-8 py-4 rounded-xl bg-white text-black font-semibold hover:scale-105 hover:shadow-2xl hover:shadow-white/25 transition-all duration-300"
+          disabled={sending}
+        >
+          {sending ? "Sending..." : "Send"}
+        </button>
+      </form>
+      {success && (
+        <div className="text-green-500 text-center font-semibold">
+          Message sent! I&apos;ll get back to you soon.
+        </div>
+      )}
+      {error && (
+        <div className="text-red-500 text-center font-semibold">
+          {error}
+        </div>
+      )}
+      {/* Social/email links moved to persistent footer */}
+    </section>
+  );
+}
+
+export default function ContactPage() {
+  return (
     <main className="min-h-screen bg-background text-foreground font-serif px-6 py-16 transition-colors duration-300 rounded-xl">
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <div className="max-w-4xl mx-auto space-y-12">
@@ -64,74 +137,9 @@ export default function ContactPage() {
             email/social.
           </p>
         </header>
-        <section className="space-y-8">
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-white"
-              >
-                Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                required
-                className="mt-1 block w-full rounded-xl border border-neutral-300 bg-neutral-900 text-neutral-100 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-neutral-400"
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-white"
-              >
-                Email
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                className="mt-1 block w-full rounded-xl border border-neutral-300 bg-neutral-900 text-neutral-100 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-neutral-400"
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-white"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={4}
-                required
-                defaultValue={initialMessage}
-                className="mt-1 block w-full rounded-xl border border-neutral-300 bg-neutral-900 text-neutral-100 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-neutral-400"
-              />
-            </div>
-            <button
-              type="submit"
-              className="px-8 py-4 rounded-xl bg-white text-black font-semibold hover:scale-105 hover:shadow-2xl hover:shadow-white/25 transition-all duration-300"
-              disabled={sending}
-            >
-              {sending ? "Sending..." : "Send"}
-            </button>
-          </form>
-          {success && (
-            <div className="text-green-500 text-center font-semibold">
-              Message sent! I&apos;ll get back to you soon.
-            </div>
-          )}
-          {error && (
-            <div className="text-red-500 text-center font-semibold">
-              {error}
-            </div>
-          )}
-          {/* Social/email links moved to persistent footer */}
-        </section>
+        <Suspense fallback={<div>Loading...</div>}>
+          <ContactFormWithParams />
+        </Suspense>
       </div>
     </main>
   );
