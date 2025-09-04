@@ -410,7 +410,7 @@ export default function ServicesPage() {
             </div>
             <div className="bg-neutral-900/30 p-6 rounded-xl">
               <h3 className="text-xl font-semibold text-white mb-3">Ongoing Support</h3>
-              <p className="text-neutral-300">I don't disappear after launch. You get continued support to ensure success.</p>
+              <p className="text-neutral-300">I don&apos;t disappear after launch. You get continued support to ensure success.</p>
             </div>
           </div>
         </div>
@@ -423,7 +423,7 @@ export default function ServicesPage() {
             Ready to Get Started?
           </h2>
           <p className="text-lg text-neutral-300 mb-8">
-            Let's create a website that grows your business and impresses your customers.
+            Let&apos;s create a website that grows your business and impresses your customers.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
