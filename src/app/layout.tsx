@@ -3,6 +3,8 @@ import "./globals.css";
 import type { JSX, ReactNode } from "react";
 import { Analytics } from "@vercel/analytics/next";
 import MobileNav from "./components/MobileNav";
+import ErrorBoundary from "./components/ErrorBoundary";
+import { nanumMyeongjo, inter } from "../lib/fonts";
 
 function SiteFooter() {
   return (
@@ -53,8 +55,58 @@ function SiteFooter() {
 }
 
 export const metadata: Metadata = {
-  title: "Tyler James-Bridges - Engineer & Educator",
-  description: "Resume and project site for Tyler James-Bridges",
+  metadataBase: new URL("https://tylerjb.dev"),
+  title: {
+    default: "Tyler James-Bridges - Engineer & Educator",
+    template: "%s | Tyler James-Bridges",
+  },
+  description: "Personal portfolio of Tyler James-Bridges: Senior Quality Engineer, Educator, and Percussionist. 10 years QA expertise in software development.",
+  keywords: [
+    "Tyler James-Bridges",
+    "Quality Engineer",
+    "Software Engineer",
+    "QA",
+    "Testing",
+    "Education",
+    "Music",
+    "Percussion"
+  ],
+  authors: [{ name: "Tyler James-Bridges", url: "https://tylerjb.dev" }],
+  creator: "Tyler James-Bridges",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://tylerjb.dev",
+    title: "Tyler James-Bridges - Engineer & Educator",
+    description: "Personal portfolio showcasing quality engineering expertise, educational background, and creative projects.",
+    siteName: "Tyler James-Bridges Portfolio",
+    images: [
+      {
+        url: "/images/profile.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Tyler James-Bridges",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tyler James-Bridges - Engineer & Educator",
+    description: "Senior Quality Engineer with 10 years expertise in software development and testing",
+    creator: "@tmoney_145",
+    images: ["/images/profile.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 interface RootLayoutProps {
@@ -63,13 +115,15 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
   return (
-    <html lang="en">
+    <html lang="en" className={`${nanumMyeongjo.variable} ${inter.variable}`}>
       <body
-        className="antialiased bg-neutral-950"
+        className="antialiased bg-neutral-950 font-serif"
       >
-        <MobileNav />
-        <main className="w-full max-w-5xl mx-auto px-4 pt-16 md:pt-0">{children}</main>
-        <SiteFooter />
+        <ErrorBoundary>
+          <MobileNav />
+          <main className="w-full max-w-5xl mx-auto px-4 pt-16 md:pt-0">{children}</main>
+          <SiteFooter />
+        </ErrorBoundary>
         <Analytics />
       </body>
     </html>

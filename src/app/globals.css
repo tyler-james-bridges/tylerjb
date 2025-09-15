@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Inter&display=swap");
+/* Fonts now loaded via next/font - see layout.tsx */
 
 @tailwind base;
 @tailwind components;

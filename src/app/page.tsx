@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function HomePage() {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -103,10 +104,13 @@ export default function HomePage() {
                 >
                   {/* Front */}
                   <div className="flip-card-front absolute inset-0 backface-hidden">
-                    <img
+                    <Image
                       src="/images/profile.jpg"
                       alt="Tyler James-Bridges"
+                      width={300}
+                      height={300}
                       className="w-full h-full object-cover"
+                      priority
                     />
                   </div>
                   {/* Back */}
@@ -223,9 +227,11 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="aspect-square rounded-2xl overflow-hidden group block cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-teal-400/50"
               >
-                <img
+                <Image
                   src="/images/mayc.png"
                   alt="MAYC NFT"
+                  width={300}
+                  height={300}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </a>
@@ -235,9 +241,11 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="aspect-square rounded-2xl overflow-hidden group block cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-teal-400/50"
               >
-                <img
+                <Image
                   src="/images/bitcoin-puppet.png"
                   alt="Bitcoin Puppet NFT"
+                  width={300}
+                  height={300}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </a>
@@ -247,9 +255,11 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="aspect-square rounded-2xl overflow-hidden group block cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-teal-400/50"
               >
-                <img
+                <Image
                   src="/images/hoodie.png"
                   alt="Hoodie NFT"
+                  width={300}
+                  height={300}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </a>
