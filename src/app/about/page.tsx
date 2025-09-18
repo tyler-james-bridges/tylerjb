@@ -1,6 +1,9 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 export default function AboutPage() {
+  const router = useRouter();
   return (
     <main className="min-h-screen bg-background text-foreground font-serif px-6 py-16 transition-colors duration-300 rounded-xl">
       <meta
@@ -40,7 +43,14 @@ export default function AboutPage() {
                 quality assurance and engineering. Both require obsessive
                 attention to detail, the ability to perform under pressure, and
                 an understanding that sometimes the most beautiful moments
-                happen in the spaces between the notes or between test runs.
+                happen in the spaces between the notes or between 
+                <span 
+                  className="cursor-pointer hover:text-teal-400 transition-colors duration-200" 
+                  onClick={() => router.push('/playground')}
+                  title="🎯 Debug in the playground"
+                >
+                  test runs
+                </span>.
               </p>
             </div>
           </article>
@@ -199,7 +209,15 @@ export default function AboutPage() {
 
         <footer className="pt-12 text-center text-sm text-neutral-500">
           <p>
-            Sometimes the dock is broken. Sometimes it&apos;s exactly what you
+            Sometimes the 
+            <span 
+              className="cursor-pointer hover:text-teal-400 transition-colors duration-200" 
+              onClick={() => router.push('/playground')}
+              title="🚀 Enter the playground"
+            >
+              dock
+            </span> 
+            is broken. Sometimes it&apos;s exactly what you
             need.
           </p>
         </footer>

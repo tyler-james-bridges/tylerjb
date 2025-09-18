@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 
 function ContactFormWithParams() {
   const [sending, setSending] = useState(false);
@@ -9,6 +9,7 @@ function ContactFormWithParams() {
   const [error, setError] = useState("");
   const [initialMessage, setInitialMessage] = useState("");
   const searchParams = useSearchParams();
+  const router = useRouter();
 
   useEffect(() => {
     const service = searchParams.get('service');
@@ -124,6 +125,7 @@ function ContactFormWithParams() {
 }
 
 export default function ContactPage() {
+  const router = useRouter();
   return (
     <main className="min-h-screen bg-background text-foreground font-serif px-6 py-16 transition-colors duration-300 rounded-xl">
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -140,6 +142,20 @@ export default function ContactPage() {
         <Suspense fallback={<div>Loading...</div>}>
           <ContactFormWithParams />
         </Suspense>
+        
+        <footer className="pt-12 text-center text-sm text-neutral-500">
+          <p>
+            Sometimes the 
+            <span 
+              className="cursor-pointer hover:text-teal-400 transition-colors duration-200" 
+              onClick={() => router.push('/playground')}
+              title="🚀 Enter the playground"
+            >
+              dock
+            </span> 
+            is broken. Sometimes it&apos;s exactly what you need.
+          </p>
+        </footer>
       </div>
     </main>
   );

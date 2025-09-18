@@ -1,6 +1,9 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 export default function ExperiencePage() {
+  const router = useRouter();
   return (
     <main className="min-h-screen bg-background text-foreground font-serif px-4 sm:px-6 py-8 sm:py-16 transition-colors duration-300 rounded-xl">
       <meta
@@ -76,7 +79,14 @@ export default function ExperiencePage() {
                     </p>
                     <ul className="list-disc list-inside mt-3 sm:mt-2 space-y-2 sm:space-y-1 text-sm sm:text-base text-neutral-100 leading-relaxed sm:leading-normal">
                       <li>
-                        Built and maintained a CLI for Playwright test execution
+                        Built and maintained a 
+                        <span 
+                          className="cursor-pointer hover:text-teal-400 transition-colors duration-200" 
+                          onClick={() => router.push('/playground')}
+                          title="🛠️ See the tools in action"
+                        >
+                          CLI
+                        </span> for Playwright test execution
                         across different codebases and environments.
                       </li>
                       <li>
@@ -287,7 +297,11 @@ export default function ExperiencePage() {
                   <p className="text-sm sm:text-base leading-relaxed sm:leading-normal">
                     Snareline. Peak performance, peak identity crisis.
                   </p>
-                  <p className="text-xs sm:text-sm text-neutral-500 mt-1">
+                  <p 
+                    className="text-xs sm:text-sm text-neutral-500 mt-1 cursor-pointer hover:text-teal-400 transition-colors duration-200" 
+                    onClick={() => router.push('/playground')}
+                    title="👀 Click me"
+                  >
                     lmaooo.
                   </p>
                 </div>
@@ -298,7 +312,15 @@ export default function ExperiencePage() {
 
         <footer className="pt-12 text-center text-sm text-neutral-500">
           <p>
-            Sometimes the dock is broken. Sometimes it&apos;s exactly what you need.
+            Sometimes the 
+            <span 
+              className="cursor-pointer hover:text-teal-400 transition-colors duration-200" 
+              onClick={() => router.push('/playground')}
+              title="🚀 Enter the playground"
+            >
+              dock
+            </span> 
+            is broken. Sometimes it&apos;s exactly what you need.
           </p>
         </footer>
       </div>

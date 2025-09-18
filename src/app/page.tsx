@@ -3,9 +3,19 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function HomePage() {
   const [isFlipped, setIsFlipped] = useState(false);
+  const router = useRouter();
+
+  const handleProfileClick = () => {
+    setIsFlipped(!isFlipped);
+    // Navigate to playground after a short delay to show the flip animation
+    setTimeout(() => {
+      router.push('/playground');
+    }, 700); // Match the flip animation duration
+  };
 
   return (
     <main className="min-h-screen bg-background text-foreground font-serif transition-colors duration-300">
@@ -97,7 +107,7 @@ export default function HomePage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
               <div
                 className="aspect-square rounded-2xl overflow-hidden group perspective-1000 cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-teal-400/50 animate-matrix-hint tv-scanline relative"
-                onClick={() => setIsFlipped(!isFlipped)}
+                onClick={handleProfileClick}
               >
                 <div
                   className={`flip-card w-full h-full relative preserve-3d transition-transform duration-700 ${isFlipped ? "rotate-y-180" : ""}`}
@@ -301,15 +311,22 @@ export default function HomePage() {
             <span className="zalgo">really, really do</span>.
           </p>
 
-          <div className="pt-12 text-white">
+          <footer className="pt-12 text-center text-sm text-neutral-500">
             <p>
-              Sometimes the dock is broken. Sometimes it&apos;s{" "}
-              <span className="font-medium">exactly what you need</span>.
+              Sometimes the 
+              <span 
+                className="cursor-pointer hover:text-teal-400 transition-colors duration-200" 
+                onClick={() => router.push('/playground')}
+                title="🚀 Enter the playground"
+              >
+                dock
+              </span> 
+              is broken. Sometimes it&apos;s exactly what you need.
             </p>
             <p className="text-sm text-neutral-400 mt-4">
               Last updated: {new Date().toLocaleDateString()}
             </p>
-          </div>
+          </footer>
         </div>
       </section>
     </main>

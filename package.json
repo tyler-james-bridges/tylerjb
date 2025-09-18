@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -13,7 +13,8 @@
     "next": "^15.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "resend": "^4.8.0"
+    "resend": "^4.8.0",
+    "tone": "^15.1.22"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
