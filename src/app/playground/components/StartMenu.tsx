@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import React from 'react';
 
 interface StartMenuProps {
   isOpen: boolean;
@@ -95,7 +95,7 @@ export default function StartMenu({ isOpen, onClose, onOpenApp }: StartMenuProps
 
         <div className="start-menu-footer">
           <div className="system-info">
-            TylerOS v1.0 • {new Date().toLocaleDateString()}
+            TylerOS v4.20 • {new Date().toLocaleDateString()}
           </div>
         </div>
       </div>

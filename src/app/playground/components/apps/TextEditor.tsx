@@ -28,22 +28,22 @@ Try writing something here...`);
   return (
     <div className="flex flex-col h-full">
       {/* Editor toolbar */}
-      <div className="bg-gray-100 border-b px-3 py-2 flex items-center justify-between">
-        <div className="flex items-center gap-2">
+      <div className="bg-gray-100 border-b px-2 md:px-3 py-2 flex items-center justify-between">
+        <div className="flex items-center gap-1 md:gap-2">
           <input
             type="text"
             value={fileName}
             onChange={(e) => setFileName(e.target.value)}
-            className="px-2 py-1 border rounded text-sm"
+            className="px-1 md:px-2 py-1 border rounded text-xs md:text-sm w-20 md:w-auto"
           />
           <button
             onClick={handleSave}
-            className="px-3 py-1 bg-teal-500 text-white rounded text-sm hover:bg-teal-600"
+            className="px-2 md:px-3 py-1 bg-teal-500 text-white rounded text-xs md:text-sm hover:bg-teal-600"
           >
             Save
           </button>
         </div>
-        <div className="text-sm text-gray-600">
+        <div className="text-xs md:text-sm text-gray-600 hidden sm:block">
           {wordCount} words | {content.length} characters
         </div>
       </div>
@@ -52,7 +52,7 @@ Try writing something here...`);
       <textarea
         value={content}
         onChange={handleContentChange}
-        className="flex-1 p-4 font-mono text-sm resize-none outline-none"
+        className="flex-1 p-2 md:p-4 font-mono text-sm resize-none outline-none"
         placeholder="Start typing..."
         spellCheck={true}
       />

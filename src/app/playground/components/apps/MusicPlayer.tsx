@@ -15,7 +15,16 @@ interface Track {
 
 declare global {
   interface Window {
-    YT: any;
+    YT: {
+      Player: new (elementId: string, config: object) => {
+        destroy: () => void;
+        pauseVideo: () => void;
+        playVideo: () => void;
+      };
+      PlayerState: {
+        PLAYING: number;
+      };
+    };
     onYouTubeIframeAPIReady: () => void;
   }
 }
@@ -58,7 +67,11 @@ export default function MusicPlayer() {
   const [currentTrack, setCurrentTrack] = useState<Track | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [playerReady, setPlayerReady] = useState(false);
-  const playerRef = useRef<any>(null);
+  const playerRef = useRef<{
+    destroy: () => void;
+    pauseVideo: () => void;
+    playVideo: () => void;
+  } | null>(null);
   const playerContainerRef = useRef<HTMLDivElement>(null);
 
   // Load YouTube IFrame API
@@ -108,7 +121,7 @@ export default function MusicPlayer() {
             rel: 0,
           },
           events: {
-            onStateChange: (event: any) => {
+            onStateChange: (event: { data: number }) => {
               // Update playing state based on YouTube player state
               const state = event.data;
               setIsPlaying(state === window.YT.PlayerState.PLAYING);
@@ -138,14 +151,14 @@ export default function MusicPlayer() {
   return (
     <div className="h-full flex flex-col bg-black text-white overflow-hidden">
       {/* Spotify-style Header */}
-      <div className="bg-gradient-to-b from-green-600 to-green-800 p-6">
-        <div className="flex items-center gap-4">
-          <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center text-2xl font-bold shadow-lg">
+      <div className="bg-gradient-to-b from-green-600 to-green-800 p-3 md:p-6">
+        <div className="flex items-center gap-3 md:gap-4">
+          <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center text-lg md:text-2xl font-bold shadow-lg flex-shrink-0">
             🎵
           </div>
-          <div>
-            <h1 className="text-3xl font-bold text-white">Tyler's Prog-Metal Picks</h1>
-            <p className="text-green-100">Curated collection • Animals As Leaders, Protest the Hero, Chon</p>
+          <div className="min-w-0 flex-1">
+            <h1 className="text-xl md:text-3xl font-bold text-white truncate">Tyler&apos;s Prog-Metal Picks</h1>
+            <p className="text-sm md:text-base text-green-100 truncate">Curated collection • Animals As Leaders, Protest the Hero, Chon</p>
           </div>
         </div>
       </div>
@@ -153,10 +166,10 @@ export default function MusicPlayer() {
       <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
         {/* Left Sidebar - Track List */}
         <div className="w-full md:w-2/5 bg-neutral-950 border-b md:border-b-0 md:border-r border-neutral-800">
-          <div className="p-4 border-b border-neutral-800">
+          <div className="p-3 md:p-4 border-b border-neutral-800">
             <div className="flex items-center justify-between">
-              <h3 className="text-lg font-medium">Tracks</h3>
-              <span className="text-sm text-neutral-400">{progMetalTracks.length} songs</span>
+              <h3 className="text-base md:text-lg font-medium">Tracks</h3>
+              <span className="text-xs md:text-sm text-neutral-400">{progMetalTracks.length} songs</span>
             </div>
           </div>
           
@@ -165,7 +178,8 @@ export default function MusicPlayer() {
               <div
                 key={track.id}
                 onClick={() => selectTrack(track)}
-                className={`group p-3 hover:bg-neutral-800 cursor-pointer transition-colors border-b border-neutral-900/50 ${
+                style={{ touchAction: 'manipulation' }}
+                className={`group p-2 md:p-3 hover:bg-neutral-800 cursor-pointer transition-colors border-b border-neutral-900/50 ${
                   currentTrack?.id === track.id ? 'bg-neutral-800' : ''
                 }`}
               >
@@ -260,7 +274,7 @@ export default function MusicPlayer() {
                   🎸
                 </div>
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-2">Start listening</h3>
-                <p className="text-base md:text-lg">Select a track to dive into Tyler's prog-metal journey</p>
+                <p className="text-base md:text-lg">Select a track to dive into Tyler&apos;s prog-metal journey</p>
                 <p className="text-xs md:text-sm mt-2 text-neutral-500">Animals As Leaders • Protest the Hero • Chon</p>
               </div>
             </div>

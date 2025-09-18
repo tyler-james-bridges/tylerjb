@@ -1,7 +1,6 @@
 'use client';
 
 import { ReactNode, useState, useEffect } from 'react';
-import DesktopIcon from './DesktopIcon';
 import StartMenu from './StartMenu';
 import SoundStudio from './apps/SoundStudio';
 

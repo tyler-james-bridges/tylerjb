@@ -19,7 +19,6 @@ interface WindowProps {
 }
 
 export default function Window({
-  id,
   title,
   children,
   position,

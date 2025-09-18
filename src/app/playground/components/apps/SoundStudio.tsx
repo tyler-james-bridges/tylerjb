@@ -88,13 +88,13 @@ export default function SoundStudio({ embedded = false }: SoundStudioProps) {
   // Initialize AudioContext once
   const getAudioContext = () => {
     if (!audioContextRef.current) {
-      audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
+      audioContextRef.current = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
     }
     return audioContextRef.current;
   };
 
   // Simple Web Audio API beep function with proper cleanup
-  const playBeep = (frequency: number, duration: number, type: OscillatorType = 'sine') => {
+  const playBeep = useCallback((frequency: number, duration: number, type: OscillatorType = 'sine') => {
     try {
       const audioContext = getAudioContext();
       const oscillator = audioContext.createOscillator();
@@ -117,10 +117,10 @@ export default function SoundStudio({ embedded = false }: SoundStudioProps) {
         oscillator.disconnect();
         gainNode.disconnect();
       });
-    } catch (error) {
-      console.log('Audio playback failed:', error);
+    } catch {
+      console.log('Audio playback failed');
     }
-  };
+  }, []);
 
   // Cleanup on unmount
   useEffect(() => {
@@ -202,7 +202,7 @@ export default function SoundStudio({ embedded = false }: SoundStudioProps) {
         default:
           playBeep(440, 0.3);
       }
-    } catch (error) {
+    } catch {
       console.log('Audio not supported or blocked');
     } finally {
       // Clear the playing flag after a short delay
@@ -224,7 +224,7 @@ export default function SoundStudio({ embedded = false }: SoundStudioProps) {
       document.body.appendChild(notification);
       setTimeout(() => document.body.removeChild(notification), 2000);
     }
-  }, []);
+  }, [playBeep]);
 
   // Keyboard support for number keys
   useEffect(() => {

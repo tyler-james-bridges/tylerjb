@@ -25,7 +25,7 @@ export default function PlaygroundPage() {
     return (
       <div className="fixed inset-0 bg-black flex items-center justify-center">
         <div className="text-center">
-          <div className="text-green-400 font-mono text-xl mb-4">TylerOS v1.0</div>
+          <div className="text-green-400 font-mono text-xl mb-4">TylerOS v4.20</div>
           <div className="text-green-400 font-mono text-sm animate-pulse">Booting...</div>
         </div>
       </div>

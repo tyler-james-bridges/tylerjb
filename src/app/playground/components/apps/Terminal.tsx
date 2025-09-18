@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 
 export default function Terminal() {
   const [history, setHistory] = useState<string[]>([
-    'TylerOS Terminal v1.0',
+    'TylerOS Terminal v4.20',
     'Type "help" for available commands',
     ''
   ]);
@@ -90,9 +90,10 @@ export default function Terminal() {
 
   return (
     <div 
-      className="bg-black text-green-400 p-4 h-full font-mono text-sm overflow-auto cursor-text"
+      className="bg-black text-green-400 p-2 md:p-4 h-full font-mono text-xs md:text-sm overflow-auto cursor-text"
       onClick={() => inputRef.current?.focus()}
       ref={terminalRef}
+      style={{ touchAction: 'manipulation' }}
     >
       {history.map((line, i) => (
         <div key={i} className="whitespace-pre-wrap">

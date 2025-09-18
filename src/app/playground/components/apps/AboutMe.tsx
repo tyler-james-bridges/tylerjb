@@ -18,7 +18,7 @@ export default function AboutMe() {
           <h2 className="text-lg font-semibold mb-3 text-gray-800">Background</h2>
           <p className="text-gray-700 leading-relaxed">
             With over 10 years of experience in quality assurance and manual testing, 
-            I've transitioned into software development while maintaining my quality-first mindset. 
+            I&apos;ve transitioned into software development while maintaining my quality-first mindset. 
             I specialize in building robust, well-tested applications with a focus on user experience.
           </p>
         </section>

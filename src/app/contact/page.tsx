@@ -9,7 +9,6 @@ function ContactFormWithParams() {
   const [error, setError] = useState("");
   const [initialMessage, setInitialMessage] = useState("");
   const searchParams = useSearchParams();
-  const router = useRouter();
 
   useEffect(() => {
     const service = searchParams.get('service');
