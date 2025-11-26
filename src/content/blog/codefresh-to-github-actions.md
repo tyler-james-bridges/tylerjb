@@ -7,7 +7,7 @@ tags: ["CI/CD", "GitHub Actions", "DevOps", "Developer Experience"]
 
 ## The Challenge
 
-When I joined the Developer Experience team at Weedmaps, we had a problem that every growing engineering org eventually faces: our CI/CD pipelines had become a bottleneck. We were running on Codefresh across four critical codebases (a React/Next.js frontend, an admin platform, the Ruby monolith, and our API) and things weren't great.
+On the Developer Experience team at Weedmaps, we had a problem that every growing engineering org eventually faces: our CI/CD pipelines had become a bottleneck. We were running on Codefresh across four critical codebases (a React/Next.js frontend, an admin platform, the Ruby monolith, and our API) and things weren't great.
 
 Build times were creeping up. Developers were waiting 25-45 minutes for feedback. Test flakiness was eroding confidence. And the monthly infrastructure costs were adding up.
 
