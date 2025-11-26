@@ -111,13 +111,13 @@ export default function NotationDisplay({ notes, rudimentName }: NotationDisplay
     <div className="w-full max-w-2xl mx-auto px-2">
       {/* Rudiment name */}
       {rudimentName && (
-        <h2 className="text-lg sm:text-xl font-bold text-center text-white mb-3">
+        <h2 className="text-lg sm:text-xl font-bold text-center text-foreground mb-3">
           {rudimentName}
         </h2>
       )}
 
       {/* VexFlow container */}
-      <div className="bg-white rounded-lg p-2 sm:p-4 shadow-lg overflow-x-auto">
+      <div className="bg-white dark:bg-white rounded-lg p-2 sm:p-4 shadow-lg overflow-x-auto border border-border">
         <div ref={containerRef} className="min-w-max" />
 
         {/* Legend */}
