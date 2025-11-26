@@ -232,4 +232,4 @@ And honestly? That's worth more than any metric.
 
 ---
 
-*Questions about CI/CD migration or want to chat about developer experience? [Reach out](/contact). I love talking about this stuff.*
+Questions about CI/CD migration or want to chat about developer experience? [Reach out](/contact). I love talking about this stuff.

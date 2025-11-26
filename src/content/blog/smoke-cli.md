@@ -171,4 +171,4 @@ Today, when developers run `smoke test`, they're using a tool built by someone w
 
 ---
 
-*Questions about career transitions or building developer tools? [Reach out](/contact). Happy to chat about it.*
+Questions about career transitions or building developer tools? [Reach out](/contact). Happy to chat about it.
