@@ -60,7 +60,7 @@ export default function NotationDisplay({ notes, rudimentName }: NotationDisplay
         const staveNote = new StaveNote({
           keys: ['c/5'],
           duration: '8', // eighth note
-          stem_direction: 1, // stems up
+          stemDirection: 1, // stems up
         });
 
         // Add sticking annotation above the note
@@ -92,7 +92,7 @@ export default function NotationDisplay({ notes, rudimentName }: NotationDisplay
       }
 
       // Create voice and add notes
-      const voice = new Voice({ num_beats: staveNotes.length, beat_value: 8 });
+      const voice = new Voice({ numBeats: staveNotes.length, beatValue: 8 });
       voice.setStrict(false);
       voice.addTickables(staveNotes);
 
