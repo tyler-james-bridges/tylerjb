@@ -1,13 +1,13 @@
 ---
-title: "How I Migrated 11 CI/CD Pipelines to GitHub Actions (And Saved $169K/Year)"
+title: "Cutting CI Build Times by 60%: Our GitHub Actions Migration"
 date: "2024-12-15"
-description: "A deep dive into migrating four critical codebases from Codefresh to GitHub Actions, achieving 60% faster builds, $14K monthly savings, and 100% OKR completion."
+description: "A deep dive into migrating four critical codebases from Codefresh to GitHub Actions, achieving 60% faster builds and hitting 100% of our OKR targets."
 tags: ["CI/CD", "GitHub Actions", "DevOps", "Developer Experience"]
 ---
 
 ## The Challenge
 
-When I joined the Developer Experience team at Weedmaps, we had a problem that every growing engineering org eventually faces: our CI/CD pipelines had become a bottleneck. We were running on Codefresh across four critical codebases—Moonshot (React/Next.js), Admin, the Ruby monolith, and our API—and things weren't great.
+When I joined the Developer Experience team, we had a problem that every growing engineering org eventually faces: our CI/CD pipelines had become a bottleneck. We were running on Codefresh across four critical codebases (a React/Next.js frontend, an admin platform, the Ruby monolith, and our API) and things weren't great.
 
 Build times were creeping up. Developers were waiting 25-45 minutes for feedback. Test flakiness was eroding confidence. And the monthly infrastructure costs were adding up.
 
@@ -21,7 +21,7 @@ Before diving into the journey, here's what we achieved:
 
 - **11 pipelines migrated** across 4 repositories
 - **60% average reduction** in pipeline execution time
-- **$14,100/month saved** ($169K annually)
+- **~$14K/month saved** in infrastructure costs
 - **400+ developer hours saved** weekly
 - **100% SLO achievement** - all pipelines under 22-minute target
 - **Zero production incidents** during migration
@@ -30,9 +30,9 @@ Before diving into the journey, here's what we achieved:
 
 ## Repository by Repository
 
-### Moonshot (React/Next.js)
+### Frontend App (React/Next.js)
 
-This was our flagship frontend app and where I started. The Jest test pipeline was taking 25 minutes—way too long for the fast iteration cycles frontend teams need.
+This was the flagship frontend app and where I started. The Jest test pipeline was taking 25 minutes, way too long for the fast iteration cycles frontend teams need.
 
 **What I migrated:**
 - Jest test pipeline
@@ -41,7 +41,7 @@ This was our flagship frontend app and where I started. The Jest test pipeline w
 
 **The innovation that changed everything:**
 
-I implemented what we called the "Smoke CLI"—a revolutionary testing interface that simplified E2E testing to a single command:
+I implemented what we called the "Smoke CLI", a testing interface that simplified E2E testing to a single command:
 
 ```bash
 smoke test ci @hotbox --workers=1
@@ -56,7 +56,7 @@ This pattern is now being adopted across other teams.
 
 ---
 
-### The Weedmaps Monolith
+### The Ruby Monolith
 
 This was the scary one. A 15-year-old Ruby monolith with hidden test dependencies, complex database connections, and years of accumulated technical debt.
 
@@ -105,9 +105,9 @@ strategy:
 
 ---
 
-### Weedmaps API
+### The API
 
-The API is the gateway to our platform. Any migration here needed to be flawless—we couldn't afford downtime.
+The API is the gateway to the platform. Any migration here needed to be flawless since we couldn't afford downtime.
 
 **The approach:**
 
@@ -193,21 +193,13 @@ Every pipeline now reports to DataDog, giving us:
 
 | Repository | Test Type | Before | After | Improvement |
 |------------|-----------|--------|-------|-------------|
-| Moonshot | Jest | 25 min | 12 min | 52% |
+| Frontend | Jest | 25 min | 12 min | 52% |
 | Admin | Jest | 18 min | 9 min | 50% |
-| Weedmaps | RSpec | 35 min | 12 min | 66% |
-| Weedmaps | Capybara | 45 min | 18 min | 60% |
-| Weedmaps | Rubocop | 15 min | 3 min | 80% |
+| Monolith | RSpec | 35 min | 12 min | 66% |
+| Monolith | Capybara | 45 min | 18 min | 60% |
+| Monolith | Rubocop | 15 min | 3 min | 80% |
 | API | RSpec | 25 min | 11 min | 56% |
 | API | Rubocop | 8 min | 90 sec | 81% |
-
-### Monthly Cost Savings
-
-- Moonshot: $4,800
-- Admin: $2,100
-- Weedmaps: $4,800
-- API: $2,400
-- **Total: $14,100/month**
 
 ### Developer Impact
 
@@ -230,14 +222,14 @@ The migration is complete, but the work continues. For Q1 2026, I'm focused on:
 
 ## Final Thoughts
 
-This project reinforced something I've believed throughout my career: the best infrastructure is invisible. Developers shouldn't think about CI/CD—they should just ship code and trust that the system works.
+This project reinforced something I've believed throughout my career: the best infrastructure is invisible. Developers shouldn't think about CI/CD. They should just ship code and trust that the system works.
 
 We went from CI/CD being a bottleneck to it being an accelerator. Developers now ship with confidence, iterate faster, and focus on what matters: building great products.
 
-The numbers are impressive—60% faster builds, $169K saved annually, 400+ developer hours reclaimed weekly. But the real win is cultural. We've fundamentally changed how the engineering org thinks about shipping software.
+The numbers tell the story: 60% faster builds, significant cost savings, and 400+ developer hours reclaimed weekly. But the real win is cultural. We've fundamentally changed how the engineering org thinks about shipping software.
 
 And honestly? That's worth more than any metric.
 
 ---
 
-*Questions about CI/CD migration or want to chat about developer experience? [Reach out](/contact)—I love talking about this stuff.*
+*Questions about CI/CD migration or want to chat about developer experience? [Reach out](/contact). I love talking about this stuff.*
