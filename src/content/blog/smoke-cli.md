@@ -7,7 +7,7 @@ tags: ["Developer Experience", "CLI", "Testing", "Career"]
 
 ## My QA Automation Roots
 
-Before becoming a SWE 3 on the DevEx team at Weedmaps, I was part of the QA automation team. I knew those bash scripts intimately because I helped write and maintain them. Scripts like `run-playwright-acceptance.sh` weren't mysterious to me. They were my daily tools:
+Before becoming a SWE 3 on the DevEx team at Weedmaps, I was part of the QA automation team. I knew those bash scripts intimately because I helped maintain them. Scripts like `run-playwright-acceptance.sh` weren't mysterious to me. They were my daily tools:
 
 ```bash
 if [ $# -eq 0 ]; then
@@ -24,7 +24,7 @@ if [ -n "$TAGS" ]; then
 fi
 ```
 
-I understood the complexity because I had created it. Every grep, every pipe, every environment variable made sense in the context of QA automation. But I also saw the problem: this knowledge was siloed within our team.
+I understood the complexity because I lived in it every day. Every grep, every pipe, every environment variable made sense in the context of QA automation. But I also saw the problem: this knowledge was siloed within our team.
 
 ---
 
