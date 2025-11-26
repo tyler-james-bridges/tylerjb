@@ -1,6 +1,6 @@
 # Tyler James-Bridges
 
-Welcome to the personal site and portfolio of Tyler James-Bridges: Dad, Sr. Quality Engineer, Educator, and Percussionist. This project is built with Next.js, Tailwind CSS, and features custom fonts.
+Welcome to the personal site and portfolio of Tyler James-Bridges: Dad, Software Engineer, Educator, and Percussionist. This project is built with Next.js, Tailwind CSS, and features custom fonts.
 
 ## Tech Stack
 
@@ -20,7 +20,7 @@ Welcome to the personal site and portfolio of Tyler James-Bridges: Dad, Sr. Qual
 
 ## About
 
-This site showcases Tyler's work in quality engineering, music education, and creative projects. For updates or collaboration, reach out via the contact info on the site.
+This site showcases Tyler's work in software engineering, music education, and creative projects. For updates or collaboration, reach out via the contact info on the site.
 
 ---
 
