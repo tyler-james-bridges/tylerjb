@@ -1,6 +1,6 @@
 ---
 title: "Cutting CI Build Times by 60%: Our GitHub Actions Migration"
-date: "2025-12-15"
+date: "2025-11-26"
 description: "A deep dive into migrating four critical codebases from Codefresh to GitHub Actions, achieving 60% faster builds and hitting 100% of our OKR targets."
 tags: ["CI/CD", "GitHub Actions", "DevOps", "Developer Experience"]
 ---
