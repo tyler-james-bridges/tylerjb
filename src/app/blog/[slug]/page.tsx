@@ -88,26 +88,23 @@ export default async function BlogPostPage({ params }: PageProps) {
 
       <div className="content-body">
         {/* Meta info */}
-        <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-8 pb-4 border-b border-border">
+        <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground mb-8 pb-4 border-b border-border">
           <time>{formatDate(post.date)}</time>
           <span>·</span>
           <span>{post.readingTime}</span>
-          {post.tags.length > 0 && (
-            <>
-              <span>·</span>
-              <div className="flex gap-2">
-                {post.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2 py-0.5 bg-muted rounded-full text-xs"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </>
-          )}
         </div>
+        {post.tags.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 mb-8 -mt-4">
+            {post.tags.map((tag) => (
+              <span
+                key={tag}
+                className="px-2 py-0.5 bg-muted rounded-full text-xs text-muted-foreground"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
 
         {/* Article content */}
         <article

@@ -54,13 +54,13 @@ export default function BlogPage() {
                     {post.description}
                   </p>
 
-                  <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                  <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
                     <span>{post.readingTime}</span>
                     {post.tags.length > 0 && (
                       <>
-                        <span>·</span>
-                        <div className="flex gap-2">
-                          {post.tags.map((tag) => (
+                        <span className="hidden sm:inline">·</span>
+                        <div className="flex flex-wrap gap-1.5 w-full sm:w-auto mt-2 sm:mt-0">
+                          {post.tags.slice(0, 3).map((tag) => (
                             <span
                               key={tag}
                               className="px-2 py-0.5 bg-muted rounded-full"
@@ -68,6 +68,11 @@ export default function BlogPage() {
                               {tag}
                             </span>
                           ))}
+                          {post.tags.length > 3 && (
+                            <span className="px-2 py-0.5 text-muted-foreground">
+                              +{post.tags.length - 3}
+                            </span>
+                          )}
                         </div>
                       </>
                     )}
