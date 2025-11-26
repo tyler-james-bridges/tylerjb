@@ -20,7 +20,8 @@
     "react-dom": "^19.0.0",
     "resend": "^4.8.0",
     "tailwind-merge": "^3.4.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "vexflow": "^5.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

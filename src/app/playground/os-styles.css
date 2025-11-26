@@ -122,18 +122,28 @@
 
 /* Taskbar */
 .taskbar {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   height: 48px;
-  background: rgba(30, 30, 46, 0.95);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  background: rgba(30, 30, 46, 0.98);
   backdrop-filter: blur(10px);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
-  padding: 0 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   z-index: 9999;
+}
+
+@media (max-width: 768px) {
+  .taskbar {
+    height: auto;
+    min-height: 48px;
+    padding-bottom: max(env(safe-area-inset-bottom, 0), 8px);
+  }
 }
 
 .start-button {
@@ -362,7 +372,7 @@
   bottom: 58px;
   left: 10px;
   width: 320px;
-  max-height: 600px;
+  max-height: calc(100dvh - 80px);
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   border-radius: 12px;
@@ -371,6 +381,18 @@
   z-index: 9999;
   overflow: hidden;
   animation: startMenuSlideUp 0.2s ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .start-menu {
+    left: 5px;
+    right: 5px;
+    width: auto;
+    bottom: calc(56px + env(safe-area-inset-bottom, 0));
+    max-height: calc(100dvh - 80px);
+  }
 }
 
 @keyframes startMenuSlideUp {
@@ -391,6 +413,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 
 .user-avatar {
@@ -422,8 +445,9 @@
 
 .start-menu-content {
   padding: 16px 0;
-  max-height: 400px;
+  flex: 1;
   overflow-y: auto;
+  min-height: 0;
 }
 
 .menu-section {
@@ -490,6 +514,7 @@
   padding: 12px 20px;
   background: rgba(0, 0, 0, 0.05);
   border-top: 1px solid rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
 }
 
 .system-info {

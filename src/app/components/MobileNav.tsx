@@ -2,14 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, User, Briefcase, Mail, Gamepad2 } from "lucide-react";
+import { Home, User, Briefcase, Mail, Drum } from "lucide-react";
 
 const navItems = [
   { href: "/", label: "Home", icon: Home },
   { href: "/about", label: "About", icon: User },
   { href: "/experience", label: "Experience", icon: Briefcase },
   { href: "/contact", label: "Contact", icon: Mail },
-  { href: "/playground", label: "Play", icon: Gamepad2 },
+  { href: "/drums", label: "Drums", icon: Drum },
 ];
 
 export default function MobileNav() {
@@ -26,16 +26,26 @@ export default function MobileNav() {
         {navItems.map((item) => {
           const Icon = item.icon;
           const active = isActive(item.href);
+          const className = `flex flex-col items-center gap-1 px-3 py-2 rounded-lg transition-colors ${
+            active
+              ? "text-foreground"
+              : "text-muted-foreground hover:text-foreground"
+          }`;
+          // For drums, force a full reload to reset game state
+          if (item.href === '/drums') {
+            return (
+              <a key={item.href} href={item.href} className={className}>
+                <Icon
+                  className={`w-6 h-6 ${active ? "stroke-[2.5px]" : "stroke-[1.5px]"}`}
+                />
+                <span className={`text-[10px] ${active ? "font-medium" : ""}`}>
+                  {item.label}
+                </span>
+              </a>
+            );
+          }
           return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`flex flex-col items-center gap-1 px-3 py-2 rounded-lg transition-colors ${
-                active
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
+            <Link key={item.href} href={item.href} className={className}>
               <Icon
                 className={`w-6 h-6 ${active ? "stroke-[2.5px]" : "stroke-[1.5px]"}`}
               />

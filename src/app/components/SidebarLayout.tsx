@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Sidebar from "./Sidebar";
 import MobileNav from "./MobileNav";
 
@@ -10,6 +11,8 @@ interface SidebarLayoutProps {
 
 export default function SidebarLayout({ children }: SidebarLayoutProps) {
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
+  const pathname = usePathname();
+  const isPlayground = pathname === "/playground";
 
   // Detect mobile viewport
   useEffect(() => {
@@ -29,6 +32,11 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
         <div className="spinner w-6 h-6 border-2 border-muted-foreground border-t-foreground rounded-full" />
       </div>
     );
+  }
+
+  // Playground: fullscreen, no sidebar or mobile nav
+  if (isPlayground) {
+    return <>{children}</>;
   }
 
   // Mobile: bottom tab bar + full-width content

@@ -38,7 +38,7 @@ export default function Desktop({ children, onOpenApp }: DesktopProps) {
       {/* Desktop wallpaper */}
       <div className="desktop-wallpaper">
         {/* Unified macOS-style dock with apps and sound studio */}
-        <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 pointer-events-none max-w-[95vw]">
+        <div className="absolute bottom-16 md:bottom-24 left-1/2 transform -translate-x-1/2 pointer-events-none max-w-[95vw]">
           <div className="pointer-events-auto">
             <div className="flex gap-2 md:gap-3 p-3 md:p-4 backdrop-blur-md bg-white/5 rounded-xl border border-white/10 shadow-lg overflow-x-auto">
               {/* App icons */}

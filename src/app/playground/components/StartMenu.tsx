@@ -23,7 +23,6 @@ export default function StartMenu({ isOpen, onClose, onOpenApp }: StartMenuProps
   ];
 
   const systemItems = [
-    { id: 'settings', icon: '⚙️', label: 'Settings', description: 'System preferences' },
     { id: 'shutdown', icon: '🔌', label: 'Shutdown', description: 'Power off system' },
   ];
 
@@ -32,8 +31,6 @@ export default function StartMenu({ isOpen, onClose, onOpenApp }: StartMenuProps
       if (confirm('Are you sure you want to shutdown TylerOS?')) {
         router.push('/');
       }
-    } else if (id === 'settings') {
-      alert('Settings coming soon!');
     } else {
       onOpenApp(id);
     }

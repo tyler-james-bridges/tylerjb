@@ -20,7 +20,7 @@ const navItems = [
   { href: "/about", label: "About Me", emoji: "👤" },
   { href: "/experience", label: "Experience", emoji: "💼" },
   { href: "/contact", label: "Contact", emoji: "✉️" },
-  { href: "/playground", label: "Playground", emoji: "🎮" },
+  { href: "/drums", label: "Drums", emoji: "🥁" },
 ];
 
 const socialLinks = [
@@ -185,6 +185,19 @@ export default function Sidebar({ isMobile }: SidebarProps) {
           </p>
           {navItems.map((item) => {
             const active = isActive(item.href);
+            // For drums, force a full reload to reset game state
+            if (item.href === '/drums') {
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className={`sidebar-nav-item mx-2 ${active ? "active" : ""}`}
+                >
+                  <span className="text-base">{item.emoji}</span>
+                  <span className={active ? "font-medium" : ""}>{item.label}</span>
+                </a>
+              );
+            }
             return (
               <Link
                 key={item.href}
