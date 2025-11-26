@@ -1,6 +1,6 @@
 ---
 title: "Building the Smoke CLI: Making E2E Testing Actually Usable"
-date: "2024-10-15"
+date: "2025-10-15"
 description: "How a frustrating 2 AM debugging session led to a CLI that simplified E2E testing across the entire org."
 tags: ["Developer Experience", "CLI", "Testing", "TypeScript"]
 ---
