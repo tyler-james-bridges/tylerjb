@@ -86,7 +86,6 @@ export default function AboutPage() {
                 className="w-full h-full"
                 src="https://www.youtube.com/embed/-gapbxJ4BFk?si=-daNqFpi5AZmqt-X"
                 title="Performance video"
-                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               />
@@ -96,7 +95,6 @@ export default function AboutPage() {
                 className="w-full h-full"
                 src="https://www.youtube.com/embed/62fP_00dHig?si=RNOOy0d6hArguG91"
                 title="Performance video"
-                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               />
@@ -106,7 +104,6 @@ export default function AboutPage() {
                 className="w-full h-full"
                 src="https://www.youtube.com/embed/9LZSvRP6gKQ?si=yBMltF7mFnpseBLo"
                 title="Performance video"
-                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               />
@@ -116,7 +113,6 @@ export default function AboutPage() {
                 className="w-full h-full"
                 src="https://www.youtube.com/embed/uQX_WrVjrXs?si=EvX_yTJXj4BYgO1N"
                 title="Performance video"
-                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               />

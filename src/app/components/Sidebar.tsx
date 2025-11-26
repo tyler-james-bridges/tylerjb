@@ -4,30 +4,12 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { ThemeToggle } from "./ThemeToggle";
-import {
-  Github,
-  Linkedin,
-  Twitter,
-} from "lucide-react";
 import { createPortal } from "react-dom";
+import { navItems, socialLinks } from "./nav-config";
 
 interface SidebarProps {
   isMobile: boolean;
 }
-
-const navItems = [
-  { href: "/", label: "Home", emoji: "🏠" },
-  { href: "/about", label: "About Me", emoji: "👤" },
-  { href: "/experience", label: "Experience", emoji: "💼" },
-  { href: "/contact", label: "Contact", emoji: "✉️" },
-  { href: "/drums", label: "Drums", emoji: "🥁" },
-];
-
-const socialLinks = [
-  { href: "https://github.com/tyler-james-bridges", label: "GitHub", icon: Github },
-  { href: "https://www.linkedin.com/in/tyler-james-bridges-4344abab", label: "LinkedIn", icon: Linkedin },
-  { href: "https://x.com/tmoney_145", label: "X", icon: Twitter },
-];
 
 export default function Sidebar({ isMobile }: SidebarProps) {
   const pathname = usePathname();

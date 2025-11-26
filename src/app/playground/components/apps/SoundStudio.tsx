@@ -118,7 +118,7 @@ export default function SoundStudio({ embedded = false }: SoundStudioProps) {
         gainNode.disconnect();
       });
     } catch {
-      console.log('Audio playback failed');
+      // Audio playback failed - user likely hasn't interacted with page yet
     }
   }, []);
 
@@ -203,7 +203,7 @@ export default function SoundStudio({ embedded = false }: SoundStudioProps) {
           playBeep(440, 0.3);
       }
     } catch {
-      console.log('Audio not supported or blocked');
+      // Audio not supported or blocked by browser autoplay policy
     } finally {
       // Clear the playing flag after a short delay
       setTimeout(() => {

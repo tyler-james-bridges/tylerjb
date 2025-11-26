@@ -2,15 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, User, Briefcase, Mail, Drum } from "lucide-react";
-
-const navItems = [
-  { href: "/", label: "Home", icon: Home },
-  { href: "/about", label: "About", icon: User },
-  { href: "/experience", label: "Experience", icon: Briefcase },
-  { href: "/contact", label: "Contact", icon: Mail },
-  { href: "/drums", label: "Drums", icon: Drum },
-];
+import { navItems } from "./nav-config";
 
 export default function MobileNav() {
   const pathname = usePathname();
@@ -39,7 +31,7 @@ export default function MobileNav() {
                   className={`w-6 h-6 ${active ? "stroke-[2.5px]" : "stroke-[1.5px]"}`}
                 />
                 <span className={`text-[10px] ${active ? "font-medium" : ""}`}>
-                  {item.label}
+                  {item.shortLabel || item.label}
                 </span>
               </a>
             );
@@ -50,7 +42,7 @@ export default function MobileNav() {
                 className={`w-6 h-6 ${active ? "stroke-[2.5px]" : "stroke-[1.5px]"}`}
               />
               <span className={`text-[10px] ${active ? "font-medium" : ""}`}>
-                {item.label}
+                {item.shortLabel || item.label}
               </span>
             </Link>
           );
