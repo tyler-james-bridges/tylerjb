@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
 
 interface StartMenuProps {
   isOpen: boolean;
@@ -9,6 +10,8 @@ interface StartMenuProps {
 }
 
 export default function StartMenu({ isOpen, onClose, onOpenApp }: StartMenuProps) {
+  const router = useRouter();
+
   if (!isOpen) return null;
 
   const menuItems = [
@@ -27,7 +30,7 @@ export default function StartMenu({ isOpen, onClose, onOpenApp }: StartMenuProps
   const handleItemClick = (id: string) => {
     if (id === 'shutdown') {
       if (confirm('Are you sure you want to shutdown TylerOS?')) {
-        window.location.reload();
+        router.push('/');
       }
     } else if (id === 'settings') {
       alert('Settings coming soon!');

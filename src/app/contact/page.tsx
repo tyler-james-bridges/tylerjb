@@ -1,7 +1,10 @@
 "use client";
 
 import React, { useState, useEffect, Suspense } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+import { Input } from "../components/ui/input";
+import { Textarea } from "../components/ui/textarea";
+import { Button } from "../components/ui/button";
 
 function ContactFormWithParams() {
   const [sending, setSending] = useState(false);
@@ -11,14 +14,17 @@ function ContactFormWithParams() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    const service = searchParams.get('service');
+    const service = searchParams.get("service");
     if (service) {
       const serviceMessages: { [key: string]: string } = {
-        'basic-landing': 'Hi! I\'m interested in the Basic Landing Page service. I\'d like to learn more about getting started with a landing page for my business.',
-        'pro-landing': 'Hi! I\'m interested in the Professional Landing Page service with advanced features and integrations. I\'d like to discuss my requirements.',
-        'small-business': 'Hi! I\'m interested in the Small Business Site package. I need a complete website for my business and would like to discuss the details.',
+        "basic-landing":
+          "Hi! I'm interested in the Basic Landing Page service. I'd like to learn more about getting started with a landing page for my business.",
+        "pro-landing":
+          "Hi! I'm interested in the Professional Landing Page service with advanced features and integrations. I'd like to discuss my requirements.",
+        "small-business":
+          "Hi! I'm interested in the Small Business Site package. I need a complete website for my business and would like to discuss the details.",
       };
-      setInitialMessage(serviceMessages[service] || '');
+      setInitialMessage(serviceMessages[service] || "");
     }
   }, [searchParams]);
 
@@ -29,9 +35,10 @@ function ContactFormWithParams() {
     setSuccess(false);
     const form = e.currentTarget;
     const data = {
-      name: (form.elements.namedItem('name') as HTMLInputElement).value,
-      email: (form.elements.namedItem('email') as HTMLInputElement).value,
-      message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement)
+        .value,
     };
     try {
       const res = await fetch("/api/contact", {
@@ -52,110 +59,109 @@ function ContactFormWithParams() {
   }
 
   return (
-    <section className="space-y-8">
-      <form className="space-y-6" onSubmit={handleSubmit}>
-        <div>
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-white"
-          >
-            Name
-          </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            className="mt-1 block w-full rounded-xl border border-neutral-300 bg-neutral-900 text-neutral-100 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-neutral-400"
-          />
-        </div>
-        <div>
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-white"
-          >
-            Email
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            className="mt-1 block w-full rounded-xl border border-neutral-300 bg-neutral-900 text-neutral-100 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-neutral-400"
-          />
-        </div>
-        <div>
-          <label
-            htmlFor="message"
-            className="block text-sm font-medium text-white"
-          >
-            Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            rows={4}
-            required
-            defaultValue={initialMessage}
-            className="mt-1 block w-full rounded-xl border border-neutral-300 bg-neutral-900 text-neutral-100 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-neutral-400"
-          />
-        </div>
-        <button
-          type="submit"
-          className="px-8 py-4 rounded-xl bg-white text-black font-semibold hover:scale-105 hover:shadow-2xl hover:shadow-white/25 transition-all duration-300"
-          disabled={sending}
+    <form className="space-y-4" onSubmit={handleSubmit}>
+      <div>
+        <label
+          htmlFor="name"
+          className="block text-sm font-medium text-foreground mb-1"
         >
-          {sending ? "Sending..." : "Send"}
-        </button>
-      </form>
+          Name
+        </label>
+        <Input id="name" name="name" type="text" required />
+      </div>
+      <div>
+        <label
+          htmlFor="email"
+          className="block text-sm font-medium text-foreground mb-1"
+        >
+          Email
+        </label>
+        <Input id="email" name="email" type="email" required />
+      </div>
+      <div>
+        <label
+          htmlFor="message"
+          className="block text-sm font-medium text-foreground mb-1"
+        >
+          Message
+        </label>
+        <Textarea
+          id="message"
+          name="message"
+          rows={4}
+          required
+          defaultValue={initialMessage}
+        />
+      </div>
+      <Button type="submit" disabled={sending} className="w-full">
+        {sending ? "Sending..." : "Send Message"}
+      </Button>
       {success && (
-        <div className="text-green-500 text-center font-semibold">
+        <div className="text-green-600 dark:text-green-400 text-center text-sm p-3 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800">
           Message sent! I&apos;ll get back to you soon.
         </div>
       )}
       {error && (
-        <div className="text-red-500 text-center font-semibold">
+        <div className="text-red-600 dark:text-red-400 text-center text-sm p-3 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800">
           {error}
         </div>
       )}
-      {/* Social/email links moved to persistent footer */}
-    </section>
+    </form>
   );
 }
 
 export default function ContactPage() {
-  const router = useRouter();
   return (
-    <main className="min-h-screen bg-background text-foreground font-serif px-6 py-16 transition-colors duration-300 rounded-xl">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <div className="max-w-4xl mx-auto space-y-12">
-        <header className="space-y-4">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
-            Contact
-          </h1>
-          <p className="text-lg text-white max-w-3xl">
-            Want to get in touch? Fill out the form below or reach out via
-            email/social.
-          </p>
-        </header>
-        <Suspense fallback={<div>Loading...</div>}>
+    <div className="animate-slide-up">
+      {/* Header */}
+      <header className="content-header">
+        <h1 className="text-2xl font-bold">✉️ Contact</h1>
+      </header>
+
+      {/* Content */}
+      <div className="content-body prose-notes">
+        <p className="text-muted-foreground mb-6">
+          Want to get in touch? Fill out the form below or reach out via email.
+        </p>
+
+        <Suspense
+          fallback={
+            <div className="text-muted-foreground">Loading form...</div>
+          }
+        >
           <ContactFormWithParams />
         </Suspense>
-        
-        <footer className="pt-12 text-center text-sm text-neutral-500">
-          <p>
-            Sometimes the 
-            <span 
-              className="cursor-pointer hover:text-teal-400 transition-colors duration-200" 
-              onClick={() => router.push('/playground')}
-              title="🚀 Enter the playground"
-            >
-              dock
-            </span> 
-            is broken. Sometimes it&apos;s exactly what you need.
-          </p>
-        </footer>
+
+        <div className="mt-8 pt-6 border-t border-border">
+          <h2>Other ways to reach me</h2>
+          <ul className="space-y-2">
+            <li>
+              <span className="text-muted-foreground">Email:</span>{" "}
+              <a href="mailto:tylerjamesbridges@gmail.com" className="text-blue-600 dark:text-blue-400 hover:underline">
+                tylerjamesbridges@gmail.com
+              </a>
+            </li>
+            <li>
+              <span className="text-muted-foreground">GitHub:</span>{" "}
+              <a href="https://github.com/tyler-james-bridges" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">
+                @tyler-james-bridges
+              </a>
+            </li>
+            <li>
+              <span className="text-muted-foreground">LinkedIn:</span>{" "}
+              <a href="https://www.linkedin.com/in/tyler-james-bridges-4344abab" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">
+                Tyler James-Bridges
+              </a>
+            </li>
+            <li>
+              <span className="text-muted-foreground">X:</span>{" "}
+              <a href="https://x.com/tmoney_145" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">
+                @tmoney_145
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </main>
+    </div>
   );
 }

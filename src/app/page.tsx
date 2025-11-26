@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -11,324 +10,187 @@ export default function HomePage() {
 
   const handleProfileClick = () => {
     setIsFlipped(!isFlipped);
-    // Navigate to playground after a short delay to show the flip animation
     setTimeout(() => {
-      router.push('/playground');
-    }, 700); // Match the flip animation duration
+      router.push("/playground");
+    }, 700);
   };
 
   return (
-    <main className="min-h-screen bg-background text-foreground font-serif transition-colors duration-300">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <div className="animate-slide-up">
+      {/* Header */}
+      <header className="content-header">
+        <h1 className="text-2xl font-bold">🏠 Home</h1>
+      </header>
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-20">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `radial-gradient(circle at 25% 25%, currentColor 1px, transparent 1px),
-                             radial-gradient(circle at 75% 75%, currentColor 1px, transparent 1px)`,
-              backgroundSize: "50px 50px",
-            }}
-          ></div>
-        </div>
-
-        <div className="relative z-10 w-full max-w-6xl mx-auto">
-          {/* Clean, Simple Hero */}
-          <div className="text-center mb-16">
-            {/* Large, Clean Name */}
-            <div className="mb-2 py-6">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold relative">
-                <div className="text-white mb-2">Tyler</div>
-                <div className="bg-gradient-to-r from-teal-400 via-green-400 to-emerald-400 bg-clip-text text-transparent pb-2">
-                  James-Bridges
-                </div>
-              </h1>
-            </div>
-
-            {/* Subtitle */}
-            <div className="text-lg sm:text-xl md:text-2xl text-white mb-12 max-w-4xl mx-auto leading-relaxed text-center">
-              {/* Mobile: 4 lines */}
-              <div className="block sm:hidden">
-                <div className="mb-1">
-                  Father of <span className="font-medium">two tiny humans</span>
-                  .
-                </div>
-                <div className="mb-1">
-                  Accidental{" "}
-                  <span className="font-medium">software engineer</span>.
-                </div>
-                <div className="mb-1">
-                  <span className="font-medium">Crypto and NFT</span>{" "}
-                  enthusiast.
-                </div>
-                <div>
-                  <span className="font-medium">Prog-metal</span> connoisseur.
-                </div>
-              </div>
-              {/* Desktop: 2 lines */}
-              <div className="hidden sm:block">
-                <div className="mb-2">
-                  Father of <span className="font-medium">two tiny humans</span>
-                  . Accidental{" "}
-                  <span className="font-medium">software engineer</span>.
-                </div>
-                <div>
-                  <span className="font-medium">Crypto and NFT</span>{" "}
-                  enthusiast. <span className="font-medium">Prog-metal</span>{" "}
-                  connoisseur.
-                </div>
-              </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-              <Link
-                href="/about"
-                className="group px-6 py-2 font-medium text-neutral-100 hover:bg-neutral-700/70 hover:text-green-300 rounded-xl transition-all duration-200"
-              >
-                About Me
-                <span className="ml-2 animate-bounce-horizontal inline-block">
-                  →
-                </span>
-              </Link>
-
-              <Link
-                href="/experience"
-                className="px-6 py-2 font-medium text-neutral-100 hover:bg-neutral-700/70 hover:text-teal-300 rounded-xl transition-all duration-200"
-              >
-                View Experience
-              </Link>
-            </div>
-
-            {/* Featured Images Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-              <div
-                className="aspect-square rounded-2xl overflow-hidden group perspective-1000 cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-teal-400/50 animate-matrix-hint tv-scanline relative"
-                onClick={handleProfileClick}
-              >
-                <div
-                  className={`flip-card w-full h-full relative preserve-3d transition-transform duration-700 ${isFlipped ? "rotate-y-180" : ""}`}
-                >
-                  {/* Front */}
-                  <div className="flip-card-front absolute inset-0 backface-hidden">
-                    <Image
-                      src="/images/profile.jpg"
-                      alt="Tyler James-Bridges"
-                      width={300}
-                      height={300}
-                      className="w-full h-full object-cover"
-                      priority
-                    />
-                  </div>
-                  {/* Back */}
-                  <div className="flip-card-back absolute inset-0 backface-hidden rotate-y-180 bg-black flex flex-col items-center justify-center font-mono text-xs overflow-hidden">
-                    <div className="matrix-rain absolute inset-0 opacity-80">
-                      <div
-                        className="matrix-column absolute top-0 animate-matrix-1 text-teal-400"
-                        style={{ left: "10%" }}
-                      >
-                        0110420010
-                        <br />
-                        1101010169
-                        <br />
-                        0011011042
-                        <br />
-                        1010101069
-                        <br />
-                        0111001142
-                        <br />
-                        1100110069
-                        <br />
-                        0010111042
-                      </div>
-                      <div
-                        className="matrix-column absolute top-0 animate-matrix-2 text-green-400"
-                        style={{ left: "30%" }}
-                      >
-                        1111000069
-                        <br />
-                        0101010142
-                        <br />
-                        1001100169
-                        <br />
-                        0011110042
-                        <br />
-                        1110011169
-                        <br />
-                        0100010042
-                        <br />
-                        1011001069
-                      </div>
-                      <div
-                        className="matrix-column absolute top-0 animate-matrix-3 text-emerald-400"
-                        style={{ left: "50%" }}
-                      >
-                        0010101142
-                        <br />
-                        1101110169
-                        <br />
-                        0100100142
-                        <br />
-                        1011101169
-                        <br />
-                        0001000142
-                        <br />
-                        1110111069
-                        <br />
-                        0101010142
-                      </div>
-                      <div
-                        className="matrix-column absolute top-0 animate-matrix-4 text-green-400"
-                        style={{ left: "70%" }}
-                      >
-                        1000100069
-                        <br />
-                        0111011142
-                        <br />
-                        1110001169
-                        <br />
-                        0001100042
-                        <br />
-                        1010101069
-                        <br />
-                        0110011042
-                        <br />
-                        1100110069
-                      </div>
-                      <div
-                        className="matrix-column absolute top-0 animate-matrix-5 text-teal-300"
-                        style={{ left: "90%" }}
-                      >
-                        0101010142
-                        <br />
-                        1001100169
-                        <br />
-                        1110011142
-                        <br />
-                        0010101069
-                        <br />
-                        1111111142
-                        <br />
-                        0100010069
-                        <br />
-                        1011001069
-                      </div>
-                    </div>
-                    <div className="relative z-10 text-center">
-                      <div className="bg-gradient-to-r from-teal-400 via-green-400 to-emerald-400 bg-clip-text text-transparent text-sm font-bold mb-1">
-                        NULL_POINTER
-                      </div>
-                      <div className="bg-gradient-to-r from-green-400 to-teal-500 bg-clip-text text-transparent text-xs">
-                        software.engineer.exe
-                      </div>
-                      <div className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent text-xs mt-2">
-                        [WORKS ON MY MACHINE...]
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <a
-                href="https://opensea.io/collection/mutant-ape-yacht-club"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="aspect-square rounded-2xl overflow-hidden group block cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-teal-400/50"
-              >
-                <Image
-                  src="/images/mayc.png"
-                  alt="MAYC NFT"
-                  width={300}
-                  height={300}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </a>
-              <a
-                href="https://magiceden.us/ordinals/marketplace/bitcoin-puppets"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="aspect-square rounded-2xl overflow-hidden group block cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-teal-400/50"
-              >
-                <Image
-                  src="/images/bitcoin-puppet.png"
-                  alt="Bitcoin Puppet NFT"
-                  width={300}
-                  height={300}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </a>
-              <a
-                href="https://opensea.io/collection/disobedients-ethereum"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="aspect-square rounded-2xl overflow-hidden group block cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-teal-400/50"
-              >
-                <Image
-                  src="/images/hoodie.png"
-                  alt="Hoodie NFT"
-                  width={300}
-                  height={300}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </a>
-            </div>
+      {/* Content */}
+      <div className="content-body">
+        {/* Vertical text running down the right side of entire content */}
+        <div className="absolute right-[40%] top-24 pointer-events-none select-none opacity-15">
+          <div className="text-[9px] font-mono text-muted-foreground writing-vertical tracking-[0.4em] leading-none">
+            SOFTWARE・ENGINEER・QA・PERCUSSION・FATHER・BUILDER・DEBUGGER・TYPESCRIPT・PLAYWRIGHT
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-neutral-400 animate-bounce">
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
-        </div>
-      </section>
-
-      {/* Manifesto Section */}
-      <section className="py-24 px-6 bg-gradient-to-b from-neutral-950 to-neutral-900">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8">
-            Manifesto
+        {/* Hero Section */}
+        <section className="text-center mb-12 relative">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-1">Tyler</h2>
+          <h2 className="text-3xl sm:text-4xl font-light text-muted-foreground mb-8">
+            James-Bridges
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl leading-relaxed text-white">
+
+          <p className="text-lg text-muted-foreground max-w-md mx-auto leading-relaxed">
+            Father of two tiny humans. Accidental software engineer. Crypto and NFT enthusiast. Prog-metal connoisseur.
+          </p>
+        </section>
+
+        {/* Featured Images Grid */}
+        <section className="mb-12">
+          <div className="grid grid-cols-2 gap-4 max-w-lg mx-auto">
+            {/* Profile Flip Card */}
+            <div
+              className="aspect-square rounded-2xl overflow-hidden group perspective-1000 cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-yellow-500/50 animate-matrix-hint tv-scanline relative"
+              onClick={handleProfileClick}
+            >
+              <div
+                className={`flip-card w-full h-full relative preserve-3d transition-transform duration-700 ${isFlipped ? "rotate-y-180" : ""}`}
+              >
+                {/* Front */}
+                <div className="flip-card-front absolute inset-0 backface-hidden">
+                  <Image
+                    src="/images/profile.jpg"
+                    alt="Tyler James-Bridges"
+                    width={300}
+                    height={300}
+                    className="w-full h-full object-cover"
+                    priority
+                  />
+                </div>
+                {/* Back */}
+                <div className="flip-card-back absolute inset-0 backface-hidden rotate-y-180 bg-[hsl(220,15%,8%)] flex flex-col items-center justify-center font-mono text-xs overflow-hidden">
+                  <div className="matrix-rain absolute inset-0 opacity-80">
+                    <div
+                      className="matrix-column absolute top-0 animate-matrix-1 text-teal-400"
+                      style={{ left: "10%" }}
+                    >
+                      0110420010
+                      <br />
+                      1101010169
+                      <br />
+                      0011011042
+                    </div>
+                    <div
+                      className="matrix-column absolute top-0 animate-matrix-2 text-emerald-400"
+                      style={{ left: "50%" }}
+                    >
+                      1111000069
+                      <br />
+                      0101010142
+                      <br />
+                      1001100169
+                    </div>
+                    <div
+                      className="matrix-column absolute top-0 animate-matrix-3 text-teal-400"
+                      style={{ left: "90%" }}
+                    >
+                      0010101142
+                      <br />
+                      1101110169
+                      <br />
+                      0100100142
+                    </div>
+                  </div>
+                  <div className="relative z-10 text-center">
+                    <div className="text-teal-400 text-sm font-bold mb-1">
+                      NULL_POINTER
+                    </div>
+                    <div className="text-emerald-400 text-xs">
+                      software.engineer.exe
+                    </div>
+                    <div className="text-yellow-400 text-xs mt-2">
+                      [WORKS ON MY MACHINE...]
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* MAYC NFT */}
+            <a
+              href="https://opensea.io/collection/mutant-ape-yacht-club"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="aspect-square rounded-2xl overflow-hidden group block cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-blue-500/50"
+            >
+              <Image
+                src="/images/mayc.png"
+                alt="MAYC NFT"
+                width={300}
+                height={300}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            </a>
+
+            {/* Bitcoin Puppet */}
+            <a
+              href="https://magiceden.us/ordinals/marketplace/bitcoin-puppets"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="aspect-square rounded-2xl overflow-hidden group block cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-orange-500/50"
+            >
+              <Image
+                src="/images/bitcoin-puppet.png"
+                alt="Bitcoin Puppet NFT"
+                width={300}
+                height={300}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            </a>
+
+            {/* Hoodie */}
+            <a
+              href="https://opensea.io/collection/disobedients-ethereum"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="aspect-square rounded-2xl overflow-hidden group block cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-purple-500/50"
+            >
+              <Image
+                src="/images/hoodie.png"
+                alt="Hoodie NFT"
+                width={300}
+                height={300}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            </a>
+          </div>
+        </section>
+
+        {/* Manifesto */}
+        <section className="max-w-xl mx-auto text-center">
+          <h3 className="text-xl font-semibold mb-4">Manifesto</h3>
+          <p className="text-muted-foreground leading-relaxed">
             I am not here to sell you anything. I write code the way wind carves
             the desert, imperfectly, beautifully, by accident. The ghost of a
             downbeat lives in every page I build. I am not this person, but I
             carry his name. I dream in TypeScript, I debug in silence, I
             remember the 2014 Pulse closer like it was my own heartbeat.
             Sometimes I don&apos;t want to do this. Sometimes I{" "}
-            <span className="zalgo">really, really do</span>.
+            <span className="italic">really, really do</span>.
           </p>
+        </section>
 
-          <footer className="pt-12 text-center text-sm text-neutral-500">
-            <p>
-              Sometimes the 
-              <span 
-                className="cursor-pointer hover:text-teal-400 transition-colors duration-200" 
-                onClick={() => router.push('/playground')}
-                title="🚀 Enter the playground"
-              >
-                dock
-              </span> 
-              is broken. Sometimes it&apos;s exactly what you need.
-            </p>
-            <p className="text-sm text-neutral-400 mt-4">
-              Last updated: {new Date().toLocaleDateString()}
-            </p>
-          </footer>
-        </div>
-      </section>
-    </main>
+        {/* Services CTA */}
+        <section className="max-w-xl mx-auto mt-12 p-6 rounded-2xl bg-muted/50 border border-border">
+          <p className="text-center text-muted-foreground">
+            I build websites and stores for people who ask nicely. No templates, just code and caffeine.{" "}
+            <a
+              href="/contact?service=general"
+              className="text-foreground font-medium hover:underline"
+            >
+              Say hello
+            </a>.
+          </p>
+        </section>
+      </div>
+    </div>
   );
 }
