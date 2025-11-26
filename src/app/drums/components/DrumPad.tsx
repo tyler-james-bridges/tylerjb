@@ -12,11 +12,12 @@ interface DrumPadProps {
 export default function DrumPad({ onTap, expectedHand, feedback, disabled }: DrumPadProps) {
   const [isPressed, setIsPressed] = useState(false);
 
+  // For mouse/keyboard - handles press visual + tap
   const handleTap = useCallback(() => {
     if (!disabled) {
       setIsPressed(true);
       onTap();
-      setTimeout(() => setIsPressed(false), 100);
+      setTimeout(() => setIsPressed(false), 80);
     }
   }, [onTap, disabled]);
 
@@ -43,8 +44,21 @@ export default function DrumPad({ onTap, expectedHand, feedback, disabled }: Dru
       <button
         onClick={handleTap}
         onTouchStart={(e) => {
+          // Prevent default to avoid double-firing with onClick
           e.preventDefault();
-          handleTap();
+          // Visual feedback on touch down
+          setIsPressed(true);
+        }}
+        onTouchEnd={(e) => {
+          e.preventDefault();
+          // Trigger the note on release (one tap = one note)
+          setIsPressed(false);
+          if (!disabled) {
+            onTap();
+          }
+        }}
+        onTouchCancel={() => {
+          setIsPressed(false);
         }}
         disabled={disabled}
         className={`
