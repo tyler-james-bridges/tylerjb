@@ -572,10 +572,6 @@ export const rudiments: Rudiment[] = [
   },
 ];
 
-/** Get rudiments by category */
-export const getRudimentsByCategory = (category: Rudiment['category']): Rudiment[] =>
-  rudiments.filter(r => r.category === category);
-
 /** Get rudiments by difficulty */
 export const getRudimentsByDifficulty = (difficulty: Rudiment['difficulty']): Rudiment[] =>
   rudiments.filter(r => r.difficulty === difficulty);
