@@ -1,26 +1,26 @@
 # Tyler James-Bridges
 
-Welcome to the personal site and portfolio of Tyler James-Bridges: Dad, Software Engineer, Educator, and Percussionist. This project is built with Next.js, Tailwind CSS, and features custom fonts.
+Personal site of Tyler James-Bridges — software engineer, percussion instructor, and collector of JPEGs on various blockchains.
 
-## Tech Stack
+## Stack
 
-- [Next.js](https://nextjs.org) — React framework for fast, modern web apps
-- [Tailwind CSS](https://tailwindcss.com) — Utility-first CSS for rapid UI development
-- TypeScript — Strongly typed language for building scalable applications
-- JavaScript — Versatile scripting language for added functionality
-- CSS — Core tool for designing clean, responsive user interfaces
-- [Nanum Myeongjo](https://fonts.google.com/specimen/Nanum+Myeongjo) — Elegant serif typography
+- Next.js 15 / React 19 / TypeScript
+- Tailwind CSS
+- Vercel
 
-## Features
+## What's Here
 
-- Responsive layout for desktop and mobile
-- Custom theme and fonts
-- Dynamic experience and manifesto sections
-- Easy-to-update content in `src/app/page.tsx`
+- **Home** — NFT showcase, manifesto, services CTA
+- **About** — The percussion journey (SCV, Blue Stars, Pulse) with performance videos
+- **Experience** — Weedmaps career + music education roles
+- **Contact** — For freelance inquiries or general hellos
 
-## About
+## Highlights
 
-This site showcases Tyler's work in software engineering, music education, and creative projects. For updates or collaboration, reach out via the contact info on the site.
+- Flippable profile card with Matrix rain animation
+- NFT grid linking to OpenSea and Magic Eden collections
+- Embedded YouTube performances from drum corps days
+- Mobile-first responsive design
 
 ---
 
