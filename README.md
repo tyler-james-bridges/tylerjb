@@ -1,6 +1,6 @@
 # Tyler James-Bridges
 
-Personal site of Tyler James-Bridges — software engineer, percussion instructor, and collector of JPEGs on various blockchains.
+Personal site of Tyler James-Bridges - software engineer, percussion instructor, and collector of JPEGs on various blockchains.
 
 ## Stack
 
@@ -10,10 +10,10 @@ Personal site of Tyler James-Bridges — software engineer, percussion instructo
 
 ## What's Here
 
-- **Home** — NFT showcase, manifesto, services CTA
-- **About** — The percussion journey (SCV, Blue Stars, Pulse) with performance videos
-- **Experience** — Weedmaps career + music education roles
-- **Contact** — For freelance inquiries or general hellos
+- **Home** - NFT showcase, manifesto, services CTA
+- **About** - The percussion journey (SCV, Blue Stars, Pulse) with performance videos
+- **Experience** - Weedmaps career + music education roles
+- **Contact** - For freelance inquiries or general hellos
 
 ## Highlights
 
@@ -22,6 +22,4 @@ Personal site of Tyler James-Bridges — software engineer, percussion instructo
 - Embedded YouTube performances from drum corps days
 - Mobile-first responsive design
 
----
-
-Made with 💚 by Tyler James-Bridges
+Made with 💚 by Tyler James-Bridges & Claude Code
