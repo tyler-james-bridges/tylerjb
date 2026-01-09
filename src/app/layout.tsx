@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: "%s | Tyler James-Bridges",
   },
   description:
-    "Personal portfolio of Tyler James-Bridges: Software Engineer, Educator, and Percussionist.",
+    "Software Engineer with 10+ years in QA and test automation. Percussionist and educator. Open to opportunities.",
   keywords: [
     "Tyler James-Bridges",
     "Software Engineer",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     url: "https://tylerjb.dev",
     title: "Tyler James-Bridges",
     description:
-      "Personal portfolio showcasing software engineering expertise, educational background, and creative projects.",
+      "Software Engineer with 10+ years in QA and test automation. Percussionist and educator. Open to opportunities.",
     siteName: "Tyler James-Bridges",
     images: [
       {
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Tyler James-Bridges",
     description:
-      "Software Engineer with 10 years expertise in software development and testing",
+      "Software Engineer with 10+ years in QA and test automation. Percussionist and educator. Open to opportunities.",
     creator: "@tmoney_145",
     images: ["/images/profile.jpg"],
   },

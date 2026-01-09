@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import React, { useState, Suspense } from "react";
 import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
 import { Button } from "../components/ui/button";
@@ -10,23 +9,6 @@ function ContactFormWithParams() {
   const [sending, setSending] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
-  const [initialMessage, setInitialMessage] = useState("");
-  const searchParams = useSearchParams();
-
-  useEffect(() => {
-    const service = searchParams.get("service");
-    if (service) {
-      const serviceMessages: { [key: string]: string } = {
-        "basic-landing":
-          "Hi! I'm interested in the Basic Landing Page service. I'd like to learn more about getting started with a landing page for my business.",
-        "pro-landing":
-          "Hi! I'm interested in the Professional Landing Page service with advanced features and integrations. I'd like to discuss my requirements.",
-        "small-business":
-          "Hi! I'm interested in the Small Business Site package. I need a complete website for my business and would like to discuss the details.",
-      };
-      setInitialMessage(serviceMessages[service] || "");
-    }
-  }, [searchParams]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -34,11 +16,12 @@ function ContactFormWithParams() {
     setError("");
     setSuccess(false);
     const form = e.currentTarget;
+    const purpose = (form.elements.namedItem("purpose") as HTMLSelectElement).value;
+    const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value;
     const data = {
       name: (form.elements.namedItem("name") as HTMLInputElement).value,
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
-      message: (form.elements.namedItem("message") as HTMLTextAreaElement)
-        .value,
+      message: `[${purpose}] ${message}`.trim(),
     };
     try {
       const res = await fetch("/api/contact", {
@@ -60,40 +43,61 @@ function ContactFormWithParams() {
 
   return (
     <form className="space-y-4" onSubmit={handleSubmit}>
-      <div>
-        <label
-          htmlFor="name"
-          className="block text-sm font-medium text-foreground mb-1"
-        >
-          Name
-        </label>
-        <Input id="name" name="name" type="text" required />
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium text-foreground mb-1.5"
+          >
+            Name
+          </label>
+          <Input id="name" name="name" type="text" required className="input-glow" />
+        </div>
+        <div>
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-foreground mb-1.5"
+          >
+            Email
+          </label>
+          <Input id="email" name="email" type="email" required className="input-glow" />
+        </div>
       </div>
       <div>
         <label
-          htmlFor="email"
-          className="block text-sm font-medium text-foreground mb-1"
+          htmlFor="purpose"
+          className="block text-sm font-medium text-foreground mb-1.5"
         >
-          Email
+          What brings you here?
         </label>
-        <Input id="email" name="email" type="email" required />
+        <select
+          id="purpose"
+          name="purpose"
+          required
+          className="flex h-10 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm ring-offset-background input-glow focus-visible:outline-none"
+        >
+          <option value="">Select an option...</option>
+          <option value="Hiring / Job Opportunity">Hiring / Job Opportunity</option>
+          <option value="Freelance Project">Freelance Project</option>
+          <option value="Just Saying Hi">Just Saying Hi</option>
+        </select>
       </div>
       <div>
         <label
           htmlFor="message"
-          className="block text-sm font-medium text-foreground mb-1"
+          className="block text-sm font-medium text-foreground mb-1.5"
         >
-          Message
+          Message <span className="text-muted-foreground font-normal">(optional)</span>
         </label>
         <Textarea
           id="message"
           name="message"
-          rows={4}
-          required
-          defaultValue={initialMessage}
+          rows={3}
+          placeholder="Tell me a bit more..."
+          className="input-glow"
         />
       </div>
-      <Button type="submit" disabled={sending} className="w-full">
+      <Button type="submit" disabled={sending} className="w-full btn-lift rounded-xl">
         {sending ? "Sending..." : "Send Message"}
       </Button>
       {success && (
@@ -131,6 +135,10 @@ export default function ContactPage() {
         >
           <ContactFormWithParams />
         </Suspense>
+
+        <p className="text-xs text-muted-foreground text-center mt-4">
+          I typically respond within 24 hours.
+        </p>
 
         <div className="mt-8 pt-6 border-t border-border">
           <h2>Other ways to reach me</h2>
