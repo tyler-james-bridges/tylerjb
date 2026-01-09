@@ -91,23 +91,23 @@ export default function ExperiencePage() {
 
       {/* Content */}
       <div className="content-body prose-notes">
-        <section className="mb-8">
-          <h2>Work Experience</h2>
-          {jobs.map((job) => (
-            <div key={job.company} className="mb-8">
-              <div className="flex justify-between items-baseline mb-2">
-                <h3 className="font-semibold">{job.company}</h3>
+        <section className="mb-10 stagger-1">
+          <h2 className="text-2xl">Work Experience</h2>
+          {jobs.map((job, jobIndex) => (
+            <div key={job.company} className={`mb-8 stagger-${Math.min(jobIndex + 2, 6)}`}>
+              <div className="flex justify-between items-baseline mb-3">
+                <h3 className="font-semibold text-lg">{job.company}</h3>
                 <span className="text-sm text-muted-foreground">{job.period}</span>
               </div>
               {job.roles.map((role) => (
-                <div key={role.title} className="mb-4 pl-4 border-l-2 border-border">
+                <div key={role.title} className="mb-4 pl-4 border-l-2 border-border hover:border-[hsl(38,92%,50%)] transition-colors">
                   <div className="flex justify-between items-baseline">
                     <span className="font-medium">{role.title}</span>
                     <span className="text-xs text-muted-foreground">{role.period}</span>
                   </div>
-                  <ul className="mt-2 space-y-1">
+                  <ul className="mt-2 space-y-1.5">
                     {role.bullets.map((bullet, i) => (
-                      <li key={i} className="text-sm">{bullet}</li>
+                      <li key={i} className="text-sm text-muted-foreground">{bullet}</li>
                     ))}
                   </ul>
                 </div>
@@ -116,14 +116,14 @@ export default function ExperiencePage() {
           ))}
         </section>
 
-        <section>
-          <h2>Music & Education</h2>
+        <section className="stagger-4">
+          <h2 className="text-2xl">Music & Education</h2>
           <p className="text-muted-foreground mb-4">
             Teaching and performing across the marching arts world.
           </p>
-          <div className="space-y-3">
+          <div className="space-y-2">
             {musicExperience.map((exp) => (
-              <div key={exp.org} className="flex justify-between items-baseline py-2 border-b border-border last:border-0">
+              <div key={exp.org} className="flex justify-between items-baseline py-2.5 border-b border-border last:border-0 hover:bg-muted/50 -mx-2 px-2 rounded transition-colors">
                 <div>
                   <span className="font-medium">{exp.org}</span>
                   <span className="text-muted-foreground ml-2">· {exp.role}</span>

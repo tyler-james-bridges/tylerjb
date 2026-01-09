@@ -18,36 +18,36 @@
   }
 
   :root {
-    /* Light Mode - Clean, minimal */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 20%;
+    /* Light Mode - Warm, sophisticated (2026 refresh) */
+    --background: 40 20% 99%;
+    --foreground: 30 10% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+    --card: 40 15% 98%;
+    --card-foreground: 30 10% 10%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
+    --popover: 40 15% 98%;
+    --popover-foreground: 30 10% 10%;
 
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 30 8% 12%;
+    --primary-foreground: 40 20% 98%;
 
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
+    --secondary: 35 15% 95%;
+    --secondary-foreground: 30 8% 12%;
 
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
+    --muted: 35 12% 94%;
+    --muted-foreground: 30 8% 42%;
 
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
+    --accent: 35 15% 95%;
+    --accent-foreground: 30 8% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
+    --border: 35 10% 88%;
+    --input: 35 10% 88%;
+    --ring: 38 92% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.625rem;
 
     /* Selection highlight - gold */
     --selection: 45 100% 72%;
@@ -58,34 +58,34 @@
   }
 
   .dark {
-    /* Dark Mode - Warm dark like notes app */
-    --background: 0 0% 12%;
-    --foreground: 0 0% 98%;
+    /* Dark Mode - Warm charcoal (2026 refresh) */
+    --background: 30 8% 9%;
+    --foreground: 35 15% 95%;
 
-    --card: 0 0% 12%;
-    --card-foreground: 0 0% 98%;
+    --card: 30 6% 11%;
+    --card-foreground: 35 15% 95%;
 
-    --popover: 0 0% 12%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 30 6% 11%;
+    --popover-foreground: 35 15% 95%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
+    --primary: 35 15% 95%;
+    --primary-foreground: 30 8% 9%;
 
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 30 6% 15%;
+    --secondary-foreground: 35 15% 95%;
 
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
+    --muted: 30 6% 15%;
+    --muted-foreground: 30 8% 58%;
 
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 30 6% 15%;
+    --accent-foreground: 35 15% 95%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
+    --border: 30 6% 18%;
+    --input: 30 6% 18%;
+    --ring: 38 92% 50%;
   }
 }
 
@@ -548,4 +548,88 @@
 @keyframes hacker-scan {
   0% { top: 0; }
   100% { top: 100%; }
+}
+
+/* ============================================
+   2026 MICRO-INTERACTIONS
+   ============================================ */
+
+/* Button lift effect */
+.btn-lift {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.btn-lift:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* Card hover lift */
+.card-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border-color: hsl(38 92% 50% / 0.3);
+}
+
+/* Subtle badge hover */
+.badge-hover {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.badge-hover:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Input focus glow */
+.input-glow:focus {
+  box-shadow: 0 0 0 3px hsl(38 92% 50% / 0.15);
+  border-color: hsl(38 92% 50%);
+}
+
+/* Staggered fade-up animations */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-1 { animation: fade-up 0.4s ease 0.05s both; }
+.stagger-2 { animation: fade-up 0.4s ease 0.1s both; }
+.stagger-3 { animation: fade-up 0.4s ease 0.15s both; }
+.stagger-4 { animation: fade-up 0.4s ease 0.2s both; }
+.stagger-5 { animation: fade-up 0.4s ease 0.25s both; }
+.stagger-6 { animation: fade-up 0.4s ease 0.3s both; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .btn-lift:hover,
+  .card-lift:hover,
+  .badge-hover:hover {
+    transform: none;
+  }
+
+  .stagger-1, .stagger-2, .stagger-3,
+  .stagger-4, .stagger-5, .stagger-6 {
+    animation: none;
+    opacity: 1;
+  }
+
+  .animate-slide-up {
+    animation: none;
+  }
 }

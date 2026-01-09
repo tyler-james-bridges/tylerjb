@@ -25,20 +25,20 @@ export default function BlogPage() {
       </header>
 
       <div className="content-body prose-notes">
-        <p className="text-muted-foreground mb-8">
+        <p className="text-muted-foreground mb-8 stagger-1">
           Thoughts on engineering, quality, automation, and the occasional win (and failure) along the way.
         </p>
 
         {posts.length === 0 ? (
-          <div className="text-center py-12">
+          <div className="text-center py-12 stagger-2">
             <p className="text-muted-foreground">No posts yet. Check back soon!</p>
           </div>
         ) : (
-          <div className="space-y-6">
-            {posts.map((post) => (
+          <div className="space-y-4">
+            {posts.map((post, index) => (
               <article
                 key={post.slug}
-                className="group p-4 -mx-4 rounded-lg hover:bg-muted/50 transition-colors"
+                className={`group p-4 -mx-4 rounded-xl border border-transparent hover:border-border hover:bg-muted/30 transition-all card-lift stagger-${Math.min(index + 2, 6)}`}
               >
                 <Link href={`/blog/${post.slug}`} className="block">
                   <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
@@ -63,7 +63,7 @@ export default function BlogPage() {
                           {post.tags.slice(0, 3).map((tag) => (
                             <span
                               key={tag}
-                              className="px-2 py-0.5 bg-muted rounded-full"
+                              className="px-2 py-0.5 bg-muted rounded-full badge-hover"
                             >
                               {tag}
                             </span>

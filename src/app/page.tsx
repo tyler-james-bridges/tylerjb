@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export default function HomePage() {
@@ -32,23 +33,40 @@ export default function HomePage() {
         </div>
 
         {/* Hero Section */}
-        <section className="text-center mb-12 relative">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-1">Tyler</h2>
-          <h2 className="text-3xl sm:text-4xl font-light text-muted-foreground mb-8">
+        <section className="text-center mb-10 relative">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-1 stagger-1">Tyler</h2>
+          <h2 className="text-4xl sm:text-5xl font-light text-muted-foreground mb-5 stagger-1">
             James-Bridges
           </h2>
 
-          <p className="text-lg text-muted-foreground max-w-md mx-auto leading-relaxed">
-            Father of two tiny humans. Accidental software engineer. Crypto and NFT enthusiast. Prog-metal connoisseur.
+          <p className="text-lg text-muted-foreground max-w-md mx-auto leading-relaxed mb-6 stagger-2">
+            Software engineer with a decade of QA experience. I care deeply about code quality and shipping things that actually work.
+          </p>
+
+          {/* Credibility Badges */}
+          <div className="flex flex-wrap justify-center gap-2 mb-6 stagger-3">
+            <span className="px-3 py-1.5 text-xs font-medium rounded-full bg-muted border border-border badge-hover cursor-default">
+              10+ Years in Tech
+            </span>
+            <span className="px-3 py-1.5 text-xs font-medium rounded-full bg-muted border border-border badge-hover cursor-default">
+              Playwright / Test Automation
+            </span>
+            <span className="px-3 py-1.5 text-xs font-medium rounded-full bg-muted border border-border badge-hover cursor-default">
+              TypeScript / React / Next.js
+            </span>
+          </div>
+
+          <p className="text-sm text-muted-foreground stagger-3">
+            Currently Software Engineer III @ Weedmaps
           </p>
         </section>
 
         {/* Featured Images Grid */}
-        <section className="mb-12">
+        <section className="mb-12 stagger-4">
           <div className="grid grid-cols-2 gap-4 max-w-lg mx-auto">
             {/* Profile Flip Card */}
             <div
-              className="aspect-square rounded-2xl overflow-hidden group perspective-1000 cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-yellow-500/50 animate-matrix-hint tv-scanline relative"
+              className="aspect-square rounded-2xl overflow-hidden group perspective-1000 cursor-pointer card-lift animate-matrix-hint tv-scanline relative border border-border"
               onClick={handleProfileClick}
             >
               <div
@@ -119,14 +137,14 @@ export default function HomePage() {
               href="https://opensea.io/collection/mutant-ape-yacht-club"
               target="_blank"
               rel="noopener noreferrer"
-              className="aspect-square rounded-2xl overflow-hidden group block cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-blue-500/50"
+              className="aspect-square rounded-2xl overflow-hidden group block cursor-pointer card-lift border border-border"
             >
               <Image
                 src="/images/mayc.png"
                 alt="MAYC NFT"
                 width={300}
                 height={300}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </a>
 
@@ -135,14 +153,14 @@ export default function HomePage() {
               href="https://magiceden.us/ordinals/marketplace/bitcoin-puppets"
               target="_blank"
               rel="noopener noreferrer"
-              className="aspect-square rounded-2xl overflow-hidden group block cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-orange-500/50"
+              className="aspect-square rounded-2xl overflow-hidden group block cursor-pointer card-lift border border-border"
             >
               <Image
                 src="/images/bitcoin-puppet.png"
                 alt="Bitcoin Puppet NFT"
                 width={300}
                 height={300}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </a>
 
@@ -151,23 +169,41 @@ export default function HomePage() {
               href="https://opensea.io/collection/disobedients-ethereum"
               target="_blank"
               rel="noopener noreferrer"
-              className="aspect-square rounded-2xl overflow-hidden group block cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-purple-500/50"
+              className="aspect-square rounded-2xl overflow-hidden group block cursor-pointer card-lift border border-border"
             >
               <Image
                 src="/images/hoodie.png"
                 alt="Hoodie NFT"
                 width={300}
                 height={300}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </a>
           </div>
         </section>
 
+        {/* Dual CTAs */}
+        <section className="max-w-xl mx-auto mb-14 stagger-5">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              href="/experience"
+              className="px-6 py-3 rounded-xl bg-foreground text-background font-medium text-center btn-lift"
+            >
+              View My Experience
+            </Link>
+            <Link
+              href="/contact"
+              className="px-6 py-3 rounded-xl border border-border font-medium text-center btn-lift hover:bg-muted"
+            >
+              Let&apos;s Work Together
+            </Link>
+          </div>
+        </section>
+
         {/* Manifesto */}
-        <section className="max-w-xl mx-auto text-center">
-          <h3 className="text-xl font-semibold mb-4">Manifesto</h3>
-          <p className="text-muted-foreground leading-relaxed">
+        <section className="max-w-xl mx-auto text-center stagger-6">
+          <h3 className="text-lg font-semibold mb-3 text-muted-foreground">Manifesto</h3>
+          <p className="text-muted-foreground leading-relaxed text-sm border-l-2 border-border pl-4 text-left">
             I am not here to sell you anything. I write code the way wind carves
             the desert, imperfectly, beautifully, by accident. The ghost of a
             downbeat lives in every page I build. I am not this person, but I
@@ -175,19 +211,6 @@ export default function HomePage() {
             remember the 2014 Pulse closer like it was my own heartbeat.
             Sometimes I don&apos;t want to do this. Sometimes I{" "}
             <span className="italic">really, really do</span>.
-          </p>
-        </section>
-
-        {/* Services CTA */}
-        <section className="max-w-xl mx-auto mt-12 p-6 rounded-2xl bg-muted/50 border border-border">
-          <p className="text-center text-muted-foreground">
-            I build websites and stores for people who ask nicely. No templates, just code and caffeine.{" "}
-            <a
-              href="/contact?service=general"
-              className="text-foreground font-medium hover:underline"
-            >
-              Say hello
-            </a>.
           </p>
         </section>
       </div>

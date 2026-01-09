@@ -14,8 +14,8 @@ export default function AboutPage() {
 
       {/* Content */}
       <div className="content-body prose-notes">
-        <section className="mb-8">
-          <h2>The Human Behind the Code</h2>
+        <section className="mb-10 stagger-1">
+          <h2 className="text-2xl">The Human Behind the Code</h2>
           <p>
             I&apos;m a father of two tiny humans who remind me daily that the best
             debugging happens at 3 AM when you&apos;re running on coffee fumes and
@@ -28,8 +28,8 @@ export default function AboutPage() {
           </p>
         </section>
 
-        <section className="mb-8">
-          <h2>Rhythm & Algorithms</h2>
+        <section className="mb-10 stagger-2">
+          <h2 className="text-2xl">Rhythm & Algorithms</h2>
           <p>
             The percussion world shaped who I am long before I touched my first
             keyboard. There&apos;s something about the discipline of marching drum
@@ -44,8 +44,8 @@ export default function AboutPage() {
           </p>
         </section>
 
-        <section className="mb-8">
-          <h2>The Journey</h2>
+        <section className="mb-10 stagger-3">
+          <h2 className="text-2xl">The Journey</h2>
           <p>
             My percussion journey began in 2009 with Santa Clara Vanguard Cadets,
             where I learned that peak performance and peak identity crisis can
@@ -59,8 +59,8 @@ export default function AboutPage() {
           </p>
         </section>
 
-        <section className="mb-8">
-          <h2>Beyond the Screen</h2>
+        <section className="mb-10 stagger-4">
+          <h2 className="text-2xl">Beyond the Screen</h2>
           <p>
             When I&apos;m not writing tests or teaching paradiddles, you&apos;ll
             find me deep in the progressive metal rabbit hole (Animals As Leaders,
@@ -75,13 +75,13 @@ export default function AboutPage() {
           </p>
         </section>
 
-        <section>
-          <h2>Performance Videos</h2>
+        <section className="stagger-5">
+          <h2 className="text-2xl">Performance Videos</h2>
           <p className="text-muted-foreground mb-4">
             Some moments from the field that shaped who I became.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="aspect-video rounded-lg overflow-hidden border border-border">
+            <div className="aspect-video rounded-xl overflow-hidden border border-border card-lift">
               <iframe
                 className="w-full h-full"
                 src="https://www.youtube.com/embed/-gapbxJ4BFk?si=-daNqFpi5AZmqt-X"
@@ -90,7 +90,7 @@ export default function AboutPage() {
                 allowFullScreen
               />
             </div>
-            <div className="aspect-video rounded-lg overflow-hidden border border-border">
+            <div className="aspect-video rounded-xl overflow-hidden border border-border card-lift">
               <iframe
                 className="w-full h-full"
                 src="https://www.youtube.com/embed/62fP_00dHig?si=RNOOy0d6hArguG91"
@@ -99,7 +99,7 @@ export default function AboutPage() {
                 allowFullScreen
               />
             </div>
-            <div className="aspect-video rounded-lg overflow-hidden border border-border">
+            <div className="aspect-video rounded-xl overflow-hidden border border-border card-lift">
               <iframe
                 className="w-full h-full"
                 src="https://www.youtube.com/embed/9LZSvRP6gKQ?si=yBMltF7mFnpseBLo"
@@ -108,7 +108,7 @@ export default function AboutPage() {
                 allowFullScreen
               />
             </div>
-            <div className="aspect-video rounded-lg overflow-hidden border border-border">
+            <div className="aspect-video rounded-xl overflow-hidden border border-border card-lift">
               <iframe
                 className="w-full h-full"
                 src="https://www.youtube.com/embed/uQX_WrVjrXs?si=EvX_yTJXj4BYgO1N"
