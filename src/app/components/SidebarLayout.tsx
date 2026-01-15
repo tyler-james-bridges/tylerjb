@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Sidebar from "./Sidebar";
 import MobileNav from "./MobileNav";
+import AISummary from "./AISummary";
 
 interface SidebarLayoutProps {
   children: React.ReactNode;
@@ -45,6 +46,9 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
       <div className="h-dvh flex flex-col">
         <main className="flex-1 overflow-y-auto pb-20">
           {children}
+          <div className="px-4">
+            <AISummary />
+          </div>
         </main>
         <MobileNav />
       </div>
@@ -57,6 +61,9 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
       <Sidebar isMobile={false} />
       <main className="flex-1 h-dvh overflow-y-auto scrollbar-thin">
         {children}
+        <div className="px-6 max-w-2xl mx-auto">
+          <AISummary />
+        </div>
       </main>
     </div>
   );
