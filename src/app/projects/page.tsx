@@ -1,5 +1,6 @@
 import { Metadata } from "next";
-import { Github, ExternalLink } from "lucide-react";
+import Link from "next/link";
+import { Github, ExternalLink, Home } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -44,7 +45,7 @@ const projects: Project[] = [
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "React 19"],
     status: "production",
     github: "https://github.com/tyler-james-bridges/tylerjb",
-    live: "https://tylerjb.com",
+    live: "/",
     featured: true,
   },
   {
@@ -131,15 +132,25 @@ function ProjectCard({ project, featured = false }: { project: Project; featured
             </a>
           )}
           {project.live && (
-            <a
-              href={project.live}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              aria-label={`View ${project.title} live`}
-            >
-              <ExternalLink className="w-5 h-5" />
-            </a>
+            project.live.startsWith("/") ? (
+              <Link
+                href={project.live}
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label={`View ${project.title} live`}
+              >
+                <Home className="w-5 h-5" />
+              </Link>
+            ) : (
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label={`View ${project.title} live`}
+              >
+                <ExternalLink className="w-5 h-5" />
+              </a>
+            )
           )}
         </div>
       </div>
