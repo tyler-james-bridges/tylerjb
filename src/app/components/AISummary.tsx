@@ -45,7 +45,7 @@ const aiServices = [
     url: `https://grok.com/?q=${encodeURIComponent(PROMPT)}`,
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-        <path d="M3 3h7v7H3V3zm11 0h7v7h-7V3zM3 14h7v7H3v-7zm11 0h7v7h-7v-7z" />
+        <path d="M2 4h4v4H2V4zm8 0h4v4h-4V4zm8 0h4v4h-4V4zM6 8l4 4-4 4V8zm12 0v8l-4-4 4-4zM2 10h4v4H2v-4zm16 0h4v4h-4v-4zM2 16h4v4H2v-4zm8 0h4v4h-4v-4zm8 0h4v4h-4v-4z" />
       </svg>
     ),
   },
