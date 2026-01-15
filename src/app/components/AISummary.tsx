@@ -54,18 +54,18 @@ const aiServices = [
 export default function AISummary() {
   return (
     <div className="mt-8 pb-4 text-center">
-      <div className="bg-card border border-border rounded-lg px-4 py-3 inline-block">
-        <p className="text-xs text-foreground mb-2">
+      <div className="inline-block">
+        <p className="text-sm text-muted-foreground mb-3">
           Request an AI summary of tylerjb.dev
         </p>
-        <div className="flex justify-center items-center gap-3">
+        <div className="flex justify-center items-center gap-4">
           {aiServices.map((service) => (
             <a
               key={service.name}
               href={service.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground hover:text-muted-foreground transition-all hover:scale-110"
+              className="text-muted-foreground hover:text-foreground transition-all hover:scale-110"
               title={`Summarize with ${service.name}`}
             >
               {service.icon}
