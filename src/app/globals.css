@@ -615,6 +615,57 @@
 .stagger-5 { animation: fade-up 0.4s ease 0.25s both; }
 .stagger-6 { animation: fade-up 0.4s ease 0.3s both; }
 
+/* ============================================
+   TERMINAL WIDGET
+   ============================================ */
+
+.terminal-widget {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+}
+
+.terminal-cursor {
+  display: inline-block;
+  animation: terminal-blink 1s step-end infinite;
+  color: #10b981;
+}
+
+@keyframes terminal-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.terminal-line-appear {
+  animation: terminal-fade-in 0.15s ease-out;
+}
+
+@keyframes terminal-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.terminal-scanline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+}
+
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .btn-lift:hover,
@@ -630,6 +681,15 @@
   }
 
   .animate-slide-up {
+    animation: none;
+  }
+
+  .terminal-cursor {
+    animation: none;
+    opacity: 1;
+  }
+
+  .terminal-line-appear {
     animation: none;
   }
 }

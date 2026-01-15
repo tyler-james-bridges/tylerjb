@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import TerminalWidget from "./components/TerminalWidget";
 
 export default function HomePage() {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -212,6 +213,17 @@ export default function HomePage() {
             Sometimes I don&apos;t want to do this. Sometimes I{" "}
             <span className="italic">really, really do</span>.
           </p>
+        </section>
+
+        {/* Mobile Dev Terminal */}
+        <section id="terminal" className="max-w-xl mx-auto mt-14 stagger-6">
+          <h3 className="text-lg font-semibold mb-3 text-muted-foreground text-center">
+            Built from iPhone
+          </h3>
+          <p className="text-sm text-muted-foreground text-center mb-4">
+            This widget was built via mobile dev stack: iPhone → Termius → Tailscale → Claude Code
+          </p>
+          <TerminalWidget />
         </section>
       </div>
     </div>

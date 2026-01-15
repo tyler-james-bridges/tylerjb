@@ -81,6 +81,15 @@ const projects: Project[] = [
     featured: true,
   },
   {
+    title: "Mobile Dev Terminal Widget",
+    description:
+      "Interactive terminal component built entirely from iPhone using Termius, Tailscale, and Claude Code. Features typewriter animation, macOS terminal chrome, and demonstrates the mobile-first development workflow.",
+    tech: ["React", "Claude Code", "Tailscale"],
+    status: "production",
+    live: "/#terminal",
+    featured: true,
+  },
+  {
     title: "Onchain Kudos",
     description:
       "A blockchain-based kudos tracking application that allows users to register X/Twitter handles and give kudos to other users with permanent onchain records using Abstract Global Wallet.",
