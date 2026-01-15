@@ -1,11 +1,12 @@
 import { Metadata } from "next";
-import { Github, ExternalLink } from "lucide-react";
+import Link from "next/link";
+import { Github, ExternalLink, Home } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Projects",
 };
 
-type ProjectStatus = "production" | "internal" | "in-progress" | "side-project";
+type ProjectStatus = "production" | "beta" | "internal" | "in-progress" | "side-project";
 
 interface Project {
   title: string;
@@ -21,6 +22,10 @@ const statusConfig: Record<ProjectStatus, { label: string; className: string }> 
   production: {
     label: "Production",
     className: "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30",
+  },
+  beta: {
+    label: "Beta",
+    className: "bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 border-cyan-500/30",
   },
   internal: {
     label: "Internal",
@@ -41,18 +46,18 @@ const projects: Project[] = [
     title: "Portfolio Website",
     description:
       "Personal portfolio built with Next.js 15, featuring interactive elements like a Matrix-style flip card, theme switching, and responsive design with a macOS-inspired sidebar.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "React 19"],
+    tech: ["Next.js", "TypeScript", "Tailwind"],
     status: "production",
     github: "https://github.com/tyler-james-bridges/tylerjb",
-    live: "https://tylerjb.com",
+    live: "/",
     featured: true,
   },
   {
     title: "Tempo",
     description:
       "Upload sheet music and get tempo maps. A tool for musicians to analyze and visualize tempo changes in musical scores.",
-    tech: ["TypeScript", "Next.js", "Web Audio API"],
-    status: "production",
+    tech: ["Next.js", "Web Audio API"],
+    status: "beta",
     github: "https://github.com/tyler-james-bridges/tempo",
     live: "https://tempomap.app",
     featured: true,
@@ -61,15 +66,25 @@ const projects: Project[] = [
     title: "Playwright Test CLI",
     description:
       "Internal CLI tool for orchestrating Playwright test execution across multiple codebases and environments. Replaced hardcoded shell/YAML logic with unified test orchestration.",
-    tech: ["TypeScript", "Node.js", "Playwright", "CLI"],
+    tech: ["Playwright", "Node.js"],
     status: "internal",
+    featured: true,
+  },
+  {
+    title: "AI QA Engineer",
+    description:
+      "AI-powered QA testing for any website. Multi-provider AI support (Claude, GPT-4, Gemini), multi-viewport testing, network monitoring, and Playwright integration for unified reporting.",
+    tech: ["npm package", "Playwright", "AI"],
+    status: "in-progress",
+    github: "https://github.com/tyler-james-bridges/ai-qa-engineer",
+    live: "https://www.npmjs.com/package/ai-qa-engineer",
     featured: true,
   },
   {
     title: "Onchain Kudos",
     description:
       "A blockchain-based kudos tracking application that allows users to register X/Twitter handles and give kudos to other users with permanent onchain records using Abstract Global Wallet.",
-    tech: ["TypeScript", "Blockchain", "AGW", "Next.js"],
+    tech: ["Next.js", "Web3"],
     status: "side-project",
     github: "https://github.com/tyler-james-bridges/onchain-kudos-app",
   },
@@ -77,7 +92,7 @@ const projects: Project[] = [
     title: "PR Log Sync",
     description:
       "Sync GitHub PRs and code reviews to Obsidian markdown files. Automatically creates a searchable archive of your code review history.",
-    tech: ["Shell", "GitHub API", "Obsidian"],
+    tech: ["Shell", "GitHub API"],
     status: "side-project",
     github: "https://github.com/tyler-james-bridges/pr-log-sync",
   },
@@ -85,7 +100,7 @@ const projects: Project[] = [
     title: "x402 Indexer",
     description:
       "TypeScript CLI that crawls and indexes x402-enabled APIs from the Bazaar ecosystem. Discover and catalog payment-enabled web services.",
-    tech: ["TypeScript", "CLI", "Web Crawling"],
+    tech: ["Node.js", "x402"],
     status: "side-project",
     github: "https://github.com/tyler-james-bridges/x402-indexer",
   },
@@ -131,15 +146,25 @@ function ProjectCard({ project, featured = false }: { project: Project; featured
             </a>
           )}
           {project.live && (
-            <a
-              href={project.live}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              aria-label={`View ${project.title} live`}
-            >
-              <ExternalLink className="w-5 h-5" />
-            </a>
+            project.live.startsWith("/") ? (
+              <Link
+                href={project.live}
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label={`View ${project.title} live`}
+              >
+                <Home className="w-5 h-5" />
+              </Link>
+            ) : (
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label={`View ${project.title} live`}
+              >
+                <ExternalLink className="w-5 h-5" />
+              </a>
+            )
           )}
         </div>
       </div>
