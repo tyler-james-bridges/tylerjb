@@ -216,7 +216,7 @@ export default function HomePage() {
         </section>
 
         {/* Mobile Dev Terminal */}
-        <section className="max-w-xl mx-auto mt-14 stagger-6">
+        <section id="terminal" className="max-w-xl mx-auto mt-14 stagger-6">
           <h3 className="text-lg font-semibold mb-3 text-muted-foreground text-center">
             Built from iPhone
           </h3>
