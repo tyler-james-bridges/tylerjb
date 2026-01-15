@@ -40,6 +40,15 @@ const aiServices = [
       </svg>
     ),
   },
+  {
+    name: "Grok",
+    url: `https://grok.com/?q=${encodeURIComponent(PROMPT)}`,
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+        <path d="M3 3h7v7H3V3zm11 0h7v7h-7V3zM3 14h7v7H3v-7zm11 0h7v7h-7v-7z" />
+      </svg>
+    ),
+  },
 ];
 
 export default function AISummary() {
