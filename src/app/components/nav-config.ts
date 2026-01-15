@@ -1,4 +1,4 @@
-import { Home, User, Briefcase, Mail, Drum, Github, Linkedin, Twitter, LucideIcon } from "lucide-react";
+import { Home, User, Briefcase, FolderKanban, Mail, Drum, Github, Linkedin, Twitter, LucideIcon } from "lucide-react";
 
 export interface NavItem {
   href: string;
@@ -18,6 +18,7 @@ export const navItems: NavItem[] = [
   { href: "/", label: "Home", emoji: "🏠", icon: Home },
   { href: "/about", label: "About Me", shortLabel: "About", emoji: "👤", icon: User },
   { href: "/experience", label: "Experience", emoji: "💼", icon: Briefcase },
+  { href: "/projects", label: "Projects", emoji: "🚀", icon: FolderKanban },
   { href: "/contact", label: "Contact", emoji: "✉️", icon: Mail },
   { href: "/drums", label: "Drums", emoji: "🥁", icon: Drum },
 ];
