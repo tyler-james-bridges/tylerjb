@@ -15,7 +15,7 @@ const terminalLines: TerminalLine[] = [
   { text: "", type: "output", delay: 2000 },
   { text: "$ claude", type: "command", delay: 2400 },
   { text: "╭─────────────────────────────────────╮", type: "highlight", delay: 3000 },
-  { text: "│  Claude Code v1.0.0                 │", type: "highlight", delay: 3100 },
+  { text: "│  Claude Code                        │", type: "highlight", delay: 3100 },
   { text: "│  /tylerjb (Next.js)                 │", type: "highlight", delay: 3200 },
   { text: "╰─────────────────────────────────────╯", type: "highlight", delay: 3300 },
   { text: "", type: "output", delay: 3500 },
