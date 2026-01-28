@@ -9,14 +9,17 @@ This is a simple text editor built into the OS.
 You can type, edit, and even use some basic formatting.
 
 Try writing something here...`);
-  
+
   const [fileName, setFileName] = useState('untitled.txt');
   const [wordCount, setWordCount] = useState(0);
 
   const handleContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const text = e.target.value;
     setContent(text);
-    const words = text.trim().split(/\s+/).filter(word => word.length > 0);
+    const words = text
+      .trim()
+      .split(/\s+/)
+      .filter((word) => word.length > 0);
     setWordCount(words.length);
   };
 

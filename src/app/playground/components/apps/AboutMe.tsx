@@ -9,22 +9,31 @@ export default function AboutMe() {
             TJB
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-gray-800">Tyler James-Bridges</h1>
-            <p className="text-gray-600">Quality Engineer → Software Engineer</p>
+            <h1 className="text-2xl font-bold text-gray-800">
+              Tyler James-Bridges
+            </h1>
+            <p className="text-gray-600">
+              Quality Engineer → Software Engineer
+            </p>
           </div>
         </div>
 
         <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-3 text-gray-800">Background</h2>
+          <h2 className="text-lg font-semibold mb-3 text-gray-800">
+            Background
+          </h2>
           <p className="text-gray-700 leading-relaxed">
-            With over 10 years of experience in quality assurance and manual testing, 
-            I&apos;ve transitioned into software development while maintaining my quality-first mindset. 
-            I specialize in building robust, well-tested applications with a focus on user experience.
+            With over 10 years of experience in quality assurance and manual
+            testing, I&apos;ve transitioned into software development while
+            maintaining my quality-first mindset. I specialize in building
+            robust, well-tested applications with a focus on user experience.
           </p>
         </section>
 
         <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-3 text-gray-800">Core Strengths</h2>
+          <h2 className="text-lg font-semibold mb-3 text-gray-800">
+            Core Strengths
+          </h2>
           <ul className="space-y-2 text-gray-700">
             <li className="flex items-center gap-2">
               <span className="w-2 h-2 bg-green-500 rounded-full"></span>
@@ -46,7 +55,9 @@ export default function AboutMe() {
         </section>
 
         <section className="mb-6">
-          <h2 className="text-lg font-semibold mb-3 text-gray-800">Technical Stack</h2>
+          <h2 className="text-lg font-semibold mb-3 text-gray-800">
+            Technical Stack
+          </h2>
           <div className="grid grid-cols-2 gap-4">
             <div>
               <h3 className="font-medium text-gray-800 mb-2">Frontend</h3>
@@ -72,11 +83,15 @@ export default function AboutMe() {
           <div className="space-y-3">
             <div className="border-l-4 border-teal-500 pl-4">
               <h3 className="font-medium">TylerOS</h3>
-              <p className="text-sm text-gray-600">Browser-based operating system built with React</p>
+              <p className="text-sm text-gray-600">
+                Browser-based operating system built with React
+              </p>
             </div>
             <div className="border-l-4 border-emerald-500 pl-4">
               <h3 className="font-medium">Portfolio Website</h3>
-              <p className="text-sm text-gray-600">Personal site with Matrix animations and interactive elements</p>
+              <p className="text-sm text-gray-600">
+                Personal site with Matrix animations and interactive elements
+              </p>
             </div>
           </div>
         </section>

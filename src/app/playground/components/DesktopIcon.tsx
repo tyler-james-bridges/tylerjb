@@ -9,7 +9,12 @@ interface DesktopIconProps {
   isImage?: boolean;
 }
 
-export default function DesktopIcon({ icon, label, onDoubleClick, isImage = false }: DesktopIconProps) {
+export default function DesktopIcon({
+  icon,
+  label,
+  onDoubleClick,
+  isImage = false,
+}: DesktopIconProps) {
   const [isSelected, setIsSelected] = useState(false);
 
   const handleClick = () => {
@@ -22,15 +27,15 @@ export default function DesktopIcon({ icon, label, onDoubleClick, isImage = fals
   };
 
   return (
-    <div 
+    <div
       className={`desktop-icon ${isSelected ? 'selected' : ''}`}
       onClick={handleClick}
       onDoubleClick={handleDoubleClick}
     >
       <div className="icon-image">
         {isImage ? (
-          <img 
-            src={icon} 
+          <img
+            src={icon}
             alt={label}
             className="w-full h-full object-cover rounded-lg"
           />
@@ -38,9 +43,7 @@ export default function DesktopIcon({ icon, label, onDoubleClick, isImage = fals
           icon
         )}
       </div>
-      <div className="icon-label">
-        {label}
-      </div>
+      <div className="icon-label">{label}</div>
     </div>
   );
 }

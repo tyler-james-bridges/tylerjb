@@ -1,35 +1,63 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 interface TerminalLine {
   text: string;
-  type: "command" | "output" | "comment" | "success" | "highlight";
+  type: 'command' | 'output' | 'comment' | 'success' | 'highlight';
   delay: number;
 }
 
 const terminalLines: TerminalLine[] = [
-  { text: "# Built from iPhone via mobile dev stack", type: "comment", delay: 0 },
-  { text: "$ ssh tyler@macbook --via tailscale", type: "command", delay: 800 },
-  { text: "Connected via Termius → Tailscale tunnel", type: "output", delay: 1600 },
-  { text: "", type: "output", delay: 2000 },
-  { text: "$ claude", type: "command", delay: 2400 },
-  { text: "╭─────────────────────────────────────╮", type: "highlight", delay: 3000 },
-  { text: "│  Claude Code v1.0.0                 │", type: "highlight", delay: 3100 },
-  { text: "│  /tylerjb (Next.js)                 │", type: "highlight", delay: 3200 },
-  { text: "╰─────────────────────────────────────╯", type: "highlight", delay: 3300 },
-  { text: "", type: "output", delay: 3500 },
-  { text: "> Build terminal widget for portfolio", type: "command", delay: 3800 },
-  { text: "Creating component...", type: "output", delay: 4400 },
-  { text: "✓ TerminalWidget.tsx created", type: "success", delay: 5000 },
-  { text: "✓ Deployed to vercel", type: "success", delay: 5600 },
-  { text: "", type: "output", delay: 6000 },
-  { text: "# You're looking at it right now 📱", type: "comment", delay: 6400 },
+  {
+    text: '# Built from iPhone via mobile dev stack',
+    type: 'comment',
+    delay: 0,
+  },
+  { text: '$ ssh tyler@macbook --via tailscale', type: 'command', delay: 800 },
+  {
+    text: 'Connected via Termius → Tailscale tunnel',
+    type: 'output',
+    delay: 1600,
+  },
+  { text: '', type: 'output', delay: 2000 },
+  { text: '$ claude', type: 'command', delay: 2400 },
+  {
+    text: '╭─────────────────────────────────────╮',
+    type: 'highlight',
+    delay: 3000,
+  },
+  {
+    text: '│  Claude Code v1.0.0                 │',
+    type: 'highlight',
+    delay: 3100,
+  },
+  {
+    text: '│  /tylerjb (Next.js)                 │',
+    type: 'highlight',
+    delay: 3200,
+  },
+  {
+    text: '╰─────────────────────────────────────╯',
+    type: 'highlight',
+    delay: 3300,
+  },
+  { text: '', type: 'output', delay: 3500 },
+  {
+    text: '> Build terminal widget for portfolio',
+    type: 'command',
+    delay: 3800,
+  },
+  { text: 'Creating component...', type: 'output', delay: 4400 },
+  { text: '✓ TerminalWidget.tsx created', type: 'success', delay: 5000 },
+  { text: '✓ Deployed to vercel', type: 'success', delay: 5600 },
+  { text: '', type: 'output', delay: 6000 },
+  { text: "# You're looking at it right now 📱", type: 'comment', delay: 6400 },
 ];
 
 export default function TerminalWidget() {
   const [visibleLines, setVisibleLines] = useState<number>(0);
-  const [currentText, setCurrentText] = useState<string>("");
+  const [currentText, setCurrentText] = useState<string>('');
   const [isTyping, setIsTyping] = useState<boolean>(true);
   const [isComplete, setIsComplete] = useState<boolean>(false);
 
@@ -44,7 +72,10 @@ export default function TerminalWidget() {
     const targetText = currentLine.text;
 
     // Typewriter effect for commands
-    if (currentLine.type === "command" && currentText.length < targetText.length) {
+    if (
+      currentLine.type === 'command' &&
+      currentText.length < targetText.length
+    ) {
       const timeout = setTimeout(() => {
         setCurrentText(targetText.slice(0, currentText.length + 1));
       }, 50);
@@ -52,15 +83,19 @@ export default function TerminalWidget() {
     }
 
     // Move to next line
-    if (currentText === targetText || currentLine.type !== "command") {
-      const nextDelay = visibleLines < terminalLines.length - 1
-        ? terminalLines[visibleLines + 1].delay - currentLine.delay
-        : 2000;
+    if (currentText === targetText || currentLine.type !== 'command') {
+      const nextDelay =
+        visibleLines < terminalLines.length - 1
+          ? terminalLines[visibleLines + 1].delay - currentLine.delay
+          : 2000;
 
-      const timeout = setTimeout(() => {
-        setVisibleLines((v) => v + 1);
-        setCurrentText("");
-      }, currentLine.type === "command" ? 300 : Math.max(nextDelay, 100));
+      const timeout = setTimeout(
+        () => {
+          setVisibleLines((v) => v + 1);
+          setCurrentText('');
+        },
+        currentLine.type === 'command' ? 300 : Math.max(nextDelay, 100)
+      );
 
       return () => clearTimeout(timeout);
     }
@@ -71,7 +106,7 @@ export default function TerminalWidget() {
     if (isComplete) {
       const timeout = setTimeout(() => {
         setVisibleLines(0);
-        setCurrentText("");
+        setCurrentText('');
         setIsTyping(true);
         setIsComplete(false);
       }, 5000);
@@ -79,18 +114,18 @@ export default function TerminalWidget() {
     }
   }, [isComplete]);
 
-  const getLineClass = (type: TerminalLine["type"]) => {
+  const getLineClass = (type: TerminalLine['type']) => {
     switch (type) {
-      case "command":
-        return "text-emerald-400";
-      case "comment":
-        return "text-zinc-500";
-      case "success":
-        return "text-teal-400";
-      case "highlight":
-        return "text-amber-400";
+      case 'command':
+        return 'text-emerald-400';
+      case 'comment':
+        return 'text-zinc-500';
+      case 'success':
+        return 'text-teal-400';
+      case 'highlight':
+        return 'text-amber-400';
       default:
-        return "text-zinc-400";
+        return 'text-zinc-400';
     }
   };
 
@@ -119,26 +154,29 @@ export default function TerminalWidget() {
           <div
             key={index}
             className={`${getLineClass(line.type)} leading-relaxed terminal-line-appear`}
-            style={{ minHeight: line.text === "" ? "1rem" : "auto" }}
+            style={{ minHeight: line.text === '' ? '1rem' : 'auto' }}
           >
             {line.text}
           </div>
         ))}
 
         {/* Currently typing line */}
-        {visibleLines < terminalLines.length && terminalLines[visibleLines].type === "command" && (
-          <div className={`${getLineClass("command")} leading-relaxed`}>
-            {currentText}
-            <span className="terminal-cursor">▋</span>
-          </div>
-        )}
+        {visibleLines < terminalLines.length &&
+          terminalLines[visibleLines].type === 'command' && (
+            <div className={`${getLineClass('command')} leading-relaxed`}>
+              {currentText}
+              <span className="terminal-cursor">▋</span>
+            </div>
+          )}
 
         {/* Cursor when not typing a command */}
-        {isTyping && visibleLines < terminalLines.length && terminalLines[visibleLines].type !== "command" && (
-          <div className="text-emerald-400">
-            <span className="terminal-cursor">▋</span>
-          </div>
-        )}
+        {isTyping &&
+          visibleLines < terminalLines.length &&
+          terminalLines[visibleLines].type !== 'command' && (
+            <div className="text-emerald-400">
+              <span className="terminal-cursor">▋</span>
+            </div>
+          )}
       </div>
 
       {/* Terminal Footer */}
@@ -148,10 +186,12 @@ export default function TerminalWidget() {
             <span className="inline-block w-2 h-2 rounded-full bg-green-500 animate-pulse" />
             tailscale
           </span>
-          <span className="text-[10px] text-zinc-600 font-mono">claude code</span>
+          <span className="text-[10px] text-zinc-600 font-mono">
+            claude code
+          </span>
         </div>
         <span className="text-[10px] text-zinc-500 font-mono">
-          {isComplete ? "↻ replaying..." : "live"}
+          {isComplete ? '↻ replaying...' : 'live'}
         </span>
       </div>
     </div>

@@ -2,11 +2,14 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Web Development Services | Tyler Bridges',
-  description: 'Professional web development services at freelancer prices. Custom websites, landing pages, and e-commerce solutions with unlimited revisions. Save up to 80% compared to agencies.',
-  keywords: 'web development, website design, landing page, e-commerce, small business website, web developer, freelance developer',
+  description:
+    'Professional web development services at freelancer prices. Custom websites, landing pages, and e-commerce solutions with unlimited revisions. Save up to 80% compared to agencies.',
+  keywords:
+    'web development, website design, landing page, e-commerce, small business website, web developer, freelance developer',
   openGraph: {
     title: 'Web Development Services | Tyler Bridges',
-    description: 'Professional web development services at freelancer prices. Custom websites with unlimited revisions.',
+    description:
+      'Professional web development services at freelancer prices. Custom websites with unlimited revisions.',
     type: 'website',
     url: 'https://tylerbridges.com/services',
     siteName: 'Tyler Bridges',
@@ -22,7 +25,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Web Development Services | Tyler Bridges',
-    description: 'Professional web development services at freelancer prices. Custom websites with unlimited revisions.',
+    description:
+      'Professional web development services at freelancer prices. Custom websites with unlimited revisions.',
     images: ['/og-image.png'],
   },
   robots: {

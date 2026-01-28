@@ -1,7 +1,7 @@
-import { Metadata } from "next";
-import { notFound } from "next/navigation";
-import Link from "next/link";
-import { getPostBySlug, getAllSlugs } from "@/lib/blog";
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import { getPostBySlug, getAllSlugs } from '@/lib/blog';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -12,12 +12,14 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
 
   if (!post) {
-    return { title: "Post Not Found" };
+    return { title: 'Post Not Found' };
   }
 
   return {
@@ -36,32 +38,52 @@ function formatDate(dateString: string): string {
 
 // Simple markdown to HTML converter for basic formatting
 function renderMarkdown(content: string): string {
-  return content
-    // Code blocks (must come before inline code)
-    .replace(/```(\w+)?\n([\s\S]*?)```/g, '<pre class="bg-muted p-4 rounded-lg overflow-x-auto my-4"><code>$2</code></pre>')
-    // Inline code
-    .replace(/`([^`]+)`/g, '<code class="bg-muted px-1.5 py-0.5 rounded text-sm">$1</code>')
-    // Headers
-    .replace(/^### (.*$)/gm, '<h3 class="text-lg font-semibold mt-8 mb-3">$1</h3>')
-    .replace(/^## (.*$)/gm, '<h2 class="text-xl font-semibold mt-8 mb-4">$1</h2>')
-    .replace(/^# (.*$)/gm, '<h1 class="text-2xl font-bold mt-8 mb-4">$1</h1>')
-    // Bold and italic
-    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*([^*]+)\*/g, '<em>$1</em>')
-    // Links
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">$1</a>')
-    // Unordered lists
-    .replace(/^\s*[-*] (.*$)/gm, '<li class="ml-4">$1</li>')
-    // Ordered lists
-    .replace(/^\s*\d+\. (.*$)/gm, '<li class="ml-4 list-decimal">$1</li>')
-    // Blockquotes
-    .replace(/^> (.*$)/gm, '<blockquote class="border-l-4 border-muted-foreground/30 pl-4 italic text-muted-foreground my-4">$1</blockquote>')
-    // Horizontal rules
-    .replace(/^---$/gm, '<hr class="my-8 border-border" />')
-    // Paragraphs (double newlines)
-    .replace(/\n\n/g, '</p><p class="mb-4">')
-    // Single newlines in paragraphs
-    .replace(/\n/g, '<br />');
+  return (
+    content
+      // Code blocks (must come before inline code)
+      .replace(
+        /```(\w+)?\n([\s\S]*?)```/g,
+        '<pre class="bg-muted p-4 rounded-lg overflow-x-auto my-4"><code>$2</code></pre>'
+      )
+      // Inline code
+      .replace(
+        /`([^`]+)`/g,
+        '<code class="bg-muted px-1.5 py-0.5 rounded text-sm">$1</code>'
+      )
+      // Headers
+      .replace(
+        /^### (.*$)/gm,
+        '<h3 class="text-lg font-semibold mt-8 mb-3">$1</h3>'
+      )
+      .replace(
+        /^## (.*$)/gm,
+        '<h2 class="text-xl font-semibold mt-8 mb-4">$1</h2>'
+      )
+      .replace(/^# (.*$)/gm, '<h1 class="text-2xl font-bold mt-8 mb-4">$1</h1>')
+      // Bold and italic
+      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+      // Links
+      .replace(
+        /\[([^\]]+)\]\(([^)]+)\)/g,
+        '<a href="$2" class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">$1</a>'
+      )
+      // Unordered lists
+      .replace(/^\s*[-*] (.*$)/gm, '<li class="ml-4">$1</li>')
+      // Ordered lists
+      .replace(/^\s*\d+\. (.*$)/gm, '<li class="ml-4 list-decimal">$1</li>')
+      // Blockquotes
+      .replace(
+        /^> (.*$)/gm,
+        '<blockquote class="border-l-4 border-muted-foreground/30 pl-4 italic text-muted-foreground my-4">$1</blockquote>'
+      )
+      // Horizontal rules
+      .replace(/^---$/gm, '<hr class="my-8 border-border" />')
+      // Paragraphs (double newlines)
+      .replace(/\n\n/g, '</p><p class="mb-4">')
+      // Single newlines in paragraphs
+      .replace(/\n/g, '<br />')
+  );
 }
 
 export default async function BlogPostPage({ params }: PageProps) {
@@ -109,7 +131,9 @@ export default async function BlogPostPage({ params }: PageProps) {
         {/* Article content */}
         <article
           className="prose-notes"
-          dangerouslySetInnerHTML={{ __html: `<p class="mb-4">${htmlContent}</p>` }}
+          dangerouslySetInnerHTML={{
+            __html: `<p class="mb-4">${htmlContent}</p>`,
+          }}
         />
 
         {/* Footer */}

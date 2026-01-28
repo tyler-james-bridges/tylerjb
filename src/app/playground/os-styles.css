@@ -155,7 +155,10 @@
   color: white;
   cursor: pointer;
   transition: all 0.2s;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 .start-button:hover {
@@ -237,7 +240,10 @@
   font-size: 14px;
   font-weight: 500;
   color: #333;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 .window-controls {
@@ -332,7 +338,18 @@
   width: 20px;
   height: 20px;
   cursor: nw-resize;
-  background: linear-gradient(-45deg, transparent 0%, transparent 30%, rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0.2) 40%, transparent 40%, transparent 60%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0.2) 70%, transparent 70%);
+  background: linear-gradient(
+    -45deg,
+    transparent 0%,
+    transparent 30%,
+    rgba(0, 0, 0, 0.2) 30%,
+    rgba(0, 0, 0, 0.2) 40%,
+    transparent 40%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.2) 60%,
+    rgba(0, 0, 0, 0.2) 70%,
+    transparent 70%
+  );
   background-size: 6px 6px;
   opacity: 0.6;
   transition: opacity 0.2s;
@@ -354,7 +371,12 @@
 
 /* Smooth window animations when not dragging or resizing */
 .app-window:not(.dragging):not(.resizing) {
-  transition: opacity 0.2s, left 0.3s ease, top 0.3s ease, width 0.3s ease, height 0.3s ease;
+  transition:
+    opacity 0.2s,
+    left 0.3s ease,
+    top 0.3s ease,
+    width 0.3s ease,
+    height 0.3s ease;
 }
 
 /* Maximized window state */

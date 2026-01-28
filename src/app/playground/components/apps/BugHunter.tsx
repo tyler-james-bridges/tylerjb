@@ -47,17 +47,18 @@ const challenges: CodeChallenge[] = [
         id: 'stale-closure',
         line: 5,
         type: 'logic',
-        description: 'Stale closure - both setCount calls use the same count value',
-        hint: 'State updates are asynchronous. Consider using the functional update pattern.'
+        description:
+          'Stale closure - both setCount calls use the same count value',
+        hint: 'State updates are asynchronous. Consider using the functional update pattern.',
       },
       {
         id: 'double-increment',
         line: 6,
-        type: 'logic', 
-        description: 'Redundant state update - this won\'t increment by 2',
-        hint: 'Multiple setState calls with the same value don\'t accumulate.'
-      }
-    ]
+        type: 'logic',
+        description: "Redundant state update - this won't increment by 2",
+        hint: "Multiple setState calls with the same value don't accumulate.",
+      },
+    ],
   },
   {
     id: 'async-function',
@@ -78,7 +79,7 @@ const challenges: CodeChallenge[] = [
       '',
       'fetchUserData(123).then(user => {',
       '  console.log(user.name.toUpperCase());',
-      '});'
+      '});',
     ],
     bugs: [
       {
@@ -86,23 +87,23 @@ const challenges: CodeChallenge[] = [
         line: 3,
         type: 'runtime',
         description: 'Missing await - response.json() returns a Promise',
-        hint: 'JSON parsing is also asynchronous and needs await.'
+        hint: 'JSON parsing is also asynchronous and needs await.',
       },
       {
         id: 'no-error-handling',
         line: 12,
         type: 'edge-case',
         description: 'No error handling for the Promise chain',
-        hint: 'What happens if the API call fails or user.name is undefined?'
+        hint: 'What happens if the API call fails or user.name is undefined?',
       },
       {
         id: 'null-reference',
         line: 13,
         type: 'edge-case',
         description: 'Potential null reference if user.name is undefined',
-        hint: 'API responses might not always have the expected structure.'
-      }
-    ]
+        hint: 'API responses might not always have the expected structure.',
+      },
+    ],
   },
   {
     id: 'array-loop',
@@ -130,7 +131,7 @@ const challenges: CodeChallenge[] = [
       '    average: average,',
       '    count: validOrders.length',
       '  };',
-      '}'
+      '}',
     ],
     bugs: [
       {
@@ -138,24 +139,25 @@ const challenges: CodeChallenge[] = [
         line: 5,
         type: 'runtime',
         description: 'Off-by-one error: should be i < orders.length',
-        hint: 'Array indices go from 0 to length-1, not length.'
+        hint: 'Array indices go from 0 to length-1, not length.',
       },
       {
         id: 'division-by-zero',
         line: 13,
         type: 'edge-case',
         description: 'Division by zero if no valid orders exist',
-        hint: 'What happens if validOrders.length is 0?'
+        hint: 'What happens if validOrders.length is 0?',
       },
       {
         id: 'null-property-access',
         line: 7,
         type: 'runtime',
-        description: 'No null check - order might be undefined due to off-by-one error',
-        hint: 'Due to the loop condition, order could be undefined on the last iteration.'
-      }
-    ]
-  }
+        description:
+          'No null check - order might be undefined due to off-by-one error',
+        hint: 'Due to the loop condition, order could be undefined on the last iteration.',
+      },
+    ],
+  },
 ];
 
 export default function BugHunter() {
@@ -167,17 +169,26 @@ export default function BugHunter() {
   const [gameStarted, setGameStarted] = useState(false);
 
   const challenge = challenges[currentChallenge];
-  const allBugsFound = challenge.bugs.every(bug => foundBugs.includes(bug.id));
+  const allBugsFound = challenge.bugs.every((bug) =>
+    foundBugs.includes(bug.id)
+  );
 
   const handleLineClick = (lineIndex: number) => {
     if (!gameStarted) return;
-    
+
     setSelectedLine(lineIndex);
-    const bugOnLine = challenge.bugs.find(bug => bug.line === lineIndex + 1);
-    
+    const bugOnLine = challenge.bugs.find((bug) => bug.line === lineIndex + 1);
+
     if (bugOnLine && !foundBugs.includes(bugOnLine.id)) {
       setFoundBugs([...foundBugs, bugOnLine.id]);
-      setScore(score + (challenge.difficulty === 'Easy' ? 10 : challenge.difficulty === 'Medium' ? 20 : 30));
+      setScore(
+        score +
+          (challenge.difficulty === 'Easy'
+            ? 10
+            : challenge.difficulty === 'Medium'
+              ? 20
+              : 30)
+      );
       setShowHint(bugOnLine.id);
       setTimeout(() => setShowHint(null), 3000);
     }
@@ -202,10 +213,14 @@ export default function BugHunter() {
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
-      case 'Easy': return 'text-green-600 bg-green-100';
-      case 'Medium': return 'text-yellow-600 bg-yellow-100';
-      case 'Hard': return 'text-red-600 bg-red-100';
-      default: return 'text-gray-600 bg-gray-100';
+      case 'Easy':
+        return 'text-green-600 bg-green-100';
+      case 'Medium':
+        return 'text-yellow-600 bg-yellow-100';
+      case 'Hard':
+        return 'text-red-600 bg-red-100';
+      default:
+        return 'text-gray-600 bg-gray-100';
     }
   };
 
@@ -213,10 +228,12 @@ export default function BugHunter() {
     return (
       <div className="p-6 h-full flex flex-col items-center justify-center bg-gray-50">
         <div className="text-center max-w-md">
-          <h1 className="text-3xl font-bold mb-4 text-gray-800">🐛 Bug Hunter</h1>
+          <h1 className="text-3xl font-bold mb-4 text-gray-800">
+            🐛 Bug Hunter
+          </h1>
           <p className="text-gray-600 mb-6">
-            Welcome to Bug Hunter! Use your QA skills to find bugs in code snippets. 
-            Click on lines where you spot issues.
+            Welcome to Bug Hunter! Use your QA skills to find bugs in code
+            snippets. Click on lines where you spot issues.
           </p>
           <div className="bg-white p-4 rounded-lg shadow-sm mb-6">
             <h3 className="font-semibold mb-2">Scoring:</h3>
@@ -243,7 +260,9 @@ export default function BugHunter() {
       <div className="bg-white border-b p-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <h2 className="text-xl font-bold">🐛 Bug Hunter</h2>
-          <span className={`px-2 py-1 rounded-full text-xs font-medium ${getDifficultyColor(challenge.difficulty)}`}>
+          <span
+            className={`px-2 py-1 rounded-full text-xs font-medium ${getDifficultyColor(challenge.difficulty)}`}
+          >
             {challenge.difficulty}
           </span>
         </div>
@@ -251,9 +270,7 @@ export default function BugHunter() {
           <div className="text-sm">
             Challenge {currentChallenge + 1} of {challenges.length}
           </div>
-          <div className="font-bold text-teal-600">
-            Score: {score}
-          </div>
+          <div className="font-bold text-teal-600">Score: {score}</div>
         </div>
       </div>
 
@@ -261,8 +278,8 @@ export default function BugHunter() {
       <div className="bg-white border-b p-4">
         <h3 className="font-semibold text-lg mb-1">{challenge.title}</h3>
         <p className="text-sm text-gray-600">
-          Language: {challenge.language} | 
-          Bugs Found: {foundBugs.length}/{challenge.bugs.length}
+          Language: {challenge.language} | Bugs Found: {foundBugs.length}/
+          {challenge.bugs.length}
         </p>
       </div>
 
@@ -271,10 +288,14 @@ export default function BugHunter() {
         <div className="p-4">
           {challenge.code.map((line, index) => {
             const lineNumber = index + 1;
-            const hasBug = challenge.bugs.some(bug => bug.line === lineNumber);
-            const bugFound = challenge.bugs.find(bug => bug.line === lineNumber && foundBugs.includes(bug.id));
+            const hasBug = challenge.bugs.some(
+              (bug) => bug.line === lineNumber
+            );
+            const bugFound = challenge.bugs.find(
+              (bug) => bug.line === lineNumber && foundBugs.includes(bug.id)
+            );
             const isSelected = selectedLine === index;
-            
+
             return (
               <div
                 key={index}
@@ -292,7 +313,9 @@ export default function BugHunter() {
                     <span className="ml-2 text-green-400">✓ Bug found!</span>
                   )}
                   {hasBug && !bugFound && (
-                    <span className="absolute -left-2 text-red-400 animate-pulse">●</span>
+                    <span className="absolute -left-2 text-red-400 animate-pulse">
+                      ●
+                    </span>
                   )}
                 </div>
               </div>
@@ -310,10 +333,11 @@ export default function BugHunter() {
             </div>
             <div className="ml-3">
               <p className="text-sm text-green-700">
-                <strong>Bug Found!</strong> {challenge.bugs.find(b => b.id === showHint)?.description}
+                <strong>Bug Found!</strong>{' '}
+                {challenge.bugs.find((b) => b.id === showHint)?.description}
               </p>
               <p className="text-xs text-green-600 mt-1">
-                💡 {challenge.bugs.find(b => b.id === showHint)?.hint}
+                💡 {challenge.bugs.find((b) => b.id === showHint)?.hint}
               </p>
             </div>
           </div>
@@ -325,9 +349,12 @@ export default function BugHunter() {
         <div className="bg-teal-100 border-l-4 border-teal-500 p-4">
           <div className="flex items-center justify-between">
             <div>
-              <p className="font-medium text-teal-800">🎉 Challenge Complete!</p>
+              <p className="font-medium text-teal-800">
+                🎉 Challenge Complete!
+              </p>
               <p className="text-sm text-teal-600">
-                You found all {challenge.bugs.length} bugs! +{challenge.bugs.length * 5} bonus points
+                You found all {challenge.bugs.length} bugs! +
+                {challenge.bugs.length * 5} bonus points
               </p>
             </div>
             {currentChallenge < challenges.length - 1 && (

@@ -1,7 +1,7 @@
-import type { MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://tylerjb.dev'
+  const baseUrl = 'https://tylerjb.dev';
 
   return [
     {
@@ -40,5 +40,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.5,
     },
-  ]
+  ];
 }

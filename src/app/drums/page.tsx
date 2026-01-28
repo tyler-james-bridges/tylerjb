@@ -1,8 +1,9 @@
-import { Metadata } from "next";
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Drums",
-  description: "Performance videos from my years in drum corps and indoor percussion.",
+  title: 'Drums',
+  description:
+    'Performance videos from my years in drum corps and indoor percussion.',
 };
 
 export default function DrumsPage() {

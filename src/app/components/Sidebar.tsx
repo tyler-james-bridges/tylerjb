@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { ThemeToggle } from "./ThemeToggle";
-import { createPortal } from "react-dom";
-import { navItems, socialLinks } from "./nav-config";
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
+import { ThemeToggle } from './ThemeToggle';
+import { createPortal } from 'react-dom';
+import { navItems, socialLinks } from './nav-config';
 
 interface SidebarProps {
   isMobile: boolean;
@@ -37,31 +37,31 @@ export default function Sidebar({ isMobile }: SidebarProps) {
   };
 
   const hackerMessages = [
-    "$ sudo access --mainframe tylerjb.dev",
-    "[CONNECTING] Establishing secure tunnel...",
-    "[OK] Connection established",
-    "$ decrypt --key=TYLER_2025 /secrets/",
-    "[DECRYPTING] ████████░░░░░░░░ 42%",
-    "[DECRYPTING] ████████████░░░░ 69%",
-    "[DECRYPTING] ████████████████ 100%",
-    "[SUCCESS] Decryption complete",
-    "$ cat /secrets/about_tyler.txt",
-    "> SUBJECT: Tyler James-Bridges",
-    "> STATUS: Debugging something, probably",
-    "> THREAT LEVEL: Mass texter",
-    "> SKILLS: TypeScript, Playwright, Percussion",
-    "> WARNING: Knows too much about NFTs",
-    "$ access --level=root /hidden/",
-    "[ALERT] Unauthorized access detected!",
-    "[TRACE] Initiating counter-hack...",
-    "$ run escape_protocol.sh",
-    "[EXECUTING] ░░░░░░░░░░░░░░░░",
-    "[EXECUTING] ████░░░░░░░░░░░░",
-    "[EXECUTING] ████████░░░░░░░░",
-    "[EXECUTING] ████████████████",
-    "[SUCCESS] Escaped successfully. Close call!",
-    "",
-    "> Session terminated. Have a nice day :)"
+    '$ sudo access --mainframe tylerjb.dev',
+    '[CONNECTING] Establishing secure tunnel...',
+    '[OK] Connection established',
+    '$ decrypt --key=TYLER_2025 /secrets/',
+    '[DECRYPTING] ████████░░░░░░░░ 42%',
+    '[DECRYPTING] ████████████░░░░ 69%',
+    '[DECRYPTING] ████████████████ 100%',
+    '[SUCCESS] Decryption complete',
+    '$ cat /secrets/about_tyler.txt',
+    '> SUBJECT: Tyler James-Bridges',
+    '> STATUS: Debugging something, probably',
+    '> THREAT LEVEL: Mass texter',
+    '> SKILLS: TypeScript, Playwright, Percussion',
+    '> WARNING: Knows too much about NFTs',
+    '$ access --level=root /hidden/',
+    '[ALERT] Unauthorized access detected!',
+    '[TRACE] Initiating counter-hack...',
+    '$ run escape_protocol.sh',
+    '[EXECUTING] ░░░░░░░░░░░░░░░░',
+    '[EXECUTING] ████░░░░░░░░░░░░',
+    '[EXECUTING] ████████░░░░░░░░',
+    '[EXECUTING] ████████████████',
+    '[SUCCESS] Escaped successfully. Close call!',
+    '',
+    '> Session terminated. Have a nice day :)',
   ];
 
   const handleYellowButtonClick = () => {
@@ -71,7 +71,7 @@ export default function Sidebar({ isMobile }: SidebarProps) {
     let lineIndex = 0;
     const interval = setInterval(() => {
       if (lineIndex < hackerMessages.length) {
-        setHackerLines(prev => [...prev, hackerMessages[lineIndex]]);
+        setHackerLines((prev) => [...prev, hackerMessages[lineIndex]]);
         lineIndex++;
       } else {
         clearInterval(interval);
@@ -84,20 +84,20 @@ export default function Sidebar({ isMobile }: SidebarProps) {
   };
 
   const isActive = (href: string) => {
-    if (href === "/") return pathname === "/";
+    if (href === '/') return pathname === '/';
     return pathname.startsWith(href);
   };
 
   return (
     <div
       className={`${
-        isMobile ? "w-full" : "w-[320px] border-r border-muted-foreground/20"
+        isMobile ? 'w-full' : 'w-[320px] border-r border-muted-foreground/20'
       } h-dvh flex flex-col bg-muted dark:bg-muted`}
     >
       {/* Header with traffic lights */}
       <div
         className={`px-4 py-3 flex items-center justify-between ${
-          isScrolled ? "border-b shadow-sm" : ""
+          isScrolled ? 'border-b shadow-sm' : ''
         }`}
       >
         {/* Traffic light buttons */}
@@ -123,7 +123,7 @@ export default function Sidebar({ isMobile }: SidebarProps) {
             </span>
           </button>
           <button
-            onClick={() => router.push("/playground")}
+            onClick={() => router.push('/playground')}
             className="group relative"
             aria-label="Maximize"
           >
@@ -154,8 +154,12 @@ export default function Sidebar({ isMobile }: SidebarProps) {
               />
             </div>
             <div>
-              <div className="font-semibold text-foreground">Tyler James-Bridges</div>
-              <div className="text-sm text-muted-foreground">Software Engineer</div>
+              <div className="font-semibold text-foreground">
+                Tyler James-Bridges
+              </div>
+              <div className="text-sm text-muted-foreground">
+                Software Engineer
+              </div>
             </div>
           </div>
         </div>
@@ -173,10 +177,12 @@ export default function Sidebar({ isMobile }: SidebarProps) {
                 <a
                   key={item.href}
                   href={item.href}
-                  className={`sidebar-nav-item mx-2 ${active ? "active" : ""}`}
+                  className={`sidebar-nav-item mx-2 ${active ? 'active' : ''}`}
                 >
                   <span className="text-base">{item.emoji}</span>
-                  <span className={active ? "font-medium" : ""}>{item.label}</span>
+                  <span className={active ? 'font-medium' : ''}>
+                    {item.label}
+                  </span>
                 </a>
               );
             }
@@ -184,10 +190,12 @@ export default function Sidebar({ isMobile }: SidebarProps) {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`sidebar-nav-item mx-2 ${active ? "active" : ""}`}
+                className={`sidebar-nav-item mx-2 ${active ? 'active' : ''}`}
               >
                 <span className="text-base">{item.emoji}</span>
-                <span className={active ? "font-medium" : ""}>{item.label}</span>
+                <span className={active ? 'font-medium' : ''}>
+                  {item.label}
+                </span>
               </Link>
             );
           })}
@@ -224,39 +232,45 @@ export default function Sidebar({ isMobile }: SidebarProps) {
       </div>
 
       {/* CRT Shutdown Effect Overlay */}
-      {mounted && showCrtShutdown && createPortal(
-        <div className="crt-shutdown-overlay">
-          <div className="screen" />
-          <div className="nice-try">NICE TRY 😏</div>
-        </div>,
-        document.body
-      )}
+      {mounted &&
+        showCrtShutdown &&
+        createPortal(
+          <div className="crt-shutdown-overlay">
+            <div className="screen" />
+            <div className="nice-try">NICE TRY 😏</div>
+          </div>,
+          document.body
+        )}
 
       {/* Hacker Mode Overlay */}
-      {mounted && showHackerMode && createPortal(
-        <div className="hacker-overlay">
-          <div className="hacker-scanline" />
-          <div className="hacker-text">
-            {hackerLines.map((line, i) => (
-              <div key={i}>
-                {line?.startsWith('$') ? (
-                  <span className="command">{line}</span>
-                ) : line?.startsWith('[OK]') || line?.startsWith('[SUCCESS]') ? (
-                  <span className="success">{line}</span>
-                ) : line?.startsWith('[ALERT]') || line?.startsWith('[TRACE]') ? (
-                  <span className="error">{line}</span>
-                ) : line?.startsWith('[') ? (
-                  <span className="warning">{line}</span>
-                ) : (
-                  <span>{line || ''}</span>
-                )}
-              </div>
-            ))}
-            <span className="hacker-cursor" />
-          </div>
-        </div>,
-        document.body
-      )}
+      {mounted &&
+        showHackerMode &&
+        createPortal(
+          <div className="hacker-overlay">
+            <div className="hacker-scanline" />
+            <div className="hacker-text">
+              {hackerLines.map((line, i) => (
+                <div key={i}>
+                  {line?.startsWith('$') ? (
+                    <span className="command">{line}</span>
+                  ) : line?.startsWith('[OK]') ||
+                    line?.startsWith('[SUCCESS]') ? (
+                    <span className="success">{line}</span>
+                  ) : line?.startsWith('[ALERT]') ||
+                    line?.startsWith('[TRACE]') ? (
+                    <span className="error">{line}</span>
+                  ) : line?.startsWith('[') ? (
+                    <span className="warning">{line}</span>
+                  ) : (
+                    <span>{line || ''}</span>
+                  )}
+                </div>
+              ))}
+              <span className="hacker-cursor" />
+            </div>
+          </div>,
+          document.body
+        )}
     </div>
   );
 }

@@ -9,21 +9,55 @@ interface StartMenuProps {
   onOpenApp: (appType: string) => void;
 }
 
-export default function StartMenu({ isOpen, onClose, onOpenApp }: StartMenuProps) {
+export default function StartMenu({
+  isOpen,
+  onClose,
+  onOpenApp,
+}: StartMenuProps) {
   const router = useRouter();
 
   if (!isOpen) return null;
 
   const menuItems = [
-    { id: 'terminal', icon: '📟', label: 'Terminal', description: 'Command line interface' },
-    { id: 'texteditor', icon: '📝', label: 'Text Editor', description: 'Simple text editing' },
-    { id: 'about', icon: '👤', label: 'About Me', description: 'Personal information' },
-    { id: 'bughunter', icon: '🐛', label: 'Bug Hunter', description: 'Find bugs in code - QA game' },
-    { id: 'music', icon: '🎵', label: 'Music Player', description: 'Play music files' },
+    {
+      id: 'terminal',
+      icon: '📟',
+      label: 'Terminal',
+      description: 'Command line interface',
+    },
+    {
+      id: 'texteditor',
+      icon: '📝',
+      label: 'Text Editor',
+      description: 'Simple text editing',
+    },
+    {
+      id: 'about',
+      icon: '👤',
+      label: 'About Me',
+      description: 'Personal information',
+    },
+    {
+      id: 'bughunter',
+      icon: '🐛',
+      label: 'Bug Hunter',
+      description: 'Find bugs in code - QA game',
+    },
+    {
+      id: 'music',
+      icon: '🎵',
+      label: 'Music Player',
+      description: 'Play music files',
+    },
   ];
 
   const systemItems = [
-    { id: 'shutdown', icon: '🔌', label: 'Shutdown', description: 'Power off system' },
+    {
+      id: 'shutdown',
+      icon: '🔌',
+      label: 'Shutdown',
+      description: 'Power off system',
+    },
   ];
 
   const handleItemClick = (id: string) => {
@@ -40,11 +74,8 @@ export default function StartMenu({ isOpen, onClose, onOpenApp }: StartMenuProps
   return (
     <>
       {/* Backdrop */}
-      <div 
-        className="fixed inset-0 z-[9998]"
-        onClick={onClose}
-      />
-      
+      <div className="fixed inset-0 z-[9998]" onClick={onClose} />
+
       {/* Start Menu */}
       <div className="start-menu">
         <div className="start-menu-header">
@@ -58,7 +89,7 @@ export default function StartMenu({ isOpen, onClose, onOpenApp }: StartMenuProps
         <div className="start-menu-content">
           <div className="menu-section">
             <h3 className="section-title">Applications</h3>
-            {menuItems.map(item => (
+            {menuItems.map((item) => (
               <button
                 key={item.id}
                 className="menu-item"
@@ -77,7 +108,7 @@ export default function StartMenu({ isOpen, onClose, onOpenApp }: StartMenuProps
 
           <div className="menu-section">
             <h3 className="section-title">System</h3>
-            {systemItems.map(item => (
+            {systemItems.map((item) => (
               <button
                 key={item.id}
                 className="menu-item"

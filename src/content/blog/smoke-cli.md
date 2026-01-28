@@ -1,8 +1,8 @@
 ---
-title: "Building the Smoke CLI: From QA Automation to SWE"
-date: "2025-06-15"
-description: "How building a testing CLI marked my transition from QA automation engineer to software engineer, and why that background became my superpower."
-tags: ["Developer Experience", "CLI", "Testing", "Career"]
+title: 'Building the Smoke CLI: From QA Automation to SWE'
+date: '2025-06-15'
+description: 'How building a testing CLI marked my transition from QA automation engineer to software engineer, and why that background became my superpower.'
+tags: ['Developer Experience', 'CLI', 'Testing', 'Career']
 ---
 
 ## My QA Automation Roots
@@ -81,9 +81,9 @@ The difference wasn't just syntactic. It represented a fundamental shift in how 
 As QA, I knew we always ran `@pr` and `@regression` tags together in scheduled jobs. As SWE, I abstracted this:
 
 ```typescript
-const isCron = rawArgs.includes("cron");
+const isCron = rawArgs.includes('cron');
 if (isCron && tagArgs.length === 0) {
-  tagArgs = ["@pr", "@regression"];
+  tagArgs = ['@pr', '@regression'];
 }
 ```
 
@@ -102,11 +102,13 @@ smoke test cron           # Automatic tag expansion
 ## What I Learned
 
 **Technical growth:**
+
 - From Bash to TypeScript: moved from scripting to proper software development
 - From scripts to CLI: learned to build distributable npm packages
 - From procedural to modular: created reusable, testable components
 
 **Mindset evolution:**
+
 - QA mindset: "How do we test everything?"
 - SWE mindset: "How do we make testing accessible?"
 - DevEx mindset: "How do we remove friction from development?"
@@ -116,11 +118,13 @@ smoke test cron           # Automatic tag expansion
 ## The Impact
 
 **For the org:**
+
 - My QA expertise didn't leave with the QA team. It was encoded into tools
 - No testing capability was lost despite team restructuring
 - 50+ developers could now run tests independently
 
 **For me:**
+
 - Proved I could build developer tools, not just test scripts
 - Demonstrated unique value as someone who understood both QA and development
 - Solidified my position as SWE 3
@@ -142,12 +146,12 @@ This function encapsulates my entire transition:
 ```typescript
 export async function test(argv: any) {
   // My QA knowledge: I know how tags work
-  let tagArgs = rawArgs.filter((arg: string) => arg.startsWith("@"));
+  let tagArgs = rawArgs.filter((arg: string) => arg.startsWith('@'));
 
   // My QA knowledge: I know about our cron patterns
-  const isCron = rawArgs.includes("cron");
+  const isCron = rawArgs.includes('cron');
   if (isCron) {
-    tagArgs = ["@pr", "@regression"];
+    tagArgs = ['@pr', '@regression'];
   }
 
   // My SWE growth: Clean abstraction

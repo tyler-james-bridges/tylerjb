@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import Sidebar from "./Sidebar";
-import MobileNav from "./MobileNav";
-import AISummary from "./AISummary";
+import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import Sidebar from './Sidebar';
+import MobileNav from './MobileNav';
+import AISummary from './AISummary';
 
 interface SidebarLayoutProps {
   children: React.ReactNode;
@@ -13,7 +13,7 @@ interface SidebarLayoutProps {
 export default function SidebarLayout({ children }: SidebarLayoutProps) {
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
   const pathname = usePathname();
-  const isPlayground = pathname === "/playground";
+  const isPlayground = pathname === '/playground';
 
   // Detect mobile viewport
   useEffect(() => {
@@ -22,8 +22,8 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
     };
 
     checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   // Show loading state while detecting viewport

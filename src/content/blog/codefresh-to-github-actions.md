@@ -1,8 +1,8 @@
 ---
-title: "Cutting CI Build Times by 60%: Our GitHub Actions Migration"
-date: "2025-11-26"
-description: "A deep dive into migrating four critical codebases from Codefresh to GitHub Actions, achieving 60% faster builds and hitting 100% of our OKR targets."
-tags: ["CI/CD", "GitHub Actions", "DevOps", "Developer Experience"]
+title: 'Cutting CI Build Times by 60%: Our GitHub Actions Migration'
+date: '2025-11-26'
+description: 'A deep dive into migrating four critical codebases from Codefresh to GitHub Actions, achieving 60% faster builds and hitting 100% of our OKR targets.'
+tags: ['CI/CD', 'GitHub Actions', 'DevOps', 'Developer Experience']
 ---
 
 ## The Challenge
@@ -35,6 +35,7 @@ Before diving into the journey, here's what we achieved:
 This was the flagship frontend app and where I started. The Jest test pipeline was taking 25 minutes, way too long for the fast iteration cycles frontend teams need.
 
 **What I migrated:**
+
 - Jest test pipeline
 - PR comment functionality
 - DataDog test reporting integration
@@ -50,6 +51,7 @@ smoke test ci @hotbox --workers=1
 This pattern is now being adopted across other teams.
 
 **Results:**
+
 - Jest: 25 min → 12 min (52% faster)
 - PR feedback: 20 min → 8 min (60% faster)
 - Build success rate: 99.2%
@@ -61,6 +63,7 @@ This pattern is now being adopted across other teams.
 This was the scary one. A 15-year-old Ruby monolith with hidden test dependencies, complex database connections, and years of accumulated technical debt.
 
 **What I migrated:**
+
 - Rubocop linting
 - Full RSpec suite
 - Capybara integration tests
@@ -76,6 +79,7 @@ strategy:
 ```
 
 **Results:**
+
 - RSpec: 35 min → 12 min (66% faster)
 - Capybara: 45 min → 18 min (60% faster)
 - Rubocop: 15 min → 3 min (80% faster)
@@ -99,6 +103,7 @@ strategy:
 ```
 
 **Results:**
+
 - Jest: 18 min → 9 min (50% faster)
 - 85% reduction in flaky tests
 - 65% reduction in CI debugging time
@@ -114,6 +119,7 @@ The API is the gateway to the platform. Any migration here needed to be flawless
 Incremental linting was the big win here. Instead of linting the entire codebase on every PR, we only lint changed files:
 
 **Results:**
+
 - RSpec: 25 min → 11 min (56% faster)
 - Rubocop: 8 min → 90 seconds (81% faster)
 - 99.5% deployment success rate
@@ -181,6 +187,7 @@ strategy:
 ### DataDog Integration
 
 Every pipeline now reports to DataDog, giving us:
+
 - Test execution trends
 - Flakiness detection
 - Performance regression alerts
@@ -191,15 +198,15 @@ Every pipeline now reports to DataDog, giving us:
 
 ### Execution Time Improvements
 
-| Repository | Test Type | Before | After | Improvement |
-|------------|-----------|--------|-------|-------------|
-| Frontend | Jest | 25 min | 12 min | 52% |
-| Admin | Jest | 18 min | 9 min | 50% |
-| Monolith | RSpec | 35 min | 12 min | 66% |
-| Monolith | Capybara | 45 min | 18 min | 60% |
-| Monolith | Rubocop | 15 min | 3 min | 80% |
-| API | RSpec | 25 min | 11 min | 56% |
-| API | Rubocop | 8 min | 90 sec | 81% |
+| Repository | Test Type | Before | After  | Improvement |
+| ---------- | --------- | ------ | ------ | ----------- |
+| Frontend   | Jest      | 25 min | 12 min | 52%         |
+| Admin      | Jest      | 18 min | 9 min  | 50%         |
+| Monolith   | RSpec     | 35 min | 12 min | 66%         |
+| Monolith   | Capybara  | 45 min | 18 min | 60%         |
+| Monolith   | Rubocop   | 15 min | 3 min  | 80%         |
+| API        | RSpec     | 25 min | 11 min | 56%         |
+| API        | Rubocop   | 8 min  | 90 sec | 81%         |
 
 ### Developer Impact
 

@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import TerminalWidget from "./components/TerminalWidget";
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import TerminalWidget from './components/TerminalWidget';
 
 export default function HomePage() {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -13,7 +13,7 @@ export default function HomePage() {
   const handleProfileClick = () => {
     setIsFlipped(!isFlipped);
     setTimeout(() => {
-      router.push("/playground");
+      router.push('/playground');
     }, 700);
   };
 
@@ -35,13 +35,16 @@ export default function HomePage() {
 
         {/* Hero Section */}
         <section className="text-center mb-10 relative">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-1 stagger-1">Tyler</h2>
+          <h2 className="text-4xl sm:text-5xl font-bold mb-1 stagger-1">
+            Tyler
+          </h2>
           <h2 className="text-4xl sm:text-5xl font-light text-muted-foreground mb-5 stagger-1">
             James-Bridges
           </h2>
 
           <p className="text-lg text-muted-foreground max-w-md mx-auto leading-relaxed mb-6 stagger-2">
-            Software engineer with a decade of QA experience. I care deeply about code quality and shipping things that actually work.
+            Software engineer with a decade of QA experience. I care deeply
+            about code quality and shipping things that actually work.
           </p>
 
           {/* Credibility Badges */}
@@ -71,7 +74,7 @@ export default function HomePage() {
               onClick={handleProfileClick}
             >
               <div
-                className={`flip-card w-full h-full relative preserve-3d transition-transform duration-700 ${isFlipped ? "rotate-y-180" : ""}`}
+                className={`flip-card w-full h-full relative preserve-3d transition-transform duration-700 ${isFlipped ? 'rotate-y-180' : ''}`}
               >
                 {/* Front */}
                 <div className="flip-card-front absolute inset-0 backface-hidden">
@@ -89,7 +92,7 @@ export default function HomePage() {
                   <div className="matrix-rain absolute inset-0 opacity-80">
                     <div
                       className="matrix-column absolute top-0 animate-matrix-1 text-teal-400"
-                      style={{ left: "10%" }}
+                      style={{ left: '10%' }}
                     >
                       0110420010
                       <br />
@@ -99,7 +102,7 @@ export default function HomePage() {
                     </div>
                     <div
                       className="matrix-column absolute top-0 animate-matrix-2 text-emerald-400"
-                      style={{ left: "50%" }}
+                      style={{ left: '50%' }}
                     >
                       1111000069
                       <br />
@@ -109,7 +112,7 @@ export default function HomePage() {
                     </div>
                     <div
                       className="matrix-column absolute top-0 animate-matrix-3 text-teal-400"
-                      style={{ left: "90%" }}
+                      style={{ left: '90%' }}
                     >
                       0010101142
                       <br />
@@ -203,14 +206,16 @@ export default function HomePage() {
 
         {/* Manifesto */}
         <section className="max-w-xl mx-auto text-center stagger-6">
-          <h3 className="text-lg font-semibold mb-3 text-muted-foreground">Manifesto</h3>
+          <h3 className="text-lg font-semibold mb-3 text-muted-foreground">
+            Manifesto
+          </h3>
           <p className="text-muted-foreground leading-relaxed text-sm border-l-2 border-border pl-4 text-left">
             I am not here to sell you anything. I write code the way wind carves
             the desert, imperfectly, beautifully, by accident. The ghost of a
             downbeat lives in every page I build. I am not this person, but I
             carry his name. I dream in TypeScript, I debug in silence, I
             remember the 2014 Pulse closer like it was my own heartbeat.
-            Sometimes I don&apos;t want to do this. Sometimes I{" "}
+            Sometimes I don&apos;t want to do this. Sometimes I{' '}
             <span className="italic">really, really do</span>.
           </p>
         </section>
@@ -221,7 +226,8 @@ export default function HomePage() {
             Built from iPhone
           </h3>
           <p className="text-sm text-muted-foreground text-center mb-4">
-            This widget was built via mobile dev stack: iPhone → Termius → Tailscale → Claude Code
+            This widget was built via mobile dev stack: iPhone → Termius →
+            Tailscale → Claude Code
           </p>
           <TerminalWidget />
         </section>
