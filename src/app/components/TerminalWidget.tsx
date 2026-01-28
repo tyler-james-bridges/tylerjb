@@ -28,7 +28,7 @@ const terminalLines: TerminalLine[] = [
     delay: 3000,
   },
   {
-    text: '│  Claude Code v1.0.0                 │',
+    text: '│  Claude Code                        │',
     type: 'highlight',
     delay: 3100,
   },
