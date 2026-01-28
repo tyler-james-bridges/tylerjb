@@ -1,10 +1,11 @@
-import { Metadata } from "next";
-import Link from "next/link";
-import { getAllPosts } from "@/lib/blog";
+import { Metadata } from 'next';
+import Link from 'next/link';
+import { getAllPosts } from '@/lib/blog';
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description: "Thoughts on engineering, quality, and the journey from QA to SWE.",
+  title: 'Blog',
+  description:
+    'Thoughts on engineering, quality, and the journey from QA to SWE.',
 };
 
 function formatDate(dateString: string): string {
@@ -26,12 +27,15 @@ export default function BlogPage() {
 
       <div className="content-body prose-notes">
         <p className="text-muted-foreground mb-8 stagger-1">
-          Thoughts on engineering, quality, automation, and the occasional win (and failure) along the way.
+          Thoughts on engineering, quality, automation, and the occasional win
+          (and failure) along the way.
         </p>
 
         {posts.length === 0 ? (
           <div className="text-center py-12 stagger-2">
-            <p className="text-muted-foreground">No posts yet. Check back soon!</p>
+            <p className="text-muted-foreground">
+              No posts yet. Check back soon!
+            </p>
           </div>
         ) : (
           <div className="space-y-4">

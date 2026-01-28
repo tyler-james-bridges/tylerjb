@@ -35,9 +35,9 @@ export function getAllPosts(): BlogPostMeta[] {
     return [];
   }
 
-  const files = fs.readdirSync(BLOG_DIR).filter(file => file.endsWith('.md'));
+  const files = fs.readdirSync(BLOG_DIR).filter((file) => file.endsWith('.md'));
 
-  const posts = files.map(filename => {
+  const posts = files.map((filename) => {
     const slug = filename.replace('.md', '');
     const filePath = path.join(BLOG_DIR, filename);
     const fileContents = fs.readFileSync(filePath, 'utf8');
@@ -54,7 +54,9 @@ export function getAllPosts(): BlogPostMeta[] {
   });
 
   // Sort by date, newest first
-  return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return posts.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
 }
 
 export function getPostBySlug(slug: string): BlogPost | null {
@@ -83,7 +85,8 @@ export function getAllSlugs(): string[] {
     return [];
   }
 
-  return fs.readdirSync(BLOG_DIR)
-    .filter(file => file.endsWith('.md'))
-    .map(file => file.replace('.md', ''));
+  return fs
+    .readdirSync(BLOG_DIR)
+    .filter((file) => file.endsWith('.md'))
+    .map((file) => file.replace('.md', ''));
 }

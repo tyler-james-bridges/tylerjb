@@ -6,7 +6,7 @@ export default function Terminal() {
   const [history, setHistory] = useState<string[]>([
     'TylerOS Terminal v4.20',
     'Type "help" for available commands',
-    ''
+    '',
   ]);
   const [currentLine, setCurrentLine] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
@@ -22,54 +22,54 @@ export default function Terminal() {
       '  contact  - Contact information',
       '  clear    - Clear terminal',
       '  date     - Current date and time',
-      '  whoami   - Current user info'
+      '  whoami   - Current user info',
     ],
     about: () => [
       'Tyler James-Bridges',
       'Senior Quality Engineer → Software Engineer',
       '10+ years in QA/Testing, now building full-stack applications',
-      'Passionate about quality-first development and user experience'
+      'Passionate about quality-first development and user experience',
     ],
     skills: () => [
       'Languages: JavaScript, TypeScript, Python, Ruby',
       'Frontend: React, Next.js, Tailwind CSS',
       'Testing: Playwright, Jest, Cypress',
       'Backend: Node.js, Express, PostgreSQL',
-      'Tools: Git, Docker, AWS, CI/CD'
+      'Tools: Git, Docker, AWS, CI/CD',
     ],
     projects: () => [
       'Recent Projects:',
       '• TylerOS - Browser-based operating system',
       '• Portfolio Site - Personal website with Matrix animations',
       '• Test Automation Framework - Custom Playwright framework',
-      '• QA Dashboard - Metrics and reporting system'
+      '• QA Dashboard - Metrics and reporting system',
     ],
     contact: () => [
       'Email: tyler@example.com',
       'GitHub: github.com/tylerjames-bridges',
-      'LinkedIn: linkedin.com/in/tylerjames-bridges'
+      'LinkedIn: linkedin.com/in/tylerjames-bridges',
     ],
     clear: () => {
       setHistory(['']);
       return '';
     },
     date: () => new Date().toString(),
-    whoami: () => 'tyler@tylerOS:~$'
+    whoami: () => 'tyler@tylerOS:~$',
   };
 
   const handleCommand = (cmd: string) => {
     const trimmedCmd = cmd.trim().toLowerCase();
-    const output = commands[trimmedCmd] 
-      ? commands[trimmedCmd]() 
+    const output = commands[trimmedCmd]
+      ? commands[trimmedCmd]()
       : `Command not found: ${cmd}. Type "help" for available commands.`;
-    
+
     const newHistory = [
       ...history,
       `$ ${cmd}`,
       ...(Array.isArray(output) ? output : [output]),
-      ''
+      '',
     ];
-    
+
     setHistory(trimmedCmd === 'clear' ? [''] : newHistory);
     setCurrentLine('');
   };
@@ -89,7 +89,7 @@ export default function Terminal() {
   }, []);
 
   return (
-    <div 
+    <div
       className="bg-black text-green-400 p-2 md:p-4 h-full font-mono text-xs md:text-sm overflow-auto cursor-text"
       onClick={() => inputRef.current?.focus()}
       ref={terminalRef}
