@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { navItems } from './nav-config';
+import { ThemeToggle } from './ThemeToggle';
 
 export default function MobileNav() {
   const pathname = usePathname();
@@ -13,40 +14,38 @@ export default function MobileNav() {
   };
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-muted/95 backdrop-blur-sm border-t border-border safe-area-bottom">
-      <div className="flex items-center justify-around px-2 py-2">
-        {navItems.map((item) => {
-          const Icon = item.icon;
-          const active = isActive(item.href);
-          const className = `flex flex-col items-center gap-1 px-3 py-2 rounded-lg transition-colors ${
-            active
-              ? 'text-foreground'
-              : 'text-muted-foreground hover:text-foreground'
-          }`;
-          // For drums, force a full reload to reset game state
-          if (item.href === '/drums') {
-            return (
-              <a key={item.href} href={item.href} className={className}>
-                <Icon
-                  className={`w-6 h-6 ${active ? 'stroke-[2.5px]' : 'stroke-[1.5px]'}`}
-                />
-                <span className={`text-[10px] ${active ? 'font-medium' : ''}`}>
+    <nav className="md:hidden sticky top-0 z-50 bg-background border-b-2 border-foreground safe-area-bottom">
+      <div className="flex items-center justify-between px-4 py-3">
+        <Link href="/" className="text-sm font-bold tracking-widest uppercase">
+          TJB
+        </Link>
+
+        <div className="flex items-center gap-1 overflow-x-auto scrollbar-none">
+          {navItems.map((item) => {
+            const active = isActive(item.href);
+            const sharedClass = `whitespace-nowrap px-2 py-1 text-[10px] uppercase tracking-[0.08em] font-medium transition-colors ${
+              active
+                ? 'text-foreground underline underline-offset-4'
+                : 'text-muted-foreground'
+            }`;
+
+            if (item.href === '/drums') {
+              return (
+                <a key={item.href} href={item.href} className={sharedClass}>
                   {item.shortLabel || item.label}
-                </span>
-              </a>
-            );
-          }
-          return (
-            <Link key={item.href} href={item.href} className={className}>
-              <Icon
-                className={`w-6 h-6 ${active ? 'stroke-[2.5px]' : 'stroke-[1.5px]'}`}
-              />
-              <span className={`text-[10px] ${active ? 'font-medium' : ''}`}>
+                </a>
+              );
+            }
+
+            return (
+              <Link key={item.href} href={item.href} className={sharedClass}>
                 {item.shortLabel || item.label}
-              </span>
-            </Link>
-          );
-        })}
+              </Link>
+            );
+          })}
+        </div>
+
+        <ThemeToggle />
       </div>
     </nav>
   );

@@ -21,7 +21,7 @@ export default function HomePage() {
     <div className="animate-slide-up">
       {/* Header */}
       <header className="content-header">
-        <h1 className="text-2xl font-bold">🏠 Home</h1>
+        <h1 className="text-sm font-bold uppercase tracking-widest">Home</h1>
       </header>
 
       {/* Content */}
@@ -42,20 +42,25 @@ export default function HomePage() {
             James-Bridges
           </h2>
 
-          <p className="text-lg text-muted-foreground max-w-md mx-auto leading-relaxed mb-6 stagger-2">
+          <p className="text-lg text-muted-foreground max-w-md mx-auto leading-relaxed mb-3 stagger-2">
             Software engineer with a decade of QA experience. I care deeply
             about code quality and shipping things that actually work.
           </p>
 
+          <p className="text-base font-semibold max-w-md mx-auto leading-relaxed mb-6 stagger-2">
+            I build and scale systems that improve developer productivity across
+            the organization.
+          </p>
+
           {/* Credibility Badges */}
           <div className="flex flex-wrap justify-center gap-2 mb-6 stagger-3">
-            <span className="px-3 py-1.5 text-xs font-medium rounded-full bg-muted border border-border badge-hover cursor-default">
+            <span className="px-3 py-1.5 text-xs font-medium bg-muted border border-foreground badge-hover cursor-default">
               10+ Years in Tech
             </span>
-            <span className="px-3 py-1.5 text-xs font-medium rounded-full bg-muted border border-border badge-hover cursor-default">
+            <span className="px-3 py-1.5 text-xs font-medium bg-muted border border-foreground badge-hover cursor-default">
               Playwright / Test Automation
             </span>
-            <span className="px-3 py-1.5 text-xs font-medium rounded-full bg-muted border border-border badge-hover cursor-default">
+            <span className="px-3 py-1.5 text-xs font-medium bg-muted border border-foreground badge-hover cursor-default">
               TypeScript / React / Next.js
             </span>
           </div>
@@ -70,7 +75,7 @@ export default function HomePage() {
           <div className="grid grid-cols-2 gap-4 max-w-lg mx-auto">
             {/* Profile Flip Card */}
             <div
-              className="aspect-square rounded-2xl overflow-hidden group perspective-1000 cursor-pointer card-lift animate-matrix-hint tv-scanline relative border border-border"
+              className="aspect-square overflow-hidden group perspective-1000 cursor-pointer card-lift relative border-2 border-foreground"
               onClick={handleProfileClick}
             >
               <div
@@ -141,7 +146,7 @@ export default function HomePage() {
               href="https://opensea.io/collection/mutant-ape-yacht-club"
               target="_blank"
               rel="noopener noreferrer"
-              className="aspect-square rounded-2xl overflow-hidden group block cursor-pointer card-lift border border-border"
+              className="aspect-square overflow-hidden group block cursor-pointer card-lift border-2 border-foreground"
             >
               <Image
                 src="/images/mayc.png"
@@ -157,7 +162,7 @@ export default function HomePage() {
               href="https://magiceden.us/ordinals/marketplace/bitcoin-puppets"
               target="_blank"
               rel="noopener noreferrer"
-              className="aspect-square rounded-2xl overflow-hidden group block cursor-pointer card-lift border border-border"
+              className="aspect-square overflow-hidden group block cursor-pointer card-lift border-2 border-foreground"
             >
               <Image
                 src="/images/bitcoin-puppet.png"
@@ -173,7 +178,7 @@ export default function HomePage() {
               href="https://opensea.io/collection/disobedients-ethereum"
               target="_blank"
               rel="noopener noreferrer"
-              className="aspect-square rounded-2xl overflow-hidden group block cursor-pointer card-lift border border-border"
+              className="aspect-square overflow-hidden group block cursor-pointer card-lift border-2 border-foreground"
             >
               <Image
                 src="/images/hoodie.png"
@@ -191,22 +196,39 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/experience"
-              className="px-6 py-3 rounded-xl bg-foreground text-background font-medium text-center btn-lift"
+              className="px-6 py-3 bg-foreground text-background font-medium text-center text-sm uppercase tracking-wider btn-lift"
             >
               View My Experience
             </Link>
             <Link
               href="/contact"
-              className="px-6 py-3 rounded-xl border border-border font-medium text-center btn-lift hover:bg-muted"
+              className="px-6 py-3 border-2 border-foreground font-medium text-center text-sm uppercase tracking-wider btn-lift hover:bg-muted"
             >
               Let&apos;s Work Together
             </Link>
           </div>
         </section>
 
+        {/* Journey Callout */}
+        <section className="max-w-xl mx-auto mb-10 stagger-6">
+          <div className="border-2 border-foreground p-5 transition-colors">
+            <p className="text-sm text-muted-foreground mb-2">
+              From QA analyst to systems engineer — the story of building
+              belief, building tools, and building momentum.
+            </p>
+            <Link
+              href="/journey"
+              className="text-sm font-medium hover:text-[#e2a727] transition-colors"
+            >
+              Read the story of how I got here &rarr;
+            </Link>
+          </div>
+        </section>
+
         {/* Manifesto */}
         <section className="max-w-xl mx-auto text-center stagger-6">
-          <h3 className="text-lg font-semibold mb-3 text-muted-foreground">
+          <hr className="border-t-2 border-foreground mb-6" />
+          <h3 className="section-heading mb-3">
             Manifesto
           </h3>
           <p className="text-muted-foreground leading-relaxed text-sm border-l-2 border-border pl-4 text-left">
@@ -222,7 +244,8 @@ export default function HomePage() {
 
         {/* Mobile Dev Terminal */}
         <section id="terminal" className="max-w-xl mx-auto mt-14 stagger-6">
-          <h3 className="text-lg font-semibold mb-3 text-muted-foreground text-center">
+          <hr className="border-t-2 border-foreground mb-6" />
+          <h3 className="section-heading mb-3 text-center">
             Built from iPhone
           </h3>
           <p className="text-sm text-muted-foreground text-center mb-4">

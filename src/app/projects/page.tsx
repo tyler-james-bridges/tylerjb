@@ -132,7 +132,7 @@ function StatusBadge({ status }: { status: ProjectStatus }) {
   const config = statusConfig[status];
   return (
     <span
-      className={`px-2.5 py-1 text-xs font-medium rounded-full border ${config.className}`}
+      className={`px-2.5 py-1 text-xs font-medium border ${config.className}`}
     >
       {config.label}
     </span>
@@ -148,7 +148,7 @@ function ProjectCard({
 }) {
   return (
     <div
-      className={`rounded-2xl border border-border bg-card card-lift ${
+      className={`border-2 border-foreground bg-card card-lift ${
         featured ? 'p-8' : 'p-6'
       }`}
     >
@@ -204,7 +204,7 @@ function ProjectCard({
         {project.tech.map((tech) => (
           <span
             key={tech}
-            className="px-3 py-1.5 text-xs font-medium rounded-full bg-muted border border-border badge-hover"
+            className="px-3 py-1.5 text-xs font-medium bg-muted border border-foreground badge-hover"
           >
             {tech}
           </span>
@@ -222,7 +222,7 @@ export default function ProjectsPage() {
     <div className="animate-slide-up">
       {/* Header */}
       <header className="content-header">
-        <h1 className="text-2xl font-bold">🚀 Projects</h1>
+        <h1 className="text-sm font-bold uppercase tracking-widest">Projects</h1>
       </header>
 
       {/* Content */}
@@ -230,7 +230,7 @@ export default function ProjectsPage() {
         {/* Featured Projects */}
         {featuredProjects.length > 0 && (
           <section className="mb-12 stagger-1">
-            <h2 className="text-lg font-semibold mb-5 text-muted-foreground">
+            <h2 className="section-heading mb-5">
               Featured
             </h2>
             <div className="space-y-6">
@@ -249,7 +249,8 @@ export default function ProjectsPage() {
         {/* Other Projects */}
         {otherProjects.length > 0 && (
           <section className="stagger-3">
-            <h2 className="text-lg font-semibold mb-5 text-muted-foreground">
+            <hr className="border-t-2 border-foreground mb-6" />
+            <h2 className="section-heading mb-5">
               More Projects
             </h2>
             <div className="grid gap-5 sm:grid-cols-2">

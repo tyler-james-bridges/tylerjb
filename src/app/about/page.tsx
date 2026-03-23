@@ -9,13 +9,14 @@ export default function AboutPage() {
     <div className="animate-slide-up">
       {/* Header */}
       <header className="content-header">
-        <h1 className="text-2xl font-bold">👤 About Me</h1>
+        <h1 className="text-sm font-bold uppercase tracking-widest">About Me</h1>
       </header>
 
       {/* Content */}
       <div className="content-body prose-notes">
         <section className="mb-10 stagger-1">
-          <h2 className="text-2xl">The Human Behind the Code</h2>
+          <hr className="border-t-2 border-foreground mb-6" />
+          <h2 className="section-heading mb-4">The Human Behind the Code</h2>
           <p>
             I&apos;m a father of two tiny humans who remind me daily that the
             best debugging happens at 3 AM when you&apos;re running on coffee
@@ -29,7 +30,8 @@ export default function AboutPage() {
         </section>
 
         <section className="mb-10 stagger-2">
-          <h2 className="text-2xl">Rhythm & Algorithms</h2>
+          <hr className="border-t-2 border-foreground mb-6" />
+          <h2 className="section-heading mb-4">Rhythm & Algorithms</h2>
           <p>
             The percussion world shaped who I am long before I touched my first
             keyboard. There&apos;s something about the discipline of marching
@@ -46,7 +48,8 @@ export default function AboutPage() {
         </section>
 
         <section className="mb-10 stagger-3">
-          <h2 className="text-2xl">The Journey</h2>
+          <hr className="border-t-2 border-foreground mb-6" />
+          <h2 className="section-heading mb-4">The Journey</h2>
           <p>
             My percussion journey began in 2009 with Santa Clara Vanguard
             Cadets, where I learned that peak performance and peak identity
@@ -61,7 +64,8 @@ export default function AboutPage() {
         </section>
 
         <section className="mb-10 stagger-4">
-          <h2 className="text-2xl">Beyond the Screen</h2>
+          <hr className="border-t-2 border-foreground mb-6" />
+          <h2 className="section-heading mb-4">Beyond the Screen</h2>
           <p>
             When I&apos;m not writing tests or teaching paradiddles, you&apos;ll
             find me deep in the progressive metal rabbit hole (Animals As

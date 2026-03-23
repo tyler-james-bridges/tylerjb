@@ -98,13 +98,72 @@ export default function ExperiencePage() {
     <div className="animate-slide-up">
       {/* Header */}
       <header className="content-header">
-        <h1 className="text-2xl font-bold">💼 Experience</h1>
+        <h1 className="text-sm font-bold uppercase tracking-widest">Experience</h1>
       </header>
 
       {/* Content */}
       <div className="content-body prose-notes">
         <section className="mb-10 stagger-1">
-          <h2 className="text-2xl">Work Experience</h2>
+          <h2 className="section-heading mb-4">Engineering Evolution</h2>
+          <p className="text-muted-foreground mb-6">
+            From writing tests to building systems that enable testing.
+          </p>
+          <div className="space-y-4">
+            {[
+              {
+                phase: 'Phase 1',
+                label: 'Learning Foundations',
+                period: '2024',
+                description:
+                  'Playwright basics, selectors, async flows, simple end-to-end tests.',
+              },
+              {
+                phase: 'Phase 2',
+                label: 'Pattern Recognition',
+                period: '',
+                description:
+                  'Page Object Models, reusable helpers, thinking in structure rather than one-off scripts.',
+              },
+              {
+                phase: 'Phase 3',
+                label: 'System Builder',
+                period: '',
+                description:
+                  'API helpers with Axios, reusable utilities, designing for scalability and reuse across codebases.',
+              },
+              {
+                phase: 'Phase 4',
+                label: 'DevEx Engineer',
+                period: 'Current',
+                description:
+                  'CLI tooling (Smoke CLI), environment-aware execution, CI/CD pipelines, cross-team testing workflows.',
+              },
+            ].map((item) => (
+              <div
+                key={item.phase}
+                className="pl-4 border-l-2 border-border hover:border-[hsl(38,92%,50%)] transition-colors"
+              >
+                <div className="flex justify-between items-baseline">
+                  <span className="font-medium">
+                    {item.phase} — {item.label}
+                  </span>
+                  {item.period && (
+                    <span className="text-xs text-muted-foreground">
+                      {item.period}
+                    </span>
+                  )}
+                </div>
+                <p className="text-sm text-muted-foreground mt-1">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-10 stagger-2">
+          <hr className="border-t-2 border-foreground mb-6" />
+          <h2 className="section-heading mb-6">Work Experience</h2>
           {jobs.map((job, jobIndex) => (
             <div
               key={job.company}
@@ -141,7 +200,8 @@ export default function ExperiencePage() {
         </section>
 
         <section className="stagger-4">
-          <h2 className="text-2xl">Music & Education</h2>
+          <hr className="border-t-2 border-foreground mb-6" />
+          <h2 className="section-heading mb-4">Music & Education</h2>
           <p className="text-muted-foreground mb-4">
             Teaching and performing across the marching arts world.
           </p>

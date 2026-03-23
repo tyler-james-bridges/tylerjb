@@ -5,6 +5,7 @@ import { Analytics } from '@vercel/analytics/next';
 import ErrorBoundary from './components/ErrorBoundary';
 import { ThemeProvider } from './components/ThemeProvider';
 import SidebarLayout from './components/SidebarLayout';
+import { GeistMono } from 'geist/font/mono';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://tylerjb.dev'),
@@ -69,7 +70,7 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={GeistMono.variable}>
       <body className="antialiased">
         <ThemeProvider
           attribute="class"
