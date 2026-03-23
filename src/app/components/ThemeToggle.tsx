@@ -22,7 +22,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
     return (
       <button
         className={cn(
-          'relative p-2 rounded-lg transition-colors duration-200',
+          'relative p-2 transition-colors duration-200',
           'hover:bg-muted',
           className
         )}
@@ -37,7 +37,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
     <button
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       className={cn(
-        'relative p-2 rounded-lg transition-all duration-300',
+        'relative p-2 transition-all duration-300',
         'hover:bg-muted hover:text-accent',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent',
         className

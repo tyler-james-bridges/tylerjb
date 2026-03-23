@@ -19,15 +19,9 @@ export default function HomePage() {
 
   return (
     <div className="animate-slide-up">
-      {/* Header */}
-      <header className="content-header">
-        <h1 className="text-2xl font-bold">🏠 Home</h1>
-      </header>
-
-      {/* Content */}
       <div className="content-body">
         {/* Vertical text running down the right side of entire content */}
-        <div className="absolute right-[40%] top-24 pointer-events-none select-none opacity-15">
+        <div className="hidden md:block absolute right-4 top-24 pointer-events-none select-none opacity-10">
           <div className="text-[9px] font-mono text-muted-foreground writing-vertical tracking-[0.4em] leading-none">
             SOFTWARE・ENGINEER・QA・PERCUSSION・FATHER・BUILDER・DEBUGGER・TYPESCRIPT・PLAYWRIGHT
           </div>
@@ -42,20 +36,25 @@ export default function HomePage() {
             James-Bridges
           </h2>
 
-          <p className="text-lg text-muted-foreground max-w-md mx-auto leading-relaxed mb-6 stagger-2">
+          <p className="text-lg text-muted-foreground max-w-md mx-auto leading-relaxed mb-3 stagger-2">
             Software engineer with a decade of QA experience. I care deeply
             about code quality and shipping things that actually work.
           </p>
 
+          <p className="text-base font-semibold max-w-md mx-auto leading-relaxed mb-6 stagger-2">
+            I build and scale systems that improve developer productivity across
+            the organization.
+          </p>
+
           {/* Credibility Badges */}
           <div className="flex flex-wrap justify-center gap-2 mb-6 stagger-3">
-            <span className="px-3 py-1.5 text-xs font-medium rounded-full bg-muted border border-border badge-hover cursor-default">
+            <span className="px-3 py-1.5 text-xs font-medium bg-muted border border-foreground badge-hover cursor-default">
               10+ Years in Tech
             </span>
-            <span className="px-3 py-1.5 text-xs font-medium rounded-full bg-muted border border-border badge-hover cursor-default">
+            <span className="px-3 py-1.5 text-xs font-medium bg-muted border border-foreground badge-hover cursor-default">
               Playwright / Test Automation
             </span>
-            <span className="px-3 py-1.5 text-xs font-medium rounded-full bg-muted border border-border badge-hover cursor-default">
+            <span className="px-3 py-1.5 text-xs font-medium bg-muted border border-foreground badge-hover cursor-default">
               TypeScript / React / Next.js
             </span>
           </div>
@@ -65,18 +64,17 @@ export default function HomePage() {
           </p>
         </section>
 
-        {/* Featured Images Grid */}
+        {/* Featured Work Grid */}
         <section className="mb-12 stagger-4">
           <div className="grid grid-cols-2 gap-4 max-w-lg mx-auto">
             {/* Profile Flip Card */}
             <div
-              className="aspect-square rounded-2xl overflow-hidden group perspective-1000 cursor-pointer card-lift animate-matrix-hint tv-scanline relative border border-border"
+              className="aspect-square overflow-hidden group perspective-1000 cursor-pointer card-lift relative border-2 border-foreground"
               onClick={handleProfileClick}
             >
               <div
                 className={`flip-card w-full h-full relative preserve-3d transition-transform duration-700 ${isFlipped ? 'rotate-y-180' : ''}`}
               >
-                {/* Front */}
                 <div className="flip-card-front absolute inset-0 backface-hidden">
                   <Image
                     src="/images/profile.jpg"
@@ -87,40 +85,7 @@ export default function HomePage() {
                     priority
                   />
                 </div>
-                {/* Back */}
                 <div className="flip-card-back absolute inset-0 backface-hidden rotate-y-180 bg-[hsl(220,15%,8%)] flex flex-col items-center justify-center font-mono text-xs overflow-hidden">
-                  <div className="matrix-rain absolute inset-0 opacity-80">
-                    <div
-                      className="matrix-column absolute top-0 animate-matrix-1 text-teal-400"
-                      style={{ left: '10%' }}
-                    >
-                      0110420010
-                      <br />
-                      1101010169
-                      <br />
-                      0011011042
-                    </div>
-                    <div
-                      className="matrix-column absolute top-0 animate-matrix-2 text-emerald-400"
-                      style={{ left: '50%' }}
-                    >
-                      1111000069
-                      <br />
-                      0101010142
-                      <br />
-                      1001100169
-                    </div>
-                    <div
-                      className="matrix-column absolute top-0 animate-matrix-3 text-teal-400"
-                      style={{ left: '90%' }}
-                    >
-                      0010101142
-                      <br />
-                      1101110169
-                      <br />
-                      0100100142
-                    </div>
-                  </div>
                   <div className="relative z-10 text-center">
                     <div className="text-teal-400 text-sm font-bold mb-1">
                       NULL_POINTER
@@ -136,52 +101,52 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* MAYC NFT */}
+            {/* ACK Protocol */}
             <a
-              href="https://opensea.io/collection/mutant-ape-yacht-club"
+              href="https://ack-onchain.dev/"
               target="_blank"
               rel="noopener noreferrer"
-              className="aspect-square rounded-2xl overflow-hidden group block cursor-pointer card-lift border border-border"
+              className="aspect-square border-2 border-foreground p-4 flex flex-col justify-between card-lift group"
             >
-              <Image
-                src="/images/mayc.png"
-                alt="MAYC NFT"
-                width={300}
-                height={300}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
+              <div>
+                <span className="text-[10px] uppercase tracking-widest text-muted-foreground">Protocol</span>
+                <h3 className="text-sm font-bold mt-1 group-hover:text-[#e2a727] transition-colors">ACK</h3>
+              </div>
+              <p className="text-[11px] text-muted-foreground leading-snug">
+                Peer-driven reputation for AI agents on ERC-8004
+              </p>
             </a>
 
-            {/* Bitcoin Puppet */}
+            {/* abstrack */}
             <a
-              href="https://magiceden.us/ordinals/marketplace/bitcoin-puppets"
+              href="https://www.abstrack.live/"
               target="_blank"
               rel="noopener noreferrer"
-              className="aspect-square rounded-2xl overflow-hidden group block cursor-pointer card-lift border border-border"
+              className="aspect-square border-2 border-foreground p-4 flex flex-col justify-between card-lift group"
             >
-              <Image
-                src="/images/bitcoin-puppet.png"
-                alt="Bitcoin Puppet NFT"
-                width={300}
-                height={300}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
+              <div>
+                <span className="text-[10px] uppercase tracking-widest text-muted-foreground">Game</span>
+                <h3 className="text-sm font-bold mt-1 group-hover:text-[#e2a727] transition-colors">abstrack</h3>
+              </div>
+              <p className="text-[11px] text-muted-foreground leading-snug">
+                Blockchain rhythm game -- every block is a unique song
+              </p>
             </a>
 
-            {/* Hoodie */}
+            {/* birthday-vault */}
             <a
-              href="https://opensea.io/collection/disobedients-ethereum"
+              href="https://github.com/tyler-james-bridges/birthday-vault"
               target="_blank"
               rel="noopener noreferrer"
-              className="aspect-square rounded-2xl overflow-hidden group block cursor-pointer card-lift border border-border"
+              className="aspect-square border-2 border-foreground p-4 flex flex-col justify-between card-lift group"
             >
-              <Image
-                src="/images/hoodie.png"
-                alt="Hoodie NFT"
-                width={300}
-                height={300}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
+              <div>
+                <span className="text-[10px] uppercase tracking-widest text-muted-foreground">Onchain</span>
+                <h3 className="text-sm font-bold mt-1 group-hover:text-[#e2a727] transition-colors">birthday-vault</h3>
+              </div>
+              <p className="text-[11px] text-muted-foreground leading-snug">
+                Memory capsule &amp; trust fund for Ezra. Deployed on Abstract mainnet.
+              </p>
             </a>
           </div>
         </section>
@@ -191,22 +156,39 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/experience"
-              className="px-6 py-3 rounded-xl bg-foreground text-background font-medium text-center btn-lift"
+              className="px-6 py-3 bg-foreground text-background font-medium text-center text-sm uppercase tracking-wider btn-lift"
             >
               View My Experience
             </Link>
             <Link
               href="/contact"
-              className="px-6 py-3 rounded-xl border border-border font-medium text-center btn-lift hover:bg-muted"
+              className="px-6 py-3 border-2 border-foreground font-medium text-center text-sm uppercase tracking-wider btn-lift hover:bg-muted"
             >
               Let&apos;s Work Together
             </Link>
           </div>
         </section>
 
+        {/* Journey Callout */}
+        <section className="max-w-xl mx-auto mb-10 stagger-6">
+          <div className="border-2 border-foreground p-5 transition-colors">
+            <p className="text-sm text-muted-foreground mb-2">
+              From QA analyst to systems engineer — the story of building
+              belief, building tools, and building momentum.
+            </p>
+            <Link
+              href="/journey"
+              className="text-sm font-medium hover:text-[#e2a727] transition-colors"
+            >
+              Read the story of how I got here &rarr;
+            </Link>
+          </div>
+        </section>
+
         {/* Manifesto */}
         <section className="max-w-xl mx-auto text-center stagger-6">
-          <h3 className="text-lg font-semibold mb-3 text-muted-foreground">
+          <hr className="border-t-2 border-foreground mb-6" />
+          <h3 className="section-heading mb-3">
             Manifesto
           </h3>
           <p className="text-muted-foreground leading-relaxed text-sm border-l-2 border-border pl-4 text-left">
@@ -222,7 +204,8 @@ export default function HomePage() {
 
         {/* Mobile Dev Terminal */}
         <section id="terminal" className="max-w-xl mx-auto mt-14 stagger-6">
-          <h3 className="text-lg font-semibold mb-3 text-muted-foreground text-center">
+          <hr className="border-t-2 border-foreground mb-6" />
+          <h3 className="section-heading mb-3 text-center">
             Built from iPhone
           </h3>
           <p className="text-sm text-muted-foreground text-center mb-4">

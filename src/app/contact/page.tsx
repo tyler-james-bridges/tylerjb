@@ -88,7 +88,7 @@ function ContactFormWithParams() {
           id="purpose"
           name="purpose"
           required
-          className="flex h-10 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm ring-offset-background input-glow focus-visible:outline-none"
+          className="flex h-10 w-full border border-input bg-background px-3 py-2 text-sm ring-offset-background input-glow focus-visible:outline-none"
         >
           <option value="">Select an option...</option>
           <option value="Hiring / Job Opportunity">
@@ -117,17 +117,17 @@ function ContactFormWithParams() {
       <Button
         type="submit"
         disabled={sending}
-        className="w-full btn-lift rounded-xl"
+        className="w-full btn-lift"
       >
         {sending ? 'Sending...' : 'Send Message'}
       </Button>
       {success && (
-        <div className="text-green-600 dark:text-green-400 text-center text-sm p-3 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800">
+        <div className="text-green-600 dark:text-green-400 text-center text-sm p-3 bg-green-50 dark:bg-green-900/20 border-2 border-foreground">
           Message sent! I&apos;ll get back to you soon.
         </div>
       )}
       {error && (
-        <div className="text-red-600 dark:text-red-400 text-center text-sm p-3 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800">
+        <div className="text-red-600 dark:text-red-400 text-center text-sm p-3 bg-red-50 dark:bg-red-900/20 border-2 border-foreground">
           {error}
         </div>
       )}
@@ -138,12 +138,6 @@ function ContactFormWithParams() {
 export default function ContactPage() {
   return (
     <div className="animate-slide-up">
-      {/* Header */}
-      <header className="content-header">
-        <h1 className="text-2xl font-bold">✉️ Contact</h1>
-      </header>
-
-      {/* Content */}
       <div className="content-body prose-notes">
         <p className="text-muted-foreground mb-6">
           Want to get in touch? Fill out the form below or reach out via email.
@@ -161,14 +155,14 @@ export default function ContactPage() {
           I typically respond within 24 hours.
         </p>
 
-        <div className="mt-8 pt-6 border-t border-border">
-          <h2>Other ways to reach me</h2>
+        <div className="mt-8 pt-6 border-t-2 border-foreground">
+          <h2 className="section-heading mb-4">Other ways to reach me</h2>
           <ul className="space-y-2">
             <li>
               <span className="text-muted-foreground">Email:</span>{' '}
               <a
                 href="mailto:tylerjamesbridges@gmail.com"
-                className="text-blue-600 dark:text-blue-400 hover:underline"
+                className="underline hover:text-[#e2a727] transition-colors"
               >
                 tylerjamesbridges@gmail.com
               </a>
@@ -179,7 +173,7 @@ export default function ContactPage() {
                 href="https://github.com/tyler-james-bridges"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 dark:text-blue-400 hover:underline"
+                className="underline hover:text-[#e2a727] transition-colors"
               >
                 @tyler-james-bridges
               </a>
@@ -190,7 +184,7 @@ export default function ContactPage() {
                 href="https://www.linkedin.com/in/tyler-james-bridges-4344abab"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 dark:text-blue-400 hover:underline"
+                className="underline hover:text-[#e2a727] transition-colors"
               >
                 Tyler James-Bridges
               </a>
@@ -201,7 +195,7 @@ export default function ContactPage() {
                 href="https://x.com/tmoney_145"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 dark:text-blue-400 hover:underline"
+                className="underline hover:text-[#e2a727] transition-colors"
               >
                 @tmoney_145
               </a>

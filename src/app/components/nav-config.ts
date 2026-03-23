@@ -4,7 +4,6 @@ import {
   Briefcase,
   FolderKanban,
   Mail,
-  Drum,
   Github,
   Linkedin,
   Twitter,
@@ -14,8 +13,7 @@ import {
 export interface NavItem {
   href: string;
   label: string;
-  shortLabel?: string; // For mobile nav
-  emoji: string;
+  shortLabel?: string;
   icon: LucideIcon;
 }
 
@@ -26,18 +24,11 @@ export interface SocialLink {
 }
 
 export const navItems: NavItem[] = [
-  { href: '/', label: 'Home', emoji: '🏠', icon: Home },
-  {
-    href: '/about',
-    label: 'About Me',
-    shortLabel: 'About',
-    emoji: '👤',
-    icon: User,
-  },
-  { href: '/experience', label: 'Experience', emoji: '💼', icon: Briefcase },
-  { href: '/projects', label: 'Projects', emoji: '🚀', icon: FolderKanban },
-  { href: '/contact', label: 'Contact', emoji: '✉️', icon: Mail },
-  { href: '/drums', label: 'Drums', emoji: '🥁', icon: Drum },
+  { href: '/', label: 'Home', icon: Home },
+  { href: '/about', label: 'About', icon: User },
+  { href: '/experience', label: 'Experience', icon: Briefcase },
+  { href: '/projects', label: 'Projects', icon: FolderKanban },
+  { href: '/contact', label: 'Contact', icon: Mail },
 ];
 
 export const socialLinks: SocialLink[] = [
