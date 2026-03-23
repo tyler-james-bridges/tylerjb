@@ -7,12 +7,6 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="animate-slide-up">
-      {/* Header */}
-      <header className="content-header">
-        <h1 className="text-sm font-bold uppercase tracking-widest">About Me</h1>
-      </header>
-
-      {/* Content */}
       <div className="content-body prose-notes">
         <section className="mb-10 stagger-1">
           <hr className="border-t-2 border-foreground mb-6" />

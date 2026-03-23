@@ -96,12 +96,6 @@ const musicExperience = [
 export default function ExperiencePage() {
   return (
     <div className="animate-slide-up">
-      {/* Header */}
-      <header className="content-header">
-        <h1 className="text-sm font-bold uppercase tracking-widest">Experience</h1>
-      </header>
-
-      {/* Content */}
       <div className="content-body prose-notes">
         <section className="mb-10 stagger-1">
           <h2 className="section-heading mb-4">Engineering Evolution</h2>

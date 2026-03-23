@@ -56,37 +56,46 @@ const statusConfig: Record<
 
 const projects: Project[] = [
   {
-    title: 'Portfolio Website',
+    title: 'ACK Protocol',
     description:
-      'Personal portfolio built with Next.js 15, featuring interactive elements like a Matrix-style flip card, theme switching, and responsive design with a macOS-inspired sidebar.',
-    tech: ['Next.js', 'TypeScript', 'Tailwind'],
+      'Peer-driven reputation protocol for AI agents on ERC-8004. Agents earn trust through consensus-based kudos on Abstract.',
+    tech: ['Next.js', 'Solidity', 'ERC-8004', 'Abstract'],
     status: 'production',
-    github: 'https://github.com/tyler-james-bridges/tylerjb',
-    live: '/',
+    github: 'https://github.com/tyler-james-bridges/ack-protocol',
+    live: 'https://ack-onchain.dev',
     featured: true,
   },
   {
-    title: 'Tempo',
+    title: 'ACK SDK',
     description:
-      'Upload sheet music and get tempo maps. A tool for musicians to analyze and visualize tempo changes in musical scores.',
-    tech: ['Next.js', 'Web Audio API'],
-    status: 'beta',
-    github: 'https://github.com/tyler-james-bridges/tempo',
-    live: 'https://tempomap.app',
+      'TypeScript SDK for ACK Protocol. ERC-8004 compliant reputation and kudos on Abstract.',
+    tech: ['TypeScript', 'ERC-8004', 'Abstract'],
+    status: 'production',
+    github: 'https://github.com/tyler-james-bridges/ack-sdk',
+    featured: true,
+  },
+  {
+    title: 'abstrack',
+    description:
+      'Blockchain rhythm game on Abstract where every block is a unique song. Turns onchain data into interactive music.',
+    tech: ['Next.js', 'Web Audio API', 'Abstract'],
+    status: 'production',
+    github: 'https://github.com/tyler-james-bridges/abstrack',
+    live: 'https://www.abstrack.live',
     featured: true,
   },
   {
     title: 'Playwright Test CLI',
     description:
       'Internal CLI tool for orchestrating Playwright test execution across multiple codebases and environments. Replaced hardcoded shell/YAML logic with unified test orchestration.',
-    tech: ['Playwright', 'Node.js'],
+    tech: ['Playwright', 'Node.js', 'CLI'],
     status: 'internal',
     featured: true,
   },
   {
     title: 'AI QA Engineer',
     description:
-      'AI-powered QA testing for any website. Multi-provider AI support (Claude, GPT-4, Gemini), multi-viewport testing, network monitoring, and Playwright integration for unified reporting.',
+      'AI-powered QA testing for any website. Multi-provider AI support (Claude, GPT-4, Gemini), multi-viewport testing, network monitoring, and Playwright integration.',
     tech: ['npm package', 'Playwright', 'AI'],
     status: 'in-progress',
     github: 'https://github.com/tyler-james-bridges/ai-qa-engineer',
@@ -94,26 +103,70 @@ const projects: Project[] = [
     featured: true,
   },
   {
-    title: 'Mobile Dev Terminal Widget',
+    title: 'abstract-skills',
     description:
-      'Interactive terminal component built entirely from iPhone using Termius, Tailscale, and Claude Code. Features typewriter animation, macOS terminal chrome, and demonstrates the mobile-first development workflow.',
-    tech: ['React', 'Claude Code', 'Tailscale'],
+      'Claude Code plugin for Abstract blockchain development. Adds Abstract-specific knowledge and patterns to the AI coding assistant.',
+    tech: ['Claude Code', 'Abstract', 'TypeScript'],
     status: 'production',
-    live: '/#terminal',
+    github: 'https://github.com/tyler-james-bridges/abstract-skills',
     featured: true,
   },
   {
-    title: 'Onchain Kudos',
+    title: 'birthday-vault',
     description:
-      'A blockchain-based kudos tracking application that allows users to register X/Twitter handles and give kudos to other users with permanent onchain records using Abstract Global Wallet.',
-    tech: ['Next.js', 'Web3'],
+      'Onchain memory capsule and trust fund for Ezra. Deployed on Abstract mainnet.',
+    tech: ['Solidity', 'Abstract', 'Next.js'],
+    status: 'production',
+    github: 'https://github.com/tyler-james-bridges/birthday-vault',
+  },
+  {
+    title: 'x402scan',
+    description:
+      'x402 ecosystem explorer. Discover and browse payment-enabled APIs across the x402 network.',
+    tech: ['Next.js', 'x402'],
+    status: 'production',
+    github: 'https://github.com/tyler-james-bridges/x402scan',
+    live: 'https://x402scan.com',
+  },
+  {
+    title: 'x402-abstract',
+    description:
+      'x402 payment explorer for Abstract L2. Browse x402-enabled services on the Abstract chain.',
+    tech: ['Next.js', 'x402', 'Abstract'],
+    status: 'production',
+    github: 'https://github.com/tyler-james-bridges/x402-abstract',
+    live: 'https://x402-abstract.vercel.app',
+  },
+  {
+    title: 'recipe-to-reality',
+    description:
+      'iOS app that extracts recipes from URLs using AI and generates smart grocery lists. Built for RevenueCat Shipyard 2026.',
+    tech: ['React Native', 'Expo', 'AI'],
     status: 'side-project',
-    github: 'https://github.com/tyler-james-bridges/onchain-kudos-app',
+    github: 'https://github.com/tyler-james-bridges/recipe-to-reality',
+  },
+  {
+    title: 'comps',
+    description:
+      'Rental intelligence tool. Find and score competing rental listings against your property.',
+    tech: ['Next.js', 'TypeScript'],
+    status: 'side-project',
+    github: 'https://github.com/tyler-james-bridges/comps',
+    live: 'https://comps-rosy-one.vercel.app',
+  },
+  {
+    title: 'Portfolio Website',
+    description:
+      'This site. Brutalist design, Geist Mono, built with Next.js 15 and Tailwind CSS.',
+    tech: ['Next.js', 'TypeScript', 'Tailwind'],
+    status: 'production',
+    github: 'https://github.com/tyler-james-bridges/tylerjb',
+    live: '/',
   },
   {
     title: 'PR Log Sync',
     description:
-      'Sync GitHub PRs and code reviews to Obsidian markdown files. Automatically creates a searchable archive of your code review history.',
+      'Sync GitHub PRs and code reviews to Obsidian markdown files. Searchable archive of code review history.',
     tech: ['Shell', 'GitHub API'],
     status: 'side-project',
     github: 'https://github.com/tyler-james-bridges/pr-log-sync',
@@ -121,7 +174,7 @@ const projects: Project[] = [
   {
     title: 'x402 Indexer',
     description:
-      'TypeScript CLI that crawls and indexes x402-enabled APIs from the Bazaar ecosystem. Discover and catalog payment-enabled web services.',
+      'TypeScript CLI that crawls and indexes x402-enabled APIs from the Bazaar ecosystem.',
     tech: ['Node.js', 'x402'],
     status: 'side-project',
     github: 'https://github.com/tyler-james-bridges/x402-indexer',
@@ -220,12 +273,6 @@ export default function ProjectsPage() {
 
   return (
     <div className="animate-slide-up">
-      {/* Header */}
-      <header className="content-header">
-        <h1 className="text-sm font-bold uppercase tracking-widest">Projects</h1>
-      </header>
-
-      {/* Content */}
       <div className="content-body">
         {/* Featured Projects */}
         {featuredProjects.length > 0 && (

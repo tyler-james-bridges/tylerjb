@@ -7,12 +7,6 @@ export const metadata: Metadata = {
 export default function JourneyPage() {
   return (
     <div className="animate-slide-up">
-      {/* Header */}
-      <header className="content-header">
-        <h1 className="text-sm font-bold uppercase tracking-widest">The Journey</h1>
-      </header>
-
-      {/* Content */}
       <div className="content-body prose-notes">
         <section className="mb-10 stagger-1">
           <p className="text-lg text-muted-foreground leading-relaxed">

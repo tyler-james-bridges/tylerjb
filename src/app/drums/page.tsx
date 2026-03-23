@@ -9,10 +9,6 @@ export const metadata: Metadata = {
 export default function DrumsPage() {
   return (
     <div className="animate-slide-up">
-      <header className="content-header">
-        <h1 className="text-sm font-bold uppercase tracking-widest">Drums</h1>
-      </header>
-
       <div className="content-body prose-notes">
         <section className="stagger-1">
           <p className="text-muted-foreground mb-6">

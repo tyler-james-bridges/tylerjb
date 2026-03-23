@@ -23,36 +23,21 @@ const terminalLines: TerminalLine[] = [
   { text: '', type: 'output', delay: 2000 },
   { text: '$ claude', type: 'command', delay: 2400 },
   {
-    text: '╭─────────────────────────────────────╮',
+    text: 'Claude Code — /tylerjb (Next.js)',
     type: 'highlight',
     delay: 3000,
   },
-  {
-    text: '│  Claude Code                        │',
-    type: 'highlight',
-    delay: 3100,
-  },
-  {
-    text: '│  /tylerjb (Next.js)                 │',
-    type: 'highlight',
-    delay: 3200,
-  },
-  {
-    text: '╰─────────────────────────────────────╯',
-    type: 'highlight',
-    delay: 3300,
-  },
-  { text: '', type: 'output', delay: 3500 },
+  { text: '', type: 'output', delay: 3300 },
   {
     text: '> Build terminal widget for portfolio',
     type: 'command',
-    delay: 3800,
+    delay: 3600,
   },
-  { text: 'Creating component...', type: 'output', delay: 4400 },
-  { text: '✓ TerminalWidget.tsx created', type: 'success', delay: 5000 },
-  { text: '✓ Deployed to vercel', type: 'success', delay: 5600 },
-  { text: '', type: 'output', delay: 6000 },
-  { text: "# You're looking at it right now 📱", type: 'comment', delay: 6400 },
+  { text: 'Creating component...', type: 'output', delay: 4200 },
+  { text: '✓ TerminalWidget.tsx created', type: 'success', delay: 4800 },
+  { text: '✓ Deployed to vercel', type: 'success', delay: 5400 },
+  { text: '', type: 'output', delay: 5800 },
+  { text: "# You're looking at it right now", type: 'comment', delay: 6200 },
 ];
 
 export default function TerminalWidget() {
@@ -149,14 +134,20 @@ export default function TerminalWidget() {
       </div>
 
       {/* Terminal Body */}
-      <div className="p-4 font-mono text-sm min-h-[280px] terminal-scanline">
+      <div className="p-4 font-mono text-xs sm:text-sm min-h-[280px] terminal-scanline overflow-x-hidden">
         {terminalLines.slice(0, visibleLines).map((line, index) => (
           <div
             key={index}
             className={`${getLineClass(line.type)} leading-relaxed terminal-line-appear`}
             style={{ minHeight: line.text === '' ? '1rem' : 'auto' }}
           >
-            {line.text}
+            {line.type === 'highlight' ? (
+              <span className="inline-block border border-amber-400/60 px-2 py-0.5">
+                {line.text}
+              </span>
+            ) : (
+              line.text
+            )}
           </div>
         ))}
 

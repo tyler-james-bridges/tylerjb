@@ -28,22 +28,16 @@ export default function Sidebar() {
         <nav className="hidden md:flex items-center gap-6">
           {navItems.map((item) => {
             const active = isActive(item.href);
-            const sharedClass = `text-xs uppercase tracking-[0.08em] font-medium transition-colors ${
-              active
-                ? 'text-foreground underline underline-offset-4'
-                : 'text-muted-foreground hover:text-foreground'
-            }`;
-
-            if (item.href === '/drums') {
-              return (
-                <a key={item.href} href={item.href} className={sharedClass}>
-                  {item.shortLabel || item.label}
-                </a>
-              );
-            }
-
             return (
-              <Link key={item.href} href={item.href} className={sharedClass}>
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`text-xs uppercase tracking-[0.08em] font-medium transition-colors ${
+                  active
+                    ? 'text-foreground underline underline-offset-4'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
                 {item.shortLabel || item.label}
               </Link>
             );

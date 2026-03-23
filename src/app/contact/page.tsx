@@ -138,12 +138,6 @@ function ContactFormWithParams() {
 export default function ContactPage() {
   return (
     <div className="animate-slide-up">
-      {/* Header */}
-      <header className="content-header">
-        <h1 className="text-sm font-bold uppercase tracking-widest">Contact</h1>
-      </header>
-
-      {/* Content */}
       <div className="content-body prose-notes">
         <p className="text-muted-foreground mb-6">
           Want to get in touch? Fill out the form below or reach out via email.

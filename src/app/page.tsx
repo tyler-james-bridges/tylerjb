@@ -19,12 +19,6 @@ export default function HomePage() {
 
   return (
     <div className="animate-slide-up">
-      {/* Header */}
-      <header className="content-header">
-        <h1 className="text-sm font-bold uppercase tracking-widest">Home</h1>
-      </header>
-
-      {/* Content */}
       <div className="content-body">
         {/* Vertical text running down the right side of entire content */}
         <div className="hidden md:block absolute right-4 top-24 pointer-events-none select-none opacity-10">
@@ -70,7 +64,7 @@ export default function HomePage() {
           </p>
         </section>
 
-        {/* Featured Images Grid */}
+        {/* Featured Work Grid */}
         <section className="mb-12 stagger-4">
           <div className="grid grid-cols-2 gap-4 max-w-lg mx-auto">
             {/* Profile Flip Card */}
@@ -81,7 +75,6 @@ export default function HomePage() {
               <div
                 className={`flip-card w-full h-full relative preserve-3d transition-transform duration-700 ${isFlipped ? 'rotate-y-180' : ''}`}
               >
-                {/* Front */}
                 <div className="flip-card-front absolute inset-0 backface-hidden">
                   <Image
                     src="/images/profile.jpg"
@@ -92,40 +85,7 @@ export default function HomePage() {
                     priority
                   />
                 </div>
-                {/* Back */}
                 <div className="flip-card-back absolute inset-0 backface-hidden rotate-y-180 bg-[hsl(220,15%,8%)] flex flex-col items-center justify-center font-mono text-xs overflow-hidden">
-                  <div className="matrix-rain absolute inset-0 opacity-80">
-                    <div
-                      className="matrix-column absolute top-0 animate-matrix-1 text-teal-400"
-                      style={{ left: '10%' }}
-                    >
-                      0110420010
-                      <br />
-                      1101010169
-                      <br />
-                      0011011042
-                    </div>
-                    <div
-                      className="matrix-column absolute top-0 animate-matrix-2 text-emerald-400"
-                      style={{ left: '50%' }}
-                    >
-                      1111000069
-                      <br />
-                      0101010142
-                      <br />
-                      1001100169
-                    </div>
-                    <div
-                      className="matrix-column absolute top-0 animate-matrix-3 text-teal-400"
-                      style={{ left: '90%' }}
-                    >
-                      0010101142
-                      <br />
-                      1101110169
-                      <br />
-                      0100100142
-                    </div>
-                  </div>
                   <div className="relative z-10 text-center">
                     <div className="text-teal-400 text-sm font-bold mb-1">
                       NULL_POINTER
@@ -141,52 +101,52 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* MAYC NFT */}
+            {/* ACK Protocol */}
             <a
-              href="https://opensea.io/collection/mutant-ape-yacht-club"
+              href="https://ack-onchain.dev/"
               target="_blank"
               rel="noopener noreferrer"
-              className="aspect-square overflow-hidden group block cursor-pointer card-lift border-2 border-foreground"
+              className="aspect-square border-2 border-foreground p-4 flex flex-col justify-between card-lift group"
             >
-              <Image
-                src="/images/mayc.png"
-                alt="MAYC NFT"
-                width={300}
-                height={300}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
+              <div>
+                <span className="text-[10px] uppercase tracking-widest text-muted-foreground">Protocol</span>
+                <h3 className="text-sm font-bold mt-1 group-hover:text-[#e2a727] transition-colors">ACK</h3>
+              </div>
+              <p className="text-[11px] text-muted-foreground leading-snug">
+                Peer-driven reputation for AI agents on ERC-8004
+              </p>
             </a>
 
-            {/* Bitcoin Puppet */}
+            {/* abstrack */}
             <a
-              href="https://magiceden.us/ordinals/marketplace/bitcoin-puppets"
+              href="https://www.abstrack.live/"
               target="_blank"
               rel="noopener noreferrer"
-              className="aspect-square overflow-hidden group block cursor-pointer card-lift border-2 border-foreground"
+              className="aspect-square border-2 border-foreground p-4 flex flex-col justify-between card-lift group"
             >
-              <Image
-                src="/images/bitcoin-puppet.png"
-                alt="Bitcoin Puppet NFT"
-                width={300}
-                height={300}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
+              <div>
+                <span className="text-[10px] uppercase tracking-widest text-muted-foreground">Game</span>
+                <h3 className="text-sm font-bold mt-1 group-hover:text-[#e2a727] transition-colors">abstrack</h3>
+              </div>
+              <p className="text-[11px] text-muted-foreground leading-snug">
+                Blockchain rhythm game -- every block is a unique song
+              </p>
             </a>
 
-            {/* Hoodie */}
+            {/* birthday-vault */}
             <a
-              href="https://opensea.io/collection/disobedients-ethereum"
+              href="https://github.com/tyler-james-bridges/birthday-vault"
               target="_blank"
               rel="noopener noreferrer"
-              className="aspect-square overflow-hidden group block cursor-pointer card-lift border-2 border-foreground"
+              className="aspect-square border-2 border-foreground p-4 flex flex-col justify-between card-lift group"
             >
-              <Image
-                src="/images/hoodie.png"
-                alt="Hoodie NFT"
-                width={300}
-                height={300}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
+              <div>
+                <span className="text-[10px] uppercase tracking-widest text-muted-foreground">Onchain</span>
+                <h3 className="text-sm font-bold mt-1 group-hover:text-[#e2a727] transition-colors">birthday-vault</h3>
+              </div>
+              <p className="text-[11px] text-muted-foreground leading-snug">
+                Memory capsule &amp; trust fund for Ezra. Deployed on Abstract mainnet.
+              </p>
             </a>
           </div>
         </section>

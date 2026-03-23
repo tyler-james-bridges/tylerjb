@@ -19,18 +19,18 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
 
   return (
     <div className="min-h-dvh flex flex-col">
-      {/* Top nav — hidden on mobile, MobileNav handles small screens */}
+      {/* Desktop nav */}
       <div className="hidden md:block">
         <Sidebar />
       </div>
+
+      {/* Mobile nav — above content so sticky top-0 works */}
+      <MobileNav />
 
       <main className="flex-1 w-full max-w-4xl mx-auto px-4 md:px-8 py-6">
         {children}
         <AISummary />
       </main>
-
-      {/* Mobile nav */}
-      <MobileNav />
     </div>
   );
 }

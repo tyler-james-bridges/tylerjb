@@ -98,17 +98,14 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <div className="animate-slide-up">
-      <header className="content-header">
+      <div className="content-body">
         <Link
           href="/blog"
-          className="text-sm text-muted-foreground hover:text-foreground transition-colors mb-2 inline-block"
+          className="text-sm text-muted-foreground hover:text-foreground transition-colors mb-4 inline-block"
         >
-          ← Back to Blog
+          &larr; Back to Blog
         </Link>
-        <h1 className="text-sm font-bold uppercase tracking-widest">{post.title}</h1>
-      </header>
-
-      <div className="content-body">
+        <h1 className="text-xl font-bold uppercase tracking-widest mb-6">{post.title}</h1>
         {/* Meta info */}
         <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground mb-8 pb-4 border-b-2 border-foreground">
           <time>{formatDate(post.date)}</time>
