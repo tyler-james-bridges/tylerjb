@@ -209,7 +209,7 @@ export default function ExperiencePage() {
             {musicExperience.map((exp) => (
               <div
                 key={exp.org}
-                className="flex justify-between items-baseline py-2.5 border-b border-border last:border-0 hover:bg-muted/50 -mx-2 px-2 rounded transition-colors"
+                className="flex justify-between items-baseline py-2.5 border-b border-border last:border-0 hover:bg-muted/50 -mx-2 px-2 transition-colors"
               >
                 <div>
                   <span className="font-medium">{exp.org}</span>

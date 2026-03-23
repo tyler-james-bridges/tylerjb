@@ -10,7 +10,7 @@ export default function DrumsPage() {
   return (
     <div className="animate-slide-up">
       <header className="content-header">
-        <h1 className="text-2xl font-bold">🥁 Drums</h1>
+        <h1 className="text-sm font-bold uppercase tracking-widest">Drums</h1>
       </header>
 
       <div className="content-body prose-notes">
@@ -19,7 +19,7 @@ export default function DrumsPage() {
             Some moments from the field that shaped who I became.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="aspect-video rounded-xl overflow-hidden border border-border card-lift">
+            <div className="aspect-video overflow-hidden border-2 border-foreground card-lift">
               <iframe
                 className="w-full h-full"
                 src="https://www.youtube.com/embed/-gapbxJ4BFk?si=-daNqFpi5AZmqt-X"
@@ -28,7 +28,7 @@ export default function DrumsPage() {
                 allowFullScreen
               />
             </div>
-            <div className="aspect-video rounded-xl overflow-hidden border border-border card-lift">
+            <div className="aspect-video overflow-hidden border-2 border-foreground card-lift">
               <iframe
                 className="w-full h-full"
                 src="https://www.youtube.com/embed/62fP_00dHig?si=RNOOy0d6hArguG91"
@@ -37,7 +37,7 @@ export default function DrumsPage() {
                 allowFullScreen
               />
             </div>
-            <div className="aspect-video rounded-xl overflow-hidden border border-border card-lift">
+            <div className="aspect-video overflow-hidden border-2 border-foreground card-lift">
               <iframe
                 className="w-full h-full"
                 src="https://www.youtube.com/embed/9LZSvRP6gKQ?si=yBMltF7mFnpseBLo"
@@ -46,7 +46,7 @@ export default function DrumsPage() {
                 allowFullScreen
               />
             </div>
-            <div className="aspect-video rounded-xl overflow-hidden border border-border card-lift">
+            <div className="aspect-video overflow-hidden border-2 border-foreground card-lift">
               <iframe
                 className="w-full h-full"
                 src="https://www.youtube.com/embed/uQX_WrVjrXs?si=EvX_yTJXj4BYgO1N"

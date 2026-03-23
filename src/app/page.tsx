@@ -27,7 +27,7 @@ export default function HomePage() {
       {/* Content */}
       <div className="content-body">
         {/* Vertical text running down the right side of entire content */}
-        <div className="absolute right-[40%] top-24 pointer-events-none select-none opacity-15">
+        <div className="hidden md:block absolute right-4 top-24 pointer-events-none select-none opacity-10">
           <div className="text-[9px] font-mono text-muted-foreground writing-vertical tracking-[0.4em] leading-none">
             SOFTWARE・ENGINEER・QA・PERCUSSION・FATHER・BUILDER・DEBUGGER・TYPESCRIPT・PLAYWRIGHT
           </div>

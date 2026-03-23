@@ -130,7 +130,7 @@ export default function TerminalWidget() {
   };
 
   return (
-    <div className="terminal-widget rounded-xl border border-border overflow-hidden bg-[#0d1117] shadow-lg">
+    <div className="terminal-widget border-2 border-foreground overflow-hidden bg-[#0d1117]">
       {/* Terminal Header */}
       <div className="flex items-center gap-2 px-4 py-2.5 bg-[#161b22] border-b border-zinc-800">
         <div className="flex gap-1.5">

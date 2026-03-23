@@ -43,12 +43,12 @@ function renderMarkdown(content: string): string {
       // Code blocks (must come before inline code)
       .replace(
         /```(\w+)?\n([\s\S]*?)```/g,
-        '<pre class="bg-muted p-4 rounded-lg overflow-x-auto my-4"><code>$2</code></pre>'
+        '<pre class="bg-muted p-4 overflow-x-auto my-4 border-2 border-foreground"><code>$2</code></pre>'
       )
       // Inline code
       .replace(
         /`([^`]+)`/g,
-        '<code class="bg-muted px-1.5 py-0.5 rounded text-sm">$1</code>'
+        '<code class="bg-muted px-1.5 py-0.5 text-sm">$1</code>'
       )
       // Headers
       .replace(
@@ -66,7 +66,7 @@ function renderMarkdown(content: string): string {
       // Links
       .replace(
         /\[([^\]]+)\]\(([^)]+)\)/g,
-        '<a href="$2" class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">$1</a>'
+        '<a href="$2" class="underline hover:text-[#e2a727] transition-colors" target="_blank" rel="noopener noreferrer">$1</a>'
       )
       // Unordered lists
       .replace(/^\s*[-*] (.*$)/gm, '<li class="ml-4">$1</li>')
@@ -105,12 +105,12 @@ export default async function BlogPostPage({ params }: PageProps) {
         >
           ← Back to Blog
         </Link>
-        <h1 className="text-2xl font-bold">{post.title}</h1>
+        <h1 className="text-sm font-bold uppercase tracking-widest">{post.title}</h1>
       </header>
 
       <div className="content-body">
         {/* Meta info */}
-        <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground mb-8 pb-4 border-b border-border">
+        <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground mb-8 pb-4 border-b-2 border-foreground">
           <time>{formatDate(post.date)}</time>
           <span>·</span>
           <span>{post.readingTime}</span>
@@ -120,7 +120,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-2 py-0.5 bg-muted rounded-full text-xs text-muted-foreground"
+                className="px-2 py-0.5 bg-muted border border-foreground text-xs text-muted-foreground"
               >
                 {tag}
               </span>
@@ -137,7 +137,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         />
 
         {/* Footer */}
-        <div className="mt-12 pt-6 border-t border-border">
+        <div className="mt-12 pt-6 border-t-2 border-foreground">
           <Link
             href="/blog"
             className="text-muted-foreground hover:text-foreground transition-colors"
