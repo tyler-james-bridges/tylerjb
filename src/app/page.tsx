@@ -1,21 +1,10 @@
 'use client';
 
-import { useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import TerminalWidget from './components/TerminalWidget';
 
 export default function HomePage() {
-  const [isFlipped, setIsFlipped] = useState(false);
-  const router = useRouter();
 
-  const handleProfileClick = () => {
-    setIsFlipped(!isFlipped);
-    setTimeout(() => {
-      router.push('/playground');
-    }, 700);
-  };
 
   return (
     <div className="animate-slide-up">
@@ -64,91 +53,65 @@ export default function HomePage() {
           </p>
         </section>
 
-        {/* Featured Work Grid */}
-        <section className="mb-12 stagger-4">
-          <div className="grid grid-cols-2 gap-4 max-w-lg mx-auto">
-            {/* Profile Flip Card */}
-            <div
-              className="aspect-square overflow-hidden group perspective-1000 cursor-pointer card-lift relative border-2 border-foreground"
-              onClick={handleProfileClick}
-            >
-              <div
-                className={`flip-card w-full h-full relative preserve-3d transition-transform duration-700 ${isFlipped ? 'rotate-y-180' : ''}`}
-              >
-                <div className="flip-card-front absolute inset-0 backface-hidden">
-                  <Image
-                    src="/images/profile.jpg"
-                    alt="Tyler James-Bridges"
-                    width={300}
-                    height={300}
-                    className="w-full h-full object-cover"
-                    priority
-                  />
-                </div>
-                <div className="flip-card-back absolute inset-0 backface-hidden rotate-y-180 bg-[hsl(220,15%,8%)] flex flex-col items-center justify-center font-mono text-xs overflow-hidden">
-                  <div className="relative z-10 text-center">
-                    <div className="text-teal-400 text-sm font-bold mb-1">
-                      NULL_POINTER
-                    </div>
-                    <div className="text-emerald-400 text-xs">
-                      software.engineer.exe
-                    </div>
-                    <div className="text-yellow-400 text-xs mt-2">
-                      [WORKS ON MY MACHINE...]
-                    </div>
-                  </div>
-                </div>
-              </div>
+        {/* Featured Work */}
+        <section className="mb-12 stagger-4 max-w-xl mx-auto">
+          <h3 className="section-heading mb-5">Featured Work</h3>
+
+          {/* ACK - Hero Card */}
+          <a
+            href="https://ack-onchain.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block border-2 border-foreground p-6 mb-4 card-lift group relative overflow-hidden"
+          >
+            <div className="absolute top-0 left-0 w-1 h-full bg-[#e2a727]" />
+            <div className="flex items-center justify-between mb-3">
+              <h4 className="text-base font-bold group-hover:text-[#e2a727] transition-colors">ACK Protocol</h4>
+              <span className="px-2 py-0.5 text-[10px] font-medium bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">Production</span>
             </div>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-1">
+              Peer-driven reputation layer for AI agents. Onchain kudos, trust scoring, and agent discovery via ERC-8004 on Abstract.
+            </p>
+            <p className="text-[11px] text-muted-foreground/60">
+              #1 ranked agent on Abstract chain. 35+ onchain reviews across 3 chains.
+            </p>
+          </a>
 
-            {/* ACK Protocol */}
+          {/* Two-column grid for secondary projects */}
+          <div className="grid grid-cols-2 gap-4 mb-5">
             <a
-              href="https://ack-onchain.dev/"
+              href="https://www.npmjs.com/package/qai-cli"
               target="_blank"
               rel="noopener noreferrer"
-              className="aspect-square border-2 border-foreground p-4 flex flex-col justify-between card-lift group"
+              className="block border-2 border-foreground p-4 card-lift group"
             >
-              <div>
-                <span className="text-[10px] uppercase tracking-widest text-muted-foreground">Protocol</span>
-                <h3 className="text-sm font-bold mt-1 group-hover:text-[#e2a727] transition-colors">ACK</h3>
-              </div>
-              <p className="text-[11px] text-muted-foreground leading-snug">
-                Peer-driven reputation for AI agents on ERC-8004
+              <h4 className="text-sm font-bold mb-2 group-hover:text-[#e2a727] transition-colors">qai-cli</h4>
+              <p className="text-[11px] text-muted-foreground leading-relaxed mb-2">
+                AI-powered PR review and test generation. A decade of QA, packaged as a CLI.
               </p>
+              <span className="text-[10px] text-muted-foreground/60">npm v3.3.0</span>
             </a>
 
-            {/* abstrack */}
             <a
-              href="https://www.abstrack.live/"
+              href="https://claw-council.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="aspect-square border-2 border-foreground p-4 flex flex-col justify-between card-lift group"
+              className="block border-2 border-foreground p-4 card-lift group"
             >
-              <div>
-                <span className="text-[10px] uppercase tracking-widest text-muted-foreground">Game</span>
-                <h3 className="text-sm font-bold mt-1 group-hover:text-[#e2a727] transition-colors">abstrack</h3>
-              </div>
-              <p className="text-[11px] text-muted-foreground leading-snug">
-                Blockchain rhythm game -- every block is a unique song
+              <h4 className="text-sm font-bold mb-2 group-hover:text-[#e2a727] transition-colors">The Claw Council</h4>
+              <p className="text-[11px] text-muted-foreground leading-relaxed mb-2">
+                Multi-agent AI system. Three agents running research, engineering, and ops autonomously.
               </p>
-            </a>
-
-            {/* birthday-vault */}
-            <a
-              href="https://github.com/tyler-james-bridges/birthday-vault"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="aspect-square border-2 border-foreground p-4 flex flex-col justify-between card-lift group"
-            >
-              <div>
-                <span className="text-[10px] uppercase tracking-widest text-muted-foreground">Onchain</span>
-                <h3 className="text-sm font-bold mt-1 group-hover:text-[#e2a727] transition-colors">birthday-vault</h3>
-              </div>
-              <p className="text-[11px] text-muted-foreground leading-snug">
-                Memory capsule &amp; trust fund for Ezra. Deployed on Abstract mainnet.
-              </p>
+              <span className="text-[10px] text-muted-foreground/60">OpenClaw + Discord</span>
             </a>
           </div>
+
+          <Link
+            href="/projects"
+            className="block text-center px-4 py-2.5 border-2 border-foreground text-sm font-medium hover:bg-muted transition-colors btn-lift"
+          >
+            All Projects &rarr;
+          </Link>
         </section>
 
         {/* Dual CTAs */}
