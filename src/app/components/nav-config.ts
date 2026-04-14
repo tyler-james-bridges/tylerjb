@@ -3,6 +3,7 @@ import {
   User,
   Briefcase,
   FolderKanban,
+  Music,
   Mail,
   Github,
   Linkedin,
@@ -28,6 +29,7 @@ export const navItems: NavItem[] = [
   { href: '/about', label: 'About', icon: User },
   { href: '/experience', label: 'Experience', icon: Briefcase },
   { href: '/projects', label: 'Projects', icon: FolderKanban },
+  { href: '/drums', label: 'Drums', icon: Music },
   { href: '/contact', label: 'Contact', icon: Mail },
 ];
 
