@@ -26,7 +26,10 @@ export default function MobileNav() {
       {/* Top bar */}
       <nav className="md:hidden sticky top-0 z-50 bg-background border-b-2 border-foreground">
         <div className="flex items-center justify-between px-4 py-3">
-          <Link href="/" className="text-sm font-bold tracking-widest uppercase">
+          <Link
+            href="/"
+            className="text-sm font-bold tracking-widest uppercase"
+          >
             TJB
           </Link>
           <div className="flex items-center gap-2">

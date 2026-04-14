@@ -114,11 +114,7 @@ function ContactFormWithParams() {
           className="input-glow"
         />
       </div>
-      <Button
-        type="submit"
-        disabled={sending}
-        className="w-full btn-lift"
-      >
+      <Button type="submit" disabled={sending} className="w-full btn-lift">
         {sending ? 'Sending...' : 'Send Message'}
       </Button>
       {success && (

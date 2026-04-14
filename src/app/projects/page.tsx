@@ -277,9 +277,7 @@ export default function ProjectsPage() {
         {/* Featured Projects */}
         {featuredProjects.length > 0 && (
           <section className="mb-12 stagger-1">
-            <h2 className="section-heading mb-5">
-              Featured
-            </h2>
+            <h2 className="section-heading mb-5">Featured</h2>
             <div className="space-y-6">
               {featuredProjects.map((project, index) => (
                 <div
@@ -297,9 +295,7 @@ export default function ProjectsPage() {
         {otherProjects.length > 0 && (
           <section className="stagger-3">
             <hr className="border-t-2 border-foreground mb-6" />
-            <h2 className="section-heading mb-5">
-              More Projects
-            </h2>
+            <h2 className="section-heading mb-5">More Projects</h2>
             <div className="grid gap-5 sm:grid-cols-2">
               {otherProjects.map((project, index) => (
                 <div
