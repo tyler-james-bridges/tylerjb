@@ -10,7 +10,7 @@ export default function HomePage() {
         {/* Vertical text running down the right side of entire content */}
         <div className="hidden md:block absolute right-4 top-24 pointer-events-none select-none opacity-10">
           <div className="text-[9px] font-mono text-muted-foreground writing-vertical tracking-[0.4em] leading-none">
-            GTM・AI・AUTOMATION・ENGINEER・QA・SYSTEMS・BUILDER・TYPESCRIPT・PLAYWRIGHT
+            SOFTWARE・ENGINEER・AI・AUTOMATION・DEVEX・PLATFORM・QA・SYSTEMS・TYPESCRIPT・PLAYWRIGHT
           </div>
         </div>
 
@@ -24,13 +24,13 @@ export default function HomePage() {
           </h2>
 
           <p className="text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed mb-3 stagger-2">
-            GTM AI Automation Engineer building practical systems that turn
-            repetitive go-to-market work into repeatable execution.
+            Software engineer focused on AI automation, developer platform
+            workflows, and quality-first systems.
           </p>
 
           <p className="text-base font-semibold max-w-xl mx-auto leading-relaxed mb-6 stagger-2">
-            My bar is simple: real automation, clear outcomes, and quality you
-            can trust in production.
+            I build practical tooling that improves execution speed,
+            reliability, and feedback loops across engineering teams.
           </p>
 
           {/* Credibility Badges */}
@@ -39,7 +39,7 @@ export default function HomePage() {
               10+ Years in Tech
             </span>
             <span className="px-3 py-1.5 text-xs font-medium bg-muted border border-foreground badge-hover cursor-default">
-              GTM AI Automation
+              AI Automation / DevEx
             </span>
             <span className="px-3 py-1.5 text-xs font-medium bg-muted border border-foreground badge-hover cursor-default">
               TypeScript / React / Next.js
@@ -58,15 +58,15 @@ export default function HomePage() {
 
         {/* Featured Work */}
         <section className="mb-12 stagger-4 max-w-xl mx-auto">
-          <h3 className="section-heading mb-2">Proof of Implementation</h3>
+          <h3 className="section-heading mb-2">Active Codebases</h3>
           <p className="text-sm text-muted-foreground mb-5">
-            Three systems I actively run. Full project archive lives on the
-            projects page.
+            Ordered by where I am actively shipping. Full project archive lives
+            on the projects page.
           </p>
 
-          {/* Claw Council - Hero Card */}
+          {/* #1 ACK Protocol */}
           <a
-            href="https://claw-council.vercel.app/"
+            href="https://ack-onchain.dev/"
             target="_blank"
             rel="noopener noreferrer"
             className="block border-2 border-foreground p-6 mb-4 card-lift group relative overflow-hidden"
@@ -74,24 +74,59 @@ export default function HomePage() {
             <div className="absolute top-0 left-0 w-1 h-full bg-[#e2a727]" />
             <div className="flex items-center justify-between mb-3">
               <h4 className="text-base font-bold group-hover:text-[#e2a727] transition-colors">
-                The Claw Council
+                ACK Protocol
               </h4>
               <span className="px-2 py-0.5 text-[10px] font-medium bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
-                Live System
+                Production
               </span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed mb-1">
-              Multi-agent orchestration for GTM workflows. Research, build, and
-              ops agents coordinate through OpenClaw and Discord with human
-              checkpoints.
+              Onchain reputation and feedback automation for ERC-8004 agents,
+              with structured review flow and trust signals.
             </p>
             <p className="text-[11px] text-muted-foreground/60">
-              Used as an execution engine, not a concept demo.
+              35+ onchain reviews across 3 chains.
             </p>
           </a>
 
-          {/* Two-column grid for secondary projects */}
+          {/* Secondary active repos */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+            <a
+              href="https://github.com/tyler-james-bridges/x402-indexer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block border-2 border-foreground p-4 card-lift group"
+            >
+              <h4 className="text-sm font-bold mb-2 group-hover:text-[#e2a727] transition-colors">
+                x402-indexer
+              </h4>
+              <p className="text-[11px] text-muted-foreground leading-relaxed mb-2">
+                Indexing and data pipeline work for x402 payment activity and
+                analytics workflows.
+              </p>
+              <span className="text-[10px] text-muted-foreground/60">
+                Active development
+              </span>
+            </a>
+
+            <a
+              href="https://github.com/tyler-james-bridges/x402-sentinel"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block border-2 border-foreground p-4 card-lift group"
+            >
+              <h4 className="text-sm font-bold mb-2 group-hover:text-[#e2a727] transition-colors">
+                x402-sentinel
+              </h4>
+              <p className="text-[11px] text-muted-foreground leading-relaxed mb-2">
+                Monitoring and reliability tooling for x402 systems, focused on
+                operational visibility.
+              </p>
+              <span className="text-[10px] text-muted-foreground/60">
+                Active development
+              </span>
+            </a>
+
             <a
               href="https://www.npmjs.com/package/qai-cli"
               target="_blank"
@@ -102,29 +137,29 @@ export default function HomePage() {
                 qai-cli
               </h4>
               <p className="text-[11px] text-muted-foreground leading-relaxed mb-2">
-                Quality automation for pull requests: review support, test
-                scaffolding, and faster QA feedback loops.
+                AI-assisted pull request quality workflows, test scaffolding,
+                and faster QA feedback loops.
               </p>
               <span className="text-[10px] text-muted-foreground/60">
-                Shipped and versioned on npm
+                Shipped on npm
               </span>
             </a>
 
             <a
-              href="https://ack-onchain.dev/"
+              href="https://claw-council.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="block border-2 border-foreground p-4 card-lift group"
             >
               <h4 className="text-sm font-bold mb-2 group-hover:text-[#e2a727] transition-colors">
-                ACK Automation
+                The Claw Council
               </h4>
               <p className="text-[11px] text-muted-foreground leading-relaxed mb-2">
-                Reputation and feedback automation for ERC-8004 agents, with
-                structured review flow and onchain trust signals.
+                Multi-agent orchestration system for research, build, and ops,
+                coordinated through OpenClaw and Discord.
               </p>
               <span className="text-[10px] text-muted-foreground/60">
-                35+ onchain reviews across 3 chains
+                Experimental system, lower priority than core codebases
               </span>
             </a>
           </div>
@@ -189,7 +224,9 @@ export default function HomePage() {
         {/* Mobile Dev Terminal */}
         <section id="terminal" className="max-w-xl mx-auto mt-14 stagger-6">
           <hr className="border-t-2 border-foreground mb-6" />
-          <h3 className="section-heading mb-3 text-center">Built from iPhone</h3>
+          <h3 className="section-heading mb-3 text-center">
+            Built from iPhone
+          </h3>
           <p className="text-sm text-muted-foreground text-center mb-4">
             This widget was built via mobile dev stack: iPhone → Termius →
             Tailscale → Claude Code
