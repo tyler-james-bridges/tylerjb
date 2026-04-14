@@ -112,6 +112,26 @@ const projects: Project[] = [
     featured: true,
   },
   {
+    title: 'x402 Lint',
+    description:
+      'x402 compliance linter that grades endpoints A-F against the V2 spec. Deployed on Bankr x402 Cloud, costs $0.01 via x402. x402 behind x402.',
+    tech: ['x402', 'Bankr', 'Node.js', 'TypeScript'],
+    status: 'production',
+    github: 'https://github.com/tyler-james-bridges/x402-lint',
+    live: 'https://0x402.sh',
+    featured: true,
+  },
+  {
+    title: 'x402 Canary',
+    description:
+      'Agent Economy Health Monitor. Tracks 10 x402 endpoints across the ecosystem (x402scan, StableEnrich, AgentCash, Bankr, dTelecom). Powered by Bankr x402 Cloud.',
+    tech: ['x402', 'Bankr', 'Node.js', 'TypeScript'],
+    status: 'production',
+    github: 'https://github.com/tyler-james-bridges/x402-canary',
+    live: 'https://canary.0x402.sh',
+    featured: true,
+  },
+  {
     title: 'birthday-vault',
     description:
       'Onchain memory capsule and trust fund for Ezra. Deployed on Abstract mainnet.',
