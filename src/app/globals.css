@@ -89,7 +89,9 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-geist-mono), 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+    font-family:
+      var(--font-geist-mono), 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code',
+      monospace;
   }
 
   * {
@@ -184,27 +186,47 @@
    ============================================ */
 
 @keyframes slide-up {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-slide-up {
   animation: slide-up 0.2s ease-out;
 }
 
-.stagger-1 { animation: slide-up 0.2s ease-out 0.03s both; }
-.stagger-2 { animation: slide-up 0.2s ease-out 0.06s both; }
-.stagger-3 { animation: slide-up 0.2s ease-out 0.09s both; }
-.stagger-4 { animation: slide-up 0.2s ease-out 0.12s both; }
-.stagger-5 { animation: slide-up 0.2s ease-out 0.15s both; }
-.stagger-6 { animation: slide-up 0.2s ease-out 0.18s both; }
+.stagger-1 {
+  animation: slide-up 0.2s ease-out 0.03s both;
+}
+.stagger-2 {
+  animation: slide-up 0.2s ease-out 0.06s both;
+}
+.stagger-3 {
+  animation: slide-up 0.2s ease-out 0.09s both;
+}
+.stagger-4 {
+  animation: slide-up 0.2s ease-out 0.12s both;
+}
+.stagger-5 {
+  animation: slide-up 0.2s ease-out 0.15s both;
+}
+.stagger-6 {
+  animation: slide-up 0.2s ease-out 0.18s both;
+}
 
 /* ============================================
    MICRO-INTERACTIONS
    ============================================ */
 
 .btn-lift {
-  transition: background-color 0.1s ease, color 0.1s ease;
+  transition:
+    background-color 0.1s ease,
+    color 0.1s ease;
 }
 
 .card-lift {
@@ -228,10 +250,18 @@
    3D FLIP CARD (homepage)
    ============================================ */
 
-.perspective-1000 { perspective: 1000px; }
-.preserve-3d      { transform-style: preserve-3d; }
-.backface-hidden  { backface-visibility: hidden; }
-.rotate-y-180     { transform: rotateY(180deg); }
+.perspective-1000 {
+  perspective: 1000px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
 
 /* ============================================
    MATRIX FLIP CARD BACK
@@ -245,29 +275,65 @@
 }
 
 @keyframes matrix-fall-1 {
-  0%   { transform: translateY(-100%); opacity: 0; }
-  10%  { opacity: 1; }
-  90%  { opacity: 1; }
-  100% { transform: translateY(100%);  opacity: 0; }
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
 }
 
 @keyframes matrix-fall-2 {
-  0%   { transform: translateY(-120%); opacity: 0; }
-  15%  { opacity: 1; }
-  85%  { opacity: 1; }
-  100% { transform: translateY(120%);  opacity: 0; }
+  0% {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120%);
+    opacity: 0;
+  }
 }
 
 @keyframes matrix-fall-3 {
-  0%   { transform: translateY(-80%); opacity: 0; }
-  20%  { opacity: 1; }
-  80%  { opacity: 1; }
-  100% { transform: translateY(80%);  opacity: 0; }
+  0% {
+    transform: translateY(-80%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(80%);
+    opacity: 0;
+  }
 }
 
-.animate-matrix-1 { animation: matrix-fall-1 3s linear infinite; }
-.animate-matrix-2 { animation: matrix-fall-2 3.5s linear infinite; }
-.animate-matrix-3 { animation: matrix-fall-3 4s linear infinite; }
+.animate-matrix-1 {
+  animation: matrix-fall-1 3s linear infinite;
+}
+.animate-matrix-2 {
+  animation: matrix-fall-2 3.5s linear infinite;
+}
+.animate-matrix-3 {
+  animation: matrix-fall-3 4s linear infinite;
+}
 
 :root .flip-card-back {
   background: hsl(220 15% 8%);
@@ -307,19 +373,49 @@
 }
 
 @keyframes crt-off {
-  0%   { transform: scale(1, 1);     filter: brightness(1); }
-  20%  { transform: scale(1.02,.98); filter: brightness(1.2); }
-  40%  { transform: scale(1,.005);   filter: brightness(1.5); }
-  60%  { transform: scale(1,.005);   filter: brightness(1); }
-  80%  { transform: scale(.02,.005); filter: brightness(1); }
-  90%  { transform: scale(.02,.005); filter: brightness(2); }
-  100% { transform: scale(0, 0);     filter: brightness(0); }
+  0% {
+    transform: scale(1, 1);
+    filter: brightness(1);
+  }
+  20% {
+    transform: scale(1.02, 0.98);
+    filter: brightness(1.2);
+  }
+  40% {
+    transform: scale(1, 0.005);
+    filter: brightness(1.5);
+  }
+  60% {
+    transform: scale(1, 0.005);
+    filter: brightness(1);
+  }
+  80% {
+    transform: scale(0.02, 0.005);
+    filter: brightness(1);
+  }
+  90% {
+    transform: scale(0.02, 0.005);
+    filter: brightness(2);
+  }
+  100% {
+    transform: scale(0, 0);
+    filter: brightness(0);
+  }
 }
 
 @keyframes nice-try-appear {
-  0%   { opacity: 0; transform: scale(0.5); }
-  50%  { opacity: 1; transform: scale(1.1); }
-  100% { opacity: 1; transform: scale(1); }
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* ============================================
@@ -330,7 +426,7 @@
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: rgba(0,0,0,0.95);
+  background: rgba(0, 0, 0, 0.95);
   font-family: var(--font-geist-mono), monospace;
   padding: 20px;
   overflow: hidden;
@@ -346,10 +442,18 @@
   white-space: pre-wrap;
 }
 
-.hacker-text .command { color: #00ffff; }
-.hacker-text .success { color: #00ff00; }
-.hacker-text .warning { color: #ffff00; }
-.hacker-text .error   { color: #ff0000; }
+.hacker-text .command {
+  color: #00ffff;
+}
+.hacker-text .success {
+  color: #00ff00;
+}
+.hacker-text .warning {
+  color: #ffff00;
+}
+.hacker-text .error {
+  color: #ff0000;
+}
 
 .hacker-cursor {
   display: inline-block;
@@ -362,8 +466,14 @@
 }
 
 @keyframes hacker-blink {
-  0%,50%  { opacity: 1; }
-  51%,100% { opacity: 0; }
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
 }
 
 .hacker-scanline {
@@ -372,14 +482,18 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: rgba(0,255,0,0.1);
+  background: rgba(0, 255, 0, 0.1);
   animation: hacker-scan 3s linear infinite;
   pointer-events: none;
 }
 
 @keyframes hacker-scan {
-  0%   { top: 0; }
-  100% { top: 100%; }
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
 }
 
 /* ============================================
@@ -397,8 +511,14 @@
 }
 
 @keyframes terminal-blink {
-  0%,50%   { opacity: 1; }
-  51%,100% { opacity: 0; }
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
 }
 
 .terminal-line-appear {
@@ -406,8 +526,14 @@
 }
 
 @keyframes terminal-fade-in {
-  from { opacity: 0; transform: translateY(2px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .terminal-scanline::before {
@@ -418,8 +544,8 @@
     0deg,
     transparent,
     transparent 2px,
-    rgba(0,0,0,0.03) 2px,
-    rgba(0,0,0,0.03) 4px
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
   );
   pointer-events: none;
 }
@@ -450,8 +576,12 @@
 }
 
 @keyframes spin {
-  0%   { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* ============================================
@@ -460,12 +590,21 @@
 
 @media (prefers-reduced-motion: reduce) {
   .animate-slide-up,
-  .stagger-1, .stagger-2, .stagger-3,
-  .stagger-4, .stagger-5, .stagger-6 {
+  .stagger-1,
+  .stagger-2,
+  .stagger-3,
+  .stagger-4,
+  .stagger-5,
+  .stagger-6 {
     animation: none;
     opacity: 1;
   }
 
-  .terminal-cursor { animation: none; opacity: 1; }
-  .terminal-line-appear { animation: none; }
+  .terminal-cursor {
+    animation: none;
+    opacity: 1;
+  }
+  .terminal-line-appear {
+    animation: none;
+  }
 }

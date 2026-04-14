@@ -53,14 +53,14 @@ export default function JourneyPage() {
           <hr className="border-t-2 border-foreground mb-6" />
           <h2 className="section-heading mb-4">The First Real Struggle</h2>
           <p>
-            Then things stopped working easily. Tests failing randomly. Pipelines
-            breaking in ways that didn&apos;t make sense. Error messages that
-            didn&apos;t point anywhere useful. The clean, linear progression
-            turned into a slog.
+            Then things stopped working easily. Tests failing randomly.
+            Pipelines breaking in ways that didn&apos;t make sense. Error
+            messages that didn&apos;t point anywhere useful. The clean, linear
+            progression turned into a slog.
           </p>
           <p>
-            This is where most people quit. They conclude they&apos;re not
-            a &quot;real&quot; engineer, that they need more training, that
+            This is where most people quit. They conclude they&apos;re not a
+            &quot;real&quot; engineer, that they need more training, that
             they&apos;re in over their head. Tyler didn&apos;t. He kept digging.
             He stayed in the discomfort, kept asking questions, kept reading
             stack traces he didn&apos;t fully understand yet. That matters more
@@ -80,8 +80,8 @@ export default function JourneyPage() {
             &quot;Oh, this is just async timing.&quot; &quot;Oh, selectors
             matter more than I thought.&quot; &quot;Oh, I can reuse this helper
             across three different test files.&quot; His brain shifted — slowly,
-            then all at once — from memorizing solutions to recognizing patterns.
-            From finding answers to understanding why.
+            then all at once — from memorizing solutions to recognizing
+            patterns. From finding answers to understanding why.
           </p>
         </section>
 
@@ -107,13 +107,13 @@ export default function JourneyPage() {
           <h2 className="section-heading mb-4">The Identity Shift</h2>
           <p>
             At some point, without announcing it, he changed. There was no
-            ceremony. No moment where he declared himself an engineer and started
-            acting like one. It just happened.
+            ceremony. No moment where he declared himself an engineer and
+            started acting like one. It just happened.
           </p>
           <p>
-            He stopped waiting for validation before making decisions. He started
-            trusting his gut on architecture choices. He moved faster — not
-            because he was less careful, but because the second-guessing had
+            He stopped waiting for validation before making decisions. He
+            started trusting his gut on architecture choices. He moved faster —
+            not because he was less careful, but because the second-guessing had
             quieted down. The dynamic flipped. AI went from leading to
             supporting. Tyler leads; AI accelerates.
           </p>
@@ -123,10 +123,11 @@ export default function JourneyPage() {
           <hr className="border-t-2 border-foreground mb-6" />
           <h2 className="section-heading mb-4">Where He Is Now</h2>
           <p>
-            He thinks in systems now. Naturally, without forcing it. He considers
-            reusability, scale, and developer experience before he writes the
-            first line of code. Not as a discipline he has to remember to
-            practice, but as the way his brain actually processes problems.
+            He thinks in systems now. Naturally, without forcing it. He
+            considers reusability, scale, and developer experience before he
+            writes the first line of code. Not as a discipline he has to
+            remember to practice, but as the way his brain actually processes
+            problems.
           </p>
           <p>
             The title that fits best isn&apos;t just &quot;software

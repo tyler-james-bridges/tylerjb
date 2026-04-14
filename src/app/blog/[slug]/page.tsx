@@ -105,7 +105,9 @@ export default async function BlogPostPage({ params }: PageProps) {
         >
           &larr; Back to Blog
         </Link>
-        <h1 className="text-xl font-bold uppercase tracking-widest mb-6">{post.title}</h1>
+        <h1 className="text-xl font-bold uppercase tracking-widest mb-6">
+          {post.title}
+        </h1>
         {/* Meta info */}
         <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground mb-8 pb-4 border-b-2 border-foreground">
           <time>{formatDate(post.date)}</time>
