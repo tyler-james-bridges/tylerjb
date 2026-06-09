@@ -21,31 +21,31 @@ export default function StartMenu({
   const menuItems = [
     {
       id: 'terminal',
-      icon: '📟',
+      icon: '>_',
       label: 'Terminal',
       description: 'Command line interface',
     },
     {
       id: 'texteditor',
-      icon: '📝',
+      icon: 'Aa',
       label: 'Text Editor',
       description: 'Simple text editing',
     },
     {
       id: 'about',
-      icon: '👤',
+      icon: '@',
       label: 'About Me',
       description: 'Personal information',
     },
     {
       id: 'bughunter',
-      icon: '🐛',
+      icon: '?!',
       label: 'Bug Hunter',
       description: 'Find bugs in code - QA game',
     },
     {
       id: 'music',
-      icon: '🎵',
+      icon: '♪',
       label: 'Music Player',
       description: 'Play music files',
     },
@@ -54,7 +54,7 @@ export default function StartMenu({
   const systemItems = [
     {
       id: 'shutdown',
-      icon: '🔌',
+      icon: '○',
       label: 'Shutdown',
       description: 'Power off system',
     },
@@ -126,7 +126,7 @@ export default function StartMenu({
 
         <div className="start-menu-footer">
           <div className="system-info">
-            TylerOS v4.20 • {new Date().toLocaleDateString()}
+            TylerOS • {new Date().toLocaleDateString()}
           </div>
         </div>
       </div>

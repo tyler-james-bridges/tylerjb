@@ -46,6 +46,13 @@ export default function TerminalWidget() {
   const [isTyping, setIsTyping] = useState<boolean>(true);
   const [isComplete, setIsComplete] = useState<boolean>(false);
 
+  // Respect prefers-reduced-motion: skip the animation, show the final state
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setVisibleLines(terminalLines.length);
+    }
+  }, []);
+
   useEffect(() => {
     if (visibleLines >= terminalLines.length) {
       setIsComplete(true);
@@ -86,19 +93,6 @@ export default function TerminalWidget() {
     }
   }, [visibleLines, currentText]);
 
-  // Restart animation after completion
-  useEffect(() => {
-    if (isComplete) {
-      const timeout = setTimeout(() => {
-        setVisibleLines(0);
-        setCurrentText('');
-        setIsTyping(true);
-        setIsComplete(false);
-      }, 5000);
-      return () => clearTimeout(timeout);
-    }
-  }, [isComplete]);
-
   const getLineClass = (type: TerminalLine['type']) => {
     switch (type) {
       case 'command':
@@ -129,7 +123,7 @@ export default function TerminalWidget() {
           </span>
         </div>
         <div className="flex items-center gap-1.5">
-          <span className="text-[10px] text-zinc-600 font-mono">📱 iPhone</span>
+          <span className="text-[10px] text-zinc-600 font-mono">iPhone</span>
         </div>
       </div>
 
@@ -182,7 +176,7 @@ export default function TerminalWidget() {
           </span>
         </div>
         <span className="text-[10px] text-zinc-500 font-mono">
-          {isComplete ? '↻ replaying...' : 'live'}
+          {isComplete ? 'done' : 'live'}
         </span>
       </div>
     </div>

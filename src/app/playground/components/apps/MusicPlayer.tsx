@@ -155,7 +155,7 @@ export default function MusicPlayer() {
       <div className="bg-gradient-to-b from-green-600 to-green-800 p-3 md:p-6">
         <div className="flex items-center gap-3 md:gap-4">
           <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center text-lg md:text-2xl font-bold shadow-lg flex-shrink-0">
-            🎵
+            ♪
           </div>
           <div className="min-w-0 flex-1">
             <h1 className="text-xl md:text-3xl font-bold text-white truncate">
@@ -254,7 +254,7 @@ export default function MusicPlayer() {
               <div className="p-4 md:p-6 border-b border-neutral-800">
                 <div className="flex items-start gap-3 md:gap-4">
                   <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center text-xl md:text-2xl shadow-lg flex-shrink-0">
-                    🎸
+                    ♪
                   </div>
                   <div className="flex-1 min-w-0">
                     <h2 className="text-lg md:text-2xl font-bold text-white mb-1 truncate">
@@ -287,7 +287,7 @@ export default function MusicPlayer() {
             <div className="flex-1 flex items-center justify-center p-4">
               <div className="text-center text-neutral-400 max-w-md">
                 <div className="w-16 h-16 md:w-24 md:h-24 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center text-2xl md:text-4xl mb-4 md:mb-6 mx-auto shadow-lg">
-                  🎸
+                  ♪
                 </div>
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
                   Start listening

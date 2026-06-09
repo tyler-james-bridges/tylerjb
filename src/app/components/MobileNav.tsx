@@ -72,7 +72,7 @@ export default function MobileNav() {
           </button>
         </div>
 
-        <div className="flex flex-col py-2">
+        <nav aria-label="Mobile menu" className="flex flex-col py-2">
           {navItems.map((item) => {
             const active = isActive(item.href);
             const Icon = item.icon;
@@ -92,7 +92,7 @@ export default function MobileNav() {
               </Link>
             );
           })}
-        </div>
+        </nav>
 
         <div className="absolute bottom-0 left-0 right-0 px-5 py-4 border-t-2 border-foreground">
           <div className="flex items-center gap-4">

@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Experience',
+  description:
+    'A decade at Weedmaps from QA analyst to Software Engineer III on the DevEx team, plus published npm packages, mainnet contracts, and hackathon entries.',
 };
 
 interface Job {
@@ -97,6 +99,7 @@ export default function ExperiencePage() {
   return (
     <div className="animate-slide-up">
       <div className="content-body prose-notes">
+        <h1 className="sr-only">Experience</h1>
         <section className="mb-10 stagger-1">
           <h2 className="section-heading mb-4">Engineering Evolution</h2>
           <p className="text-muted-foreground mb-6">
@@ -191,6 +194,43 @@ export default function ExperiencePage() {
               ))}
             </div>
           ))}
+        </section>
+
+        <section className="mb-10 stagger-3">
+          <hr className="border-t-2 border-foreground mb-6" />
+          <h2 className="section-heading mb-4">Selected Independent Work</h2>
+          <div className="space-y-2">
+            {[
+              {
+                label: 'Published npm packages',
+                detail:
+                  'qai-cli, @ack-onchain/sdk, etch-mcp, x402-qai, onchain-devex',
+              },
+              {
+                label: 'Production smart contracts',
+                detail:
+                  'Verified contracts live on Abstract and Base mainnet (ACK Protocol, etch)',
+              },
+              {
+                label: 'Colosseum Agent Hackathon (Feb 2026)',
+                detail: 'Solana DevEx Platform — 7 integrated developer tools',
+              },
+              {
+                label: 'RevenueCat Shipyard 2026',
+                detail: 'recipe-to-reality — AI recipe extraction iOS app',
+              },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className="py-2.5 border-b border-border last:border-0 -mx-2 px-2 hover:bg-muted/50 transition-colors"
+              >
+                <span className="font-medium">{item.label}</span>
+                <p className="text-sm text-muted-foreground mt-0.5">
+                  {item.detail}
+                </p>
+              </div>
+            ))}
+          </div>
         </section>
 
         <section className="stagger-4">

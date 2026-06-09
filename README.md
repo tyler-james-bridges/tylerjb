@@ -1,25 +1,33 @@
-# Tyler James-Bridges
+# tylerjb.dev
 
-Personal site of Tyler James-Bridges - software engineer, percussion instructor, and collector of JPEGs on various blockchains.
+Personal site of Tyler James-Bridges — Software Engineer III on the DevEx team at Weedmaps. A decade of quality engineering, now building developer tooling and agent infrastructure on Ethereum L2s.
 
 ## Stack
 
 - Next.js 15 / React 19 / TypeScript
-- Tailwind CSS
+- Tailwind CSS (brutalist design, Geist Mono)
+- Playwright (e2e tests in `tests/`)
 - Vercel
 
 ## What's Here
 
-- **Home** - NFT showcase, manifesto, services CTA
-- **About** - The percussion journey (SCV, Blue Stars, Pulse) with performance videos
-- **Experience** - Weedmaps career + music education roles
-- **Contact** - For freelance inquiries or general hellos
+- **Home** — hero, featured work (ACK Protocol, qai-cli, The Claw Council), terminal widget
+- **About** — the QA-to-SWE arc, agent infrastructure work, and the drum corps story (SCV, Blue Stars, Pulse)
+- **Experience** — resume plus published npm packages, mainnet contracts, and hackathon entries
+- **Projects** — live products with links and honest status badges
+- **Journey** — the QA-to-DevEx story
+- **Blog** — engineering writeups
+- **Drums** — performance videos
+- **Playground** — TylerOS, a desktop-style sandbox
 
-## Highlights
+## Development
 
-- Flippable profile card with Matrix rain animation
-- NFT grid linking to OpenSea and Magic Eden collections
-- Embedded YouTube performances from drum corps days
-- Mobile-first responsive design
+```bash
+npm install
+npm run dev      # dev server (Turbopack)
+npm run build    # production build
+npm run lint     # ESLint
+npm test         # Playwright e2e suite
+```
 
-Made with 💚 by Tyler James-Bridges & Claude Code
+Built in part from an iPhone over Termius + Tailscale + Claude Code.

@@ -51,25 +51,25 @@ const WindowManager = forwardRef<WindowManagerRef>(
                   onClick={() => openApp('terminal')}
                   className="p-2 bg-black text-green-400 rounded text-left"
                 >
-                  📟 Terminal
+                  Terminal
                 </button>
                 <button
                   onClick={() => openApp('texteditor')}
                   className="p-2 bg-blue-50 border rounded text-left"
                 >
-                  📝 Text Editor
+                  Text Editor
                 </button>
                 <button
                   onClick={() => openApp('about')}
                   className="p-2 bg-purple-50 border rounded text-left"
                 >
-                  👤 About Me
+                  About Me
                 </button>
                 <button
                   onClick={() => openApp('bughunter')}
                   className="p-2 bg-red-50 border rounded text-left"
                 >
-                  🐛 Bug Hunter
+                  Bug Hunter
                 </button>
               </div>
             </div>
@@ -169,7 +169,7 @@ const WindowManager = forwardRef<WindowManagerRef>(
           isMaximized: false,
         },
         soundstudio: {
-          title: '🎹 QA Sound Studio',
+          title: 'QA Sound Studio',
           content: <SoundStudio />,
           position: {
             x: isMobile ? mobileOffset : 200,

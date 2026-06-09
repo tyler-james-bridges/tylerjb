@@ -229,7 +229,7 @@ export default function BugHunter() {
       <div className="p-6 h-full flex flex-col items-center justify-center bg-gray-50">
         <div className="text-center max-w-md">
           <h1 className="text-3xl font-bold mb-4 text-gray-800">
-            🐛 Bug Hunter
+            Bug Hunter
           </h1>
           <p className="text-gray-600 mb-6">
             Welcome to Bug Hunter! Use your QA skills to find bugs in code
@@ -238,16 +238,16 @@ export default function BugHunter() {
           <div className="bg-white p-4 rounded-lg shadow-sm mb-6">
             <h3 className="font-semibold mb-2">Scoring:</h3>
             <div className="text-sm space-y-1">
-              <div>🟢 Easy: 10 points per bug</div>
-              <div>🟡 Medium: 20 points per bug</div>
-              <div>🔴 Hard: 30 points per bug</div>
+              <div>Easy: 10 points per bug</div>
+              <div>Medium: 20 points per bug</div>
+              <div>Hard: 30 points per bug</div>
             </div>
           </div>
           <button
             onClick={startGame}
             className="px-6 py-3 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition-colors font-medium"
           >
-            Start Hunting! 🎯
+            Start Hunting
           </button>
         </div>
       </div>
@@ -259,7 +259,7 @@ export default function BugHunter() {
       {/* Header */}
       <div className="bg-white border-b p-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <h2 className="text-xl font-bold">🐛 Bug Hunter</h2>
+          <h2 className="text-xl font-bold">Bug Hunter</h2>
           <span
             className={`px-2 py-1 rounded-full text-xs font-medium ${getDifficultyColor(challenge.difficulty)}`}
           >
@@ -337,7 +337,7 @@ export default function BugHunter() {
                 {challenge.bugs.find((b) => b.id === showHint)?.description}
               </p>
               <p className="text-xs text-green-600 mt-1">
-                💡 {challenge.bugs.find((b) => b.id === showHint)?.hint}
+                Hint: {challenge.bugs.find((b) => b.id === showHint)?.hint}
               </p>
             </div>
           </div>
@@ -350,7 +350,7 @@ export default function BugHunter() {
           <div className="flex items-center justify-between">
             <div>
               <p className="font-medium text-teal-800">
-                🎉 Challenge Complete!
+                Challenge Complete!
               </p>
               <p className="text-sm text-teal-600">
                 You found all {challenge.bugs.length} bugs! +

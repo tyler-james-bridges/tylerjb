@@ -7,21 +7,26 @@ import { ThemeProvider } from './components/ThemeProvider';
 import SidebarLayout from './components/SidebarLayout';
 import { GeistMono } from 'geist/font/mono';
 
+const siteDescription =
+  'Tyler James-Bridges — Software Engineer III on the DevEx team at Weedmaps. A decade of quality engineering, now building developer tooling and agent infrastructure on Ethereum L2s.';
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://tylerjb.dev'),
   title: {
     default: 'Tyler James-Bridges',
     template: '%s | Tyler James-Bridges',
   },
-  description:
-    'Software Engineer with 10+ years in QA and test automation. Percussionist and educator. Open to opportunities.',
+  description: siteDescription,
   keywords: [
     'Tyler James-Bridges',
     'Software Engineer',
+    'Developer Experience',
+    'DevEx',
     'QA',
     'Testing',
-    'Education',
-    'Music',
+    'Playwright',
+    'Agent Infrastructure',
+    'Ethereum',
     'Percussion',
   ],
   authors: [{ name: 'Tyler James-Bridges', url: 'https://tylerjb.dev' }],
@@ -31,25 +36,14 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://tylerjb.dev',
     title: 'Tyler James-Bridges',
-    description:
-      'Software Engineer with 10+ years in QA and test automation. Percussionist and educator. Open to opportunities.',
+    description: siteDescription,
     siteName: 'Tyler James-Bridges',
-    images: [
-      {
-        url: '/images/profile.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Tyler James-Bridges',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Tyler James-Bridges',
-    description:
-      'Software Engineer with 10+ years in QA and test automation. Percussionist and educator. Open to opportunities.',
+    description: siteDescription,
     creator: '@tmoney_145',
-    images: ['/images/profile.jpg'],
   },
   robots: {
     index: true,
@@ -64,6 +58,23 @@ export const metadata: Metadata = {
   },
 };
 
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Tyler James-Bridges',
+  jobTitle: 'Software Engineer III',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Weedmaps',
+  },
+  url: 'https://tylerjb.dev',
+  sameAs: [
+    'https://github.com/tyler-james-bridges',
+    'https://www.linkedin.com/in/tyler-james-bridges-4344abab',
+    'https://x.com/tmoney_145',
+  ],
+};
+
 interface RootLayoutProps {
   children: ReactNode;
 }
@@ -72,6 +83,10 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
   return (
     <html lang="en" suppressHydrationWarning className={GeistMono.variable}>
       <body className="antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

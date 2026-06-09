@@ -7,7 +7,6 @@ interface QASound {
   name: string;
   description: string;
   url: string;
-  emoji: string;
 }
 
 const qaSounds: QASound[] = [
@@ -16,63 +15,54 @@ const qaSounds: QASound[] = [
     name: 'Bug Found!',
     description: 'When you spot that sneaky bug',
     url: '',
-    emoji: '🐛',
   },
   {
     id: 'test-pass',
     name: 'All Tests Pass',
     description: 'Green build, ship it!',
     url: '',
-    emoji: '✅',
   },
   {
     id: 'test-fail',
     name: 'Tests Failed',
     description: 'Back to the drawing board',
     url: '',
-    emoji: '❌',
   },
   {
     id: 'coffee-break',
     name: 'Coffee Break',
     description: 'Time to refuel the QA engine',
     url: '',
-    emoji: '☕',
   },
   {
     id: 'prod-down',
     name: 'Prod is Down!',
     description: 'All hands on deck',
     url: '',
-    emoji: '🚨',
   },
   {
     id: 'deploy',
     name: 'Deploy Success',
     description: 'Another successful release',
     url: '',
-    emoji: '🚀',
   },
   {
     id: 'meeting-time',
     name: 'Meeting Time',
     description: 'Daily standup incoming',
     url: '',
-    emoji: '📅',
   },
   {
     id: 'code-review',
     name: 'Code Review',
     description: 'Time to nitpick some code',
     url: '',
-    emoji: '👀',
   },
   {
     id: 'works-on-my-machine',
     name: 'Works on My Machine',
-    description: 'The classic clown response 🎪',
+    description: 'The classic clown response',
     url: '',
-    emoji: '🤡',
   },
 ];
 
@@ -227,7 +217,7 @@ export default function SoundStudio({ embedded = false }: SoundStudioProps) {
       if (button) {
         const rect = button.getBoundingClientRect();
         const notification = document.createElement('div');
-        notification.textContent = `${sound.emoji} ${sound.name}`;
+        notification.textContent = sound.name;
         notification.className =
           'fixed bg-teal-500 text-white px-3 py-1 rounded-lg shadow-lg z-50 animate-bounce text-sm font-medium';
         notification.style.left = `${rect.left + rect.width / 2}px`;
@@ -301,14 +291,9 @@ export default function SoundStudio({ embedded = false }: SoundStudioProps) {
               {/* Gloss effect */}
               <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-transparent via-white/5 to-white/15 opacity-80" />
 
-              {/* Number hint - always visible but subtle */}
-              <div className="absolute top-0.5 right-0.5 md:top-1 md:right-1 text-xs font-medium text-white/50">
+              {/* Content - pad number */}
+              <div className="text-sm md:text-xl font-bold text-white drop-shadow-sm">
                 {index + 1}
-              </div>
-
-              {/* Content */}
-              <div className="text-sm md:text-xl filter drop-shadow-sm">
-                {sound.emoji}
               </div>
 
               {/* Active pulse effect */}
@@ -380,9 +365,6 @@ export default function SoundStudio({ embedded = false }: SoundStudioProps) {
 
               {/* Content */}
               <div className="relative z-10 flex flex-col items-center">
-                <div className="text-3xl mb-1 filter drop-shadow-lg">
-                  {sound.emoji}
-                </div>
                 <div className="font-bold text-xs text-white/90 px-2 text-center leading-tight drop-shadow-md">
                   {sound.name}
                 </div>
@@ -400,7 +382,7 @@ export default function SoundStudio({ embedded = false }: SoundStudioProps) {
       {/* Keyboard hint */}
       <div className="mt-6 text-center text-gray-500 text-xs">
         <span className="inline-block px-3 py-1 bg-gray-800/50 rounded-lg">
-          💡 Tip: Use keyboard keys 1-9 for quick access
+          Tip: Use keyboard keys 1-9 for quick access
         </span>
       </div>
     </div>

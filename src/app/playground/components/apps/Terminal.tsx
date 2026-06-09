@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 
 export default function Terminal() {
   const [history, setHistory] = useState<string[]>([
-    'TylerOS Terminal v4.20',
+    'TylerOS Terminal',
     'Type "help" for available commands',
     '',
   ]);
@@ -27,27 +27,26 @@ export default function Terminal() {
     about: () => [
       'Tyler James-Bridges',
       'Senior Quality Engineer → Software Engineer',
-      '10+ years in QA/Testing, now building full-stack applications',
-      'Passionate about quality-first development and user experience',
+      'A decade of QA, now building developer tooling and agent infrastructure.',
     ],
     skills: () => [
       'Languages: JavaScript, TypeScript, Python, Ruby',
       'Frontend: React, Next.js, Tailwind CSS',
-      'Testing: Playwright, Jest, Cypress',
+      'Testing: Playwright, Jest',
       'Backend: Node.js, Express, PostgreSQL',
       'Tools: Git, Docker, AWS, CI/CD',
     ],
     projects: () => [
       'Recent Projects:',
-      '• TylerOS - Browser-based operating system',
-      '• Portfolio Site - Personal website with Matrix animations',
-      '• Test Automation Framework - Custom Playwright framework',
-      '• QA Dashboard - Metrics and reporting system',
+      '- TylerOS - Browser-based desktop environment',
+      '- Portfolio Site - This site, built with Next.js',
+      '- Test Automation Framework - Custom Playwright framework',
+      '- QA Dashboard - Metrics and reporting system',
     ],
     contact: () => [
-      'Email: tyler@example.com',
-      'GitHub: github.com/tylerjames-bridges',
-      'LinkedIn: linkedin.com/in/tylerjames-bridges',
+      'Contact form: tylerjb.dev/contact',
+      'GitHub: github.com/tyler-james-bridges',
+      'LinkedIn: linkedin.com/in/tyler-james-bridges-4344abab',
     ],
     clear: () => {
       setHistory(['']);
