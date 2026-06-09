@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useState, Suspense } from 'react';
+import React, { useState } from 'react';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { Button } from '../components/ui/button';
 
-function ContactFormWithParams() {
+function ContactForm() {
   const [sending, setSending] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
@@ -135,17 +135,12 @@ export default function ContactPage() {
   return (
     <div className="animate-slide-up">
       <div className="content-body prose-notes">
+        <h1 className="sr-only">Contact</h1>
         <p className="text-muted-foreground mb-6">
           Want to get in touch? Fill out the form below or reach out via email.
         </p>
 
-        <Suspense
-          fallback={
-            <div className="text-muted-foreground">Loading form...</div>
-          }
-        >
-          <ContactFormWithParams />
-        </Suspense>
+        <ContactForm />
 
         <p className="text-xs text-muted-foreground text-center mt-4">
           I typically respond within 24 hours.

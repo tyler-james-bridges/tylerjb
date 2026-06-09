@@ -22,6 +22,7 @@ export default function BlogPage() {
   return (
     <div className="animate-slide-up">
       <div className="content-body prose-notes">
+        <h1 className="sr-only">Blog</h1>
         <p className="text-muted-foreground mb-8 stagger-1">
           Thoughts on engineering, quality, automation, and the occasional win
           (and failure) along the way.

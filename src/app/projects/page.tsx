@@ -4,6 +4,8 @@ import { Github, ExternalLink, Home } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Projects',
+  description:
+    'Agent infrastructure, QA tooling, and onchain products: ACK Protocol, Agent Tool Index, etch, qai-cli, x402 ecosystem tooling, and more.',
 };
 
 type ProjectStatus =
@@ -66,6 +68,36 @@ const projects: Project[] = [
     featured: true,
   },
   {
+    title: 'Agent Tool Index',
+    description:
+      'Agent-first visual index for ERC-8257 tools on Base, Ethereum, and Abstract. Syncs the onchain ToolRegistry, verifies manifests, and exposes discovery and call-planning APIs for AI agents. Built in Rust.',
+    tech: ['Rust', 'ERC-8257', 'Base', 'Vercel'],
+    status: 'production',
+    github: 'https://github.com/tyler-james-bridges/agent-tool-index',
+    live: 'https://agenttoolindex.xyz',
+    featured: true,
+  },
+  {
+    title: 'etch',
+    description:
+      'Permanent onchain records: typed, optionally soulbound ERC-721s with deterministic generative art rendered fully onchain. Deployed on Abstract and Base, with an MCP server on npm (etch-mcp).',
+    tech: ['Solidity', 'Next.js', 'MCP', 'Abstract', 'Base'],
+    status: 'production',
+    github: 'https://github.com/tyler-james-bridges/etch',
+    live: 'https://etch.ack-onchain.dev',
+    featured: true,
+  },
+  {
+    title: 'qai-cli',
+    description:
+      'AI-powered QA engineer for the terminal: visual scans with screenshots, console and network error detection, context-aware PR review, and test generation. A decade of QA packaged as a CLI.',
+    tech: ['npm package', 'Playwright', 'AI'],
+    status: 'production',
+    github: 'https://github.com/tyler-james-bridges/qai-cli',
+    live: 'https://www.npmjs.com/package/qai-cli',
+    featured: true,
+  },
+  {
     title: 'ACK SDK',
     description:
       'TypeScript SDK for ACK Protocol. ERC-8004 compliant reputation and kudos on Abstract.',
@@ -90,16 +122,6 @@ const projects: Project[] = [
       'Internal CLI tool for orchestrating Playwright test execution across multiple codebases and environments. Replaced hardcoded shell/YAML logic with unified test orchestration.',
     tech: ['Playwright', 'Node.js', 'CLI'],
     status: 'internal',
-    featured: true,
-  },
-  {
-    title: 'AI QA Engineer',
-    description:
-      'AI-powered QA testing for any website. Multi-provider AI support (Claude, GPT-4, Gemini), multi-viewport testing, network monitoring, and Playwright integration.',
-    tech: ['npm package', 'Playwright', 'AI'],
-    status: 'in-progress',
-    github: 'https://github.com/tyler-james-bridges/ai-qa-engineer',
-    live: 'https://www.npmjs.com/package/ai-qa-engineer',
     featured: true,
   },
   {
@@ -140,13 +162,21 @@ const projects: Project[] = [
     github: 'https://github.com/tyler-james-bridges/birthday-vault',
   },
   {
-    title: 'x402scan',
+    title: 'Solana DevEx Platform',
     description:
-      'x402 ecosystem explorer. Discover and browse payment-enabled APIs across the x402 network.',
-    tech: ['Next.js', 'x402'],
-    status: 'production',
-    github: 'https://github.com/tyler-james-bridges/x402scan',
-    live: 'https://x402scan.com',
+      'Colosseum Agent Hackathon entry (Feb 2026): seven integrated Solana developer tools, including a mainnet CPI debugger and Ed25519 debugging attestations. npm package: onchain-devex.',
+    tech: ['Next.js', 'Solana', 'TypeScript'],
+    status: 'side-project',
+    github: 'https://github.com/tyler-james-bridges/solana-devex-platform',
+    live: 'https://onchain-devex.tools',
+  },
+  {
+    title: 'tempo',
+    description:
+      'Upload sheet music, get tempo maps. A metronome for the marching arts with AI tempo extraction. Expo mobile app plus Next.js PWA.',
+    tech: ['React Native', 'Expo', 'Next.js', 'AI'],
+    status: 'in-progress',
+    github: 'https://github.com/tyler-james-bridges/tempo',
   },
   {
     title: 'x402-abstract',
@@ -294,6 +324,7 @@ export default function ProjectsPage() {
   return (
     <div className="animate-slide-up">
       <div className="content-body">
+        <h1 className="sr-only">Projects</h1>
         {/* Featured Projects */}
         {featuredProjects.length > 0 && (
           <section className="mb-12 stagger-1">

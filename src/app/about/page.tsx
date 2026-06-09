@@ -2,24 +2,29 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'About Me',
+  description:
+    'Tyler James-Bridges — a decade of quality engineering, now building developer tooling and agent infrastructure. Drum corps alum, percussion educator, father.',
 };
 
 export default function AboutPage() {
   return (
     <div className="animate-slide-up">
       <div className="content-body prose-notes">
+        <h1 className="sr-only">About Me</h1>
         <section className="mb-10 stagger-1">
           <hr className="border-t-2 border-foreground mb-6" />
-          <h2 className="section-heading mb-4">The Human Behind the Code</h2>
+          <h2 className="section-heading mb-4">Who I Am</h2>
           <p>
-            I&apos;m a father of two tiny humans who remind me daily that the
-            best debugging happens at 3 AM when you&apos;re running on coffee
-            fumes and pure determination.
+            I&apos;m a father of two, based in Arizona, and a Software Engineer
+            III on the Developer Experience team at Weedmaps. I spent a decade
+            in quality engineering — manual QA, then Playwright automation —
+            before moving into engineering full time. I think of that move as a
+            deepening of quality, not a departure from it.
           </p>
           <p>
-            By day, I transition from software engineering, building tools that
-            accelerate how teams ship code. By night, I dream in TypeScript and
-            wake up humming polyrhythms.
+            Day to day I build the tools other engineers ship with: CI
+            pipelines, developer platforms, the unglamorous stuff that makes
+            teams faster.
           </p>
         </section>
 
@@ -52,8 +57,9 @@ export default function AboutPage() {
             culminating with Pulse Percussion in 2014.
           </p>
           <p>
-            Each group, each season, each show was a masterclass in precision,
-            teamwork, and the pursuit of something greater than yourself.
+            I&apos;ve been teaching as a snare tech since 2014, and I still
+            think about software in terms of reps, cleaning, and locking in
+            with the rest of the line.
           </p>
         </section>
 
@@ -61,11 +67,13 @@ export default function AboutPage() {
           <hr className="border-t-2 border-foreground mb-6" />
           <h2 className="section-heading mb-4">Beyond the Screen</h2>
           <p>
-            When I&apos;m not writing tests or teaching paradiddles, you&apos;ll
-            find me deep in the progressive metal rabbit hole (Animals As
-            Leaders, Protest the Hero, Chon), exploring the latest crypto
-            projects, or adding another NFT to the collection that my wife
-            pretends not to judge.
+            Outside work I build agent infrastructure on Ethereum L2s: an
+            ERC-8004 reputation protocol (ACK), compliance tooling for the x402
+            payment protocol, and MCP servers — with contracts live on Abstract
+            and Base. When I&apos;m not shipping or teaching paradiddles,
+            you&apos;ll find me deep in the progressive metal rabbit hole
+            (Animals As Leaders, Protest the Hero, Chon), or adding another NFT
+            to the collection that my wife pretends not to judge.
           </p>
           <p>
             I believe in building things that matter, whether it&apos;s reliable

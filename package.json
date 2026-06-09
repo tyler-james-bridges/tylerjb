@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "test": "playwright test",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.4",
@@ -24,11 +26,11 @@
     "react-dom": "^19.0.0",
     "resend": "^4.8.0",
     "tailwind-merge": "^3.4.0",
-    "tailwindcss-animate": "^1.0.7",
-    "vexflow": "^5.0.0"
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@playwright/test": "^1.60.0",
     "@types/node": "^20",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",

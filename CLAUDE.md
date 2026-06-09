@@ -23,7 +23,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is Tyler James-Bridges' personal portfolio website built with Next.js 15, featuring a modern design with Tailwind CSS and TypeScript. The site showcases Tyler's work as a senior quality engineer, educator, and musician with interactive elements and responsive design.
+This is Tyler James-Bridges' personal portfolio website (tylerjb.dev) built with Next.js 15, Tailwind CSS, and TypeScript, in a brutalist design with Geist Mono. The site presents Tyler as a Software Engineer III on the DevEx team at Weedmaps — a decade of quality engineering, now building developer tooling and agent infrastructure on Ethereum L2s — plus the drum corps/percussion-educator side.
+
+**Content rules:** zero emojis anywhere in the codebase or copy (non-negotiable). No marketing slop ("passionate about", "leveraging", manifesto poetry). Every claim factual — no fake metrics, no inflated contribution claims (say "built tooling for the x402 ecosystem", not "x402 contributor").
 
 ## Project-Specific Commands
 
@@ -34,18 +36,17 @@ npm install                 # Install dependencies
 npm run dev                 # Start development server with Turbopack
 npm run build              # Build for production
 npm start                  # Start production server
-npm run lint               # Run ESLint (disabled during builds via next.config.ts)
+npm run lint               # Run ESLint
 ```
 
-### Testing Strategy
+### Testing
 
 ```bash
-# Tests to be implemented following QA-first approach
-npm run test:unit          # Unit tests (to be added)
-npm run test:integration   # Integration tests (to be added)
-npm run test:e2e          # E2E tests with Playwright (to be added)
-npm run test:coverage     # Coverage reporting (to be added)
+npm test                   # Playwright e2e suite (tests/, chromium + mobile viewport)
+npm run test:e2e           # Same as npm test
 ```
+
+The Playwright config boots a production build (`npm run build && npm start`). CI runs lint + tests before deploy (`.github/workflows/deploy.yml`, Node 22).
 
 ## Architecture Overview
 
@@ -62,34 +63,35 @@ npm run test:coverage     # Coverage reporting (to be added)
 ```
 src/
 ├── app/                    # Next.js App Router pages
-│   ├── components/         # Reusable React components
-│   │   └── MobileNav.tsx   # Mobile navigation component
-│   ├── api/               # API routes
-│   │   └── contact/       # Contact form handling
-│   ├── about/             # About page
-│   ├── contact/           # Contact page
-│   ├── experience/        # Experience/resume page
-│   ├── services/          # Services page (feature-flagged)
-│   ├── layout.tsx         # Root layout with footer and analytics
-│   ├── page.tsx           # Homepage with hero section and manifesto
-│   └── globals.css        # Global styles and Tailwind imports
-└── middleware.ts          # Next.js middleware for feature flags
+│   ├── components/         # Sidebar, MobileNav, SidebarLayout, TerminalWidget, nav-config
+│   ├── api/contact/        # Contact form handling (Resend)
+│   ├── about/              # About page
+│   ├── blog/               # Markdown blog (posts via src/lib/blog.ts)
+│   ├── contact/            # Contact page (+ layout.tsx for metadata)
+│   ├── drums/              # Performance videos
+│   ├── experience/         # Experience/resume page
+│   ├── journey/            # QA-to-DevEx story page
+│   ├── playground/         # TylerOS desktop-style sandbox (+ layout.tsx for metadata)
+│   ├── projects/           # Projects showcase (the centerpiece page)
+│   ├── layout.tsx          # Root layout, metadata, JSON-LD Person schema
+│   ├── opengraph-image.tsx # Generated 1200x630 OG image (twitter-image re-exports it)
+│   ├── sitemap.ts          # Sitemap (includes blog posts)
+│   ├── page.tsx            # Homepage: hero, featured work, terminal widget
+│   └── globals.css         # Global styles and Tailwind imports
+└── lib/                    # Blog utilities
+tests/                      # Playwright e2e suite
 ```
 
 ### Key Features
 
-- **Feature Flagging**: The `/services` route is controlled by the `FEATURE_SERVICES` environment variable via middleware
-- **Interactive Elements**: Homepage includes a flippable profile card with Matrix-style animation
-- **Responsive Design**: Mobile-first approach with custom breakpoints
-- **Custom Animations**: CSS animations for Matrix rain effect, bouncing elements, and hover states
-- **Social Integration**: Direct links to GitHub, LinkedIn, and X (Twitter)
-- **Contact System**: API route for handling contact form submissions using Resend
+- **Navigation**: Desktop sidebar + mobile nav, both driven by `components/nav-config.ts`, responsive via CSS breakpoints
+- **Terminal widget**: the one signature interactive element; plays once, respects prefers-reduced-motion
+- **Social Integration**: GitHub, LinkedIn, and X links from nav-config
+- **Contact System**: API route for contact form submissions using Resend
 
 ### Configuration Notes
 
-- ESLint is configured but disabled during builds for faster deployment
-- Image optimization disabled for `img` elements (uses regular `<img>` tags instead of Next.js Image component)
-- Turbopack enabled for development for faster build times
+- Turbopack enabled for development
 - TypeScript strict mode enabled via tsconfig.json
 
 ## Quality Guidelines
@@ -125,7 +127,7 @@ src/
 2. New pages follow the App Router convention in `src/app/[page-name]/page.tsx`
 3. Shared components go in `src/app/components/`
 4. API routes follow the pattern `src/app/api/[endpoint]/route.ts`
-5. Feature flags are managed through middleware.ts for conditional routing
+5. Client-component pages get metadata via a sibling `layout.tsx` (see contact/, playground/)
 
 ## Team Integration
 
@@ -172,7 +174,6 @@ src/
 
 ## Environment Variables
 
-- `FEATURE_SERVICES` - Controls visibility of services page (boolean)
 - `RESEND_API_KEY` - Required for contact form functionality (Resend integration)
 
 ## Important Instruction Reminders

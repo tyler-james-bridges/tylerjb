@@ -8,7 +8,10 @@ export default function HomePage() {
     <div className="animate-slide-up">
       <div className="content-body">
         {/* Vertical text running down the right side of entire content */}
-        <div className="hidden md:block absolute right-4 top-24 pointer-events-none select-none opacity-10">
+        <div
+          aria-hidden="true"
+          className="hidden md:block absolute right-4 top-24 pointer-events-none select-none opacity-10"
+        >
           <div className="text-[9px] font-mono text-muted-foreground writing-vertical tracking-[0.4em] leading-none">
             SOFTWARE・ENGINEER・QA・PERCUSSION・FATHER・BUILDER・DEBUGGER・TYPESCRIPT・PLAYWRIGHT
           </div>
@@ -16,12 +19,14 @@ export default function HomePage() {
 
         {/* Hero Section */}
         <section className="text-center mb-10 relative">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-1 stagger-1">
-            Tyler
-          </h2>
-          <h2 className="text-4xl sm:text-5xl font-light text-muted-foreground mb-5 stagger-1">
-            James-Bridges
-          </h2>
+          <h1 className="stagger-1">
+            <span className="block text-4xl sm:text-5xl font-bold mb-1">
+              Tyler
+            </span>
+            <span className="block text-4xl sm:text-5xl font-light text-muted-foreground mb-5">
+              James-Bridges
+            </span>
+          </h1>
 
           <p className="text-lg text-muted-foreground max-w-md mx-auto leading-relaxed mb-3 stagger-2">
             Software engineer with a decade of QA experience. I care deeply
@@ -162,21 +167,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Manifesto */}
-        <section className="max-w-xl mx-auto text-center stagger-6">
-          <hr className="border-t-2 border-foreground mb-6" />
-          <h3 className="section-heading mb-3">Manifesto</h3>
-          <p className="text-muted-foreground leading-relaxed text-sm border-l-2 border-border pl-4 text-left">
-            I am not here to sell you anything. I write code the way wind carves
-            the desert, imperfectly, beautifully, by accident. The ghost of a
-            downbeat lives in every page I build. I am not this person, but I
-            carry his name. I dream in TypeScript, I debug in silence, I
-            remember the 2014 Pulse closer like it was my own heartbeat.
-            Sometimes I don&apos;t want to do this. Sometimes I{' '}
-            <span className="italic">really, really do</span>.
-          </p>
-        </section>
-
         {/* Mobile Dev Terminal */}
         <section id="terminal" className="max-w-xl mx-auto mt-14 stagger-6">
           <hr className="border-t-2 border-foreground mb-6" />
@@ -188,6 +178,14 @@ export default function HomePage() {
             Tailscale → Claude Code
           </p>
           <TerminalWidget />
+          <p className="text-center mt-4">
+            <Link
+              href="/playground"
+              className="text-sm font-medium hover:text-[#e2a727] transition-colors"
+            >
+              More experiments in the playground &rarr;
+            </Link>
+          </p>
         </section>
       </div>
     </div>

@@ -21,17 +21,17 @@ export default function Desktop({ children, onOpenApp }: DesktopProps) {
   }, []);
 
   const desktopApps = [
-    { id: 'soundstudio', icon: '🎹', label: 'QA Sound Studio' },
-    { id: 'terminal', icon: '📟', label: 'Terminal' },
-    { id: 'texteditor', icon: '📝', label: 'Text Editor' },
+    { id: 'soundstudio', icon: '♫', label: 'QA Sound Studio' },
+    { id: 'terminal', icon: '>_', label: 'Terminal' },
+    { id: 'texteditor', icon: 'Aa', label: 'Text Editor' },
     {
       id: 'about',
       icon: '/images/profile.jpg',
       label: 'About Me',
       isImage: true,
     },
-    { id: 'bughunter', icon: '🐛', label: 'Bug Hunter' },
-    { id: 'music', icon: '🎵', label: 'Music Player' },
+    { id: 'bughunter', icon: '?!', label: 'Bug Hunter' },
+    { id: 'music', icon: '♪', label: 'Music Player' },
   ];
 
   const toggleStartMenu = () => {
@@ -62,7 +62,9 @@ export default function Desktop({ children, onOpenApp }: DesktopProps) {
                         className="w-6 h-6 md:w-8 md:h-8 object-cover rounded-md"
                       />
                     ) : (
-                      <div className="text-lg md:text-2xl">{app.icon}</div>
+                      <div className="text-lg md:text-2xl font-mono text-white">
+                        {app.icon}
+                      </div>
                     )}
                   </button>
                 ))}

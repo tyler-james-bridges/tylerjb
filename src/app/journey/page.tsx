@@ -2,12 +2,15 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'The Journey',
+  description:
+    'From QA analyst to DevEx engineer: how a decade of quality engineering became a systems-building career.',
 };
 
 export default function JourneyPage() {
   return (
     <div className="animate-slide-up">
       <div className="content-body prose-notes">
+        <h1 className="sr-only">The Journey</h1>
         <section className="mb-10 stagger-1">
           <p className="text-lg text-muted-foreground leading-relaxed">
             From QA to Systems Engineer — a story about building belief,
