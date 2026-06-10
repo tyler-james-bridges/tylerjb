@@ -39,7 +39,7 @@ export default function BlogPage() {
             {posts.map((post, index) => (
               <article
                 key={post.slug}
-                className={`group p-4 -mx-4 border-2 border-transparent hover:border-foreground hover:bg-muted/30 transition-all card-lift stagger-${Math.min(index + 2, 6)}`}
+                className={`group p-4 -mx-4 rounded-2xl border border-transparent transition-all card-lift stagger-${Math.min(index + 2, 6)}`}
               >
                 <Link href={`/blog/${post.slug}`} className="block">
                   <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
@@ -64,7 +64,7 @@ export default function BlogPage() {
                           {post.tags.slice(0, 3).map((tag) => (
                             <span
                               key={tag}
-                              className="px-2 py-0.5 bg-muted border border-foreground badge-hover"
+                              className="px-2 py-0.5 glass-chip badge-hover"
                             >
                               {tag}
                             </span>

@@ -118,12 +118,12 @@ function ContactForm() {
         {sending ? 'Sending...' : 'Send Message'}
       </Button>
       {success && (
-        <div className="text-green-600 dark:text-green-400 text-center text-sm p-3 bg-green-50 dark:bg-green-900/20 border-2 border-foreground">
+        <div className="text-green-600 dark:text-green-400 text-center text-sm p-3 bg-green-50 dark:bg-green-900/20 rounded-2xl border border-foreground/15">
           Message sent! I&apos;ll get back to you soon.
         </div>
       )}
       {error && (
-        <div className="text-red-600 dark:text-red-400 text-center text-sm p-3 bg-red-50 dark:bg-red-900/20 border-2 border-foreground">
+        <div className="text-red-600 dark:text-red-400 text-center text-sm p-3 bg-red-50 dark:bg-red-900/20 rounded-2xl border border-foreground/15">
           {error}
         </div>
       )}
@@ -146,7 +146,7 @@ export default function ContactPage() {
           I typically respond within 24 hours.
         </p>
 
-        <div className="mt-8 pt-6 border-t-2 border-foreground">
+        <div className="mt-8 pt-6 border-t border-foreground/15">
           <h2 className="section-heading mb-4">Other ways to reach me</h2>
           <ul className="space-y-2">
             <li>

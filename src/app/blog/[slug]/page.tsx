@@ -43,7 +43,7 @@ function renderMarkdown(content: string): string {
       // Code blocks (must come before inline code)
       .replace(
         /```(\w+)?\n([\s\S]*?)```/g,
-        '<pre class="bg-muted p-4 overflow-x-auto my-4 border-2 border-foreground"><code>$2</code></pre>'
+        '<pre class="bg-muted p-4 overflow-x-auto my-4 rounded-xl border border-foreground/15"><code>$2</code></pre>'
       )
       // Inline code
       .replace(
@@ -109,7 +109,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           {post.title}
         </h1>
         {/* Meta info */}
-        <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground mb-8 pb-4 border-b-2 border-foreground">
+        <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground mb-8 pb-4 border-b border-foreground/15">
           <time>{formatDate(post.date)}</time>
           <span>·</span>
           <span>{post.readingTime}</span>
@@ -119,7 +119,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-2 py-0.5 bg-muted border border-foreground text-xs text-muted-foreground"
+                className="px-2 py-0.5 glass-chip text-xs text-muted-foreground"
               >
                 {tag}
               </span>
@@ -136,7 +136,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         />
 
         {/* Footer */}
-        <div className="mt-12 pt-6 border-t-2 border-foreground">
+        <div className="mt-12 pt-6 border-t border-foreground/15">
           <Link
             href="/blog"
             className="text-muted-foreground hover:text-foreground transition-colors"
