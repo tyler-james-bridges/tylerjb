@@ -24,7 +24,7 @@ export default function MobileNav() {
   return (
     <>
       {/* Top bar */}
-      <nav className="md:hidden sticky top-0 z-50 bg-background border-b-2 border-foreground">
+      <nav className="md:hidden sticky top-0 z-50 glass-header">
         <div className="flex items-center justify-between px-4 py-3">
           <Link
             href="/"
@@ -55,11 +55,11 @@ export default function MobileNav() {
 
       {/* Drawer */}
       <div
-        className={`md:hidden fixed top-0 right-0 bottom-0 z-[70] w-[75%] max-w-[300px] bg-background border-l-2 border-foreground transition-transform duration-300 ease-out ${
+        className={`md:hidden fixed top-0 right-0 bottom-0 z-[70] w-[75%] max-w-[300px] bg-background/85 backdrop-blur-xl border-l border-foreground/15 transition-transform duration-300 ease-out ${
           open ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="flex items-center justify-between px-5 py-3 border-b-2 border-foreground">
+        <div className="flex items-center justify-between px-5 py-3 border-b border-foreground/15">
           <span className="text-xs uppercase tracking-[0.12em] font-medium text-muted-foreground">
             Menu
           </span>
@@ -94,7 +94,7 @@ export default function MobileNav() {
           })}
         </nav>
 
-        <div className="absolute bottom-0 left-0 right-0 px-5 py-4 border-t-2 border-foreground">
+        <div className="absolute bottom-0 left-0 right-0 px-5 py-4 border-t border-foreground/15">
           <div className="flex items-center gap-4">
             {socialLinks.map((link) => (
               <a

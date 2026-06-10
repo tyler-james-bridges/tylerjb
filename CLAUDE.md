@@ -23,7 +23,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is Tyler James-Bridges' personal portfolio website (tylerjb.dev) built with Next.js 15, Tailwind CSS, and TypeScript, in a brutalist design with Geist Mono. The site presents Tyler as a Software Engineer III on the DevEx team at Weedmaps — a decade of quality engineering, now building developer tooling and agent infrastructure on Ethereum L2s — plus the drum corps/percussion-educator side.
+This is Tyler James-Bridges' personal portfolio website (tylerjb.dev) built with Next.js 15, Tailwind CSS, and TypeScript, in a liquid-glass design (translucent blurred panels over an ambient gradient backdrop) with Geist Mono. The site presents Tyler as a Software Engineer III on the DevEx team at Weedmaps — a decade of quality engineering, now building developer tooling and agent infrastructure on Ethereum L2s — plus the drum corps/percussion-educator side.
 
 **Content rules:** zero emojis anywhere in the codebase or copy (non-negotiable). No marketing slop ("passionate about", "leveraging", manifesto poetry). Every claim factual — no fake metrics, no inflated contribution claims (say "built tooling for the x402 ecosystem", not "x402 contributor").
 

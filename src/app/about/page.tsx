@@ -12,7 +12,7 @@ export default function AboutPage() {
       <div className="content-body prose-notes">
         <h1 className="sr-only">About Me</h1>
         <section className="mb-10 stagger-1">
-          <hr className="border-t-2 border-foreground mb-6" />
+          <hr className="border-t border-foreground/15 mb-6" />
           <h2 className="section-heading mb-4">Who I Am</h2>
           <p>
             I&apos;m a father of two, based in Arizona, and a Software Engineer
@@ -29,7 +29,7 @@ export default function AboutPage() {
         </section>
 
         <section className="mb-10 stagger-2">
-          <hr className="border-t-2 border-foreground mb-6" />
+          <hr className="border-t border-foreground/15 mb-6" />
           <h2 className="section-heading mb-4">Rhythm & Algorithms</h2>
           <p>
             The percussion world shaped who I am long before I touched my first
@@ -47,7 +47,7 @@ export default function AboutPage() {
         </section>
 
         <section className="mb-10 stagger-3">
-          <hr className="border-t-2 border-foreground mb-6" />
+          <hr className="border-t border-foreground/15 mb-6" />
           <h2 className="section-heading mb-4">The Journey</h2>
           <p>
             My percussion journey began in 2009 with Santa Clara Vanguard
@@ -64,7 +64,7 @@ export default function AboutPage() {
         </section>
 
         <section className="mb-10 stagger-4">
-          <hr className="border-t-2 border-foreground mb-6" />
+          <hr className="border-t border-foreground/15 mb-6" />
           <h2 className="section-heading mb-4">Beyond the Screen</h2>
           <p>
             Outside work I build agent infrastructure on Ethereum L2s: an

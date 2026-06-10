@@ -159,7 +159,7 @@ export default function ExperiencePage() {
         </section>
 
         <section className="mb-10 stagger-2">
-          <hr className="border-t-2 border-foreground mb-6" />
+          <hr className="border-t border-foreground/15 mb-6" />
           <h2 className="section-heading mb-6">Work Experience</h2>
           {jobs.map((job, jobIndex) => (
             <div
@@ -197,7 +197,7 @@ export default function ExperiencePage() {
         </section>
 
         <section className="mb-10 stagger-3">
-          <hr className="border-t-2 border-foreground mb-6" />
+          <hr className="border-t border-foreground/15 mb-6" />
           <h2 className="section-heading mb-4">Selected Independent Work</h2>
           <div className="space-y-2">
             {[
@@ -234,7 +234,7 @@ export default function ExperiencePage() {
         </section>
 
         <section className="stagger-4">
-          <hr className="border-t-2 border-foreground mb-6" />
+          <hr className="border-t border-foreground/15 mb-6" />
           <h2 className="section-heading mb-4">Music & Education</h2>
           <p className="text-muted-foreground mb-4">
             Teaching and performing across the marching arts world.

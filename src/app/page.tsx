@@ -40,13 +40,13 @@ export default function HomePage() {
 
           {/* Credibility Badges */}
           <div className="flex flex-wrap justify-center gap-2 mb-6 stagger-3">
-            <span className="px-3 py-1.5 text-xs font-medium bg-muted border border-foreground badge-hover cursor-default">
+            <span className="px-3 py-1.5 text-xs font-medium glass-chip badge-hover cursor-default">
               10+ Years in Tech
             </span>
-            <span className="px-3 py-1.5 text-xs font-medium bg-muted border border-foreground badge-hover cursor-default">
+            <span className="px-3 py-1.5 text-xs font-medium glass-chip badge-hover cursor-default">
               Playwright / Test Automation
             </span>
-            <span className="px-3 py-1.5 text-xs font-medium bg-muted border border-foreground badge-hover cursor-default">
+            <span className="px-3 py-1.5 text-xs font-medium glass-chip badge-hover cursor-default">
               TypeScript / React / Next.js
             </span>
           </div>
@@ -65,14 +65,14 @@ export default function HomePage() {
             href="https://ack-onchain.dev/"
             target="_blank"
             rel="noopener noreferrer"
-            className="block border-2 border-foreground p-6 mb-4 card-lift group relative overflow-hidden"
+            className="block glass-card p-6 mb-4 card-lift group relative overflow-hidden"
           >
             <div className="absolute top-0 left-0 w-1 h-full bg-[#e2a727]" />
             <div className="flex items-center justify-between mb-3">
               <h4 className="text-base font-bold group-hover:text-[#e2a727] transition-colors">
                 ACK Protocol
               </h4>
-              <span className="px-2 py-0.5 text-[10px] font-medium bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+              <span className="px-2 py-0.5 text-[10px] font-medium rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
                 Production
               </span>
             </div>
@@ -92,7 +92,7 @@ export default function HomePage() {
               href="https://www.npmjs.com/package/qai-cli"
               target="_blank"
               rel="noopener noreferrer"
-              className="block border-2 border-foreground p-4 card-lift group"
+              className="block glass-card p-4 card-lift group"
             >
               <h4 className="text-sm font-bold mb-2 group-hover:text-[#e2a727] transition-colors">
                 qai-cli
@@ -110,7 +110,7 @@ export default function HomePage() {
               href="https://claw-council.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="block border-2 border-foreground p-4 card-lift group"
+              className="block glass-card p-4 card-lift group"
             >
               <h4 className="text-sm font-bold mb-2 group-hover:text-[#e2a727] transition-colors">
                 The Claw Council
@@ -127,7 +127,7 @@ export default function HomePage() {
 
           <Link
             href="/projects"
-            className="block text-center px-4 py-2.5 border-2 border-foreground text-sm font-medium hover:bg-muted transition-colors btn-lift"
+            className="block text-center px-4 py-2.5 glass-btn text-sm font-medium"
           >
             All Projects &rarr;
           </Link>
@@ -138,13 +138,13 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/experience"
-              className="px-6 py-3 bg-foreground text-background font-medium text-center text-sm uppercase tracking-wider btn-lift"
+              className="px-6 py-3 pill-solid font-medium text-center text-sm uppercase tracking-wider"
             >
               View My Experience
             </Link>
             <Link
               href="/contact"
-              className="px-6 py-3 border-2 border-foreground font-medium text-center text-sm uppercase tracking-wider btn-lift hover:bg-muted"
+              className="px-6 py-3 glass-btn font-medium text-center text-sm uppercase tracking-wider"
             >
               Let&apos;s Work Together
             </Link>
@@ -153,7 +153,7 @@ export default function HomePage() {
 
         {/* Journey Callout */}
         <section className="max-w-xl mx-auto mb-10 stagger-6">
-          <div className="border-2 border-foreground p-5 transition-colors">
+          <div className="glass-card p-5">
             <p className="text-sm text-muted-foreground mb-2">
               From QA analyst to systems engineer — the story of building
               belief, building tools, and building momentum.
@@ -169,7 +169,7 @@ export default function HomePage() {
 
         {/* Mobile Dev Terminal */}
         <section id="terminal" className="max-w-xl mx-auto mt-14 stagger-6">
-          <hr className="border-t-2 border-foreground mb-6" />
+          <hr className="border-t border-foreground/15 mb-6" />
           <h3 className="section-heading mb-3 text-center">
             Built from iPhone
           </h3>

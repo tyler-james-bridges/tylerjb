@@ -19,7 +19,7 @@ export default function JourneyPage() {
         </section>
 
         <section className="mb-10 stagger-2">
-          <hr className="border-t-2 border-foreground mb-6" />
+          <hr className="border-t border-foreground/15 mb-6" />
           <h2 className="section-heading mb-4">The Starting Point</h2>
           <p>
             Tyler wasn&apos;t starting from zero. He had technical exposure, QA
@@ -36,7 +36,7 @@ export default function JourneyPage() {
         </section>
 
         <section className="mb-10 stagger-3">
-          <hr className="border-t-2 border-foreground mb-6" />
+          <hr className="border-t border-foreground/15 mb-6" />
           <h2 className="section-heading mb-4">The Dependency Phase</h2>
           <p>
             Early conversations with AI followed a familiar loop: ask, receive,
@@ -53,7 +53,7 @@ export default function JourneyPage() {
         </section>
 
         <section className="mb-10 stagger-4">
-          <hr className="border-t-2 border-foreground mb-6" />
+          <hr className="border-t border-foreground/15 mb-6" />
           <h2 className="section-heading mb-4">The First Real Struggle</h2>
           <p>
             Then things stopped working easily. Tests failing randomly.
@@ -72,7 +72,7 @@ export default function JourneyPage() {
         </section>
 
         <section className="mb-10 stagger-5">
-          <hr className="border-t-2 border-foreground mb-6" />
+          <hr className="border-t border-foreground/15 mb-6" />
           <h2 className="section-heading mb-4">The Click Moments</h2>
           <p>
             There wasn&apos;t one big moment where everything suddenly made
@@ -89,7 +89,7 @@ export default function JourneyPage() {
         </section>
 
         <section className="mb-10 stagger-6">
-          <hr className="border-t-2 border-foreground mb-6" />
+          <hr className="border-t border-foreground/15 mb-6" />
           <h2 className="section-heading mb-4">Asking Better Questions</h2>
           <p>
             The clearest signal of growth wasn&apos;t the code he wrote. It was
@@ -106,7 +106,7 @@ export default function JourneyPage() {
         </section>
 
         <section className="mb-10 stagger-6">
-          <hr className="border-t-2 border-foreground mb-6" />
+          <hr className="border-t border-foreground/15 mb-6" />
           <h2 className="section-heading mb-4">The Identity Shift</h2>
           <p>
             At some point, without announcing it, he changed. There was no
@@ -123,7 +123,7 @@ export default function JourneyPage() {
         </section>
 
         <section className="mb-10 stagger-6">
-          <hr className="border-t-2 border-foreground mb-6" />
+          <hr className="border-t border-foreground/15 mb-6" />
           <h2 className="section-heading mb-4">Where He Is Now</h2>
           <p>
             He thinks in systems now. Naturally, without forcing it. He
@@ -144,7 +144,7 @@ export default function JourneyPage() {
         </section>
 
         <section className="mb-10 stagger-6">
-          <hr className="border-t-2 border-foreground mb-6" />
+          <hr className="border-t border-foreground/15 mb-6" />
           <h2 className="section-heading mb-4">The Hard Truth</h2>
           <p>
             AI didn&apos;t teach him this. The tools helped — they accelerated
