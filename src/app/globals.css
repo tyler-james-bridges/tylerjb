@@ -83,12 +83,12 @@
     --input: 0 0% 20%;
     --ring: 38 92% 50%;
 
-    --glass-bg: rgba(255, 255, 255, 0.07);
-    --glass-bg-strong: rgba(255, 255, 255, 0.12);
-    --glass-border: rgba(255, 255, 255, 0.18);
-    --glass-edge: rgba(255, 255, 255, 0.18);
-    --glass-highlight: rgba(255, 255, 255, 0.3);
-    --glass-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    --glass-bg: rgba(255, 255, 255, 0.09);
+    --glass-bg-strong: rgba(255, 255, 255, 0.16);
+    --glass-border: rgba(255, 255, 255, 0.45);
+    --glass-edge: rgba(255, 255, 255, 0.32);
+    --glass-highlight: rgba(255, 255, 255, 0.4);
+    --glass-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -119,38 +119,61 @@
     pointer-events: none;
     background:
       radial-gradient(
-        55rem 38rem at 85% -10%,
-        hsl(38 92% 55% / 0.16),
-        transparent 60%
+        45rem 32rem at 80% -6%,
+        hsl(32 95% 60% / 0.35),
+        transparent 65%
       ),
       radial-gradient(
-        48rem 34rem at -12% 28%,
-        hsl(215 90% 58% / 0.14),
-        transparent 60%
+        40rem 30rem at -8% 24%,
+        hsl(200 90% 60% / 0.3),
+        transparent 65%
       ),
       radial-gradient(
-        44rem 40rem at 72% 112%,
-        hsl(280 75% 60% / 0.12),
-        transparent 60%
+        34rem 26rem at 55% 48%,
+        hsl(330 80% 70% / 0.18),
+        transparent 65%
+      ),
+      radial-gradient(
+        40rem 34rem at 74% 108%,
+        hsl(275 75% 62% / 0.28),
+        transparent 65%
       );
   }
 
+  /* Dark mode: glowing color field on black — vivid enough that the
+     glass panels have real color to blur and refract, like lights
+     behind frosted glass. Base stays black. */
   .dark body::before {
     background:
       radial-gradient(
-        55rem 38rem at 85% -10%,
-        hsl(38 92% 50% / 0.14),
-        transparent 60%
+        40rem 28rem at 78% 4%,
+        hsl(28 95% 55% / 0.4),
+        transparent 65%
       ),
       radial-gradient(
-        48rem 34rem at -12% 28%,
-        hsl(220 90% 55% / 0.16),
-        transparent 60%
+        34rem 26rem at 12% 16%,
+        hsl(190 90% 52% / 0.32),
+        transparent 65%
       ),
       radial-gradient(
-        44rem 40rem at 72% 112%,
-        hsl(275 80% 55% / 0.14),
-        transparent 60%
+        38rem 30rem at 92% 52%,
+        hsl(320 85% 55% / 0.28),
+        transparent 65%
+      ),
+      radial-gradient(
+        30rem 24rem at 50% 42%,
+        hsl(38 92% 52% / 0.2),
+        transparent 65%
+      ),
+      radial-gradient(
+        36rem 28rem at 18% 76%,
+        hsl(265 85% 58% / 0.32),
+        transparent 65%
+      ),
+      radial-gradient(
+        34rem 26rem at 68% 104%,
+        hsl(160 80% 45% / 0.26),
+        transparent 65%
       );
   }
 
@@ -179,12 +202,20 @@
 }
 
 .glass-card {
-  background: var(--glass-bg);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08),
+      rgba(255, 255, 255, 0) 45%
+    ),
+    var(--glass-bg);
   border: 1px solid var(--glass-edge);
-  border-radius: 1.25rem;
+  border-radius: 1.5rem;
   box-shadow:
     var(--glass-shadow),
-    inset 0 1px 0 var(--glass-highlight);
+    inset 0 1px 0 var(--glass-highlight),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 24px rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(22px) saturate(1.2);
   -webkit-backdrop-filter: blur(22px) saturate(1.2);
 }
