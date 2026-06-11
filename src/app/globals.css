@@ -109,35 +109,36 @@
 
     --focus-ring: 2px solid #fff;
 
-    --glass-bg: rgba(255, 255, 255, 0.06);
-    --glass-bg-strong: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-bg-strong: rgba(255, 255, 255, 0.14);
     --glass-fill: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.07),
-      rgba(255, 255, 255, 0.03)
-    );
-    --glass-fill-strong: linear-gradient(
       180deg,
       rgba(255, 255, 255, 0.1),
       rgba(255, 255, 255, 0.05)
     );
+    --glass-fill-strong: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.14),
+      rgba(255, 255, 255, 0.08)
+    );
     --glass-edge: rgba(255, 255, 255, 0.1);
     --glass-highlight: rgba(255, 255, 255, 0.25);
     --glass-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.55), 0 1px 2px rgba(0, 0, 0, 0.4);
-    --glass-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+      0 8px 32px rgba(0, 0, 0, 0.55), 0 0 48px rgba(255, 255, 255, 0.045);
+    --glass-shadow-sm:
+      0 2px 8px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.035);
     --glass-rim: linear-gradient(
       160deg,
-      rgba(255, 255, 255, 0.35),
-      rgba(255, 255, 255, 0.1) 35%,
-      rgba(255, 255, 255, 0.04) 65%,
-      rgba(255, 255, 255, 0.16)
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.18) 35%,
+      rgba(255, 255, 255, 0.1) 65%,
+      rgba(255, 255, 255, 0.28)
     );
     --glass-rim-soft: linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.28),
-      rgba(255, 255, 255, 0.06) 60%,
-      rgba(255, 255, 255, 0.12)
+      rgba(255, 255, 255, 0.45),
+      rgba(255, 255, 255, 0.14) 60%,
+      rgba(255, 255, 255, 0.24)
     );
   }
 }
@@ -521,9 +522,8 @@
   background: var(--glass-fill-strong);
   transform: translateY(-2px);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    var(--glass-shadow),
-    0 0 0 1px hsl(38 92% 50% / 0.2);
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    var(--glass-shadow);
 }
 
 @media (prefers-reduced-motion: reduce) {

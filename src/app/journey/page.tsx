@@ -138,7 +138,7 @@ export default function JourneyPage() {
             person who makes the platform better so everyone around him can ship
             faster.
           </p>
-          <p className="font-semibold border-l-2 border-[#e2a727] pl-4">
+          <p className="font-semibold border-l-2 border-foreground/25 pl-4">
             He stopped needing permission to build.
           </p>
         </section>

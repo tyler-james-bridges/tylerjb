@@ -65,9 +65,8 @@ export default function HomePage() {
             href="https://ack-onchain.dev/"
             target="_blank"
             rel="noopener noreferrer"
-            className="block glass-card p-6 mb-4 card-lift group relative overflow-hidden"
+            className="block glass-card p-6 mb-4 card-lift group"
           >
-            <div className="absolute top-0 left-0 w-1 h-full bg-[#e2a727]" />
             <div className="flex items-center justify-between mb-3">
               <h4 className="text-base font-bold group-hover:text-[#e2a727] transition-colors">
                 ACK Protocol
