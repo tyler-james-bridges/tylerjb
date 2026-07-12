@@ -1,12 +1,17 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
+import { buildPageMetadata } from '@/lib/metadata';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import { getAllPosts } from '@/lib/blog';
 
-export const metadata: Metadata = {
-  title: 'Blog',
-  description:
-    'Thoughts on engineering, quality, and the journey from QA to SWE.',
-};
+const description =
+  'Engineering notes by Tyler James-Bridges on developer tooling, quality systems, automation, and software delivery.';
+
+export const metadata: Metadata = buildPageMetadata({
+  title: 'Writing',
+  description,
+  path: '/blog',
+});
 
 function formatDate(dateString: string): string {
   return new Date(dateString).toLocaleDateString('en-US', {
@@ -20,70 +25,68 @@ export default function BlogPage() {
   const posts = getAllPosts();
 
   return (
-    <div className="animate-slide-up">
-      <div className="content-body prose-notes">
-        <h1 className="sr-only">Blog</h1>
-        <p className="text-muted-foreground mb-8 stagger-1">
-          Thoughts on engineering, quality, automation, and the occasional win
-          (and failure) along the way.
+    <div className="page-shell">
+      <header className="page-intro">
+        <p className="kicker reveal">Writing</p>
+        <h1 className="page-title reveal reveal-delay-1">
+          Notes from systems I have built.
+        </h1>
+        <p className="lede reveal reveal-delay-2">
+          Developer tooling, test infrastructure, CI/CD, and the engineering
+          decisions behind them.
         </p>
+      </header>
 
-        {posts.length === 0 ? (
-          <div className="text-center py-12 stagger-2">
-            <p className="text-muted-foreground">
-              No posts yet. Check back soon!
-            </p>
-          </div>
-        ) : (
-          <div className="space-y-4">
-            {posts.map((post, index) => (
-              <article
-                key={post.slug}
-                className={`group p-4 -mx-4 rounded-2xl border border-transparent transition-all card-lift stagger-${Math.min(index + 2, 6)}`}
-              >
-                <Link href={`/blog/${post.slug}`} className="block">
-                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
-                    <h2 className="text-lg font-semibold text-foreground group-hover:text-foreground/80 transition-colors">
-                      {post.title}
-                    </h2>
-                    <time className="text-sm text-muted-foreground shrink-0">
-                      {formatDate(post.date)}
-                    </time>
+      <section className="section-row" aria-labelledby="posts-title">
+        <div className="section-index">
+          <strong>01</strong>
+          Articles
+        </div>
+        <div className="section-body">
+          <h2 id="posts-title" className="section-title">
+            Field notes
+          </h2>
+          {posts.length === 0 ? (
+            <p className="section-copy">No articles published yet.</p>
+          ) : (
+            <div className="work-list">
+              {posts.map((post, index) => (
+                <article key={post.slug} className="work-item">
+                  <span className="work-number tabular">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <h3>
+                      <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                    </h3>
+                    <div className="work-meta mt-2 flex flex-wrap gap-x-3 gap-y-1">
+                      <time dateTime={post.date}>{formatDate(post.date)}</time>
+                      <span>{post.readingTime}</span>
+                    </div>
                   </div>
-
-                  <p className="text-muted-foreground text-sm mb-3">
-                    {post.description}
-                  </p>
-
-                  <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-                    <span>{post.readingTime}</span>
-                    {post.tags.length > 0 && (
-                      <>
-                        <span className="hidden sm:inline">·</span>
-                        <div className="flex flex-wrap gap-1.5 w-full sm:w-auto mt-2 sm:mt-0">
-                          {post.tags.slice(0, 3).map((tag) => (
-                            <span
-                              key={tag}
-                              className="px-2 py-0.5 glass-chip badge-hover"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                          {post.tags.length > 3 && (
-                            <span className="px-2 py-0.5 text-muted-foreground">
-                              +{post.tags.length - 3}
-                            </span>
-                          )}
-                        </div>
-                      </>
-                    )}
+                  <div>
+                    <p>{post.description}</p>
+                    <div className="tag-list mt-3">
+                      {post.tags.slice(0, 4).map((tag) => (
+                        <span key={tag} className="tag">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="text-link mt-3"
+                    >
+                      Read article
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </Link>
                   </div>
-                </Link>
-              </article>
-            ))}
-          </div>
-        )}
-      </div>
+                </article>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
     </div>
   );
 }

@@ -50,9 +50,7 @@ test.describe('navigation', () => {
 });
 
 test.describe('contact form', () => {
-  test('required-field validation blocks an empty submit', async ({
-    page,
-  }) => {
+  test('required-field validation blocks an empty submit', async ({ page }) => {
     const api = await stubContactApi(page);
     await page.goto('/contact');
 
@@ -88,29 +86,65 @@ test.describe('contact form', () => {
     }
     await form.locator('button[type="submit"]').click();
 
-    await expect
-      .poll(() => api.postAttempted(), { timeout: 5_000 })
-      .toBe(true);
+    await expect.poll(() => api.postAttempted(), { timeout: 5_000 }).toBe(true);
   });
 });
 
-test.describe('homepage health', () => {
-  test('no console errors on load', async ({ page }) => {
-    const errors: string[] = [];
+test.describe('site health', () => {
+  test('all pages render without runtime errors or horizontal overflow', async ({
+    page,
+  }) => {
+    let errors: string[] = [];
     page.on('console', (msg) => {
       if (msg.type() !== 'error') return;
-      // Vercel Analytics only serves its script when deployed on Vercel;
-      // locally/CI it 404s. Not a site bug — ignore that one resource.
+      // Vercel Analytics only serves its script when deployed on Vercel.
       const source = `${msg.location().url} ${msg.text()}`;
       if (source.includes('_vercel/insights')) return;
-      errors.push(msg.text());
+      errors.push(source);
     });
     page.on('pageerror', (err) => errors.push(err.message));
 
-    await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    for (const path of PAGES) {
+      errors = [];
+      await page.goto(path);
+      await page.waitForLoadState('domcontentloaded');
 
-    expect(errors, `console errors: ${errors.join('\n')}`).toEqual([]);
+      const overflow = await page.evaluate(
+        () =>
+          Math.max(
+            document.body.scrollWidth,
+            document.documentElement.scrollWidth
+          ) - window.innerWidth
+      );
+      expect(
+        overflow,
+        `${path} should not overflow horizontally`
+      ).toBeLessThanOrEqual(1);
+      expect(errors, `console errors on ${path}: ${errors.join('\n')}`).toEqual(
+        []
+      );
+    }
+  });
+
+  test('GitHub-flavored Markdown tables render as tables', async ({ page }) => {
+    await page.goto('/blog/codefresh-to-github-actions');
+    await expect(page.locator('article table').first()).toBeVisible();
+  });
+
+  test('performance videos load only after user interaction', async ({
+    page,
+  }) => {
+    await page.goto('/drums');
+    await expect(page.locator('iframe')).toHaveCount(0);
+    const playButton = page.getByRole('button', {
+      name: /Play Pulse Percussion 2014/,
+    });
+    await playButton.click();
+    await expect(page.locator('iframe').first()).toBeVisible();
+    await expect(page.locator('iframe').first()).toHaveAttribute(
+      'src',
+      /youtube-nocookie\.com/
+    );
   });
 
   test('all internal links resolve', async ({ page, request }) => {
@@ -160,6 +194,22 @@ test.describe('metadata', () => {
         `${path} should have a meta description`
       ).toHaveAttribute('content', /\S/);
 
+      const canonicalHref = await page
+        .locator('link[rel="canonical"]')
+        .getAttribute('href');
+      const openGraphUrl = await page
+        .locator('meta[property="og:url"]')
+        .getAttribute('content');
+      expect(canonicalHref, `${path} should have a canonical URL`).toBeTruthy();
+      expect(
+        openGraphUrl,
+        `${path} should have an Open Graph URL`
+      ).toBeTruthy();
+      expect(new URL(canonicalHref!).origin).toBe('https://tylerjb.dev');
+      expect(new URL(openGraphUrl!).origin).toBe('https://tylerjb.dev');
+      expect(new URL(canonicalHref!).pathname).toBe(path);
+      expect(new URL(openGraphUrl!).pathname).toBe(path);
+
       const clash = titles.get(title);
       expect(
         clash,
@@ -167,5 +217,16 @@ test.describe('metadata', () => {
       ).toBeUndefined();
       titles.set(title, path);
     }
+  });
+
+  test('site icon is discoverable and resolves', async ({ page, request }) => {
+    await page.goto('/');
+    const iconHref = await page
+      .locator('link[rel="icon"]')
+      .first()
+      .getAttribute('href');
+    expect(iconHref, 'expected icon metadata').toBeTruthy();
+    const response = await request.get(iconHref!);
+    expect(response.status()).toBe(200);
   });
 });
