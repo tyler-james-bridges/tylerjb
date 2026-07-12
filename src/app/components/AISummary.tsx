@@ -14,7 +14,7 @@ export default function SiteFooter() {
             Tyler James-Bridges<em className="text-accent">.</em>
           </Link>
           <p className="footer-note mt-2">
-            Software engineer, quality systems builder, percussion educator.
+            Software engineer in Arizona. Former QA, still a drummer.
           </p>
         </div>
 

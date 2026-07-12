@@ -23,7 +23,7 @@ const roles = [
       'Build tools and services that reduce friction across local development, review, testing, and delivery.',
       'Design CI and test-environment interfaces with infrastructure and application engineering teams.',
       'Ship internal APIs and automation from design through production support.',
-      'Contribute to agent workflows built around explicit capabilities, guardrails, and observable execution.',
+      'Contribute to agent workflows with limited permissions, clear logs, and repeatable behavior.',
     ],
   },
   {
@@ -105,21 +105,15 @@ export default function ExperiencePage() {
     <div className="page-shell">
       <header className="page-intro">
         <p className="kicker reveal">Experience</p>
-        <h1 className="page-title reveal reveal-delay-1">
-          From finding failures to designing the systems around them.
-        </h1>
+        <h1 className="page-title reveal reveal-delay-1">Work history</h1>
         <p className="lede reveal reveal-delay-2">
-          A decade at Weedmaps across quality assurance, test automation, and
-          software engineering. The progression was gradual; quality stayed at
-          the center.
+          I&apos;ve been at Weedmaps since 2016, moving from manual QA to test
+          automation, developer experience, and software engineering.
         </p>
       </header>
 
       <section className="section-row" aria-labelledby="roles-title">
-        <div className="section-index">
-          <strong>01</strong>
-          Roles
-        </div>
+        <div className="section-index">Roles</div>
         <div className="section-body">
           <h2 id="roles-title" className="section-title">
             Work history
@@ -148,17 +142,14 @@ export default function ExperiencePage() {
       </section>
 
       <section className="section-row" aria-labelledby="systems-title">
-        <div className="section-index">
-          <strong>02</strong>
-          Selected systems
-        </div>
+        <div className="section-index">Selected work</div>
         <div className="section-body">
           <h2 id="systems-title" className="section-title">
-            The work behind the title
+            A few things I&apos;ve built
           </h2>
           <p className="section-copy">
-            Internal details are generalized, but the technical shape and my
-            role in the work are represented directly.
+            Some internal details are generalized, but these are concrete
+            examples of my work.
           </p>
           <div className="work-list">
             {selectedSystems.map((system, index) => (
@@ -178,10 +169,7 @@ export default function ExperiencePage() {
       </section>
 
       <section className="section-row" aria-labelledby="toolbox-title">
-        <div className="section-index">
-          <strong>03</strong>
-          Toolbox
-        </div>
+        <div className="section-index">Toolbox</div>
         <div className="section-body">
           <h2 id="toolbox-title" className="section-title">
             Technologies in active use
@@ -211,10 +199,7 @@ export default function ExperiencePage() {
       </section>
 
       <section className="section-row" aria-labelledby="music-title">
-        <div className="section-index">
-          <strong>04</strong>
-          Music and education
-        </div>
+        <div className="section-index">Music and education</div>
         <div className="section-body">
           <h2 id="music-title" className="section-title">
             Teaching and performing

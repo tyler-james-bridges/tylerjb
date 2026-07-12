@@ -153,33 +153,25 @@ export default function ContactPage() {
     <div className="page-shell">
       <header className="page-intro">
         <p className="kicker reveal">Contact</p>
-        <h1 className="page-title reveal reveal-delay-1">
-          Let&apos;s compare notes.
-        </h1>
+        <h1 className="page-title reveal reveal-delay-1">Send me a note</h1>
         <p className="lede reveal reveal-delay-2">
-          Developer tooling, quality infrastructure, agent systems, open-source
-          collaboration, or a good drumming conversation.
+          Work, open source, drums, or something else entirely. The form goes
+          straight to my email.
         </p>
       </header>
 
       <section className="section-row" aria-labelledby="contact-form-title">
-        <div className="section-index">
-          <strong>01</strong>
-          Send a note
-        </div>
+        <div className="section-index">Send a note</div>
         <div className="section-body">
           <h2 id="contact-form-title" className="section-title">
-            What are you working on?
+            What&apos;s up?
           </h2>
           <ContactForm />
         </div>
       </section>
 
       <section className="section-row" aria-labelledby="direct-title">
-        <div className="section-index">
-          <strong>02</strong>
-          Direct links
-        </div>
+        <div className="section-index">Direct links</div>
         <div className="section-body">
           <h2 id="direct-title" className="section-title">
             Elsewhere on the internet

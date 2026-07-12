@@ -1,33 +1,26 @@
 import type { Metadata } from 'next';
 import type { JSX, ReactNode } from 'react';
 import { Analytics } from '@vercel/analytics/next';
-import { Fraunces, IBM_Plex_Mono, Newsreader } from 'next/font/google';
+import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import ErrorBoundary from './components/ErrorBoundary';
 import { ThemeProvider } from './components/ThemeProvider';
 import SidebarLayout from './components/SidebarLayout';
 
-const displayFont = Fraunces({
-  subsets: ['latin'],
-  variable: '--font-display',
-  display: 'swap',
-});
-
-const bodyFont = Newsreader({
+const bodyFont = Geist({
   subsets: ['latin'],
   variable: '--font-body',
   display: 'swap',
 });
 
-const monoFont = IBM_Plex_Mono({
+const monoFont = Geist_Mono({
   subsets: ['latin'],
-  weight: ['400', '500'],
   variable: '--font-mono',
   display: 'swap',
 });
 
 const siteDescription =
-  'Tyler James-Bridges is a Software Engineer III on the Developer Experience team at Weedmaps, building developer tooling, test systems, and agent infrastructure.';
+  'Tyler James-Bridges is a software engineer at Weedmaps who builds developer tooling, test infrastructure, and open-source agent tools.';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://tylerjb.dev'),
@@ -111,7 +104,7 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable}`}
+      className={`${bodyFont.variable} ${monoFont.variable}`}
     >
       <body>
         <script

@@ -77,10 +77,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       </header>
 
       <section className="section-row" aria-label="Article">
-        <div className="section-index">
-          <strong>01</strong>
-          Article
-        </div>
+        <div className="section-index">Article</div>
         <article className="section-body editorial-prose">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
@@ -143,10 +140,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       </section>
 
       <div className="section-row">
-        <div className="section-index">
-          <strong>02</strong>
-          Continue
-        </div>
+        <div className="section-index">Continue</div>
         <div className="section-body">
           <Link href="/blog" className="button-secondary pressable">
             <ArrowLeft className="h-4 w-4" aria-hidden="true" />

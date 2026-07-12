@@ -40,20 +40,17 @@ export default function DrumsPage() {
       <header className="page-intro">
         <p className="kicker reveal">Drums</p>
         <h1 className="page-title reveal reveal-delay-1">
-          Precision learned at full volume.
+          I played snare before I wrote code
         </h1>
         <p className="lede reveal reveal-delay-2">
-          Indoor percussion and drum corps shaped how I work: repeat
-          deliberately, accept direct feedback, and make the whole line
-          stronger.
+          I marched Pulse Percussion from 2012 to 2014, taught the Blue Stars,
+          and still work with percussion programs in Arizona. These are a few
+          performances I&apos;m glad are still online.
         </p>
       </header>
 
       <section className="section-row" aria-labelledby="archive-title">
-        <div className="section-index">
-          <strong>01</strong>
-          Archive
-        </div>
+        <div className="section-index">Archive</div>
         <div className="section-body">
           <h2 id="archive-title" className="section-title">
             Selected performances

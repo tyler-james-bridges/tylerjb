@@ -76,7 +76,7 @@ export default function SiteHeader() {
           <span className="wordmark-mark" aria-hidden="true">
             TJB
           </span>
-          <span className="hidden sm:inline">Engineering ledger</span>
+          <span className="hidden sm:inline">Tyler James-Bridges</span>
         </Link>
 
         <div className="desktop-nav">
@@ -148,11 +148,8 @@ export default function SiteHeader() {
                 aria-current={pathname === '/' ? 'page' : undefined}
               >
                 Home
-                <span className="font-mono text-xs text-muted-foreground">
-                  00
-                </span>
               </Link>
-              {navItems.map((item, index) => (
+              {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -161,9 +158,6 @@ export default function SiteHeader() {
                   aria-current={isActive(item.href) ? 'page' : undefined}
                 >
                   {item.label}
-                  <span className="font-mono text-xs text-muted-foreground">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
                 </Link>
               ))}
             </nav>

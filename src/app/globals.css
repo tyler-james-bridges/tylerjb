@@ -78,23 +78,9 @@
   body {
     @apply bg-background text-foreground;
     min-width: 320px;
-    font-family: var(--font-body), Georgia, serif;
-    font-size: 1.0625rem;
+    font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+    font-size: 1rem;
     line-height: 1.65;
-    background-image:
-      linear-gradient(var(--rule) 1px, transparent 1px),
-      linear-gradient(90deg, var(--rule) 1px, transparent 1px);
-    background-size: 4rem 4rem;
-    background-position: -1px -1px;
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    background: hsl(var(--background) / 0.94);
   }
 
   ::selection {
@@ -106,7 +92,7 @@
   h2,
   h3,
   h4 {
-    font-family: var(--font-display), Georgia, serif;
+    font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
     text-wrap: balance;
   }
 
@@ -188,9 +174,7 @@
     background: hsl(var(--accent));
     font-size: 0.68rem;
     letter-spacing: 0.08em;
-    box-shadow:
-      0 8px 20px rgba(27, 26, 23, 0.12),
-      0 1px 0 rgba(255, 255, 255, 0.3) inset;
+    box-shadow: 0 0 0 1px hsl(var(--foreground) / 0.12);
   }
 
   .desktop-nav {
@@ -295,7 +279,7 @@
     justify-content: space-between;
     padding: 0.5rem 0;
     border-top: 1px solid var(--rule);
-    font-family: var(--font-display), Georgia, serif;
+    font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
     font-size: clamp(1.65rem, 8vw, 2.25rem);
     line-height: 1;
     transition-property: color, padding-left;
@@ -309,14 +293,14 @@
   }
 
   .page-shell {
-    width: min(100% - 2rem, 76rem);
+    width: min(100% - 2rem, 72rem);
     margin-inline: auto;
-    padding-block: clamp(3.25rem, 8vw, 7rem);
+    padding-block: clamp(3rem, 7vw, 5.5rem);
   }
 
   .page-intro {
-    max-width: 67rem;
-    padding-bottom: clamp(3rem, 7vw, 6rem);
+    max-width: 60rem;
+    padding-bottom: clamp(2.75rem, 6vw, 4.75rem);
   }
 
   .kicker {
@@ -340,11 +324,11 @@
   }
 
   .display-heading {
-    max-width: 12ch;
-    font-size: clamp(3.35rem, 12vw, 8.75rem);
-    font-weight: 650;
-    line-height: 0.88;
-    letter-spacing: -0.055em;
+    max-width: 18ch;
+    font-size: clamp(2.9rem, 7vw, 5.5rem);
+    font-weight: 680;
+    line-height: 0.96;
+    letter-spacing: -0.045em;
   }
 
   .display-heading em {
@@ -353,11 +337,11 @@
   }
 
   .page-title {
-    max-width: 13ch;
-    font-size: clamp(3rem, 9vw, 6.5rem);
-    font-weight: 650;
-    line-height: 0.92;
-    letter-spacing: -0.045em;
+    max-width: 18ch;
+    font-size: clamp(2.75rem, 8vw, 5.5rem);
+    font-weight: 680;
+    line-height: 0.98;
+    letter-spacing: -0.04em;
   }
 
   .lede {
@@ -428,7 +412,7 @@
   .section-row {
     display: grid;
     gap: 1.5rem;
-    padding-block: clamp(3.25rem, 7vw, 5.5rem);
+    padding-block: clamp(2.75rem, 6vw, 4.75rem);
     border-top: 1px solid var(--rule);
   }
 
@@ -445,11 +429,7 @@
   }
 
   .section-index strong {
-    color: hsl(var(--accent));
-    font-family: var(--font-display), Georgia, serif;
-    font-size: 2rem;
-    font-weight: 650;
-    letter-spacing: -0.04em;
+    display: none;
   }
 
   .section-body {
@@ -484,7 +464,7 @@
   }
 
   .ledger-value {
-    font-family: var(--font-display), Georgia, serif;
+    font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
     font-size: clamp(2.25rem, 6vw, 3.5rem);
     font-weight: 650;
     line-height: 1;
@@ -515,9 +495,7 @@
   }
 
   .work-number {
-    font-family: var(--font-mono), monospace;
-    font-size: 0.7rem;
-    color: hsl(var(--accent));
+    display: none;
   }
 
   .work-item h3 {
@@ -549,14 +527,12 @@
 
   .project-card {
     position: relative;
-    min-height: 18rem;
+    min-height: 15rem;
     display: flex;
     flex-direction: column;
     padding: 1.4rem;
     background: hsl(var(--card));
-    box-shadow:
-      0 0 0 1px var(--rule),
-      0 16px 36px rgba(27, 26, 23, 0.06);
+    box-shadow: 0 0 0 1px var(--rule);
     transition-property: color, background-color, box-shadow, transform;
     transition-duration: 180ms;
     transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
@@ -564,10 +540,8 @@
 
   .project-card:hover {
     background: hsl(var(--background));
-    box-shadow:
-      0 0 0 1px hsl(var(--accent)),
-      0 20px 42px rgba(27, 26, 23, 0.1);
-    transform: translateY(-3px);
+    box-shadow: 0 0 0 1px hsl(var(--accent));
+    transform: translateY(-2px);
   }
 
   .project-card:active {
@@ -707,7 +681,7 @@
     padding: 0.25rem 0 0.25rem 1.25rem;
     border-left: 3px solid hsl(var(--accent));
     color: hsl(var(--foreground));
-    font-family: var(--font-display), Georgia, serif;
+    font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
     font-size: 1.4rem;
     line-height: 1.4;
   }
@@ -831,11 +805,11 @@
 
 @layer utilities {
   .font-display {
-    font-family: var(--font-display), Georgia, serif;
+    font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   }
 
   .font-body {
-    font-family: var(--font-body), Georgia, serif;
+    font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   }
 
   .font-mono {
@@ -984,12 +958,11 @@
   }
 
   .section-index strong {
-    display: block;
-    margin-bottom: 0.45rem;
+    display: none;
   }
 
   .work-item {
-    grid-template-columns: 3rem minmax(12rem, 0.8fr) minmax(0, 1.35fr);
+    grid-template-columns: minmax(12rem, 0.8fr) minmax(0, 1.35fr);
     gap: 1.5rem;
   }
 
@@ -1020,16 +993,7 @@
   }
 
   .project-grid.project-grid-featured {
-    grid-template-columns: 1.15fr 0.85fr;
-  }
-
-  .project-card-featured {
-    grid-row: span 2;
-    min-height: 37rem;
-  }
-
-  .project-card-featured h3 {
-    font-size: clamp(2.8rem, 5vw, 4.6rem);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
