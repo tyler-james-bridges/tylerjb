@@ -1,6 +1,6 @@
 'use client';
 
-import { Component, ReactNode, ErrorInfo } from 'react';
+import { Component, type ErrorInfo, type ReactNode } from 'react';
 
 interface Props {
   children: ReactNode;
@@ -23,32 +23,40 @@ export default class ErrorBoundary extends Component<Props, State> {
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    // Log error to monitoring service in production
     console.error('ErrorBoundary caught an error:', error, errorInfo);
   }
 
   render() {
-    if (this.state.hasError) {
-      return (
-        this.props.fallback || (
-          <div className="min-h-screen flex items-center justify-center bg-neutral-950 text-white">
-            <div className="text-center">
-              <h2 className="text-2xl font-bold mb-4">Something went wrong</h2>
-              <p className="text-neutral-400 mb-6">
-                An unexpected error occurred. Please refresh the page.
-              </p>
+    if (!this.state.hasError) return this.props.children;
+
+    return (
+      this.props.fallback || (
+        <main className="page-shell flex min-h-dvh items-center">
+          <div className="max-w-2xl">
+            <p className="kicker">Unexpected error</p>
+            <h1 className="page-title">Something broke.</h1>
+            <p className="lede">
+              The page could not recover cleanly. Refresh it, or email me if the
+              problem continues.
+            </p>
+            <div className="button-row mt-8">
               <button
+                type="button"
                 onClick={() => window.location.reload()}
-                className="px-6 py-2 pill-solid"
+                className="button-primary pressable"
               >
-                Refresh Page
+                Refresh page
               </button>
+              <a
+                href="mailto:tylerjamesbridges@gmail.com"
+                className="button-secondary pressable"
+              >
+                Email Tyler
+              </a>
             </div>
           </div>
-        )
-      );
-    }
-
-    return this.props.children;
+        </main>
+      )
+    );
   }
 }

@@ -1,192 +1,304 @@
-'use client';
-
 import Link from 'next/link';
-import TerminalWidget from './components/TerminalWidget';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
+
+const professionalWork = [
+  {
+    title: 'Developer platform and CI systems',
+    meta: 'Developer experience · GitHub Actions · TypeScript',
+    description:
+      'I build service templates, reusable workflows, and delivery interfaces that give teams a more consistent path from local development to production.',
+  },
+  {
+    title: 'Test infrastructure at product scale',
+    meta: 'Playwright · API testing · Accessibility · Pre-merge confidence',
+    description:
+      'I moved from executing tests by hand to building Playwright systems, shared helpers, and CI affordances used across multiple product surfaces.',
+  },
+  {
+    title: 'A single interface for smoke testing',
+    meta: 'CLI design · Node.js · Environment-aware execution',
+    description:
+      'I replaced scattered shell and YAML orchestration with a TypeScript CLI that runs the same smoke tests locally and in CI.',
+  },
+  {
+    title: 'Agent infrastructure with guardrails',
+    meta: 'MCP · Scheduled agents · Auditable automation',
+    description:
+      'I work on internal agent tooling designed around explicit capabilities, repeatable workflows, and observable execution.',
+  },
+];
+
+const independentProjects = [
+  {
+    title: 'ACK Protocol',
+    description:
+      'An ERC-8004 reputation layer for AI agents, with onchain kudos, agent discovery, and a TypeScript SDK.',
+    tags: ['Next.js', 'Solidity', 'ERC-8004', 'Abstract'],
+    href: 'https://ack-onchain.dev',
+    status: 'Live app',
+    featured: true,
+  },
+  {
+    title: 'qai-cli',
+    description:
+      'A published CLI combining Playwright and AI for visual scans, console and network checks, pull-request review, and test generation.',
+    tags: ['Playwright', 'TypeScript', 'CLI'],
+    href: 'https://www.npmjs.com/package/qai-cli',
+    status: 'Published package',
+  },
+  {
+    title: 'Agent Tool Index',
+    description:
+      'A Rust service that indexes onchain agent tools and exposes discovery and call-planning APIs.',
+    tags: ['Rust', 'Indexing', 'APIs'],
+    href: 'https://agenttoolindex.xyz',
+    status: 'Live service',
+  },
+];
+
+const careerArc = [
+  {
+    period: '2016–2020',
+    title: 'Quality Engineer Analyst',
+    description:
+      'Manual and exploratory testing, test planning, API testing, and cross-functional release quality at Weedmaps.',
+  },
+  {
+    period: '2020–2025',
+    title: 'Senior Quality Engineer',
+    description:
+      'Playwright automation, reusable test systems, CI integration, and developer enablement.',
+  },
+  {
+    period: '2025–Now',
+    title: 'Software Engineer III',
+    description:
+      'Developer tooling, CI/CD interfaces, internal APIs, platform systems, and agent infrastructure.',
+  },
+];
 
 export default function HomePage() {
   return (
-    <div className="animate-slide-up">
-      <div className="content-body">
-        {/* Vertical text running down the right side of entire content */}
-        <div
-          aria-hidden="true"
-          className="hidden md:block absolute right-4 top-24 pointer-events-none select-none opacity-10"
-        >
-          <div className="text-[9px] font-mono text-muted-foreground writing-vertical tracking-[0.4em] leading-none">
-            SOFTWARE・ENGINEER・QA・PERCUSSION・FATHER・BUILDER・DEBUGGER・TYPESCRIPT・PLAYWRIGHT
-          </div>
+    <div className="page-shell">
+      <section className="page-intro" aria-labelledby="home-title">
+        <p className="kicker reveal">Software Engineer III · Arizona</p>
+        <h1 id="home-title" className="display-heading reveal reveal-delay-1">
+          Tools that help engineers <em>ship.</em>
+        </h1>
+        <p className="lede reveal reveal-delay-2">
+          <strong>
+            I build developer tooling, test infrastructure, and agent systems.
+          </strong>{' '}
+          At Weedmaps since 2016, I moved from manual QA to Playwright
+          automation to developer experience. Outside work, I build open-source
+          infrastructure for AI agents on Ethereum L2s.
+        </p>
+        <div className="button-row reveal reveal-delay-3">
+          <Link href="/experience" className="button-primary pressable">
+            See professional work
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+          <Link href="/projects" className="button-secondary pressable">
+            Explore projects
+          </Link>
         </div>
 
-        {/* Hero Section */}
-        <section className="text-center mb-10 relative">
-          <h1 className="stagger-1">
-            <span className="block text-4xl sm:text-5xl font-bold mb-1">
-              Tyler
-            </span>
-            <span className="block text-4xl sm:text-5xl font-light text-muted-foreground mb-5">
-              James-Bridges
-            </span>
-          </h1>
-
-          <p className="text-lg text-muted-foreground max-w-md mx-auto leading-relaxed mb-3 stagger-2">
-            Software engineer with a decade of QA experience. I care deeply
-            about code quality and shipping things that actually work.
-          </p>
-
-          <p className="text-base font-semibold max-w-md mx-auto leading-relaxed mb-6 stagger-2">
-            I build and scale systems that improve developer productivity across
-            the organization.
-          </p>
-
-          {/* Credibility Badges */}
-          <div className="flex flex-wrap justify-center gap-2 mb-6 stagger-3">
-            <span className="px-3 py-1.5 text-xs font-medium glass-chip badge-hover cursor-default">
-              10+ Years in Tech
-            </span>
-            <span className="px-3 py-1.5 text-xs font-medium glass-chip badge-hover cursor-default">
-              Playwright / Test Automation
-            </span>
-            <span className="px-3 py-1.5 text-xs font-medium glass-chip badge-hover cursor-default">
-              TypeScript / React / Next.js
-            </span>
-          </div>
-
-          <p className="text-sm text-muted-foreground stagger-3">
-            Currently Software Engineer III @ Weedmaps
-          </p>
-        </section>
-
-        {/* Featured Work */}
-        <section className="mb-12 stagger-4 max-w-xl mx-auto">
-          <h3 className="section-heading mb-5">Featured Work</h3>
-
-          {/* ACK - Hero Card */}
-          <a
-            href="https://ack-onchain.dev/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block glass-card p-6 mb-4 card-lift group"
-          >
-            <div className="flex items-center justify-between mb-3">
-              <h4 className="text-base font-bold group-hover:text-[#e2a727] transition-colors">
-                ACK Protocol
-              </h4>
-              <span className="px-2 py-0.5 text-[10px] font-medium rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
-                Production
-              </span>
+        <div
+          className="ledger reveal reveal-delay-3"
+          aria-label="Career summary"
+        >
+          <div className="ledger-cell">
+            <div className="ledger-value tabular">2016</div>
+            <div className="ledger-label">
+              Started in hands-on quality assurance
             </div>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-1">
-              Peer-driven reputation layer for AI agents. Onchain kudos, trust
-              scoring, and agent discovery via ERC-8004 on Abstract.
-            </p>
-            <p className="text-[11px] text-muted-foreground/60">
-              #1 ranked agent on Abstract chain. 35+ onchain reviews across 3
-              chains.
-            </p>
-          </a>
+          </div>
+          <div className="ledger-cell">
+            <div className="ledger-value tabular">2020</div>
+            <div className="ledger-label">Senior quality engineer</div>
+          </div>
+          <div className="ledger-cell">
+            <div className="ledger-value tabular">2025</div>
+            <div className="ledger-label">Software Engineer III</div>
+          </div>
+          <div className="ledger-cell">
+            <div className="ledger-value">Now</div>
+            <div className="ledger-label">
+              Developer experience and agent infrastructure
+            </div>
+          </div>
+        </div>
+      </section>
 
-          {/* Two-column grid for secondary projects */}
-          <div className="grid grid-cols-2 gap-4 mb-5">
-            <a
-              href="https://www.npmjs.com/package/qai-cli"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block glass-card p-4 card-lift group"
-            >
-              <h4 className="text-sm font-bold mb-2 group-hover:text-[#e2a727] transition-colors">
-                qai-cli
-              </h4>
-              <p className="text-[11px] text-muted-foreground leading-relaxed mb-2">
-                AI-powered PR review and test generation. A decade of QA,
-                packaged as a CLI.
-              </p>
-              <span className="text-[10px] text-muted-foreground/60">
-                npm v3.3.0
-              </span>
-            </a>
+      <section
+        className="section-row"
+        aria-labelledby="professional-work-title"
+      >
+        <div className="section-index">
+          <strong>01</strong>
+          Professional work
+        </div>
+        <div className="section-body">
+          <h2 id="professional-work-title" className="section-title">
+            Quality is the throughline.
+          </h2>
+          <p className="section-copy">
+            I started by finding failures manually, then automated the search
+            for them, and now build the tools and platforms that help
+            engineering teams prevent them.
+          </p>
 
-            <a
-              href="https://claw-council.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block glass-card p-4 card-lift group"
-            >
-              <h4 className="text-sm font-bold mb-2 group-hover:text-[#e2a727] transition-colors">
-                The Claw Council
-              </h4>
-              <p className="text-[11px] text-muted-foreground leading-relaxed mb-2">
-                Multi-agent AI system. Three agents running research,
-                engineering, and ops autonomously.
-              </p>
-              <span className="text-[10px] text-muted-foreground/60">
-                OpenClaw + Discord
-              </span>
-            </a>
+          <div className="work-list">
+            {professionalWork.map((item, index) => (
+              <article key={item.title} className="work-item">
+                <span className="work-number tabular">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p className="work-meta mt-2">{item.meta}</p>
+                </div>
+                <p>{item.description}</p>
+              </article>
+            ))}
           </div>
 
-          <Link
-            href="/projects"
-            className="block text-center px-4 py-2.5 glass-btn text-sm font-medium"
-          >
-            All Projects &rarr;
+          <Link href="/experience" className="text-link mt-6">
+            Full experience
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
-        </section>
+        </div>
+      </section>
 
-        {/* Dual CTAs */}
-        <section className="max-w-xl mx-auto mb-14 stagger-5">
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              href="/experience"
-              className="px-6 py-3 pill-solid font-medium text-center text-sm uppercase tracking-wider"
-            >
-              View My Experience
+      <section className="section-row" aria-labelledby="independent-work-title">
+        <div className="section-index">
+          <strong>02</strong>
+          Independent work
+        </div>
+        <div className="section-body">
+          <h2 id="independent-work-title" className="section-title">
+            Public systems, shipped in the open.
+          </h2>
+          <p className="section-copy">
+            Onchain reputation, AI-assisted quality engineering, and protocol
+            tooling built outside my role at Weedmaps.
+          </p>
+
+          <div className="project-grid project-grid-featured">
+            {independentProjects.map((project) => (
+              <a
+                key={project.title}
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`project-card ${
+                  project.featured ? 'project-card-featured' : ''
+                }`}
+              >
+                <span className="status">{project.status}</span>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <div className="project-card-footer">
+                  <div className="tag-list">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="tag">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <ArrowUpRight
+                    className="h-5 w-5 shrink-0"
+                    aria-hidden="true"
+                  />
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <Link href="/projects" className="text-link mt-6">
+            View the project archive
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+        </div>
+      </section>
+
+      <section className="section-row" aria-labelledby="career-title">
+        <div className="section-index">
+          <strong>03</strong>
+          Career arc
+        </div>
+        <div className="section-body">
+          <h2 id="career-title" className="section-title">
+            Test, automate, enable.
+          </h2>
+          <p className="section-copy">
+            The title changed. The job stayed focused on making software more
+            reliable and the people building it more effective.
+          </p>
+          <div className="timeline">
+            {careerArc.map((item) => (
+              <article key={item.period} className="timeline-item">
+                <div className="timeline-period tabular">{item.period}</div>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p className="mt-2">{item.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+          <Link href="/journey" className="text-link mt-6">
+            Read the transition story
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+        </div>
+      </section>
+
+      <section className="section-row" aria-labelledby="outside-title">
+        <div className="section-index">
+          <strong>04</strong>
+          Outside the editor
+        </div>
+        <div className="section-body">
+          <h2 id="outside-title" className="section-title">
+            Reps, feedback, precision.
+          </h2>
+          <p className="section-copy">
+            I am also a percussion educator and former Pulse Percussion
+            snareline member. Marching arts taught me to value repetition,
+            precise feedback, and performing reliably under pressure.
+          </p>
+          <div className="button-row">
+            <Link href="/about" className="button-secondary pressable">
+              More about me
             </Link>
-            <Link
-              href="/contact"
-              className="px-6 py-3 glass-btn font-medium text-center text-sm uppercase tracking-wider"
-            >
-              Let&apos;s Work Together
+            <Link href="/drums" className="button-secondary pressable">
+              Performance archive
             </Link>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Journey Callout */}
-        <section className="max-w-xl mx-auto mb-10 stagger-6">
-          <div className="glass-card p-5">
-            <p className="text-sm text-muted-foreground mb-2">
-              From QA analyst to systems engineer — the story of building
-              belief, building tools, and building momentum.
-            </p>
-            <Link
-              href="/journey"
-              className="text-sm font-medium hover:text-[#e2a727] transition-colors"
-            >
-              Read the story of how I got here &rarr;
+      <section className="section-row" aria-labelledby="contact-title">
+        <div className="section-index">
+          <strong>05</strong>
+          Contact
+        </div>
+        <div className="section-body">
+          <h2 id="contact-title" className="section-title">
+            Want to compare notes?
+          </h2>
+          <p className="section-copy">
+            I am always interested in conversations about developer tooling,
+            quality infrastructure, agent systems, and the teams building them.
+          </p>
+          <div className="button-row">
+            <Link href="/contact" className="button-primary pressable">
+              Get in touch
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
-        </section>
-
-        {/* Mobile Dev Terminal */}
-        <section id="terminal" className="max-w-xl mx-auto mt-14 stagger-6">
-          <hr className="border-t border-foreground/15 mb-6" />
-          <h3 className="section-heading mb-3 text-center">
-            Built from iPhone
-          </h3>
-          <p className="text-sm text-muted-foreground text-center mb-4">
-            This widget was built via mobile dev stack: iPhone → Termius →
-            Tailscale → Claude Code
-          </p>
-          <TerminalWidget />
-          <p className="text-center mt-4">
-            <Link
-              href="/playground"
-              className="text-sm font-medium hover:text-[#e2a727] transition-colors"
-            >
-              More experiments in the playground &rarr;
-            </Link>
-          </p>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   );
 }

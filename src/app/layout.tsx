@@ -1,19 +1,38 @@
 import type { Metadata } from 'next';
-import './globals.css';
 import type { JSX, ReactNode } from 'react';
 import { Analytics } from '@vercel/analytics/next';
+import { Fraunces, IBM_Plex_Mono, Newsreader } from 'next/font/google';
+import './globals.css';
 import ErrorBoundary from './components/ErrorBoundary';
 import { ThemeProvider } from './components/ThemeProvider';
 import SidebarLayout from './components/SidebarLayout';
-import { GeistMono } from 'geist/font/mono';
+
+const displayFont = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-display',
+  display: 'swap',
+});
+
+const bodyFont = Newsreader({
+  subsets: ['latin'],
+  variable: '--font-body',
+  display: 'swap',
+});
+
+const monoFont = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-mono',
+  display: 'swap',
+});
 
 const siteDescription =
-  'Tyler James-Bridges — Software Engineer III on the DevEx team at Weedmaps. A decade of quality engineering, now building developer tooling and agent infrastructure on Ethereum L2s.';
+  'Tyler James-Bridges is a Software Engineer III on the Developer Experience team at Weedmaps, building developer tooling, test systems, and agent infrastructure.';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://tylerjb.dev'),
   title: {
-    default: 'Tyler James-Bridges',
+    default: 'Tyler James-Bridges — Software Engineer',
     template: '%s | Tyler James-Bridges',
   },
   description: siteDescription,
@@ -22,26 +41,26 @@ export const metadata: Metadata = {
     'Software Engineer',
     'Developer Experience',
     'DevEx',
-    'QA',
-    'Testing',
+    'Quality Engineering',
     'Playwright',
+    'TypeScript',
     'Agent Infrastructure',
     'Ethereum',
-    'Percussion',
   ],
   authors: [{ name: 'Tyler James-Bridges', url: 'https://tylerjb.dev' }],
   creator: 'Tyler James-Bridges',
+  alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://tylerjb.dev',
-    title: 'Tyler James-Bridges',
+    title: 'Tyler James-Bridges — Software Engineer',
     description: siteDescription,
     siteName: 'Tyler James-Bridges',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tyler James-Bridges',
+    title: 'Tyler James-Bridges — Software Engineer',
     description: siteDescription,
     creator: '@tmoney_145',
   },
@@ -73,6 +92,14 @@ const personJsonLd = {
     'https://www.linkedin.com/in/tyler-james-bridges-4344abab',
     'https://x.com/tmoney_145',
   ],
+  knowsAbout: [
+    'Developer experience',
+    'Quality engineering',
+    'Test automation',
+    'TypeScript',
+    'Playwright',
+    'AI agent infrastructure',
+  ],
 };
 
 interface RootLayoutProps {
@@ -81,17 +108,21 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
   return (
-    <html lang="en" suppressHydrationWarning className={GeistMono.variable}>
-      <body className="antialiased">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable}`}
+    >
+      <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="system"
           enableSystem
-          disableTransitionOnChange={false}
+          disableTransitionOnChange
         >
           <ErrorBoundary>
             <SidebarLayout>{children}</SidebarLayout>

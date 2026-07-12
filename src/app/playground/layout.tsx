@@ -1,10 +1,14 @@
 import type { Metadata } from 'next';
+import { buildPageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'Playground | Tyler James-Bridges',
-  description:
-    'TylerOS — a desktop-style playground with a terminal, music tools, and other experiments.',
-};
+const description =
+  'Interface studies, mobile-development workflows, and music-tool experiments by Tyler James-Bridges.';
+
+export const metadata: Metadata = buildPageMetadata({
+  title: 'Lab',
+  description,
+  path: '/playground',
+});
 
 export default function PlaygroundLayout({
   children,
