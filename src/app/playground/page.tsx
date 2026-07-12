@@ -31,19 +31,16 @@ export default function PlaygroundPage() {
       <header className="page-intro">
         <p className="kicker reveal">Lab</p>
         <h1 className="page-title reveal reveal-delay-1">
-          Experiments without a roadmap.
+          Small experiments and unfinished ideas
         </h1>
         <p className="lede reveal reveal-delay-2">
-          Interface studies, mobile-development workflows, and music tools that
-          do not need to pretend they are products.
+          Interface experiments, mobile-development workflows, and music tools.
+          Some became projects. Some were just fun to build.
         </p>
       </header>
 
       <section className="section-row" aria-labelledby="experiments-title">
-        <div className="section-index">
-          <strong>01</strong>
-          Experiments
-        </div>
+        <div className="section-index">Experiments</div>
         <div className="section-body">
           <h2 id="experiments-title" className="section-title">
             Current and archived studies
@@ -70,13 +67,10 @@ export default function PlaygroundPage() {
       </section>
 
       <section className="section-row" aria-labelledby="lab-source-title">
-        <div className="section-index">
-          <strong>02</strong>
-          Source
-        </div>
+        <div className="section-index">Source</div>
         <div className="section-body">
           <h2 id="lab-source-title" className="section-title">
-            The code is part of the record
+            Source code
           </h2>
           <p className="section-copy">
             The archived TylerOS implementation and the current site history

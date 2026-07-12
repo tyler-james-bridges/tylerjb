@@ -5,8 +5,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-body)', 'Georgia', 'serif'],
-        serif: ['var(--font-display)', 'Georgia', 'serif'],
+        sans: ['var(--font-body)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-mono)', 'ui-monospace', 'monospace'],
         mono: ['var(--font-mono)', 'ui-monospace', 'monospace'],
       },
       colors: {

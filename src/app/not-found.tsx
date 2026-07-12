@@ -13,10 +13,10 @@ export default function NotFound() {
     <div className="page-shell flex min-h-[70dvh] items-center">
       <div className="max-w-3xl">
         <p className="kicker">404 · Not found</p>
-        <h1 className="page-title">This page is off the record.</h1>
+        <h1 className="page-title">That page isn&apos;t here.</h1>
         <p className="lede">
-          The route may have moved, or it may never have existed. The working
-          record starts at the homepage.
+          It may have moved, or the link may be wrong. The homepage is a good
+          place to start.
         </p>
         <Link href="/" className="button-primary pressable mt-8">
           <ArrowLeft className="h-4 w-4" aria-hidden="true" />

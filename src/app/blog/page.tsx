@@ -29,22 +29,19 @@ export default function BlogPage() {
       <header className="page-intro">
         <p className="kicker reveal">Writing</p>
         <h1 className="page-title reveal reveal-delay-1">
-          Notes from systems I have built.
+          Notes on things I&apos;m building
         </h1>
         <p className="lede reveal reveal-delay-2">
-          Developer tooling, test infrastructure, CI/CD, and the engineering
-          decisions behind them.
+          Developer tooling, testing, CI, side projects, and whatever I had to
+          learn the hard way.
         </p>
       </header>
 
       <section className="section-row" aria-labelledby="posts-title">
-        <div className="section-index">
-          <strong>01</strong>
-          Articles
-        </div>
+        <div className="section-index">Articles</div>
         <div className="section-body">
           <h2 id="posts-title" className="section-title">
-            Field notes
+            Posts
           </h2>
           {posts.length === 0 ? (
             <p className="section-copy">No articles published yet.</p>

@@ -114,15 +114,9 @@ const projects: Project[] = [
   },
 ];
 
-function ProjectCard({
-  project,
-  featured = false,
-}: {
-  project: Project;
-  featured?: boolean;
-}) {
+function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className={`project-card ${featured ? 'min-h-[24rem]' : ''}`}>
+    <article className="project-card">
       <span className="status">{project.status}</span>
       <h3>{project.title}</h3>
       <p>{project.description}</p>
@@ -172,37 +166,30 @@ export default function ProjectsPage() {
       <header className="page-intro">
         <p className="kicker reveal">Projects</p>
         <h1 className="page-title reveal reveal-delay-1">
-          Public work, with the proof attached.
+          Things I&apos;ve built
         </h1>
         <p className="lede reveal reveal-delay-2">
-          Independent systems across agent reputation, AI-assisted quality
-          engineering, developer tooling, and onchain infrastructure.
-          Professional work lives separately in Experience.
+          Open-source tools, experiments, and small products. Most sit somewhere
+          between quality engineering, AI agents, Ethereum, and music.
         </p>
       </header>
 
       <section className="section-row" aria-labelledby="featured-title">
-        <div className="section-index">
-          <strong>01</strong>
-          Selected
-        </div>
+        <div className="section-index">Featured</div>
         <div className="section-body">
           <h2 id="featured-title" className="section-title">
-            Four representative systems
+            Projects I&apos;m proud of
           </h2>
           <div className="project-grid">
             {featuredProjects.map((project) => (
-              <ProjectCard key={project.title} project={project} featured />
+              <ProjectCard key={project.title} project={project} />
             ))}
           </div>
         </div>
       </section>
 
       <section className="section-row" aria-labelledby="archive-title">
-        <div className="section-index">
-          <strong>02</strong>
-          Archive
-        </div>
+        <div className="section-index">Archive</div>
         <div className="section-body">
           <h2 id="archive-title" className="section-title">
             More experiments and tools

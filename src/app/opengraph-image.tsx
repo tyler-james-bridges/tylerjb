@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const alt =
-  'Tyler James-Bridges — developer tooling, test infrastructure, and agent systems';
+  'Tyler James-Bridges — software engineer, former QA, and percussion educator';
 export const size = {
   width: 1200,
   height: 630,
@@ -20,7 +20,7 @@ export default function OpengraphImage() {
         padding: '68px 76px',
         color: '#1b1a17',
         background: '#f3efe6',
-        fontFamily: 'Georgia, serif',
+        fontFamily: 'Arial, sans-serif',
       }}
     >
       <div
@@ -35,8 +35,8 @@ export default function OpengraphImage() {
           textTransform: 'uppercase',
         }}
       >
-        <span style={{ color: '#0b8a7c' }}>TJB · Engineering ledger</span>
-        <span>Arizona · 2026</span>
+        <span style={{ color: '#0b8a7c' }}>Tyler James-Bridges</span>
+        <span>Arizona</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <div
@@ -48,7 +48,7 @@ export default function OpengraphImage() {
             letterSpacing: '-0.045em',
           }}
         >
-          Tools that help engineers ship.
+          I build tools for people who build software.
         </div>
         <div
           style={{
@@ -74,7 +74,7 @@ export default function OpengraphImage() {
           color: '#5b574f',
         }}
       >
-        <span>Developer tooling · Test infrastructure · Agent systems</span>
+        <span>Developer tooling · Playwright · Open source</span>
         <span>tylerjb.dev</span>
       </div>
     </div>,

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { buildPageMetadata } from '@/lib/metadata';
 
 const description =
-  'Contact Tyler James-Bridges about developer tooling, quality infrastructure, agent systems, or open-source collaboration.';
+  'Send Tyler James-Bridges a message about work, open source, drums, or anything else.';
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Contact',
