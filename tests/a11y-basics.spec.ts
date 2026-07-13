@@ -26,8 +26,7 @@ test.describe('accessibility basics', () => {
         .locator('img:not([alt])')
         .evaluateAll((imgs) =>
           imgs.map(
-            (img) =>
-              (img as HTMLImageElement).src || img.outerHTML.slice(0, 120)
+            (img) => (img as HTMLImageElement).src || img.outerHTML.slice(0, 120)
           )
         );
       expect(
@@ -58,35 +57,6 @@ test.describe('accessibility basics', () => {
         `nav link ${await link.getAttribute('href')} needs an accessible name`
       ).not.toBe('');
     }
-  });
-
-  test('skip link moves focus to the main content', async ({ page }) => {
-    await page.goto('/');
-    await page.keyboard.press('Tab');
-    await expect(
-      page.getByRole('link', { name: 'Skip to content' })
-    ).toBeFocused();
-    await page.keyboard.press('Enter');
-    await expect(page.locator('#main-content')).toBeFocused();
-  });
-
-  test('mobile menu manages focus and Escape', async ({ page }) => {
-    await page.goto('/');
-    const trigger = page.getByRole('button', { name: 'Open menu' });
-    if (!(await trigger.isVisible())) return;
-
-    await trigger.focus();
-    await page.keyboard.press('Enter');
-    await expect(page.getByRole('dialog', { name: 'Site menu' })).toBeVisible();
-    await expect(
-      page.getByRole('button', { name: 'Close menu' })
-    ).toBeFocused();
-
-    await page.keyboard.press('Escape');
-    await expect(page.getByRole('dialog', { name: 'Site menu' })).toHaveCount(
-      0
-    );
-    await expect(trigger).toBeFocused();
   });
 
   test('contact form controls are labelled', async ({ page }) => {

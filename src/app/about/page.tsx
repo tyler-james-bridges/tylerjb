@@ -1,138 +1,88 @@
-import type { Metadata } from 'next';
-import { buildPageMetadata } from '@/lib/metadata';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { Metadata } from 'next';
 
-const description =
-  'About Tyler James-Bridges: software engineer, former quality engineer, percussion educator, and father in Arizona.';
-
-export const metadata: Metadata = buildPageMetadata({
-  title: 'About',
-  description,
-  path: '/about',
-});
+export const metadata: Metadata = {
+  title: 'About Me',
+  description:
+    'Tyler James-Bridges — a decade of quality engineering, now building developer tooling and agent infrastructure. Drum corps alum, percussion educator, father.',
+};
 
 export default function AboutPage() {
   return (
-    <div className="page-shell">
-      <header className="page-intro">
-        <p className="kicker reveal">About</p>
-        <h1 className="page-title reveal reveal-delay-1">
-          Hi, I&apos;m Tyler.
-        </h1>
-        <p className="lede reveal reveal-delay-2">
-          I&apos;m a software engineer, former quality engineer, percussion
-          educator, and dad in Arizona. I like building tools that remove an
-          annoying problem for more than one person.
-        </p>
-      </header>
+    <div className="animate-slide-up">
+      <div className="content-body prose-notes">
+        <h1 className="sr-only">About Me</h1>
+        <section className="mb-10 stagger-1">
+          <hr className="border-t border-foreground/15 mb-6" />
+          <h2 className="section-heading mb-4">Who I Am</h2>
+          <p>
+            I&apos;m a father of two, based in Arizona, and a Software Engineer
+            III on the Developer Experience team at Weedmaps. I spent a decade
+            in quality engineering — manual QA, then Playwright automation —
+            before moving into engineering full time. I think of that move as a
+            deepening of quality, not a departure from it.
+          </p>
+          <p>
+            Day to day I build the tools other engineers ship with: CI
+            pipelines, developer platforms, the unglamorous stuff that makes
+            teams faster.
+          </p>
+        </section>
 
-      <section className="section-row" aria-labelledby="about-now">
-        <div className="section-index">Now</div>
-        <div className="section-body editorial-prose">
-          <h2 id="about-now">Work</h2>
+        <section className="mb-10 stagger-2">
+          <hr className="border-t border-foreground/15 mb-6" />
+          <h2 className="section-heading mb-4">Rhythm & Algorithms</h2>
           <p>
-            I am a Software Engineer III at Weedmaps, working on developer
-            tooling and services. I build the interfaces other engineers use to
-            test, review, and ship software: CLI tools, CI workflows, internal
-            APIs, and agent infrastructure.
+            The percussion world shaped who I am long before I touched my first
+            keyboard. There&apos;s something about the discipline of marching
+            drum corps, the precision of indoor percussion, and the controlled
+            chaos of tour life that translates perfectly to quality assurance
+            and engineering.
           </p>
           <p>
-            I joined Weedmaps in 2016 in manual QA. From there I moved into
-            Playwright automation, then developer experience, and finally a
-            software engineering role. The title changed; the habit of looking
-            for failure modes did not.
+            Both require obsessive attention to detail, the ability to perform
+            under pressure, and an understanding that sometimes the most
+            beautiful moments happen in the spaces between the notes, or between
+            test runs.
           </p>
-          <blockquote>
-            If I have to solve the same problem twice, I start wondering whether
-            it should be a tool.
-          </blockquote>
-        </div>
-      </section>
+        </section>
 
-      <section
-        id="journey"
-        className="section-row"
-        aria-labelledby="about-path"
-      >
-        <div className="section-index">The path</div>
-        <div className="section-body editorial-prose">
-          <h2 id="about-path">From QA to software engineering</h2>
+        <section className="mb-10 stagger-3">
+          <hr className="border-t border-foreground/15 mb-6" />
+          <h2 className="section-heading mb-4">The Journey</h2>
           <p>
-            Manual QA trained me to notice the gap between what a system
-            promises and what a person actually experiences. Automation taught
-            me to turn that observation into repeatable feedback. Developer
-            experience work widened the scope again: the build, the pipeline,
-            local setup, and debugging are part of the product too.
+            My percussion journey began in 2009 with Santa Clara Vanguard
+            Cadets, where I learned that peak performance and peak identity
+            crisis can coexist beautifully. The path led me through Santa Clara
+            Vanguard, Vanguard Winter Percussion, and the Blue Stars, before
+            culminating with Pulse Percussion in 2014.
           </p>
           <p>
-            That is still how I approach engineering: start with the person
-            using the tool, make errors useful, and leave the next engineer with
-            fewer surprises.
+            I&apos;ve been teaching as a snare tech since 2014, and I still
+            think about software in terms of reps, cleaning, and locking in
+            with the rest of the line.
           </p>
-          <Link href="/journey" className="text-link">
-            Read the full transition story
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </Link>
-        </div>
-      </section>
+        </section>
 
-      <section className="section-row" aria-labelledby="about-independent">
-        <div className="section-index">Independent work</div>
-        <div className="section-body editorial-prose">
-          <h2 id="about-independent">Open-source side projects</h2>
+        <section className="mb-10 stagger-4">
+          <hr className="border-t border-foreground/15 mb-6" />
+          <h2 className="section-heading mb-4">Beyond the Screen</h2>
           <p>
-            Outside work, I build open-source infrastructure for AI agents on
-            Ethereum L2s. That includes ACK Protocol, ERC-8004 tooling, x402
-            compliance and monitoring tools, MCP servers, and experiments that
-            connect software agents to verifiable onchain state.
+            Outside work I build agent infrastructure on Ethereum L2s: an
+            ERC-8004 reputation protocol (ACK), compliance tooling for the x402
+            payment protocol, and MCP servers — with contracts live on Abstract
+            and Base. When I&apos;m not shipping or teaching paradiddles,
+            you&apos;ll find me deep in the progressive metal rabbit hole
+            (Animals As Leaders, Protest the Hero, Chon), or adding another NFT
+            to the collection that my wife pretends not to judge.
           </p>
           <p>
-            This work is separate from my job. It is where I learn in public,
-            try ideas quickly, and occasionally turn an experiment into
-            something other people use.
+            I believe in building things that matter, whether it&apos;s reliable
+            software that helps businesses grow, young musicians who will carry
+            the art forward, or just a really solid groove that makes people
+            move.
           </p>
-          <Link href="/projects" className="text-link">
-            Explore public projects
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </Link>
-        </div>
-      </section>
-
-      <section className="section-row" aria-labelledby="about-percussion">
-        <div className="section-index">Percussion</div>
-        <div className="section-body editorial-prose">
-          <h2 id="about-percussion">Drums came first</h2>
-          <p>
-            I am a former Pulse Percussion snareline member and a longtime
-            percussion educator. Marching arts made repetition, precise
-            feedback, and performing under pressure feel normal long before I
-            wrote code.
-          </p>
-          <p>
-            I marched with Pulse Percussion from 2012 to 2014 and taught the
-            Blue Stars snareline for several seasons. I still teach and consult
-            when I can.
-          </p>
-          <Link href="/drums" className="text-link">
-            Watch the performance archive
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </Link>
-        </div>
-      </section>
-
-      <section className="section-row" aria-labelledby="about-life">
-        <div className="section-index">Life</div>
-        <div className="section-body editorial-prose">
-          <h2 id="about-life">Arizona, family, loud music</h2>
-          <p>
-            I am based in Arizona and am a father of two. Away from engineering
-            and teaching, I am usually listening to progressive metal, working
-            through another side project, or finding a reason to make a normal
-            household task more automated than it needs to be.
-          </p>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 }

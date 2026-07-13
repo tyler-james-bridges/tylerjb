@@ -1,78 +1,64 @@
-import type { Metadata } from 'next';
-import { buildPageMetadata } from '@/lib/metadata';
-import VideoEmbed from '../components/VideoEmbed';
+import { Metadata } from 'next';
 
-const description =
-  'Performance archive from Tyler James-Bridges’ years in indoor percussion and drum corps.';
-
-export const metadata: Metadata = buildPageMetadata({
+export const metadata: Metadata = {
   title: 'Drums',
-  description,
-  path: '/drums',
-});
-
-const videos = [
-  {
-    title: 'Pulse Percussion 2014',
-    subtitle: 'That Which Confines Us · Snareline',
-    videoId: '-gapbxJ4BFk',
-  },
-  {
-    title: 'Pulse Percussion 2013',
-    subtitle: 'Renegade · Snareline',
-    videoId: '62fP_00dHig',
-  },
-  {
-    title: 'Pulse Percussion 2012',
-    subtitle: 'Coming and Going · Snareline',
-    videoId: '9LZSvRP6gKQ',
-  },
-  {
-    title: 'Blue Stars 2013',
-    subtitle: 'Voodoo: I Put a Spell on You',
-    videoId: 'uQX_WrVjrXs',
-  },
-];
+  description:
+    'Performance videos from my years in drum corps and indoor percussion.',
+};
 
 export default function DrumsPage() {
   return (
-    <div className="page-shell">
-      <header className="page-intro">
-        <p className="kicker reveal">Drums</p>
-        <h1 className="page-title reveal reveal-delay-1">
-          I played snare before I wrote code
-        </h1>
-        <p className="lede reveal reveal-delay-2">
-          I marched Pulse Percussion from 2012 to 2014, taught the Blue Stars,
-          and still work with percussion programs in Arizona. These are a few
-          performances I&apos;m glad are still online.
-        </p>
-      </header>
-
-      <section className="section-row" aria-labelledby="archive-title">
-        <div className="section-index">Archive</div>
-        <div className="section-body">
-          <h2 id="archive-title" className="section-title">
-            Selected performances
-          </h2>
-          <div className="grid gap-8 md:grid-cols-2">
-            {videos.map((video) => {
-              const label = `${video.title}: ${video.subtitle}`;
-              return (
-                <article key={video.videoId}>
-                  <div className="video-frame aspect-video">
-                    <VideoEmbed videoId={video.videoId} title={label} />
-                  </div>
-                  <h2 className="mt-4 text-2xl font-semibold tracking-[-0.03em]">
-                    {video.title}
-                  </h2>
-                  <p className="work-meta mt-1">{video.subtitle}</p>
-                </article>
-              );
-            })}
+    <div className="animate-slide-up">
+      <div className="content-body prose-notes">
+        <h1 className="sr-only">Drums</h1>
+        <section className="stagger-1">
+          <p className="text-muted-foreground mb-6">
+            Some moments from the field that shaped who I became.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="aspect-video overflow-hidden glass-card card-lift">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/-gapbxJ4BFk?si=-daNqFpi5AZmqt-X"
+                title="Pulse Percussion 2014: That Which Confines Us"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+            <div className="aspect-video overflow-hidden glass-card card-lift">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/62fP_00dHig?si=RNOOy0d6hArguG91"
+                title="Pulse Percussion 2013: Renegade"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+            <div className="aspect-video overflow-hidden glass-card card-lift">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/9LZSvRP6gKQ?si=yBMltF7mFnpseBLo"
+                title="Pulse Percussion 2012: Coming and Going"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+            <div className="aspect-video overflow-hidden glass-card card-lift">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/uQX_WrVjrXs?si=EvX_yTJXj4BYgO1N"
+                title="2013 Blue Stars - Voodoo: I Put A Spell On You"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 }

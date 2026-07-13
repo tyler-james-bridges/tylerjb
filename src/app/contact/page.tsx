@@ -1,7 +1,6 @@
 'use client';
 
-import { useState, type FormEvent } from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import React, { useState } from 'react';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { Button } from '../components/ui/button';
@@ -11,13 +10,12 @@ function ContactForm() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
     setSending(true);
     setError('');
     setSuccess(false);
-
-    const form = event.currentTarget;
+    const form = e.currentTarget;
     const purpose = (form.elements.namedItem('purpose') as HTMLSelectElement)
       .value;
     const message = (form.elements.namedItem('message') as HTMLTextAreaElement)
@@ -27,35 +25,31 @@ function ContactForm() {
       email: (form.elements.namedItem('email') as HTMLInputElement).value,
       message: `[${purpose}] ${message}`.trim(),
     };
-
     try {
-      const response = await fetch('/api/contact', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
-
-      if (!response.ok) throw new Error('Request failed');
-      setSuccess(true);
-      form.reset();
+      if (res.ok) {
+        setSuccess(true);
+        form.reset();
+      } else {
+        setError('Something went wrong. Please try again.');
+      }
     } catch {
-      setError('The form could not send. Please use the email link below.');
-    } finally {
-      setSending(false);
+      setError('Something went wrong. Please try again.');
     }
+    setSending(false);
   }
 
   return (
-    <form
-      className="form-panel space-y-5"
-      onSubmit={handleSubmit}
-      aria-busy={sending}
-    >
-      <div className="grid gap-5 sm:grid-cols-2">
+    <form className="space-y-4" onSubmit={handleSubmit}>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label
             htmlFor="name"
-            className="work-meta mb-2 block text-foreground"
+            className="block text-sm font-medium text-foreground mb-1.5"
           >
             Name
           </label>
@@ -63,14 +57,14 @@ function ContactForm() {
             id="name"
             name="name"
             type="text"
-            autoComplete="name"
             required
+            className="input-glow"
           />
         </div>
         <div>
           <label
             htmlFor="email"
-            className="work-meta mb-2 block text-foreground"
+            className="block text-sm font-medium text-foreground mb-1.5"
           >
             Email
           </label>
@@ -78,144 +72,128 @@ function ContactForm() {
             id="email"
             name="email"
             type="email"
-            autoComplete="email"
             required
+            className="input-glow"
           />
         </div>
       </div>
-
       <div>
         <label
           htmlFor="purpose"
-          className="work-meta mb-2 block text-foreground"
+          className="block text-sm font-medium text-foreground mb-1.5"
         >
-          Topic
+          What brings you here?
         </label>
         <select
           id="purpose"
           name="purpose"
           required
-          className="flex min-h-12 w-full bg-background px-3 py-2 text-base shadow-[0_0_0_1px_var(--rule)] focus-visible:outline-none"
+          className="flex h-10 w-full border border-input bg-background px-3 py-2 text-sm ring-offset-background input-glow focus-visible:outline-none"
         >
-          <option value="">Select a topic</option>
-          <option value="Developer tooling">Developer tooling</option>
-          <option value="Quality infrastructure">Quality infrastructure</option>
-          <option value="Agent systems">Agent systems</option>
-          <option value="Open-source collaboration">
-            Open-source collaboration
+          <option value="">Select an option...</option>
+          <option value="Hiring / Job Opportunity">
+            Hiring / Job Opportunity
           </option>
-          <option value="General conversation">General conversation</option>
+          <option value="Freelance Project">Freelance Project</option>
+          <option value="Just Saying Hi">Just Saying Hi</option>
         </select>
       </div>
-
       <div>
         <label
           htmlFor="message"
-          className="work-meta mb-2 block text-foreground"
+          className="block text-sm font-medium text-foreground mb-1.5"
         >
-          Message
+          Message{' '}
+          <span className="text-muted-foreground font-normal">(optional)</span>
         </label>
         <Textarea
           id="message"
           name="message"
-          rows={5}
-          required
-          placeholder="What would you like to discuss?"
+          rows={3}
+          placeholder="Tell me a bit more..."
+          className="input-glow"
         />
       </div>
-
-      <Button
-        type="submit"
-        disabled={sending}
-        className="min-h-12 w-full pressable"
-      >
-        {sending ? 'Sending…' : 'Send message'}
+      <Button type="submit" disabled={sending} className="w-full btn-lift">
+        {sending ? 'Sending...' : 'Send Message'}
       </Button>
-
-      <div aria-live="polite" aria-atomic="true">
-        {success && (
-          <p className="bg-[hsl(var(--accent)/0.12)] p-3 text-center text-sm text-foreground">
-            Message sent. Thank you for reaching out.
-          </p>
-        )}
-        {error && (
-          <p className="bg-destructive/10 p-3 text-center text-sm text-destructive">
-            {error}
-          </p>
-        )}
-      </div>
+      {success && (
+        <div className="text-green-600 dark:text-green-400 text-center text-sm p-3 bg-green-50 dark:bg-green-900/20 rounded-2xl border border-foreground/15">
+          Message sent! I&apos;ll get back to you soon.
+        </div>
+      )}
+      {error && (
+        <div className="text-red-600 dark:text-red-400 text-center text-sm p-3 bg-red-50 dark:bg-red-900/20 rounded-2xl border border-foreground/15">
+          {error}
+        </div>
+      )}
     </form>
   );
 }
 
 export default function ContactPage() {
   return (
-    <div className="page-shell">
-      <header className="page-intro">
-        <p className="kicker reveal">Contact</p>
-        <h1 className="page-title reveal reveal-delay-1">Send me a note</h1>
-        <p className="lede reveal reveal-delay-2">
-          Work, open source, drums, or something else entirely. The form goes
-          straight to my email.
+    <div className="animate-slide-up">
+      <div className="content-body prose-notes">
+        <h1 className="sr-only">Contact</h1>
+        <p className="text-muted-foreground mb-6">
+          Want to get in touch? Fill out the form below or reach out via email.
         </p>
-      </header>
 
-      <section className="section-row" aria-labelledby="contact-form-title">
-        <div className="section-index">Send a note</div>
-        <div className="section-body">
-          <h2 id="contact-form-title" className="section-title">
-            What&apos;s up?
-          </h2>
-          <ContactForm />
-        </div>
-      </section>
+        <ContactForm />
 
-      <section className="section-row" aria-labelledby="direct-title">
-        <div className="section-index">Direct links</div>
-        <div className="section-body">
-          <h2 id="direct-title" className="section-title">
-            Elsewhere on the internet
-          </h2>
-          <div className="work-list">
-            {[
-              [
-                'Email',
-                'tylerjamesbridges@gmail.com',
-                'mailto:tylerjamesbridges@gmail.com',
-              ],
-              [
-                'GitHub',
-                '@tyler-james-bridges',
-                'https://github.com/tyler-james-bridges',
-              ],
-              [
-                'LinkedIn',
-                'Tyler James-Bridges',
-                'https://www.linkedin.com/in/tyler-james-bridges-4344abab',
-              ],
-            ].map(([label, value, href], index) => (
+        <p className="text-xs text-muted-foreground text-center mt-4">
+          I typically respond within 24 hours.
+        </p>
+
+        <div className="mt-8 pt-6 border-t border-foreground/15">
+          <h2 className="section-heading mb-4">Other ways to reach me</h2>
+          <ul className="space-y-2">
+            <li>
+              <span className="text-muted-foreground">Email:</span>{' '}
               <a
-                key={label}
-                href={href}
-                target={href.startsWith('http') ? '_blank' : undefined}
-                rel={
-                  href.startsWith('http') ? 'noopener noreferrer' : undefined
-                }
-                className="work-item group"
+                href="mailto:tylerjamesbridges@gmail.com"
+                className="underline hover:text-[#e2a727] transition-colors"
               >
-                <span className="work-number tabular">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <h3>{label}</h3>
-                <p className="flex items-center gap-2 group-hover:text-accent">
-                  {value}
-                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-                </p>
+                tylerjamesbridges@gmail.com
               </a>
-            ))}
-          </div>
+            </li>
+            <li>
+              <span className="text-muted-foreground">GitHub:</span>{' '}
+              <a
+                href="https://github.com/tyler-james-bridges"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-[#e2a727] transition-colors"
+              >
+                @tyler-james-bridges
+              </a>
+            </li>
+            <li>
+              <span className="text-muted-foreground">LinkedIn:</span>{' '}
+              <a
+                href="https://www.linkedin.com/in/tyler-james-bridges-4344abab"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-[#e2a727] transition-colors"
+              >
+                Tyler James-Bridges
+              </a>
+            </li>
+            <li>
+              <span className="text-muted-foreground">X:</span>{' '}
+              <a
+                href="https://x.com/tmoney_145"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-[#e2a727] transition-colors"
+              >
+                @tmoney_145
+              </a>
+            </li>
+          </ul>
         </div>
-      </section>
+      </div>
     </div>
   );
 }

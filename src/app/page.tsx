@@ -1,183 +1,192 @@
+'use client';
+
 import Link from 'next/link';
-import { ArrowRight, ArrowUpRight } from 'lucide-react';
-
-const professionalWork = [
-  {
-    title: 'Developer tooling and CI',
-    meta: 'Developer experience · GitHub Actions · TypeScript',
-    description:
-      'Service templates, reusable workflows, and internal tools that make it easier to move from a local change to production.',
-  },
-  {
-    title: 'Playwright at product scale',
-    meta: 'Playwright · API testing · Accessibility',
-    description:
-      'Shared test infrastructure for browser, API, accessibility, smoke, and pre-merge coverage across multiple products.',
-  },
-  {
-    title: 'One CLI for smoke tests',
-    meta: 'Node.js · Playwright · CI/CD',
-    description:
-      'A TypeScript CLI that replaced scattered shell and YAML logic with the same test commands locally and in CI.',
-  },
-];
-
-const independentProjects = [
-  {
-    title: 'ACK Protocol',
-    description:
-      'Onchain reputation for AI agents: kudos, discovery, trust scoring, and a TypeScript SDK.',
-    tags: ['Next.js', 'Solidity', 'ERC-8004', 'Abstract'],
-    href: 'https://ack-onchain.dev',
-    status: 'Live app',
-  },
-  {
-    title: 'qai-cli',
-    description:
-      'A Playwright-based CLI for visual checks, console and network errors, PR review, and test generation.',
-    tags: ['Playwright', 'TypeScript', 'CLI'],
-    href: 'https://www.npmjs.com/package/qai-cli',
-    status: 'Published package',
-  },
-  {
-    title: 'Agent Tool Index',
-    description:
-      'A Rust index of onchain agent tools, with APIs for discovery and call planning.',
-    tags: ['Rust', 'ERC-8257', 'APIs'],
-    href: 'https://agenttoolindex.xyz',
-    status: 'Live service',
-  },
-];
+import TerminalWidget from './components/TerminalWidget';
 
 export default function HomePage() {
   return (
-    <div className="page-shell">
-      <section className="page-intro" aria-labelledby="home-title">
-        <p className="kicker reveal">Tyler James-Bridges · Software engineer</p>
-        <h1 id="home-title" className="display-heading reveal reveal-delay-1">
-          I build tools for people who build software.
-        </h1>
-        <p className="lede reveal reveal-delay-2">
-          I&apos;m a Software Engineer III at Weedmaps. I started there in
-          manual QA in 2016, spent years building Playwright automation, and now
-          work on developer tooling, internal services, and agent workflows.
-          Outside work, I build open-source onchain tools and teach percussion
-          in Arizona.
-        </p>
-        <div className="button-row reveal reveal-delay-3">
-          <Link href="/experience" className="button-primary pressable">
-            Work experience
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </Link>
-          <Link href="/projects" className="button-secondary pressable">
-            Projects
-          </Link>
+    <div className="animate-slide-up">
+      <div className="content-body">
+        {/* Vertical text running down the right side of entire content */}
+        <div
+          aria-hidden="true"
+          className="hidden md:block absolute right-4 top-24 pointer-events-none select-none opacity-10"
+        >
+          <div className="text-[9px] font-mono text-muted-foreground writing-vertical tracking-[0.4em] leading-none">
+            SOFTWARE・ENGINEER・QA・PERCUSSION・FATHER・BUILDER・DEBUGGER・TYPESCRIPT・PLAYWRIGHT
+          </div>
         </div>
-      </section>
 
-      <section
-        className="section-row"
-        aria-labelledby="professional-work-title"
-      >
-        <div className="section-index">At work</div>
-        <div className="section-body">
-          <h2 id="professional-work-title" className="section-title">
-            From QA to developer experience
-          </h2>
-          <p className="section-copy">
-            I know the testing side of software because I did it by hand. The
-            work now is building better paths for the engineers doing the
-            building, reviewing, testing, and shipping.
+        {/* Hero Section */}
+        <section className="text-center mb-10 relative">
+          <h1 className="stagger-1">
+            <span className="block text-4xl sm:text-5xl font-bold mb-1">
+              Tyler
+            </span>
+            <span className="block text-4xl sm:text-5xl font-light text-muted-foreground mb-5">
+              James-Bridges
+            </span>
+          </h1>
+
+          <p className="text-lg text-muted-foreground max-w-md mx-auto leading-relaxed mb-3 stagger-2">
+            Software engineer with a decade of QA experience. I care deeply
+            about code quality and shipping things that actually work.
           </p>
 
-          <div className="work-list">
-            {professionalWork.map((item) => (
-              <article key={item.title} className="work-item">
-                <div>
-                  <h3>{item.title}</h3>
-                  <p className="work-meta mt-2">{item.meta}</p>
-                </div>
-                <p>{item.description}</p>
-              </article>
-            ))}
+          <p className="text-base font-semibold max-w-md mx-auto leading-relaxed mb-6 stagger-2">
+            I build and scale systems that improve developer productivity across
+            the organization.
+          </p>
+
+          {/* Credibility Badges */}
+          <div className="flex flex-wrap justify-center gap-2 mb-6 stagger-3">
+            <span className="px-3 py-1.5 text-xs font-medium glass-chip badge-hover cursor-default">
+              10+ Years in Tech
+            </span>
+            <span className="px-3 py-1.5 text-xs font-medium glass-chip badge-hover cursor-default">
+              Playwright / Test Automation
+            </span>
+            <span className="px-3 py-1.5 text-xs font-medium glass-chip badge-hover cursor-default">
+              TypeScript / React / Next.js
+            </span>
           </div>
 
-          <Link href="/experience" className="text-link mt-6">
-            Full work history
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </Link>
-        </div>
-      </section>
-
-      <section className="section-row" aria-labelledby="independent-work-title">
-        <div className="section-index">Outside work</div>
-        <div className="section-body">
-          <h2 id="independent-work-title" className="section-title">
-            Things I&apos;ve shipped
-          </h2>
-          <p className="section-copy">
-            Most of my public work is somewhere between developer tooling,
-            quality engineering, AI agents, and Ethereum.
+          <p className="text-sm text-muted-foreground stagger-3">
+            Currently Software Engineer III @ Weedmaps
           </p>
+        </section>
 
-          <div className="project-grid project-grid-featured">
-            {independentProjects.map((project) => (
-              <a
-                key={project.title}
-                href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-card"
-              >
-                <span className="status">{project.status}</span>
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <div className="project-card-footer">
-                  <div className="tag-list">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="tag">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <ArrowUpRight
-                    className="h-5 w-5 shrink-0"
-                    aria-hidden="true"
-                  />
-                </div>
-              </a>
-            ))}
+        {/* Featured Work */}
+        <section className="mb-12 stagger-4 max-w-xl mx-auto">
+          <h3 className="section-heading mb-5">Featured Work</h3>
+
+          {/* ACK - Hero Card */}
+          <a
+            href="https://ack-onchain.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block glass-card p-6 mb-4 card-lift group"
+          >
+            <div className="flex items-center justify-between mb-3">
+              <h4 className="text-base font-bold group-hover:text-[#e2a727] transition-colors">
+                ACK Protocol
+              </h4>
+              <span className="px-2 py-0.5 text-[10px] font-medium rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+                Production
+              </span>
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-1">
+              Peer-driven reputation layer for AI agents. Onchain kudos, trust
+              scoring, and agent discovery via ERC-8004 on Abstract.
+            </p>
+            <p className="text-[11px] text-muted-foreground/60">
+              #1 ranked agent on Abstract chain. 35+ onchain reviews across 3
+              chains.
+            </p>
+          </a>
+
+          {/* Two-column grid for secondary projects */}
+          <div className="grid grid-cols-2 gap-4 mb-5">
+            <a
+              href="https://www.npmjs.com/package/qai-cli"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block glass-card p-4 card-lift group"
+            >
+              <h4 className="text-sm font-bold mb-2 group-hover:text-[#e2a727] transition-colors">
+                qai-cli
+              </h4>
+              <p className="text-[11px] text-muted-foreground leading-relaxed mb-2">
+                AI-powered PR review and test generation. A decade of QA,
+                packaged as a CLI.
+              </p>
+              <span className="text-[10px] text-muted-foreground/60">
+                npm v3.3.0
+              </span>
+            </a>
+
+            <a
+              href="https://claw-council.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block glass-card p-4 card-lift group"
+            >
+              <h4 className="text-sm font-bold mb-2 group-hover:text-[#e2a727] transition-colors">
+                The Claw Council
+              </h4>
+              <p className="text-[11px] text-muted-foreground leading-relaxed mb-2">
+                Multi-agent AI system. Three agents running research,
+                engineering, and ops autonomously.
+              </p>
+              <span className="text-[10px] text-muted-foreground/60">
+                OpenClaw + Discord
+              </span>
+            </a>
           </div>
 
-          <Link href="/projects" className="text-link mt-6">
-            All projects
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          <Link
+            href="/projects"
+            className="block text-center px-4 py-2.5 glass-btn text-sm font-medium"
+          >
+            All Projects &rarr;
           </Link>
-        </div>
-      </section>
+        </section>
 
-      <section className="section-row" aria-labelledby="outside-title">
-        <div className="section-index">Also me</div>
-        <div className="section-body">
-          <h2 id="outside-title" className="section-title">
-            Drums, teaching, and two kids
-          </h2>
-          <p className="section-copy">
-            Before software, I marched snare with Pulse Percussion. I still
-            teach and consult with percussion programs in Arizona, listen to far
-            too much progressive metal, and start more side projects than I
-            finish.
-          </p>
-          <div className="button-row">
-            <Link href="/about" className="button-secondary pressable">
-              About me
+        {/* Dual CTAs */}
+        <section className="max-w-xl mx-auto mb-14 stagger-5">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              href="/experience"
+              className="px-6 py-3 pill-solid font-medium text-center text-sm uppercase tracking-wider"
+            >
+              View My Experience
             </Link>
-            <Link href="/drums" className="button-secondary pressable">
-              Watch performances
+            <Link
+              href="/contact"
+              className="px-6 py-3 glass-btn font-medium text-center text-sm uppercase tracking-wider"
+            >
+              Let&apos;s Work Together
             </Link>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* Journey Callout */}
+        <section className="max-w-xl mx-auto mb-10 stagger-6">
+          <div className="glass-card p-5">
+            <p className="text-sm text-muted-foreground mb-2">
+              From QA analyst to systems engineer — the story of building
+              belief, building tools, and building momentum.
+            </p>
+            <Link
+              href="/journey"
+              className="text-sm font-medium hover:text-[#e2a727] transition-colors"
+            >
+              Read the story of how I got here &rarr;
+            </Link>
+          </div>
+        </section>
+
+        {/* Mobile Dev Terminal */}
+        <section id="terminal" className="max-w-xl mx-auto mt-14 stagger-6">
+          <hr className="border-t border-foreground/15 mb-6" />
+          <h3 className="section-heading mb-3 text-center">
+            Built from iPhone
+          </h3>
+          <p className="text-sm text-muted-foreground text-center mb-4">
+            This widget was built via mobile dev stack: iPhone → Termius →
+            Tailscale → Claude Code
+          </p>
+          <TerminalWidget />
+          <p className="text-center mt-4">
+            <Link
+              href="/playground"
+              className="text-sm font-medium hover:text-[#e2a727] transition-colors"
+            >
+              More experiments in the playground &rarr;
+            </Link>
+          </p>
+        </section>
+      </div>
     </div>
   );
 }
