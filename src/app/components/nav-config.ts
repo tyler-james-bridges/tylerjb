@@ -1,29 +1,50 @@
+import {
+  Home,
+  User,
+  Briefcase,
+  FolderKanban,
+  FileText,
+  Music,
+  Mail,
+  Github,
+  Linkedin,
+  Twitter,
+  LucideIcon,
+} from 'lucide-react';
+
 export interface NavItem {
   href: string;
   label: string;
+  shortLabel?: string;
+  icon: LucideIcon;
 }
 
 export interface SocialLink {
   href: string;
   label: string;
+  icon: LucideIcon;
 }
 
 export const navItems: NavItem[] = [
-  { href: '/projects', label: 'Work' },
-  { href: '/experience', label: 'Experience' },
-  { href: '/about', label: 'About' },
-  { href: '/blog', label: 'Writing' },
-  { href: '/drums', label: 'Drums' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/', label: 'Home', icon: Home },
+  { href: '/about', label: 'About', icon: User },
+  { href: '/experience', label: 'Experience', icon: Briefcase },
+  { href: '/projects', label: 'Projects', icon: FolderKanban },
+  { href: '/blog', label: 'Blog', icon: FileText },
+  { href: '/drums', label: 'Drums', icon: Music },
+  { href: '/contact', label: 'Contact', icon: Mail },
 ];
 
 export const socialLinks: SocialLink[] = [
   {
     href: 'https://github.com/tyler-james-bridges',
     label: 'GitHub',
+    icon: Github,
   },
   {
     href: 'https://www.linkedin.com/in/tyler-james-bridges-4344abab',
     label: 'LinkedIn',
+    icon: Linkedin,
   },
+  { href: 'https://x.com/tmoney_145', label: 'X', icon: Twitter },
 ];

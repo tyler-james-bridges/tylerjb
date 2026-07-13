@@ -1,7 +1,9 @@
 import { ImageResponse } from 'next/og';
 
+export const runtime = 'edge';
+
 export const alt =
-  'Tyler James-Bridges — software engineer, former QA, and percussion educator';
+  'Tyler James-Bridges — Software Engineer — DevEx, QA, agent infrastructure';
 export const size = {
   width: 1200,
   height: 630,
@@ -10,74 +12,73 @@ export const contentType = 'image/png';
 
 export default function OpengraphImage() {
   return new ImageResponse(
-    <div
-      style={{
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        padding: '68px 76px',
-        color: '#1b1a17',
-        background: '#f3efe6',
-        fontFamily: 'Arial, sans-serif',
-      }}
-    >
+    (
       <div
         style={{
+          width: '100%',
+          height: '100%',
           display: 'flex',
-          justifyContent: 'space-between',
-          borderBottom: '2px solid #1b1a17',
-          paddingBottom: '18px',
-          fontFamily: 'monospace',
-          fontSize: '20px',
-          letterSpacing: '0.12em',
-          textTransform: 'uppercase',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          padding: '80px',
+          backgroundColor: '#181512',
+          backgroundImage:
+            'radial-gradient(circle at 85% 15%, rgba(244, 241, 236, 0.06), transparent 50%)',
+          fontFamily:
+            'ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif',
         }}
       >
-        <span style={{ color: '#0b8a7c' }}>Tyler James-Bridges</span>
-        <span>Arizona</span>
-      </div>
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
         <div
           style={{
-            maxWidth: '950px',
-            fontSize: '92px',
+            display: 'flex',
+            alignItems: 'center',
+            marginBottom: '32px',
+          }}
+        >
+          <div
+            style={{
+              width: '48px',
+              height: '4px',
+              backgroundColor: '#f4f1ec',
+              borderRadius: '2px',
+              marginRight: '20px',
+            }}
+          />
+          <div
+            style={{
+              fontSize: '28px',
+              color: '#9c948b',
+              letterSpacing: '0.08em',
+            }}
+          >
+            tylerjb.dev
+          </div>
+        </div>
+        <div
+          style={{
+            fontSize: '88px',
             fontWeight: 700,
-            lineHeight: 0.95,
-            letterSpacing: '-0.045em',
+            color: '#f4f1ec',
+            lineHeight: 1.1,
+            letterSpacing: '-0.02em',
+            marginBottom: '28px',
           }}
         >
-          I build tools for people who build software.
+          Tyler James-Bridges
         </div>
         <div
           style={{
-            marginTop: '32px',
-            fontSize: '30px',
-            lineHeight: 1.35,
-            color: '#5b574f',
+            fontSize: '36px',
+            color: '#9c948b',
+            lineHeight: 1.4,
           }}
         >
-          Tyler James-Bridges · Software Engineer III
+          Software Engineer — DevEx, QA, agent infrastructure
         </div>
       </div>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          borderTop: '1px solid rgba(27,26,23,.25)',
-          paddingTop: '18px',
-          fontFamily: 'monospace',
-          fontSize: '18px',
-          letterSpacing: '0.08em',
-          textTransform: 'uppercase',
-          color: '#5b574f',
-        }}
-      >
-        <span>Developer tooling · Playwright · Open source</span>
-        <span>tylerjb.dev</span>
-      </div>
-    </div>,
-    size
+    ),
+    {
+      ...size,
+    }
   );
 }
