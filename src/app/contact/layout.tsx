@@ -1,10 +1,13 @@
 import type { Metadata } from 'next';
+import { buildPageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'Contact | Tyler James-Bridges',
-  description:
-    'Get in touch with Tyler James-Bridges about engineering work, developer tooling, or collaboration.',
-};
+const description = 'Contact Tyler James-Bridges by email or message form.';
+
+export const metadata: Metadata = buildPageMetadata({
+  title: 'Contact',
+  description,
+  path: '/contact',
+});
 
 export default function ContactLayout({
   children,

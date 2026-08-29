@@ -1,88 +1,83 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { buildPageMetadata } from '@/lib/metadata';
+import { identity, percussionCredits, workRoles } from '../site-data';
 
-export const metadata: Metadata = {
-  title: 'About Me',
-  description:
-    'Tyler James-Bridges — a decade of quality engineering, now building developer tooling and agent infrastructure. Drum corps alum, percussion educator, father.',
-};
+const description =
+  'Tyler James-Bridges: Software Engineer III at Weedmaps, percussion educator, and father in Arizona.';
+
+export const metadata: Metadata = buildPageMetadata({
+  title: 'About',
+  description,
+  path: '/about',
+});
 
 export default function AboutPage() {
   return (
-    <div className="animate-slide-up">
-      <div className="content-body prose-notes">
-        <h1 className="sr-only">About Me</h1>
-        <section className="mb-10 stagger-1">
-          <hr className="border-t border-foreground/15 mb-6" />
-          <h2 className="section-heading mb-4">Who I Am</h2>
-          <p>
-            I&apos;m a father of two, based in Arizona, and a Software Engineer
-            III on the Developer Experience team at Weedmaps. I spent a decade
-            in quality engineering — manual QA, then Playwright automation —
-            before moving into engineering full time. I think of that move as a
-            deepening of quality, not a departure from it.
-          </p>
-          <p>
-            Day to day I build the tools other engineers ship with: CI
-            pipelines, developer platforms, the unglamorous stuff that makes
-            teams faster.
-          </p>
-        </section>
+    <div className="page-shell">
+      <header className="page-intro">
+        <h1>{identity.name}</h1>
+        <p className="lede">
+          {identity.title} · {identity.company} · {identity.location}
+        </p>
+      </header>
 
-        <section className="mb-10 stagger-2">
-          <hr className="border-t border-foreground/15 mb-6" />
-          <h2 className="section-heading mb-4">Rhythm & Algorithms</h2>
-          <p>
-            The percussion world shaped who I am long before I touched my first
-            keyboard. There&apos;s something about the discipline of marching
-            drum corps, the precision of indoor percussion, and the controlled
-            chaos of tour life that translates perfectly to quality assurance
-            and engineering.
-          </p>
-          <p>
-            Both require obsessive attention to detail, the ability to perform
-            under pressure, and an understanding that sometimes the most
-            beautiful moments happen in the spaces between the notes, or between
-            test runs.
-          </p>
-        </section>
+      <section className="content-section" aria-labelledby="about-work">
+        <div className="section-heading">
+          <h2 id="about-work">Work</h2>
+          <Link href="/experience">Full history</Link>
+        </div>
+        <div className="record-list">
+          {workRoles.slice(0, 3).map((role) => (
+            <article key={role.period} className="record-row record-row-work">
+              <time>{role.period}</time>
+              <div>
+                <h3>{role.title}</h3>
+                <p className="record-meta">{role.company}</p>
+              </div>
+              <p>{role.summary}</p>
+            </article>
+          ))}
+        </div>
+      </section>
 
-        <section className="mb-10 stagger-3">
-          <hr className="border-t border-foreground/15 mb-6" />
-          <h2 className="section-heading mb-4">The Journey</h2>
+      <section className="split-section">
+        <div>
+          <div className="section-heading">
+            <h2>Independent projects</h2>
+            <Link href="/projects">Project archive</Link>
+          </div>
           <p>
-            My percussion journey began in 2009 with Santa Clara Vanguard
-            Cadets, where I learned that peak performance and peak identity
-            crisis can coexist beautifully. The path led me through Santa Clara
-            Vanguard, Vanguard Winter Percussion, and the Blue Stars, before
-            culminating with Pulse Percussion in 2014.
+            ACK Protocol · Agent Tool Index · qai-cli · x402 tooling · ERC-8004
+            tooling · MCP servers
           </p>
-          <p>
-            I&apos;ve been teaching as a snare tech since 2014, and I still
-            think about software in terms of reps, cleaning, and locking in
-            with the rest of the line.
-          </p>
-        </section>
+        </div>
 
-        <section className="mb-10 stagger-4">
-          <hr className="border-t border-foreground/15 mb-6" />
-          <h2 className="section-heading mb-4">Beyond the Screen</h2>
-          <p>
-            Outside work I build agent infrastructure on Ethereum L2s: an
-            ERC-8004 reputation protocol (ACK), compliance tooling for the x402
-            payment protocol, and MCP servers — with contracts live on Abstract
-            and Base. When I&apos;m not shipping or teaching paradiddles,
-            you&apos;ll find me deep in the progressive metal rabbit hole
-            (Animals As Leaders, Protest the Hero, Chon), or adding another NFT
-            to the collection that my wife pretends not to judge.
-          </p>
-          <p>
-            I believe in building things that matter, whether it&apos;s reliable
-            software that helps businesses grow, young musicians who will carry
-            the art forward, or just a really solid groove that makes people
-            move.
-          </p>
-        </section>
-      </div>
+        <aside aria-labelledby="about-percussion">
+          <div className="section-heading">
+            <h2 id="about-percussion">Percussion</h2>
+            <Link href="/drums">Videos</Link>
+          </div>
+          <div className="credit-list">
+            {percussionCredits
+              .slice(0, 3)
+              .map(([period, organization, role]) => (
+                <div key={`${organization}-${period}`}>
+                  <time>{period}</time>
+                  <strong>{organization}</strong>
+                  <span>{role}</span>
+                </div>
+              ))}
+          </div>
+        </aside>
+      </section>
+
+      <section className="content-section" aria-labelledby="personal-title">
+        <div className="section-heading">
+          <h2 id="personal-title">Personal</h2>
+        </div>
+        <p>Arizona · Father of two</p>
+      </section>
     </div>
   );
 }

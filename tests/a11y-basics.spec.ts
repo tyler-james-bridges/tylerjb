@@ -26,7 +26,8 @@ test.describe('accessibility basics', () => {
         .locator('img:not([alt])')
         .evaluateAll((imgs) =>
           imgs.map(
-            (img) => (img as HTMLImageElement).src || img.outerHTML.slice(0, 120)
+            (img) =>
+              (img as HTMLImageElement).src || img.outerHTML.slice(0, 120)
           )
         );
       expect(
@@ -57,6 +58,76 @@ test.describe('accessibility basics', () => {
         `nav link ${await link.getAttribute('href')} needs an accessible name`
       ).not.toBe('');
     }
+  });
+
+  test('primary navigation stays concise and on one row', async ({ page }) => {
+    await page.goto('/');
+
+    const primary = page.getByRole('navigation', {
+      name: 'Primary navigation',
+    });
+    const links = primary.locator('.desktop-nav a');
+
+    await expect(links).toHaveText([
+      'Work',
+      'Projects',
+      'Drums',
+      'About',
+      'Contact',
+    ]);
+    await expect(primary.getByRole('link', { name: 'Drums' })).toBeVisible();
+
+    const rowPositions = await links.evaluateAll((items) =>
+      items.map((item) => Math.round(item.getBoundingClientRect().top))
+    );
+    expect(new Set(rowPositions).size).toBe(1);
+  });
+
+  test('theme control supports System, Light, and Dark', async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'dark' });
+    await page.goto('/');
+
+    const theme = page.getByRole('combobox', { name: 'Theme' });
+    await expect(theme).toHaveValue('system');
+    await expect(page.locator('html')).toHaveClass(/dark/);
+
+    await theme.selectOption('light');
+    await expect(page.locator('html')).toHaveClass(/light/);
+
+    await theme.selectOption('dark');
+    await expect(page.locator('html')).toHaveClass(/dark/);
+
+    await theme.selectOption('system');
+    await expect(page.locator('html')).toHaveClass(/dark/);
+  });
+
+  test('skip link moves focus to the main content', async ({ page }) => {
+    await page.goto('/');
+    await page.keyboard.press('Tab');
+    await expect(
+      page.getByRole('link', { name: 'Skip to content' })
+    ).toBeFocused();
+    await page.keyboard.press('Enter');
+    await expect(page.locator('#main-content')).toBeFocused();
+  });
+
+  test('mobile menu manages focus and Escape', async ({ page }) => {
+    await page.goto('/');
+    const trigger = page.getByRole('button', { name: 'Open menu' });
+    if (!(await trigger.isVisible())) return;
+
+    await trigger.focus();
+    await page.keyboard.press('Enter');
+    await expect(page.getByRole('dialog', { name: 'Site menu' })).toBeVisible();
+    await expect(
+      page.getByRole('button', { name: 'Close menu' })
+    ).toBeFocused();
+
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('dialog', { name: 'Site menu' })).toHaveCount(
+      0
+    );
+    await expect(trigger).toBeFocused();
   });
 
   test('contact form controls are labelled', async ({ page }) => {

@@ -1,7 +1,6 @@
 'use client';
 
-import * as React from 'react';
-import { Moon, Sun } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { cn } from '@/lib/utils';
 
@@ -11,53 +10,28 @@ interface ThemeToggleProps {
 
 export function ThemeToggle({ className }: ThemeToggleProps) {
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = React.useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  // Prevent hydration mismatch
-  React.useEffect(() => {
+  useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return (
-      <button
-        className={cn(
-          'relative p-2 transition-colors duration-200',
-          'hover:bg-muted',
-          className
-        )}
-        aria-label="Toggle theme"
-      >
-        <div className="w-5 h-5" />
-      </button>
-    );
-  }
+  const selectedTheme =
+    mounted && (theme === 'light' || theme === 'dark') ? theme : 'system';
 
   return (
-    <button
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className={cn(
-        'relative p-2 transition-all duration-300',
-        'hover:bg-muted hover:text-accent',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent',
-        className
-      )}
-      aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-    >
-      <Sun
-        className={cn(
-          'h-5 w-5 transition-all duration-300',
-          theme === 'dark' ? 'rotate-0 scale-100' : 'rotate-90 scale-0 absolute'
-        )}
-      />
-      <Moon
-        className={cn(
-          'h-5 w-5 transition-all duration-300',
-          theme === 'dark'
-            ? '-rotate-90 scale-0 absolute'
-            : 'rotate-0 scale-100'
-        )}
-      />
-    </button>
+    <label className={cn('theme-control', className)}>
+      <span>Theme</span>
+      <select
+        className="theme-select"
+        value={selectedTheme}
+        onChange={(event) => setTheme(event.currentTarget.value)}
+        disabled={!mounted}
+      >
+        <option value="system">System</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </label>
   );
 }

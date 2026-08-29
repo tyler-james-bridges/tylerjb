@@ -2,66 +2,39 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { navItems, socialLinks } from './nav-config';
-import { ThemeToggle } from './ThemeToggle';
+import { navItems } from './nav-config';
 
-export default function Sidebar() {
+export default function SiteHeader() {
   const pathname = usePathname();
 
-  const isActive = (href: string) => {
-    if (href === '/') return pathname === '/';
-    return pathname.startsWith(href);
-  };
+  const isActive = (href: string) =>
+    pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <header className="sticky top-0 z-50 w-full glass-header">
-      <div className="flex items-center justify-between px-6 py-3">
-        {/* Wordmark */}
+    <header className="site-header">
+      <nav className="site-header-inner" aria-label="Primary navigation">
         <Link
           href="/"
-          className="text-base font-bold tracking-widest uppercase"
+          className="wordmark"
+          aria-label="Tyler James-Bridges, home"
         >
-          TJB
+          Tyler James-Bridges
         </Link>
 
-        {/* Nav links */}
-        <nav className="hidden md:flex items-center gap-6">
-          {navItems.map((item) => {
-            const active = isActive(item.href);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`text-xs uppercase tracking-[0.08em] font-medium transition-colors ${
-                  active
-                    ? 'text-foreground underline underline-offset-4'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
-              >
-                {item.shortLabel || item.label}
-              </Link>
-            );
-          })}
-        </nav>
-
-        {/* Right side: social + theme */}
-        <div className="flex items-center gap-4">
-          <div className="hidden md:flex items-center gap-4">
-            {socialLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs uppercase tracking-[0.08em] text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-          <ThemeToggle />
+        <div className="desktop-nav">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="nav-link"
+              data-active={isActive(item.href)}
+              aria-current={isActive(item.href) ? 'page' : undefined}
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
-      </div>
+      </nav>
     </header>
   );
 }

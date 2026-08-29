@@ -1,192 +1,121 @@
-'use client';
-
+import Image from 'next/image';
 import Link from 'next/link';
-import TerminalWidget from './components/TerminalWidget';
+import { identity, percussionCredits, projects, workRoles } from './site-data';
 
 export default function HomePage() {
   return (
-    <div className="animate-slide-up">
-      <div className="content-body">
-        {/* Vertical text running down the right side of entire content */}
-        <div
-          aria-hidden="true"
-          className="hidden md:block absolute right-4 top-24 pointer-events-none select-none opacity-10"
-        >
-          <div className="text-[9px] font-mono text-muted-foreground writing-vertical tracking-[0.4em] leading-none">
-            SOFTWARE・ENGINEER・QA・PERCUSSION・FATHER・BUILDER・DEBUGGER・TYPESCRIPT・PLAYWRIGHT
+    <div className="page-shell">
+      <section className="profile-intro" aria-labelledby="home-title">
+        <div className="profile-copy">
+          <h1 id="home-title">{identity.name}</h1>
+          <p className="profile-role">
+            {identity.title} · {identity.company}
+          </p>
+          <p className="profile-scope">
+            Developer tooling · Test infrastructure · CI · Internal services
+          </p>
+          <p className="muted-text">{identity.location}</p>
+          <div className="inline-links" aria-label="Direct links">
+            <a href={identity.github} target="_blank" rel="noopener noreferrer">
+              GitHub <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              href={identity.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn <span aria-hidden="true">↗</span>
+            </a>
+            <a href={`mailto:${identity.email}`}>Email</a>
           </div>
         </div>
 
-        {/* Hero Section */}
-        <section className="text-center mb-10 relative">
-          <h1 className="stagger-1">
-            <span className="block text-4xl sm:text-5xl font-bold mb-1">
-              Tyler
-            </span>
-            <span className="block text-4xl sm:text-5xl font-light text-muted-foreground mb-5">
-              James-Bridges
-            </span>
-          </h1>
+        <Image
+          src="/images/profile-current.jpg"
+          alt={identity.name}
+          width={400}
+          height={400}
+          sizes="(max-width: 720px) 180px, 220px"
+          priority
+          className="profile-portrait"
+        />
+      </section>
 
-          <p className="text-lg text-muted-foreground max-w-md mx-auto leading-relaxed mb-3 stagger-2">
-            Software engineer with a decade of QA experience. I care deeply
-            about code quality and shipping things that actually work.
-          </p>
+      <section id="work" className="content-section">
+        <div className="section-heading">
+          <h2>Work</h2>
+          <Link href="/experience">Full history</Link>
+        </div>
+        <div className="record-list">
+          {workRoles.slice(0, 3).map((role) => (
+            <article key={role.period} className="record-row record-row-work">
+              <time>{role.period}</time>
+              <div>
+                <h3>{role.title}</h3>
+                <p className="record-meta">{role.company}</p>
+              </div>
+              <p>{role.summary}</p>
+            </article>
+          ))}
+        </div>
+      </section>
 
-          <p className="text-base font-semibold max-w-md mx-auto leading-relaxed mb-6 stagger-2">
-            I build and scale systems that improve developer productivity across
-            the organization.
-          </p>
+      <section id="projects" className="content-section">
+        <div className="section-heading">
+          <h2>Projects</h2>
+          <Link href="/projects">Project archive</Link>
+        </div>
+        <div className="record-list">
+          {projects.slice(0, 3).map((project) => (
+            <article key={project.title} className="record-row project-row">
+              <div>
+                <h3>{project.title}</h3>
+                <p className="record-meta">{project.status}</p>
+              </div>
+              <p>{project.description}</p>
+              <div className="row-links">
+                {project.live && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Visit <span aria-hidden="true">↗</span>
+                  </a>
+                )}
+                {project.source && (
+                  <a
+                    href={project.source}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Source <span aria-hidden="true">↗</span>
+                  </a>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
 
-          {/* Credibility Badges */}
-          <div className="flex flex-wrap justify-center gap-2 mb-6 stagger-3">
-            <span className="px-3 py-1.5 text-xs font-medium glass-chip badge-hover cursor-default">
-              10+ Years in Tech
-            </span>
-            <span className="px-3 py-1.5 text-xs font-medium glass-chip badge-hover cursor-default">
-              Playwright / Test Automation
-            </span>
-            <span className="px-3 py-1.5 text-xs font-medium glass-chip badge-hover cursor-default">
-              TypeScript / React / Next.js
-            </span>
-          </div>
-
-          <p className="text-sm text-muted-foreground stagger-3">
-            Currently Software Engineer III @ Weedmaps
-          </p>
-        </section>
-
-        {/* Featured Work */}
-        <section className="mb-12 stagger-4 max-w-xl mx-auto">
-          <h3 className="section-heading mb-5">Featured Work</h3>
-
-          {/* ACK - Hero Card */}
-          <a
-            href="https://ack-onchain.dev/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block glass-card p-6 mb-4 card-lift group"
-          >
-            <div className="flex items-center justify-between mb-3">
-              <h4 className="text-base font-bold group-hover:text-[#e2a727] transition-colors">
-                ACK Protocol
-              </h4>
-              <span className="px-2 py-0.5 text-[10px] font-medium rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
-                Production
-              </span>
-            </div>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-1">
-              Peer-driven reputation layer for AI agents. Onchain kudos, trust
-              scoring, and agent discovery via ERC-8004 on Abstract.
-            </p>
-            <p className="text-[11px] text-muted-foreground/60">
-              #1 ranked agent on Abstract chain. 35+ onchain reviews across 3
-              chains.
-            </p>
-          </a>
-
-          {/* Two-column grid for secondary projects */}
-          <div className="grid grid-cols-2 gap-4 mb-5">
-            <a
-              href="https://www.npmjs.com/package/qai-cli"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block glass-card p-4 card-lift group"
+      <section className="content-section" aria-labelledby="percussion-title">
+        <div className="section-heading">
+          <h2 id="percussion-title">Percussion</h2>
+          <Link href="/drums">Videos</Link>
+        </div>
+        <div className="record-list">
+          {percussionCredits.slice(0, 3).map(([period, organization, role]) => (
+            <article
+              key={`${organization}-${period}`}
+              className="record-row detail-row"
             >
-              <h4 className="text-sm font-bold mb-2 group-hover:text-[#e2a727] transition-colors">
-                qai-cli
-              </h4>
-              <p className="text-[11px] text-muted-foreground leading-relaxed mb-2">
-                AI-powered PR review and test generation. A decade of QA,
-                packaged as a CLI.
-              </p>
-              <span className="text-[10px] text-muted-foreground/60">
-                npm v3.3.0
-              </span>
-            </a>
-
-            <a
-              href="https://claw-council.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block glass-card p-4 card-lift group"
-            >
-              <h4 className="text-sm font-bold mb-2 group-hover:text-[#e2a727] transition-colors">
-                The Claw Council
-              </h4>
-              <p className="text-[11px] text-muted-foreground leading-relaxed mb-2">
-                Multi-agent AI system. Three agents running research,
-                engineering, and ops autonomously.
-              </p>
-              <span className="text-[10px] text-muted-foreground/60">
-                OpenClaw + Discord
-              </span>
-            </a>
-          </div>
-
-          <Link
-            href="/projects"
-            className="block text-center px-4 py-2.5 glass-btn text-sm font-medium"
-          >
-            All Projects &rarr;
-          </Link>
-        </section>
-
-        {/* Dual CTAs */}
-        <section className="max-w-xl mx-auto mb-14 stagger-5">
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              href="/experience"
-              className="px-6 py-3 pill-solid font-medium text-center text-sm uppercase tracking-wider"
-            >
-              View My Experience
-            </Link>
-            <Link
-              href="/contact"
-              className="px-6 py-3 glass-btn font-medium text-center text-sm uppercase tracking-wider"
-            >
-              Let&apos;s Work Together
-            </Link>
-          </div>
-        </section>
-
-        {/* Journey Callout */}
-        <section className="max-w-xl mx-auto mb-10 stagger-6">
-          <div className="glass-card p-5">
-            <p className="text-sm text-muted-foreground mb-2">
-              From QA analyst to systems engineer — the story of building
-              belief, building tools, and building momentum.
-            </p>
-            <Link
-              href="/journey"
-              className="text-sm font-medium hover:text-[#e2a727] transition-colors"
-            >
-              Read the story of how I got here &rarr;
-            </Link>
-          </div>
-        </section>
-
-        {/* Mobile Dev Terminal */}
-        <section id="terminal" className="max-w-xl mx-auto mt-14 stagger-6">
-          <hr className="border-t border-foreground/15 mb-6" />
-          <h3 className="section-heading mb-3 text-center">
-            Built from iPhone
-          </h3>
-          <p className="text-sm text-muted-foreground text-center mb-4">
-            This widget was built via mobile dev stack: iPhone → Termius →
-            Tailscale → Claude Code
-          </p>
-          <TerminalWidget />
-          <p className="text-center mt-4">
-            <Link
-              href="/playground"
-              className="text-sm font-medium hover:text-[#e2a727] transition-colors"
-            >
-              More experiments in the playground &rarr;
-            </Link>
-          </p>
-        </section>
-      </div>
+              <time>{period}</time>
+              <strong>{organization}</strong>
+              <span className="record-meta">{role}</span>
+            </article>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
