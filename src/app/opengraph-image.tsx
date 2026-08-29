@@ -1,9 +1,7 @@
 import { ImageResponse } from 'next/og';
 
-export const runtime = 'edge';
-
 export const alt =
-  'Tyler James-Bridges — Software Engineer — DevEx, QA, agent infrastructure';
+  'Tyler James-Bridges — software engineer, former QA, and percussion educator';
 export const size = {
   width: 1200,
   height: 630,
@@ -12,73 +10,71 @@ export const contentType = 'image/png';
 
 export default function OpengraphImage() {
   return new ImageResponse(
-    (
+    <div
+      style={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        padding: '68px 76px',
+        color: '#181818',
+        background: '#fafaf8',
+        fontFamily: 'Arial, sans-serif',
+      }}
+    >
       <div
         style={{
-          width: '100%',
-          height: '100%',
           display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          padding: '80px',
-          backgroundColor: '#181512',
-          backgroundImage:
-            'radial-gradient(circle at 85% 15%, rgba(244, 241, 236, 0.06), transparent 50%)',
-          fontFamily:
-            'ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif',
+          justifyContent: 'space-between',
+          borderBottom: '1px solid #d8d8d3',
+          paddingBottom: '18px',
+          fontSize: '22px',
+          fontWeight: 600,
         }}
       >
+        <span>Tyler James-Bridges</span>
+        <span>Arizona</span>
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
         <div
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            marginBottom: '32px',
-          }}
-        >
-          <div
-            style={{
-              width: '48px',
-              height: '4px',
-              backgroundColor: '#f4f1ec',
-              borderRadius: '2px',
-              marginRight: '20px',
-            }}
-          />
-          <div
-            style={{
-              fontSize: '28px',
-              color: '#9c948b',
-              letterSpacing: '0.08em',
-            }}
-          >
-            tylerjb.dev
-          </div>
-        </div>
-        <div
-          style={{
-            fontSize: '88px',
+            maxWidth: '950px',
+            fontSize: '92px',
             fontWeight: 700,
-            color: '#f4f1ec',
-            lineHeight: 1.1,
-            letterSpacing: '-0.02em',
-            marginBottom: '28px',
+            lineHeight: 0.95,
+            letterSpacing: '-0.045em',
           }}
         >
-          Tyler James-Bridges
+          Software Engineer III
         </div>
         <div
           style={{
-            fontSize: '36px',
-            color: '#9c948b',
-            lineHeight: 1.4,
+            marginTop: '32px',
+            fontSize: '30px',
+            lineHeight: 1.35,
+            color: '#5b574f',
           }}
         >
-          Software Engineer — DevEx, QA, agent infrastructure
+          Weedmaps
         </div>
       </div>
-    ),
-    {
-      ...size,
-    }
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          borderTop: '1px solid #d8d8d3',
+          paddingTop: '18px',
+          fontSize: '18px',
+          color: '#626262',
+        }}
+      >
+        <span>
+          Developer tooling · Test infrastructure · CI · Internal services
+        </span>
+        <span>tylerjb.dev</span>
+      </div>
+    </div>,
+    size
   );
 }

@@ -1,365 +1,77 @@
-import { Metadata } from 'next';
-import Link from 'next/link';
-import { Github, ExternalLink, Home } from 'lucide-react';
+import type { Metadata } from 'next';
+import { buildPageMetadata } from '@/lib/metadata';
+import { projects, type Project } from '../site-data';
 
-export const metadata: Metadata = {
+const description =
+  'Public projects by Tyler James-Bridges across developer tooling, testing, onchain systems, and music.';
+
+export const metadata: Metadata = buildPageMetadata({
   title: 'Projects',
-  description:
-    'Agent infrastructure, QA tooling, and onchain products: ACK Protocol, Agent Tool Index, etch, qai-cli, x402 ecosystem tooling, and more.',
-};
+  description,
+  path: '/projects',
+});
 
-type ProjectStatus =
-  | 'production'
-  | 'beta'
-  | 'internal'
-  | 'in-progress'
-  | 'side-project';
-
-interface Project {
-  title: string;
-  description: string;
-  tech: string[];
-  status: ProjectStatus;
-  github?: string;
-  live?: string;
-  featured?: boolean;
-}
-
-const statusConfig: Record<
-  ProjectStatus,
-  { label: string; className: string }
-> = {
-  production: {
-    label: 'Production',
-    className:
-      'bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30',
-  },
-  beta: {
-    label: 'Beta',
-    className:
-      'bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 border-cyan-500/30',
-  },
-  internal: {
-    label: 'Internal',
-    className:
-      'bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30',
-  },
-  'in-progress': {
-    label: 'In Progress',
-    className:
-      'bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/30',
-  },
-  'side-project': {
-    label: 'Side Project',
-    className:
-      'bg-purple-500/15 text-purple-600 dark:text-purple-400 border-purple-500/30',
-  },
-};
-
-const projects: Project[] = [
-  {
-    title: 'ACK Protocol',
-    description:
-      'Peer-driven reputation protocol for AI agents on ERC-8004. Agents earn trust through consensus-based kudos on Abstract.',
-    tech: ['Next.js', 'Solidity', 'ERC-8004', 'Abstract'],
-    status: 'production',
-    github: 'https://github.com/tyler-james-bridges/ack-protocol',
-    live: 'https://ack-onchain.dev',
-    featured: true,
-  },
-  {
-    title: 'Agent Tool Index',
-    description:
-      'Agent-first visual index for ERC-8257 tools on Base, Ethereum, and Abstract. Syncs the onchain ToolRegistry, verifies manifests, and exposes discovery and call-planning APIs for AI agents. Built in Rust.',
-    tech: ['Rust', 'ERC-8257', 'Base', 'Vercel'],
-    status: 'production',
-    github: 'https://github.com/tyler-james-bridges/agent-tool-index',
-    live: 'https://agenttoolindex.xyz',
-    featured: true,
-  },
-  {
-    title: 'etch',
-    description:
-      'Permanent onchain records: typed, optionally soulbound ERC-721s with deterministic generative art rendered fully onchain. Deployed on Abstract and Base, with an MCP server on npm (etch-mcp).',
-    tech: ['Solidity', 'Next.js', 'MCP', 'Abstract', 'Base'],
-    status: 'production',
-    github: 'https://github.com/tyler-james-bridges/etch',
-    live: 'https://etch.ack-onchain.dev',
-    featured: true,
-  },
-  {
-    title: 'qai-cli',
-    description:
-      'AI-powered QA engineer for the terminal: visual scans with screenshots, console and network error detection, context-aware PR review, and test generation. A decade of QA packaged as a CLI.',
-    tech: ['npm package', 'Playwright', 'AI'],
-    status: 'production',
-    github: 'https://github.com/tyler-james-bridges/qai-cli',
-    live: 'https://www.npmjs.com/package/qai-cli',
-    featured: true,
-  },
-  {
-    title: 'ACK SDK',
-    description:
-      'TypeScript SDK for ACK Protocol. ERC-8004 compliant reputation and kudos on Abstract.',
-    tech: ['TypeScript', 'ERC-8004', 'Abstract'],
-    status: 'production',
-    github: 'https://github.com/tyler-james-bridges/ack-sdk',
-    featured: true,
-  },
-  {
-    title: 'abstrack',
-    description:
-      'Blockchain rhythm game on Abstract where every block is a unique song. Turns onchain data into interactive music.',
-    tech: ['Next.js', 'Web Audio API', 'Abstract'],
-    status: 'production',
-    github: 'https://github.com/tyler-james-bridges/abstrack',
-    live: 'https://www.abstrack.live',
-    featured: true,
-  },
-  {
-    title: 'Playwright Test CLI',
-    description:
-      'Internal CLI tool for orchestrating Playwright test execution across multiple codebases and environments. Replaced hardcoded shell/YAML logic with unified test orchestration.',
-    tech: ['Playwright', 'Node.js', 'CLI'],
-    status: 'internal',
-    featured: true,
-  },
-  {
-    title: 'abstract-skills',
-    description:
-      'Claude Code plugin for Abstract blockchain development. Adds Abstract-specific knowledge and patterns to the AI coding assistant.',
-    tech: ['Claude Code', 'Abstract', 'TypeScript'],
-    status: 'production',
-    github: 'https://github.com/tyler-james-bridges/abstract-skills',
-    featured: true,
-  },
-  {
-    title: 'x402 Lint',
-    description:
-      'x402 compliance linter that grades endpoints A-F against the V2 spec. Deployed on Bankr x402 Cloud, costs $0.01 via x402. x402 behind x402.',
-    tech: ['x402', 'Bankr', 'Node.js', 'TypeScript'],
-    status: 'production',
-    github: 'https://github.com/tyler-james-bridges/x402-lint',
-    live: 'https://0x402.sh',
-    featured: true,
-  },
-  {
-    title: 'x402 Canary',
-    description:
-      'Agent Economy Health Monitor. Tracks 10 x402 endpoints across the ecosystem (x402scan, StableEnrich, AgentCash, Bankr, dTelecom). Powered by Bankr x402 Cloud.',
-    tech: ['x402', 'Bankr', 'Node.js', 'TypeScript'],
-    status: 'production',
-    github: 'https://github.com/tyler-james-bridges/x402-canary',
-    live: 'https://canary.0x402.sh',
-    featured: true,
-  },
-  {
-    title: 'birthday-vault',
-    description:
-      'Onchain memory capsule and trust fund for Ezra. Deployed on Abstract mainnet.',
-    tech: ['Solidity', 'Abstract', 'Next.js'],
-    status: 'production',
-    github: 'https://github.com/tyler-james-bridges/birthday-vault',
-  },
-  {
-    title: 'Solana DevEx Platform',
-    description:
-      'Colosseum Agent Hackathon entry (Feb 2026): seven integrated Solana developer tools, including a mainnet CPI debugger and Ed25519 debugging attestations. npm package: onchain-devex.',
-    tech: ['Next.js', 'Solana', 'TypeScript'],
-    status: 'side-project',
-    github: 'https://github.com/tyler-james-bridges/solana-devex-platform',
-    live: 'https://onchain-devex.tools',
-  },
-  {
-    title: 'tempo',
-    description:
-      'Upload sheet music, get tempo maps. A metronome for the marching arts with AI tempo extraction. Expo mobile app plus Next.js PWA.',
-    tech: ['React Native', 'Expo', 'Next.js', 'AI'],
-    status: 'in-progress',
-    github: 'https://github.com/tyler-james-bridges/tempo',
-  },
-  {
-    title: 'x402-abstract',
-    description:
-      'x402 payment explorer for Abstract L2. Browse x402-enabled services on the Abstract chain.',
-    tech: ['Next.js', 'x402', 'Abstract'],
-    status: 'production',
-    github: 'https://github.com/tyler-james-bridges/x402-abstract',
-    live: 'https://x402-abstract.vercel.app',
-  },
-  {
-    title: 'recipe-to-reality',
-    description:
-      'iOS app that extracts recipes from URLs using AI and generates smart grocery lists. Built for RevenueCat Shipyard 2026.',
-    tech: ['React Native', 'Expo', 'AI'],
-    status: 'side-project',
-    github: 'https://github.com/tyler-james-bridges/recipe-to-reality',
-  },
-  {
-    title: 'comps',
-    description:
-      'Rental intelligence tool. Find and score competing rental listings against your property.',
-    tech: ['Next.js', 'TypeScript'],
-    status: 'side-project',
-    github: 'https://github.com/tyler-james-bridges/comps',
-    live: 'https://comps-rosy-one.vercel.app',
-  },
-  {
-    title: 'Portfolio Website',
-    description:
-      'This site. Brutalist design, Geist Mono, built with Next.js 15 and Tailwind CSS.',
-    tech: ['Next.js', 'TypeScript', 'Tailwind'],
-    status: 'production',
-    github: 'https://github.com/tyler-james-bridges/tylerjb',
-    live: '/',
-  },
-  {
-    title: 'PR Log Sync',
-    description:
-      'Sync GitHub PRs and code reviews to Obsidian markdown files. Searchable archive of code review history.',
-    tech: ['Shell', 'GitHub API'],
-    status: 'side-project',
-    github: 'https://github.com/tyler-james-bridges/pr-log-sync',
-  },
-  {
-    title: 'x402 Indexer',
-    description:
-      'TypeScript CLI that crawls and indexes x402-enabled APIs from the Bazaar ecosystem.',
-    tech: ['Node.js', 'x402'],
-    status: 'side-project',
-    github: 'https://github.com/tyler-james-bridges/x402-indexer',
-  },
-];
-
-function StatusBadge({ status }: { status: ProjectStatus }) {
-  const config = statusConfig[status];
+function ProjectRow({ project }: { project: Project }) {
   return (
-    <span
-      className={`px-2.5 py-1 text-xs font-medium rounded-full border ${config.className}`}
-    >
-      {config.label}
-    </span>
-  );
-}
-
-function ProjectCard({
-  project,
-  featured = false,
-}: {
-  project: Project;
-  featured?: boolean;
-}) {
-  return (
-    <div
-      className={`glass-card card-lift ${
-        featured ? 'p-8' : 'p-6'
-      }`}
-    >
-      <div className="flex items-start gap-3 mb-4">
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-3 flex-wrap mb-1">
-            <h3 className={`font-semibold ${featured ? 'text-xl' : 'text-lg'}`}>
-              {project.title}
-            </h3>
-            <StatusBadge status={project.status} />
-          </div>
-        </div>
-        <div className="flex gap-3 flex-shrink-0">
-          {project.github && (
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              aria-label={`View ${project.title} on GitHub`}
-            >
-              <Github className="w-5 h-5" />
-            </a>
-          )}
-          {project.live &&
-            (project.live.startsWith('/') ? (
-              <Link
-                href={project.live}
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label={`View ${project.title} live`}
-              >
-                <Home className="w-5 h-5" />
-              </Link>
-            ) : (
-              <a
-                href={project.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label={`View ${project.title} live`}
-              >
-                <ExternalLink className="w-5 h-5" />
-              </a>
-            ))}
-        </div>
+    <article className="record-row project-row">
+      <div>
+        <h3>{project.title}</h3>
+        <p className="record-meta">{project.status}</p>
       </div>
-      <p
-        className={`text-muted-foreground mb-5 leading-relaxed ${featured ? 'text-base' : 'text-sm'}`}
-      >
-        {project.description}
-      </p>
-      <div className="flex flex-wrap gap-2">
-        {project.tech.map((tech) => (
-          <span
-            key={tech}
-            className="px-3 py-1.5 text-xs font-medium glass-chip badge-hover"
-          >
-            {tech}
-          </span>
-        ))}
+      <div>
+        <p>{project.description}</p>
+        <p className="record-meta record-tech">{project.tech.join(' · ')}</p>
       </div>
-    </div>
+      <div className="row-links">
+        {project.live && (
+          <a href={project.live} target="_blank" rel="noopener noreferrer">
+            Visit <span aria-hidden="true">↗</span>
+          </a>
+        )}
+        {project.source && (
+          <a href={project.source} target="_blank" rel="noopener noreferrer">
+            Source <span aria-hidden="true">↗</span>
+          </a>
+        )}
+      </div>
+    </article>
   );
 }
 
 export default function ProjectsPage() {
-  const featuredProjects = projects.filter((p) => p.featured);
-  const otherProjects = projects.filter((p) => !p.featured);
+  const selectedProjects = projects.filter((project) => project.featured);
+  const archiveProjects = projects.filter((project) => !project.featured);
 
   return (
-    <div className="animate-slide-up">
-      <div className="content-body">
-        <h1 className="sr-only">Projects</h1>
-        {/* Featured Projects */}
-        {featuredProjects.length > 0 && (
-          <section className="mb-12 stagger-1">
-            <h2 className="section-heading mb-5">Featured</h2>
-            <div className="space-y-6">
-              {featuredProjects.map((project, index) => (
-                <div
-                  key={project.title}
-                  className={`stagger-${Math.min(index + 2, 6)}`}
-                >
-                  <ProjectCard project={project} featured />
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
+    <div className="page-shell">
+      <header className="page-intro">
+        <h1>Projects</h1>
+        <p className="lede">
+          Open-source tools · Packages · Services · Experiments
+        </p>
+      </header>
 
-        {/* Other Projects */}
-        {otherProjects.length > 0 && (
-          <section className="stagger-3">
-            <hr className="border-t border-foreground/15 mb-6" />
-            <h2 className="section-heading mb-5">More Projects</h2>
-            <div className="grid gap-5 sm:grid-cols-2">
-              {otherProjects.map((project, index) => (
-                <div
-                  key={project.title}
-                  className={`stagger-${Math.min(index + 4, 6)}`}
-                >
-                  <ProjectCard project={project} />
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-      </div>
+      <section className="content-section" aria-labelledby="selected-title">
+        <div className="section-heading">
+          <h2 id="selected-title">Selected projects</h2>
+        </div>
+        <div className="record-list">
+          {selectedProjects.map((project) => (
+            <ProjectRow key={project.title} project={project} />
+          ))}
+        </div>
+      </section>
+
+      <section className="content-section" aria-labelledby="archive-title">
+        <div className="section-heading">
+          <h2 id="archive-title">Project archive</h2>
+        </div>
+        <div className="record-list">
+          {archiveProjects.map((project) => (
+            <ProjectRow key={project.title} project={project} />
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

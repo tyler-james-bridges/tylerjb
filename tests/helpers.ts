@@ -10,18 +10,16 @@ export const PAGES = [
   '/contact',
   '/drums',
   '/playground',
-  '/blog',
 ] as const;
 
 /** Routes reachable through the primary navigation (sidebar / mobile nav). */
 export const NAV_PAGES = [
   '/',
-  '/about',
   '/experience',
   '/projects',
-  '/blog',
-  '/contact',
   '/drums',
+  '/about',
+  '/contact',
 ] as const;
 
 /**

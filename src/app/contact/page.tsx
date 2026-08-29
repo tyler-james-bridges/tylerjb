@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { Button } from '../components/ui/button';
@@ -10,12 +10,13 @@ function ContactForm() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
     setSending(true);
     setError('');
     setSuccess(false);
-    const form = e.currentTarget;
+
+    const form = event.currentTarget;
     const purpose = (form.elements.namedItem('purpose') as HTMLSelectElement)
       .value;
     const message = (form.elements.namedItem('message') as HTMLTextAreaElement)
@@ -25,31 +26,31 @@ function ContactForm() {
       email: (form.elements.namedItem('email') as HTMLInputElement).value,
       message: `[${purpose}] ${message}`.trim(),
     };
+
     try {
-      const res = await fetch('/api/contact', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
-      if (res.ok) {
-        setSuccess(true);
-        form.reset();
-      } else {
-        setError('Something went wrong. Please try again.');
-      }
+
+      if (!response.ok) throw new Error('Request failed');
+      setSuccess(true);
+      form.reset();
     } catch {
-      setError('Something went wrong. Please try again.');
+      setError('The form could not send. Please use the email link below.');
+    } finally {
+      setSending(false);
     }
-    setSending(false);
   }
 
   return (
-    <form className="space-y-4" onSubmit={handleSubmit}>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <form className="form-panel" onSubmit={handleSubmit} aria-busy={sending}>
+      <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label
             htmlFor="name"
-            className="block text-sm font-medium text-foreground mb-1.5"
+            className="work-meta mb-2 block text-foreground"
           >
             Name
           </label>
@@ -57,14 +58,14 @@ function ContactForm() {
             id="name"
             name="name"
             type="text"
+            autoComplete="name"
             required
-            className="input-glow"
           />
         </div>
         <div>
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-foreground mb-1.5"
+            className="work-meta mb-2 block text-foreground"
           >
             Email
           </label>
@@ -72,128 +73,116 @@ function ContactForm() {
             id="email"
             name="email"
             type="email"
+            autoComplete="email"
             required
-            className="input-glow"
           />
         </div>
       </div>
+
       <div>
         <label
           htmlFor="purpose"
-          className="block text-sm font-medium text-foreground mb-1.5"
+          className="work-meta mb-2 block text-foreground"
         >
-          What brings you here?
+          Topic
         </label>
-        <select
-          id="purpose"
-          name="purpose"
-          required
-          className="flex h-10 w-full border border-input bg-background px-3 py-2 text-sm ring-offset-background input-glow focus-visible:outline-none"
-        >
-          <option value="">Select an option...</option>
-          <option value="Hiring / Job Opportunity">
-            Hiring / Job Opportunity
+        <select id="purpose" name="purpose" required className="form-control">
+          <option value="">Select a topic</option>
+          <option value="Developer tooling">Developer tooling</option>
+          <option value="Test infrastructure">Test infrastructure</option>
+          <option value="Agent systems">Agent systems</option>
+          <option value="Open-source collaboration">
+            Open-source collaboration
           </option>
-          <option value="Freelance Project">Freelance Project</option>
-          <option value="Just Saying Hi">Just Saying Hi</option>
+          <option value="Other">Other</option>
         </select>
       </div>
+
       <div>
         <label
           htmlFor="message"
-          className="block text-sm font-medium text-foreground mb-1.5"
+          className="work-meta mb-2 block text-foreground"
         >
-          Message{' '}
-          <span className="text-muted-foreground font-normal">(optional)</span>
+          Message
         </label>
         <Textarea
           id="message"
           name="message"
-          rows={3}
-          placeholder="Tell me a bit more..."
-          className="input-glow"
+          rows={5}
+          required
+          placeholder="Message"
         />
       </div>
-      <Button type="submit" disabled={sending} className="w-full btn-lift">
-        {sending ? 'Sending...' : 'Send Message'}
+
+      <Button type="submit" disabled={sending} className="submit-button">
+        {sending ? 'Sending…' : 'Send message'}
       </Button>
-      {success && (
-        <div className="text-green-600 dark:text-green-400 text-center text-sm p-3 bg-green-50 dark:bg-green-900/20 rounded-2xl border border-foreground/15">
-          Message sent! I&apos;ll get back to you soon.
-        </div>
-      )}
-      {error && (
-        <div className="text-red-600 dark:text-red-400 text-center text-sm p-3 bg-red-50 dark:bg-red-900/20 rounded-2xl border border-foreground/15">
-          {error}
-        </div>
-      )}
+
+      <div aria-live="polite" aria-atomic="true">
+        {success && <p className="form-status">Message sent.</p>}
+        {error && (
+          <p className="bg-destructive/10 p-3 text-center text-sm text-destructive">
+            {error}
+          </p>
+        )}
+      </div>
     </form>
   );
 }
 
 export default function ContactPage() {
   return (
-    <div className="animate-slide-up">
-      <div className="content-body prose-notes">
-        <h1 className="sr-only">Contact</h1>
-        <p className="text-muted-foreground mb-6">
-          Want to get in touch? Fill out the form below or reach out via email.
-        </p>
+    <div className="page-shell">
+      <header className="page-intro">
+        <h1>Contact</h1>
+        <p className="lede">Messages go directly to Tyler&apos;s email.</p>
+      </header>
 
-        <ContactForm />
-
-        <p className="text-xs text-muted-foreground text-center mt-4">
-          I typically respond within 24 hours.
-        </p>
-
-        <div className="mt-8 pt-6 border-t border-foreground/15">
-          <h2 className="section-heading mb-4">Other ways to reach me</h2>
-          <ul className="space-y-2">
-            <li>
-              <span className="text-muted-foreground">Email:</span>{' '}
-              <a
-                href="mailto:tylerjamesbridges@gmail.com"
-                className="underline hover:text-[#e2a727] transition-colors"
-              >
-                tylerjamesbridges@gmail.com
-              </a>
-            </li>
-            <li>
-              <span className="text-muted-foreground">GitHub:</span>{' '}
-              <a
-                href="https://github.com/tyler-james-bridges"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-[#e2a727] transition-colors"
-              >
-                @tyler-james-bridges
-              </a>
-            </li>
-            <li>
-              <span className="text-muted-foreground">LinkedIn:</span>{' '}
-              <a
-                href="https://www.linkedin.com/in/tyler-james-bridges-4344abab"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-[#e2a727] transition-colors"
-              >
-                Tyler James-Bridges
-              </a>
-            </li>
-            <li>
-              <span className="text-muted-foreground">X:</span>{' '}
-              <a
-                href="https://x.com/tmoney_145"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-[#e2a727] transition-colors"
-              >
-                @tmoney_145
-              </a>
-            </li>
-          </ul>
+      <section className="content-section" aria-labelledby="contact-form-title">
+        <div className="section-heading">
+          <h2 id="contact-form-title">Message</h2>
         </div>
-      </div>
+        <ContactForm />
+      </section>
+
+      <section className="content-section" aria-labelledby="direct-title">
+        <div className="section-heading">
+          <h2 id="direct-title">Links</h2>
+        </div>
+        <div className="record-list">
+          {[
+            [
+              'Email',
+              'tylerjamesbridges@gmail.com',
+              'mailto:tylerjamesbridges@gmail.com',
+            ],
+            [
+              'GitHub',
+              '@tyler-james-bridges',
+              'https://github.com/tyler-james-bridges',
+            ],
+            [
+              'LinkedIn',
+              'Tyler James-Bridges',
+              'https://www.linkedin.com/in/tyler-james-bridges-4344abab',
+            ],
+          ].map(([label, value, href]) => (
+            <a
+              key={label}
+              href={href}
+              target={href.startsWith('http') ? '_blank' : undefined}
+              rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              className="record-row contact-row"
+            >
+              <h3>{label}</h3>
+              <p>
+                {value}
+                {href.startsWith('http') && <span aria-hidden="true"> ↗</span>}
+              </p>
+            </a>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

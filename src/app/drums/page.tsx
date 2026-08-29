@@ -1,64 +1,72 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
+import { buildPageMetadata } from '@/lib/metadata';
+import VideoEmbed from '../components/VideoEmbed';
 
-export const metadata: Metadata = {
+const description =
+  'Performance archive from Tyler James-Bridges’ years in indoor percussion and drum corps.';
+
+export const metadata: Metadata = buildPageMetadata({
   title: 'Drums',
-  description:
-    'Performance videos from my years in drum corps and indoor percussion.',
-};
+  description,
+  path: '/drums',
+});
+
+const videos = [
+  {
+    title: 'Pulse Percussion 2014',
+    subtitle: 'That Which Confines Us · Snareline',
+    videoId: '-gapbxJ4BFk',
+  },
+  {
+    title: 'Pulse Percussion 2013',
+    subtitle: 'Renegade · Snareline',
+    videoId: '62fP_00dHig',
+  },
+  {
+    title: 'Pulse Percussion 2012',
+    subtitle: 'Coming and Going · Snareline',
+    videoId: '9LZSvRP6gKQ',
+  },
+  {
+    title: 'Blue Stars 2013',
+    subtitle: 'Voodoo: I Put a Spell on You',
+    videoId: 'uQX_WrVjrXs',
+  },
+];
 
 export default function DrumsPage() {
   return (
-    <div className="animate-slide-up">
-      <div className="content-body prose-notes">
-        <h1 className="sr-only">Drums</h1>
-        <section className="stagger-1">
-          <p className="text-muted-foreground mb-6">
-            Some moments from the field that shaped who I became.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="aspect-video overflow-hidden glass-card card-lift">
-              <iframe
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/-gapbxJ4BFk?si=-daNqFpi5AZmqt-X"
-                title="Pulse Percussion 2014: That Which Confines Us"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            </div>
-            <div className="aspect-video overflow-hidden glass-card card-lift">
-              <iframe
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/62fP_00dHig?si=RNOOy0d6hArguG91"
-                title="Pulse Percussion 2013: Renegade"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            </div>
-            <div className="aspect-video overflow-hidden glass-card card-lift">
-              <iframe
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/9LZSvRP6gKQ?si=yBMltF7mFnpseBLo"
-                title="Pulse Percussion 2012: Coming and Going"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            </div>
-            <div className="aspect-video overflow-hidden glass-card card-lift">
-              <iframe
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/uQX_WrVjrXs?si=EvX_yTJXj4BYgO1N"
-                title="2013 Blue Stars - Voodoo: I Put A Spell On You"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            </div>
-          </div>
-        </section>
-      </div>
+    <div className="page-shell">
+      <header className="page-intro">
+        <h1>Percussion</h1>
+        <p className="lede">
+          Pulse Percussion · Snareline · 2012–2014
+          <br />
+          Blue Stars · Snareline instructor · 2014–2018
+          <br />
+          Flux Indoor Percussion · Battery consultant · 2024–present
+        </p>
+      </header>
+
+      <section className="content-section" aria-labelledby="archive-title">
+        <div className="section-heading">
+          <h2 id="archive-title">Performance archive</h2>
+        </div>
+        <div className="media-grid">
+          {videos.map((video) => {
+            const label = `${video.title}: ${video.subtitle}`;
+            return (
+              <article key={video.videoId} className="video-card">
+                <div className="video-frame">
+                  <VideoEmbed videoId={video.videoId} title={label} />
+                </div>
+                <h3>{video.title}</h3>
+                <p className="record-meta">{video.subtitle}</p>
+              </article>
+            );
+          })}
+        </div>
+      </section>
     </div>
   );
 }

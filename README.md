@@ -1,33 +1,37 @@
 # tylerjb.dev
 
-Personal site of Tyler James-Bridges — Software Engineer III on the DevEx team at Weedmaps. A decade of quality engineering, now building developer tooling and agent infrastructure on Ethereum L2s.
+Personal site of Tyler James-Bridges, a Software Engineer III at Weedmaps working across developer tooling, test infrastructure, CI systems, and agent infrastructure.
 
 ## Stack
 
 - Next.js 15 / React 19 / TypeScript
-- Tailwind CSS (brutalist design, Geist Mono)
-- Playwright (e2e tests in `tests/`)
+- Tailwind CSS
+- Fraunces, Newsreader, and IBM Plex Mono via `next/font`
+- React Markdown with GitHub Flavored Markdown support
+- Playwright end-to-end testing
 - Vercel
 
-## What's Here
+## Site structure
 
-- **Home** — hero, featured work (ACK Protocol, qai-cli, The Claw Council), terminal widget
-- **About** — the QA-to-SWE arc, agent infrastructure work, and the drum corps story (SCV, Blue Stars, Pulse)
-- **Experience** — resume plus published npm packages, mainnet contracts, and hackathon entries
-- **Projects** — live products with links and honest status badges
-- **Journey** — the QA-to-DevEx story
-- **Blog** — engineering writeups
-- **Drums** — performance videos
-- **Playground** — TylerOS, a desktop-style sandbox
+- **Home** — professional work, independent projects, career arc, and contact
+- **Experience** — role history and selected internal systems
+- **Projects** — selected public systems and project archive
+- **Writing** — engineering notes and case studies
+- **About** — QA-to-software background, independent work, and percussion
+- **Drums** — selected performance archive
+- **Contact** — contact form and direct links
+- **Lab** — TylerOS browser experiment
 
 ## Development
 
 ```bash
 npm install
-npm run dev      # dev server (Turbopack)
-npm run build    # production build
-npm run lint     # ESLint
-npm test         # Playwright e2e suite
+npm run dev
+npm run format:check
+npm run lint
+npm run typecheck
+npm run build
+npm test
 ```
 
-Built in part from an iPhone over Termius + Tailscale + Claude Code.
+`npm run check` runs the full local quality sequence.
